@@ -1,29 +1,29 @@
 # Clinic Management Relational Database
 
-**BENHNHAN**(<u>MaBN</u>, HoTenBN, GioiTinh, NgaySinh, DoanhSo, Email, SDT)
+**BENHNHAN** (**MaBN**, HoTenBN, GioiTinh, NgaySinh, DoanhSo, Email, SDT)
 
-**TAIKHOAN**(<u>MaTK</u>, TenTK, MatKhau, NgayLap, SDT, Email, MaBN)
+**TAIKHOAN** (**MaTK**, TenTK, MatKhau, NgayLap, SDT, Email, MaBN)
 
-**LICHKHAM**(<u>MaLK</u>, ThoiDiem, MaBN, MaPK)
+**LICHKHAM** (**MaLK**, ThoiDiem, MaBN, MaPK)
 
-**PHONGKHAM**(<u>MaPK</u>, TrangThai, SoGhe)
+**PHONGKHAM** (**MaPK**, TrangThai, SoGhe)
 
-**NHANVIEN**(<u>MaNV</u>, HotenNV, GioiTinh, NgaySinh, DoanhSo, Email, SDT, CaLam, Luong, KinhNghiem, DanhGia, MaKhoa)
+**NHANVIEN** (**MaNV**, HotenNV, GioiTinh, NgaySinh, DoanhSo, Email, SDT, CaLam, Luong, KinhNghiem, DanhGia, MaKhoa)
 
-**KHOA**(<u>MaKhoa</u>, TenKhoa, SoLuong, MaNV_QuanLy)
+**KHOA** (**MaKhoa**, TenKhoa, SoLuong, MaNV_QuanLy)
 
-**BAOCAO**(<u>MaBaoCao</u>, NgayLap, NoiDung, MaKhoa)
+**BAOCAO** (**MaBaoCao**, NgayLap, NoiDung, MaKhoa)
 
-**HOSOBENHAN**(<u>MaHSBA</u>, NgayLap, KetQuaTongQuat, MaBN, MaNV)
+**HOSOBENHAN** (**MaHSBA**, NgayLap, KetQuaTongQuat, MaBN, MaNV)
 
-**DUOCPHAM**(<u>MaDP</u>, TenDP, SoLuong, MoTa, GiaNhap, GiaBan, XuatXu, ThuongHieu, DonVi)
+**DUOCPHAM** (**MaDP**, TenDP, SoLuong, MoTa, GiaNhap, GiaBan, XuatXu, ThuongHieu, DonVi)
 
-**DICHVU**(<u>MaDV</u>, TenDV, ChiPhi, MoTa)
+**DICHVU** (**MaDV**, TenDV, ChiPhi, MoTa)
 
-**HOADON**(<u>MaHD</u>, NgayThanhToan, TongTien)
+**HOADON** (**MaHD**, NgayThanhToan, TongTien)
 
-**Gom**(<u>MaHD, MaDP</u>, SoLuong, GiaTien)
+**Gom** (**MaHD, MaDP**, SoLuong, GiaTien)
 
-**CTHD**(<u>MaHD, MaDV</u>, GiaTien)
+**CTHD** (**MaHD, MaDV**, GiaTien)
 
-**KetQua**(<u>MaHSBA, MaDV</u>,KetQuaChuanDoan, NoiDung)
+**KetQua** (**MaHSBA, MaDV**,KetQuaChuanDoan, NoiDung)
