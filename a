@@ -1,0 +1,29 @@
+[33mcommit 12e477db2a72e685439b10269e825213cb4e6a5a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Hoang Phuc <49684127+Huangphoux@users.noreply.github.com>
+Date:   Sat Oct 26 07:12:21 2024 +0700
+
+    Moved project files outside
+
+[33mcommit cba62d6bdcc9b6e525aa69bf4b58d7ec6250e94e[m
+Author: Hoang Phuc <49684127+Huangphoux@users.noreply.github.com>
+Date:   Fri Oct 25 21:05:51 2024 +0700
+
+    Forgot to commit the actual project files
+
+[33mcommit 2275dddd2a3d601f3914925790a169edfdd6a65a[m
+Author: Hoang Phuc <49684127+Huangphoux@users.noreply.github.com>
+Date:   Fri Oct 25 21:01:49 2024 +0700
+
+    Initialized WinForms project files
+
+[33mcommit 47cc4d987818a03f1f4844500c43b2e1a5dc7447[m
+Author: Hoang Phuc <49684127+Huangphoux@users.noreply.github.com>
+Date:   Fri Oct 25 20:46:42 2024 +0700
+
+    DB model files and DOCX to Markdown
+
+[33mcommit b657b6e9c42fd869ffdd634fd922435b79c55dbb[m
+Author: Huangphoux <49684127+Huangphoux@users.noreply.github.com>
+Date:   Fri Oct 25 20:29:18 2024 +0700
+
+    Initial commit
