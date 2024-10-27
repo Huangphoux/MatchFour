@@ -133,7 +133,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>949, 632</value>
+    <value>971, 645</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
@@ -161,7 +161,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>989, 552</value>
+    <value>971, 645</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -181,6 +181,9 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="flatTabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="flatTabControl1.ItemSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 200</value>
   </data>
@@ -188,7 +191,7 @@
     <value>0, 0</value>
   </data>
   <data name="flatTabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1160, 640</value>
+    <value>1182, 653</value>
   </data>
   <data name="flatTabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
