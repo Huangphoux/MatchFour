@@ -9,6 +9,7 @@ namespace QuanLyMachTu
         {
             InitializeComponent();
 
+            // Don't bother make it switchable
             _ = new DarkModeCS(this);
         }
     }

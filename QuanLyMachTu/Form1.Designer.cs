@@ -29,56 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchFour));
-            flatTabControl1 = new DarkModeForms.FlatTabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            flatTabControl1.SuspendLayout();
+            LichHen = new TabPage();
+            TomTat = new TabPage();
+            flatTabControl = new DarkModeForms.FlatTabControl();
+            flatTabControl.SuspendLayout();
             SuspendLayout();
             // 
-            // flatTabControl1
+            // LichHen
             // 
-            resources.ApplyResources(flatTabControl1, "flatTabControl1");
-            flatTabControl1.BorderColor = SystemColors.ControlDark;
-            flatTabControl1.Controls.Add(tabPage1);
-            flatTabControl1.Controls.Add(tabPage2);
-            flatTabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
-            flatTabControl1.LineColor = SystemColors.Highlight;
-            flatTabControl1.Multiline = true;
-            flatTabControl1.Name = "flatTabControl1";
-            flatTabControl1.SelectedForeColor = SystemColors.HighlightText;
-            flatTabControl1.SelectedIndex = 0;
-            flatTabControl1.SelectTabColor = SystemColors.ControlLight;
-            flatTabControl1.ShowTabCloseButton = false;
-            flatTabControl1.SizeMode = TabSizeMode.Fixed;
-            flatTabControl1.TabCloseColor = SystemColors.ControlText;
-            flatTabControl1.TabColor = SystemColors.ControlLight;
+            LichHen.BackColor = SystemColors.ControlLight;
+            resources.ApplyResources(LichHen, "LichHen");
+            LichHen.Name = "LichHen";
             // 
-            // tabPage1
+            // TomTat
             // 
-            tabPage1.BackColor = SystemColors.ControlLight;
-            resources.ApplyResources(tabPage1, "tabPage1");
-            tabPage1.Name = "tabPage1";
+            TomTat.BackColor = SystemColors.ControlLight;
+            resources.ApplyResources(TomTat, "TomTat");
+            TomTat.Name = "TomTat";
             // 
-            // tabPage2
+            // flatTabControl
             // 
-            tabPage2.BackColor = SystemColors.ControlLight;
-            resources.ApplyResources(tabPage2, "tabPage2");
-            tabPage2.Name = "tabPage2";
+            resources.ApplyResources(flatTabControl, "flatTabControl");
+            flatTabControl.BorderColor = SystemColors.ControlDark;
+            flatTabControl.Controls.Add(TomTat);
+            flatTabControl.Controls.Add(LichHen);
+            flatTabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
+            flatTabControl.LineColor = SystemColors.Highlight;
+            flatTabControl.Multiline = true;
+            flatTabControl.Name = "flatTabControl";
+            flatTabControl.SelectedForeColor = SystemColors.HighlightText;
+            flatTabControl.SelectedIndex = 0;
+            flatTabControl.SelectTabColor = SystemColors.ControlLight;
+            flatTabControl.ShowTabCloseButton = false;
+            flatTabControl.SizeMode = TabSizeMode.Fixed;
+            flatTabControl.TabCloseColor = SystemColors.ControlText;
+            flatTabControl.TabColor = SystemColors.ControlLight;
             // 
             // MatchFour
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(flatTabControl1);
+            Controls.Add(flatTabControl);
             Name = "MatchFour";
-            flatTabControl1.ResumeLayout(false);
+            flatTabControl.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DarkModeForms.FlatTabControl flatTabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage LichHen;
+        private TabPage TomTat;
+        private DarkModeForms.FlatTabControl flatTabControl;
     }
 }
