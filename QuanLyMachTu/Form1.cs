@@ -1,6 +1,3 @@
-// DarkModeForms v1.8.12 by BlueMystical
-using DarkModeForms;
-
 namespace QuanLyMachTu
 {
     public partial class MatchFour : Form
@@ -8,9 +5,6 @@ namespace QuanLyMachTu
         public MatchFour()
         {
             InitializeComponent();
-
-            // Don't bother make it switchable
-            _ = new DarkModeCS(this);
         }
     }
 }
