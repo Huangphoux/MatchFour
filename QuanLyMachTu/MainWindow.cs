@@ -5,11 +5,27 @@ namespace QuanLyMachTu
         public MainWindow()
         {
             InitializeComponent();
+
+            // Application.Run(new LoginWindow());
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            this.Shown += MainWindow_Shown;
+        }
+
+        private void MainWindow_Shown(object sender, EventArgs e)
+        {
+            LoginWindow loginForm = new();
+
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+            }
         }
 
         // Change DrawMode to OwnerDrawFixed to use the code below
 
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        private void TabControl_MainWindow_DrawItem(object sender, DrawItemEventArgs e)
         {
 
             Graphics g = e.Graphics;

@@ -50,7 +50,7 @@
             tabControl_MainWindow.Name = "tabControl_MainWindow";
             tabControl_MainWindow.SelectedIndex = 0;
             tabControl_MainWindow.SizeMode = TabSizeMode.Fixed;
-            tabControl_MainWindow.DrawItem += tabControl1_DrawItem;
+            tabControl_MainWindow.DrawItem += TabControl_MainWindow_DrawItem;
             // 
             // TrangChu
             // 
@@ -94,8 +94,6 @@
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private TabControl tabControl_MainWindow;
         private TabPage TrangChu;
         private TabPage LichHen;
