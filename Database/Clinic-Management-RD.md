@@ -22,8 +22,8 @@
 
 **HOADON** (**MaHD**, NgayThanhToan, TongTien)
 
-**Gom** (**MaHD, MaDP**, SoLuong, GiaTien)
+**CTHD_DuocPham** (**MaHD, MaDP**, SoLuong, GiaTien)
 
-**CTHD** (**MaHD, MaDV**, GiaTien)
+**CTHD_DichVu** (**MaHD, MaDV**, GiaTien)
 
 **KetQua** (**MaHSBA, MaDV**,KetQuaChuanDoan, NoiDung)
