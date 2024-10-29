@@ -29,45 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
-            textBox_Login = new TextBox();
             label_Login = new Label();
-            button_Login = new Button();
             SuspendLayout();
-            // 
-            // textBox_Login
-            // 
-            resources.ApplyResources(textBox_Login, "textBox_Login");
-            textBox_Login.Name = "textBox_Login";
             // 
             // label_Login
             // 
             resources.ApplyResources(label_Login, "label_Login");
             label_Login.Name = "label_Login";
             // 
-            // button_Login
-            // 
-            resources.ApplyResources(button_Login, "button_Login");
-            button_Login.Name = "button_Login";
-            button_Login.UseVisualStyleBackColor = true;
-            button_Login.Click += button_Login_Click;
-            // 
             // LoginWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button_Login);
             Controls.Add(label_Login);
-            Controls.Add(textBox_Login);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "LoginWindow";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox_Login;
         private Label label_Login;
-        private Button button_Login;
     }
 }

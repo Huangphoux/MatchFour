@@ -117,169 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabControl_MainWindow.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="TrangChu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 4</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TrangChu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TrangChu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 645</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TrangChu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TrangChu.Text" xml:space="preserve">
-    <value>Trang chủ</value>
-  </data>
-  <data name="&gt;&gt;TrangChu.Name" xml:space="preserve">
-    <value>TrangChu</value>
-  </data>
-  <data name="&gt;&gt;TrangChu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TrangChu.Parent" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;TrangChu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LichHen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 4</value>
-  </data>
-  <data name="LichHen.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="LichHen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 645</value>
-  </data>
-  <data name="LichHen.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="LichHen.Text" xml:space="preserve">
-    <value>Lịch hẹn</value>
-  </data>
-  <data name="&gt;&gt;LichHen.Name" xml:space="preserve">
-    <value>LichHen</value>
-  </data>
-  <data name="&gt;&gt;LichHen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LichHen.Parent" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;LichHen.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="QuanLy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 4</value>
-  </data>
-  <data name="QuanLy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 645</value>
-  </data>
-  <data name="QuanLy.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="QuanLy.Text" xml:space="preserve">
-    <value>Quản lý</value>
-  </data>
-  <data name="&gt;&gt;QuanLy.Name" xml:space="preserve">
-    <value>QuanLy</value>
-  </data>
-  <data name="&gt;&gt;QuanLy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;QuanLy.Parent" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;QuanLy.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CaiDat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 4</value>
-  </data>
-  <data name="CaiDat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 645</value>
-  </data>
-  <data name="CaiDat.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="CaiDat.Text" xml:space="preserve">
-    <value>Cài đặt</value>
-  </data>
-  <data name="&gt;&gt;CaiDat.Name" xml:space="preserve">
-    <value>CaiDat</value>
-  </data>
-  <data name="&gt;&gt;CaiDat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CaiDat.Parent" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;CaiDat.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="TroGiup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 4</value>
-  </data>
-  <data name="TroGiup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 645</value>
-  </data>
-  <data name="TroGiup.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="TroGiup.Text" xml:space="preserve">
-    <value>Trợ giúp</value>
-  </data>
-  <data name="&gt;&gt;TroGiup.Name" xml:space="preserve">
-    <value>TroGiup</value>
-  </data>
-  <data name="&gt;&gt;TroGiup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TroGiup.Parent" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;TroGiup.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tabControl_MainWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl_MainWindow.ItemSize" type="System.Drawing.Size, System.Drawing">
-    <value>120, 180</value>
-  </data>
-  <data name="tabControl_MainWindow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl_MainWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1182, 653</value>
-  </data>
-  <data name="tabControl_MainWindow.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControl_MainWindow.Name" xml:space="preserve">
-    <value>tabControl_MainWindow</value>
-  </data>
-  <data name="&gt;&gt;tabControl_MainWindow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl_MainWindow.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabControl_MainWindow.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>11, 28</value>
   </data>
@@ -289,6 +130,7 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
