@@ -37,9 +37,12 @@
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             iconPictureBox_Home = new FontAwesome.Sharp.IconPictureBox();
+            panel_TitleBar = new Panel();
+            label_TitleChildForm = new Label();
             panel_Menu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).BeginInit();
+            panel_TitleBar.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Menu
@@ -150,16 +153,31 @@
             iconPictureBox_Home.TabStop = false;
             iconPictureBox_Home.Click += iconPictureBox1_Click;
             // 
+            // panel_TitleBar
+            // 
+            panel_TitleBar.BackColor = Color.Gainsboro;
+            panel_TitleBar.Controls.Add(label_TitleChildForm);
+            resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
+            panel_TitleBar.Name = "panel_TitleBar";
+            // 
+            // label_TitleChildForm
+            // 
+            resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
+            label_TitleChildForm.Name = "label_TitleChildForm";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
             panel_Menu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).EndInit();
+            panel_TitleBar.ResumeLayout(false);
+            panel_TitleBar.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -173,5 +191,7 @@
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
         private FontAwesome.Sharp.IconButton iconButton_QuanLy;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox_Home;
+        private Panel panel_TitleBar;
+        private Label label_TitleChildForm;
     }
 }

@@ -117,111 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;iconButton_CaiDat.Name" xml:space="preserve">
-    <value>iconButton_CaiDat</value>
-  </data>
-  <data name="&gt;&gt;iconButton_CaiDat.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;iconButton_CaiDat.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;iconButton_CaiDat.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TaiChinh.Name" xml:space="preserve">
-    <value>iconButton_TaiChinh</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TaiChinh.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TaiChinh.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TaiChinh.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Name" xml:space="preserve">
-    <value>iconButton_QuanLy</value>
-  </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;iconButton_QuanLy.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;iconButton_LichHen.Name" xml:space="preserve">
-    <value>iconButton_LichHen</value>
-  </data>
-  <data name="&gt;&gt;iconButton_LichHen.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;iconButton_LichHen.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;iconButton_LichHen.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TomTat.Name" xml:space="preserve">
-    <value>iconButton_TomTat</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TomTat.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TomTat.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;iconButton_TomTat.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel_Menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 753</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Name" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="iconButton_CaiDat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="iconButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="iconButton_CaiDat.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -241,6 +144,7 @@
   <data name="iconButton_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 80</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="iconButton_CaiDat.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -439,6 +343,15 @@
   <data name="&gt;&gt;iconButton_TomTat.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="iconPictureBox_Home.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 40</value>
+  </data>
+  <data name="iconPictureBox_Home.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 120</value>
+  </data>
+  <data name="iconPictureBox_Home.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;iconPictureBox_Home.Name" xml:space="preserve">
     <value>iconPictureBox_Home</value>
   </data>
@@ -475,25 +388,85 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="iconPictureBox_Home.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 40</value>
+  <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="iconPictureBox_Home.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 120</value>
+  <data name="panel_Menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="iconPictureBox_Home.TabIndex" type="System.Int32, mscorlib">
+  <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 721</value>
+  </data>
+  <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Name" xml:space="preserve">
-    <value>iconPictureBox_Home</value>
+  <data name="&gt;&gt;panel_Menu.Name" xml:space="preserve">
+    <value>panel_Menu</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  <data name="&gt;&gt;panel_Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label_TitleChildForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="label_TitleChildForm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_TitleChildForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16.2pt</value>
+  </data>
+  <data name="label_TitleChildForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>480, 0</value>
+  </data>
+  <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 38</value>
+  </data>
+  <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label_TitleChildForm.Text" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="&gt;&gt;label_TitleChildForm.Name" xml:space="preserve">
+    <value>label_TitleChildForm</value>
+  </data>
+  <data name="&gt;&gt;label_TitleChildForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_TitleChildForm.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;label_TitleChildForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_TitleBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel_TitleBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 0</value>
+  </data>
+  <data name="panel_TitleBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 41</value>
+  </data>
+  <data name="panel_TitleBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Name" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -503,7 +476,7 @@
     <value>11, 28</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1182, 753</value>
+    <value>1342, 721</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>

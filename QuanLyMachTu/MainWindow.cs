@@ -1,4 +1,4 @@
-using FontAwesome.Sharp;
+﻿using FontAwesome.Sharp;
 
 namespace QuanLyMachTu
 {
@@ -49,7 +49,7 @@ namespace QuanLyMachTu
 
                 currentButton.ForeColor = color;
                 currentButton.BackColor = Color.White;
-                currentButton.TextAlign = ContentAlignment.MiddleCenter;
+                currentButton.TextAlign = ContentAlignment.MiddleRight;
                 currentButton.IconColor = color;
                 //currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
                 //currentButton.ImageAlign = ContentAlignment.MiddleRight;
@@ -61,8 +61,10 @@ namespace QuanLyMachTu
                 leftBorderButton.BringToFront();
 
                 //Current Child Form Icon
-                //iconCurrentChildForm.IconChar = currentButton.IconChar;
-                //iconCurrentChildForm.IconColor = color;
+                //icon_CurrentChildForm.IconChar = currentButton.IconChar;
+                //icon_CurrentChildForm.IconColor = color;
+
+                label_TitleChildForm.Text = currentButton.Text;
             }
         }
 
@@ -109,9 +111,10 @@ namespace QuanLyMachTu
             DisableButton();
             leftBorderButton.Visible = false;
 
-            //iconCurrentChildForm.IconChar = IconChar.Home;
-            //iconCurrentChildForm.IconColor = Color.MediumPurple;
-            // lblTitleChildForm.Text = "Home";
+            //icon_CurrentChildForm.IconChar = IconChar.Home;
+            //icon_CurrentChildForm.IconColor = Color.MediumPurple;
+
+            label_TitleChildForm.Text = "Trang chủ";
         }
     }
 }
