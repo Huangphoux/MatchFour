@@ -59,5 +59,15 @@ namespace QuanLyMachTu.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _136827244_1184620188642069_1923813955560167305_n {
+            get {
+                object obj = ResourceManager.GetObject("136827244_1184620188642069_1923813955560167305_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
