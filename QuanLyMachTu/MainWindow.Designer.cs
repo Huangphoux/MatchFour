@@ -32,6 +32,7 @@
             panel_Menu = new Panel();
             iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
+            iconButton_QuanLy = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TrangChu = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
@@ -44,6 +45,7 @@
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
             panel_Menu.Controls.Add(iconButton_CaiDat);
             panel_Menu.Controls.Add(iconButton_TaiChinh);
+            panel_Menu.Controls.Add(iconButton_QuanLy);
             panel_Menu.Controls.Add(iconButton_LichHen);
             panel_Menu.Controls.Add(iconButton_TrangChu);
             panel_Menu.Controls.Add(panel1);
@@ -53,48 +55,70 @@
             // iconButton_CaiDat
             // 
             resources.ApplyResources(iconButton_CaiDat, "iconButton_CaiDat");
-            iconButton_CaiDat.FlatAppearance.BorderColor = Color.Gainsboro;
+            iconButton_CaiDat.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_CaiDat.FlatAppearance.MouseDownBackColor = Color.Turquoise;
+            iconButton_CaiDat.FlatAppearance.MouseOverBackColor = Color.PaleTurquoise;
             iconButton_CaiDat.ForeColor = Color.Black;
             iconButton_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
             iconButton_CaiDat.IconColor = Color.Black;
             iconButton_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_CaiDat.IconSize = 60;
+            iconButton_CaiDat.IconSize = 50;
             iconButton_CaiDat.Name = "iconButton_CaiDat";
             iconButton_CaiDat.UseVisualStyleBackColor = true;
             // 
             // iconButton_TaiChinh
             // 
             resources.ApplyResources(iconButton_TaiChinh, "iconButton_TaiChinh");
-            iconButton_TaiChinh.FlatAppearance.BorderColor = Color.Gainsboro;
+            iconButton_TaiChinh.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_TaiChinh.FlatAppearance.MouseDownBackColor = Color.Turquoise;
+            iconButton_TaiChinh.FlatAppearance.MouseOverBackColor = Color.PaleTurquoise;
             iconButton_TaiChinh.ForeColor = Color.Black;
             iconButton_TaiChinh.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
             iconButton_TaiChinh.IconColor = Color.Black;
             iconButton_TaiChinh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_TaiChinh.IconSize = 60;
+            iconButton_TaiChinh.IconSize = 50;
             iconButton_TaiChinh.Name = "iconButton_TaiChinh";
             iconButton_TaiChinh.UseVisualStyleBackColor = true;
+            // 
+            // iconButton_QuanLy
+            // 
+            resources.ApplyResources(iconButton_QuanLy, "iconButton_QuanLy");
+            iconButton_QuanLy.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_QuanLy.FlatAppearance.MouseDownBackColor = Color.Turquoise;
+            iconButton_QuanLy.FlatAppearance.MouseOverBackColor = Color.PaleTurquoise;
+            iconButton_QuanLy.ForeColor = Color.Black;
+            iconButton_QuanLy.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            iconButton_QuanLy.IconColor = Color.Black;
+            iconButton_QuanLy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_QuanLy.IconSize = 50;
+            iconButton_QuanLy.Name = "iconButton_QuanLy";
+            iconButton_QuanLy.UseVisualStyleBackColor = true;
             // 
             // iconButton_LichHen
             // 
             resources.ApplyResources(iconButton_LichHen, "iconButton_LichHen");
-            iconButton_LichHen.FlatAppearance.BorderColor = Color.Gainsboro;
+            iconButton_LichHen.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_LichHen.FlatAppearance.MouseDownBackColor = Color.Turquoise;
+            iconButton_LichHen.FlatAppearance.MouseOverBackColor = Color.PaleTurquoise;
             iconButton_LichHen.ForeColor = Color.Black;
             iconButton_LichHen.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
             iconButton_LichHen.IconColor = Color.Black;
             iconButton_LichHen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_LichHen.IconSize = 60;
+            iconButton_LichHen.IconSize = 50;
             iconButton_LichHen.Name = "iconButton_LichHen";
             iconButton_LichHen.UseVisualStyleBackColor = true;
             // 
             // iconButton_TrangChu
             // 
             resources.ApplyResources(iconButton_TrangChu, "iconButton_TrangChu");
-            iconButton_TrangChu.FlatAppearance.BorderColor = Color.Gainsboro;
+            iconButton_TrangChu.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_TrangChu.FlatAppearance.MouseDownBackColor = Color.Turquoise;
+            iconButton_TrangChu.FlatAppearance.MouseOverBackColor = Color.PaleTurquoise;
             iconButton_TrangChu.ForeColor = Color.Black;
             iconButton_TrangChu.IconChar = FontAwesome.Sharp.IconChar.House;
             iconButton_TrangChu.IconColor = Color.Black;
             iconButton_TrangChu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_TrangChu.IconSize = 60;
+            iconButton_TrangChu.IconSize = 50;
             iconButton_TrangChu.Name = "iconButton_TrangChu";
             iconButton_TrangChu.UseVisualStyleBackColor = true;
             // 
@@ -123,5 +147,6 @@
         private FontAwesome.Sharp.IconButton iconButton_CaiDat;
         private FontAwesome.Sharp.IconButton iconButton_TaiChinh;
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
+        private FontAwesome.Sharp.IconButton iconButton_QuanLy;
     }
 }

@@ -1,3 +1,5 @@
+using FontAwesome.Sharp;
+
 namespace QuanLyMachTu
 {
     public partial class MainWindow : Form
