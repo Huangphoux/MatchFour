@@ -29,25 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
-            label_Login = new Label();
             SuspendLayout();
-            // 
-            // label_Login
-            // 
-            resources.ApplyResources(label_Login, "label_Login");
-            label_Login.Name = "label_Login";
             // 
             // LoginWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label_Login);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            BackColor = Color.White;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginWindow";
             ResumeLayout(false);
         }
 
         #endregion
-        private Label label_Login;
     }
 }
