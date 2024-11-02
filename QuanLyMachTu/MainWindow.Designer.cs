@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
             iconButton_ThongTin = new FontAwesome.Sharp.IconButton();
@@ -38,11 +39,15 @@
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
             panel_Logo = new Panel();
+            label_Clock = new Label();
+            label_Logo = new Label();
             icon_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
             panel_ChildForm = new Panel();
             label_Blank = new Label();
+            timer_Clock = new System.Windows.Forms.Timer(components);
+            iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
@@ -58,6 +63,7 @@
             panel_Menu.Controls.Add(iconButton_ThongTin);
             panel_Menu.Controls.Add(iconButton_CaiDat);
             panel_Menu.Controls.Add(iconButton_TaiChinh);
+            panel_Menu.Controls.Add(iconButton_HoaDon);
             panel_Menu.Controls.Add(iconButton_PhongKham);
             panel_Menu.Controls.Add(iconButton_BenhNhan);
             panel_Menu.Controls.Add(iconButton_LichHen);
@@ -173,9 +179,24 @@
             // panel_Logo
             // 
             panel_Logo.BackColor = Color.WhiteSmoke;
+            panel_Logo.Controls.Add(label_Clock);
+            panel_Logo.Controls.Add(label_Logo);
             panel_Logo.Controls.Add(icon_Home);
             resources.ApplyResources(panel_Logo, "panel_Logo");
             panel_Logo.Name = "panel_Logo";
+            panel_Logo.Click += icon_Home_Click;
+            // 
+            // label_Clock
+            // 
+            resources.ApplyResources(label_Clock, "label_Clock");
+            label_Clock.Name = "label_Clock";
+            label_Clock.Click += icon_Home_Click;
+            // 
+            // label_Logo
+            // 
+            resources.ApplyResources(label_Logo, "label_Logo");
+            label_Logo.Name = "label_Logo";
+            label_Logo.Click += icon_Home_Click;
             // 
             // icon_Home
             // 
@@ -214,6 +235,27 @@
             resources.ApplyResources(label_Blank, "label_Blank");
             label_Blank.Name = "label_Blank";
             // 
+            // timer_Clock
+            // 
+            timer_Clock.Enabled = true;
+            timer_Clock.Interval = 1000;
+            timer_Clock.Tick += timer_Clock_Tick;
+            // 
+            // iconButton_HoaDon
+            // 
+            iconButton_HoaDon.BackColor = Color.White;
+            resources.ApplyResources(iconButton_HoaDon, "iconButton_HoaDon");
+            iconButton_HoaDon.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_HoaDon.FlatAppearance.BorderSize = 0;
+            iconButton_HoaDon.ForeColor = Color.Black;
+            iconButton_HoaDon.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
+            iconButton_HoaDon.IconColor = Color.Black;
+            iconButton_HoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_HoaDon.IconSize = 50;
+            iconButton_HoaDon.Name = "iconButton_HoaDon";
+            iconButton_HoaDon.UseVisualStyleBackColor = false;
+            iconButton_HoaDon.Click += iconButton_HoaDon_Click;
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -225,6 +267,7 @@
             Name = "MainWindow";
             panel_Menu.ResumeLayout(false);
             panel_Logo.ResumeLayout(false);
+            panel_Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
             panel_ChildForm.ResumeLayout(false);
@@ -247,5 +290,9 @@
         private FontAwesome.Sharp.IconButton iconButton_PhongKham;
         private FontAwesome.Sharp.IconButton iconButton_ThongTin;
         private Label label_Blank;
+        private Label label_Logo;
+        private Label label_Clock;
+        private System.Windows.Forms.Timer timer_Clock;
+        private FontAwesome.Sharp.IconButton iconButton_HoaDon;
     }
 }

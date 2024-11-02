@@ -143,6 +143,10 @@ namespace QuanLyMachTu
         {
             ActivateButton(sender, RGBColors.color_TaiChinh);
         }
+        private void iconButton_HoaDon_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color_TaiChinh);
+        }
 
         private void iconButton_TaiChinh_Click(object sender, EventArgs e)
         {
@@ -160,5 +164,11 @@ namespace QuanLyMachTu
         }
 
         #endregion
+
+        private void timer_Clock_Tick(object sender, EventArgs e)
+        {
+            label_Clock.Text = $"Bây giờ là {DateTime.Now.ToString("HH:mm:ss")}";
+        }
+
     }
 }
