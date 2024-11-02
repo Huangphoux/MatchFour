@@ -35,12 +35,13 @@
             iconButton_QuanLy = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
-            panel1 = new Panel();
+            panel_Logo = new Panel();
             iconPictureBox_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
+            panel_ChildForm = new Panel();
             panel_Menu.SuspendLayout();
-            panel1.SuspendLayout();
+            panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).BeginInit();
             panel_TitleBar.SuspendLayout();
             SuspendLayout();
@@ -54,7 +55,7 @@
             panel_Menu.Controls.Add(iconButton_QuanLy);
             panel_Menu.Controls.Add(iconButton_LichHen);
             panel_Menu.Controls.Add(iconButton_TomTat);
-            panel_Menu.Controls.Add(panel1);
+            panel_Menu.Controls.Add(panel_Logo);
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.Name = "panel_Menu";
             // 
@@ -133,12 +134,12 @@
             iconButton_TomTat.UseVisualStyleBackColor = false;
             iconButton_TomTat.Click += iconButton_TomTat_Click;
             // 
-            // panel1
+            // panel_Logo
             // 
-            panel1.BackColor = Color.LightGray;
-            panel1.Controls.Add(iconPictureBox_Home);
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
+            panel_Logo.BackColor = Color.LightGray;
+            panel_Logo.Controls.Add(iconPictureBox_Home);
+            resources.ApplyResources(panel_Logo, "panel_Logo");
+            panel_Logo.Name = "panel_Logo";
             // 
             // iconPictureBox_Home
             // 
@@ -165,16 +166,23 @@
             resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
             label_TitleChildForm.Name = "label_TitleChildForm";
             // 
+            // panel_ChildForm
+            // 
+            panel_ChildForm.BackColor = Color.DimGray;
+            resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
+            panel_ChildForm.Name = "panel_ChildForm";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            Controls.Add(panel_ChildForm);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
             panel_Menu.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            panel_Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
             panel_TitleBar.PerformLayout();
@@ -185,7 +193,7 @@
 
         private Panel panel_Menu;
         private FontAwesome.Sharp.IconButton iconButton_TomTat;
-        private Panel panel1;
+        private Panel panel_Logo;
         private FontAwesome.Sharp.IconButton iconButton_CaiDat;
         private FontAwesome.Sharp.IconButton iconButton_TaiChinh;
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
@@ -193,5 +201,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox_Home;
         private Panel panel_TitleBar;
         private Label label_TitleChildForm;
+        private Panel panel_ChildForm;
     }
 }

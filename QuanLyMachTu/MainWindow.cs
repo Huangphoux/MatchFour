@@ -6,7 +6,7 @@ namespace QuanLyMachTu
     {
         private IconButton currentButton;
         private readonly Panel leftBorderButton;
-        private readonly Form currentChildForm;
+        private Form currentChildForm;
 
         public MainWindow()
         {
@@ -25,6 +25,7 @@ namespace QuanLyMachTu
 
             DoubleBuffered = true;
             MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
+
         }
 
         private struct RGBColors
@@ -65,6 +66,7 @@ namespace QuanLyMachTu
                 //icon_CurrentChildForm.IconColor = color;
 
                 label_TitleChildForm.Text = currentButton.Text;
+                label_TitleChildForm.ForeColor = color;
             }
         }
 
@@ -79,6 +81,28 @@ namespace QuanLyMachTu
                 //currentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
                 //currentButton.ImageAlign = ContentAlignment.MiddleLeft;
             }
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            //open only form
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+
+            currentChildForm = childForm;
+            //End
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            panel_ChildForm.Controls.Add(childForm);
+            panel_ChildForm.Tag = childForm;
+
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void iconButton_TomTat_Click(object sender, EventArgs e)
@@ -115,6 +139,8 @@ namespace QuanLyMachTu
             //icon_CurrentChildForm.IconColor = Color.MediumPurple;
 
             label_TitleChildForm.Text = "Trang chủ";
+            label_TitleChildForm.ForeColor = Color.Black;
         }
+
     }
 }

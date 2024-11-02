@@ -117,22 +117,355 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="icon_Username.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 240</value>
+  </data>
+  <data name="icon_Username.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon_Username.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;icon_Username.Name" xml:space="preserve">
+    <value>icon_Username</value>
+  </data>
+  <data name="&gt;&gt;icon_Username.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Username.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_Username.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon_Password.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="icon_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 360</value>
+  </data>
+  <data name="icon_Password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="icon_Password.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;icon_Password.Name" xml:space="preserve">
+    <value>icon_Password</value>
+  </data>
+  <data name="&gt;&gt;icon_Password.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Password.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_Password.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="textBox_Password.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="textBox_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 360</value>
+  </data>
+  <data name="textBox_Password.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>⬤</value>
+  </data>
+  <data name="textBox_Password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 27</value>
+  </data>
+  <data name="textBox_Password.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textBox_Password.Name" xml:space="preserve">
+    <value>textBox_Password</value>
+  </data>
+  <data name="&gt;&gt;textBox_Password.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_Password.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox_Password.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="textBox_Username.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="textBox_Username.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 240</value>
+  </data>
+  <data name="textBox_Username.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 27</value>
+  </data>
+  <data name="textBox_Username.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;textBox_Username.Name" xml:space="preserve">
+    <value>textBox_Username</value>
+  </data>
+  <data name="&gt;&gt;textBox_Username.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox_Username.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox_Username.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panel_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 400</value>
+  </data>
+  <data name="panel_Password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 1</value>
+  </data>
+  <data name="panel_Password.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel_Password.Name" xml:space="preserve">
+    <value>panel_Password</value>
+  </data>
+  <data name="&gt;&gt;panel_Password.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Password.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Password.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panel_Username.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 280</value>
+  </data>
+  <data name="panel_Username.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 1</value>
+  </data>
+  <data name="panel_Username.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panel_Username.Name" xml:space="preserve">
+    <value>panel_Username</value>
+  </data>
+  <data name="&gt;&gt;panel_Username.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Username.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Username.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="icon_Logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 80</value>
+  </data>
+  <data name="icon_Logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 80</value>
+  </data>
+  <data name="icon_Logo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;icon_Logo.Name" xml:space="preserve">
+    <value>icon_Logo</value>
+  </data>
+  <data name="&gt;&gt;icon_Logo.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Logo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_Logo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label_Logo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_Logo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>UD Digi Kyokasho NK-B, 22.2pt, style=Bold</value>
+  </data>
+  <data name="label_Logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 80</value>
+  </data>
+  <data name="label_Logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 86</value>
+  </data>
+  <data name="label_Logo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label_Logo.Text" xml:space="preserve">
+    <value>Match
+Four</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Name" xml:space="preserve">
+    <value>label_Logo</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="icon_Login.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="icon_Login.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13.8pt</value>
+  </data>
+  <data name="icon_Login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 440</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon_Login.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 0, 0, 0</value>
+  </data>
+  <data name="icon_Login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="icon_Login.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="icon_Login.Text" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="icon_Login.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;icon_Login.Name" xml:space="preserve">
+    <value>icon_Login</value>
+  </data>
+  <data name="&gt;&gt;icon_Login.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Login.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_Login.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label_Password.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_Password.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="label_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 320</value>
+  </data>
+  <data name="label_Password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 28</value>
+  </data>
+  <data name="label_Password.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="label_Password.Text" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="&gt;&gt;label_Password.Name" xml:space="preserve">
+    <value>label_Password</value>
+  </data>
+  <data name="&gt;&gt;label_Password.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Password.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label_Password.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label_Username.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label_Username.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="label_Username.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label_Username.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 200</value>
+  </data>
+  <data name="label_Username.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 28</value>
+  </data>
+  <data name="label_Username.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="label_Username.Text" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="&gt;&gt;label_Username.Name" xml:space="preserve">
+    <value>label_Username</value>
+  </data>
+  <data name="&gt;&gt;label_Username.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Username.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label_Username.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="icon_Exit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="icon_Exit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13.8pt</value>
+  </data>
+  <data name="icon_Exit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="icon_Exit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 520</value>
+  </data>
+  <data name="icon_Exit.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 0, 0, 0</value>
+  </data>
+  <data name="icon_Exit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="icon_Exit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="icon_Exit.Text" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="icon_Exit.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;icon_Exit.Name" xml:space="preserve">
+    <value>icon_Exit</value>
+  </data>
+  <data name="&gt;&gt;icon_Exit.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Exit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_Exit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>17, 41</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>308, 486</value>
+    <value>320, 600</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 18pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Đăng nhập</value>
