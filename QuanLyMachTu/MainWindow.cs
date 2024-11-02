@@ -24,7 +24,8 @@ namespace QuanLyMachTu
             // this.ControlBox = false;
 
             DoubleBuffered = true;
-            MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
+
+            // MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
 
         }
 
@@ -105,6 +106,21 @@ namespace QuanLyMachTu
             childForm.Show();
         }
 
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            DisableButton();
+            leftBorderButton.Visible = false;
+
+            //icon_CurrentChildForm.IconChar = IconChar.Home;
+            //icon_CurrentChildForm.IconColor = Color.MediumPurple;
+
+            label_TitleChildForm.Text = "Trang chủ";
+            label_TitleChildForm.ForeColor = Color.Black;
+        }
+
+        #region Button Click
+
         private void iconButton_TomTat_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
@@ -130,16 +146,11 @@ namespace QuanLyMachTu
             ActivateButton(sender, RGBColors.color5);
         }
 
-        private void iconPictureBox1_Click(object sender, EventArgs e)
+        private void iconButton_PhongKham_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            leftBorderButton.Visible = false;
-
-            //icon_CurrentChildForm.IconChar = IconChar.Home;
-            //icon_CurrentChildForm.IconColor = Color.MediumPurple;
-
-            label_TitleChildForm.Text = "Trang chủ";
-            label_TitleChildForm.ForeColor = Color.Black;
+            ActivateButton(sender, RGBColors.color5);
         }
+
+        #endregion
     }
 }

@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
-            iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
             iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
+            iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
             iconButton_BenhNhan = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
@@ -60,20 +60,6 @@
             panel_Menu.Controls.Add(panel_Logo);
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.Name = "panel_Menu";
-            // 
-            // iconButton_PhongKham
-            // 
-            iconButton_PhongKham.BackColor = Color.White;
-            resources.ApplyResources(iconButton_PhongKham, "iconButton_PhongKham");
-            iconButton_PhongKham.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_PhongKham.FlatAppearance.BorderSize = 0;
-            iconButton_PhongKham.ForeColor = Color.Black;
-            iconButton_PhongKham.IconChar = FontAwesome.Sharp.IconChar.HouseMedical;
-            iconButton_PhongKham.IconColor = Color.Black;
-            iconButton_PhongKham.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_PhongKham.IconSize = 50;
-            iconButton_PhongKham.Name = "iconButton_PhongKham";
-            iconButton_PhongKham.UseVisualStyleBackColor = false;
             // 
             // iconButton_CaiDat
             // 
@@ -104,6 +90,21 @@
             iconButton_TaiChinh.Name = "iconButton_TaiChinh";
             iconButton_TaiChinh.UseVisualStyleBackColor = false;
             iconButton_TaiChinh.Click += iconButton_TaiChinh_Click;
+            // 
+            // iconButton_PhongKham
+            // 
+            iconButton_PhongKham.BackColor = Color.White;
+            resources.ApplyResources(iconButton_PhongKham, "iconButton_PhongKham");
+            iconButton_PhongKham.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_PhongKham.FlatAppearance.BorderSize = 0;
+            iconButton_PhongKham.ForeColor = Color.Black;
+            iconButton_PhongKham.IconChar = FontAwesome.Sharp.IconChar.HouseMedical;
+            iconButton_PhongKham.IconColor = Color.Black;
+            iconButton_PhongKham.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_PhongKham.IconSize = 50;
+            iconButton_PhongKham.Name = "iconButton_PhongKham";
+            iconButton_PhongKham.UseVisualStyleBackColor = false;
+            iconButton_PhongKham.Click += iconButton_PhongKham_Click;
             // 
             // iconButton_BenhNhan
             // 

@@ -178,7 +178,7 @@
     <value>200, 27</value>
   </data>
   <data name="textBox_Password.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;textBox_Password.Name" xml:space="preserve">
     <value>textBox_Password</value>
@@ -202,7 +202,7 @@
     <value>200, 27</value>
   </data>
   <data name="textBox_Username.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;textBox_Username.Name" xml:space="preserve">
     <value>textBox_Username</value>
@@ -292,7 +292,7 @@
     <value>140, 86</value>
   </data>
   <data name="label_Logo.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>0</value>
   </data>
   <data name="label_Logo.Text" xml:space="preserve">
     <value>Match
@@ -327,7 +327,7 @@ Four</value>
     <value>240, 40</value>
   </data>
   <data name="icon_Login.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="icon_Login.Text" xml:space="preserve">
     <value>Đăng nhập</value>
@@ -360,7 +360,7 @@ Four</value>
     <value>94, 28</value>
   </data>
   <data name="label_Password.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>3</value>
   </data>
   <data name="label_Password.Text" xml:space="preserve">
     <value>Mật khẩu</value>
@@ -393,7 +393,7 @@ Four</value>
     <value>140, 28</value>
   </data>
   <data name="label_Username.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>1</value>
   </data>
   <data name="label_Username.Text" xml:space="preserve">
     <value>Tên đăng nhập</value>
@@ -429,7 +429,7 @@ Four</value>
     <value>240, 40</value>
   </data>
   <data name="icon_Exit.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="icon_Exit.Text" xml:space="preserve">
     <value>Thoát</value>

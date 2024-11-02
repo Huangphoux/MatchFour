@@ -166,6 +166,7 @@
             Controls.Add(icon_Username);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginWindow";
+            Load += LoginWindow_Load;
             ((System.ComponentModel.ISupportInitialize)icon_Username).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).EndInit();
