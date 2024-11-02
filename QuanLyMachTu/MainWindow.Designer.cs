@@ -34,6 +34,7 @@
             iconButton_ThongTin = new FontAwesome.Sharp.IconButton();
             iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
+            iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
             iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
             iconButton_BenhNhan = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
@@ -47,7 +48,6 @@
             panel_ChildForm = new Panel();
             label_Blank = new Label();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
@@ -115,6 +115,21 @@
             iconButton_TaiChinh.Name = "iconButton_TaiChinh";
             iconButton_TaiChinh.UseVisualStyleBackColor = false;
             iconButton_TaiChinh.Click += iconButton_TaiChinh_Click;
+            // 
+            // iconButton_HoaDon
+            // 
+            iconButton_HoaDon.BackColor = Color.White;
+            resources.ApplyResources(iconButton_HoaDon, "iconButton_HoaDon");
+            iconButton_HoaDon.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_HoaDon.FlatAppearance.BorderSize = 0;
+            iconButton_HoaDon.ForeColor = Color.Black;
+            iconButton_HoaDon.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
+            iconButton_HoaDon.IconColor = Color.Black;
+            iconButton_HoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_HoaDon.IconSize = 50;
+            iconButton_HoaDon.Name = "iconButton_HoaDon";
+            iconButton_HoaDon.UseVisualStyleBackColor = false;
+            iconButton_HoaDon.Click += iconButton_HoaDon_Click;
             // 
             // iconButton_PhongKham
             // 
@@ -240,21 +255,6 @@
             timer_Clock.Enabled = true;
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
-            // 
-            // iconButton_HoaDon
-            // 
-            iconButton_HoaDon.BackColor = Color.White;
-            resources.ApplyResources(iconButton_HoaDon, "iconButton_HoaDon");
-            iconButton_HoaDon.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_HoaDon.FlatAppearance.BorderSize = 0;
-            iconButton_HoaDon.ForeColor = Color.Black;
-            iconButton_HoaDon.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
-            iconButton_HoaDon.IconColor = Color.Black;
-            iconButton_HoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_HoaDon.IconSize = 50;
-            iconButton_HoaDon.Name = "iconButton_HoaDon";
-            iconButton_HoaDon.UseVisualStyleBackColor = false;
-            iconButton_HoaDon.Click += iconButton_HoaDon_Click;
             // 
             // MainWindow
             // 

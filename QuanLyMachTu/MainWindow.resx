@@ -494,7 +494,7 @@
     <value>0</value>
   </data>
   <data name="label_Clock.Text" xml:space="preserve">
-    <value>Thời gian:</value>
+    <value>(Thời gian)</value>
   </data>
   <data name="label_Clock.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
