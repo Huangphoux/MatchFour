@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
+            iconButton_ThongTin = new FontAwesome.Sharp.IconButton();
             iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
             iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
@@ -37,20 +38,24 @@
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
             panel_Logo = new Panel();
-            iconPictureBox_Home = new FontAwesome.Sharp.IconPictureBox();
+            icon_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
             panel_ChildForm = new Panel();
+            label_Blank = new Label();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
             panel_TitleBar.SuspendLayout();
+            panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Menu
             // 
+            resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.BackColor = Color.WhiteSmoke;
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
+            panel_Menu.Controls.Add(iconButton_ThongTin);
             panel_Menu.Controls.Add(iconButton_CaiDat);
             panel_Menu.Controls.Add(iconButton_TaiChinh);
             panel_Menu.Controls.Add(iconButton_PhongKham);
@@ -58,8 +63,22 @@
             panel_Menu.Controls.Add(iconButton_LichHen);
             panel_Menu.Controls.Add(iconButton_TomTat);
             panel_Menu.Controls.Add(panel_Logo);
-            resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.Name = "panel_Menu";
+            // 
+            // iconButton_ThongTin
+            // 
+            iconButton_ThongTin.BackColor = Color.White;
+            resources.ApplyResources(iconButton_ThongTin, "iconButton_ThongTin");
+            iconButton_ThongTin.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_ThongTin.FlatAppearance.BorderSize = 0;
+            iconButton_ThongTin.ForeColor = Color.Black;
+            iconButton_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            iconButton_ThongTin.IconColor = Color.Black;
+            iconButton_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_ThongTin.IconSize = 50;
+            iconButton_ThongTin.Name = "iconButton_ThongTin";
+            iconButton_ThongTin.UseVisualStyleBackColor = false;
+            iconButton_ThongTin.Click += iconButton_ThongTin_Click;
             // 
             // iconButton_CaiDat
             // 
@@ -154,22 +173,22 @@
             // panel_Logo
             // 
             panel_Logo.BackColor = Color.WhiteSmoke;
-            panel_Logo.Controls.Add(iconPictureBox_Home);
+            panel_Logo.Controls.Add(icon_Home);
             resources.ApplyResources(panel_Logo, "panel_Logo");
             panel_Logo.Name = "panel_Logo";
             // 
-            // iconPictureBox_Home
+            // icon_Home
             // 
-            iconPictureBox_Home.BackColor = Color.LightGray;
-            iconPictureBox_Home.ForeColor = SystemColors.ControlText;
-            iconPictureBox_Home.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
-            iconPictureBox_Home.IconColor = SystemColors.ControlText;
-            iconPictureBox_Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox_Home.IconSize = 120;
-            resources.ApplyResources(iconPictureBox_Home, "iconPictureBox_Home");
-            iconPictureBox_Home.Name = "iconPictureBox_Home";
-            iconPictureBox_Home.TabStop = false;
-            iconPictureBox_Home.Click += iconPictureBox1_Click;
+            icon_Home.BackColor = Color.Transparent;
+            icon_Home.ForeColor = SystemColors.ControlText;
+            icon_Home.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
+            icon_Home.IconColor = SystemColors.ControlText;
+            icon_Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_Home.IconSize = 120;
+            resources.ApplyResources(icon_Home, "icon_Home");
+            icon_Home.Name = "icon_Home";
+            icon_Home.TabStop = false;
+            icon_Home.Click += icon_Home_Click;
             // 
             // panel_TitleBar
             // 
@@ -185,9 +204,15 @@
             // 
             // panel_ChildForm
             // 
-            panel_ChildForm.BackColor = Color.DimGray;
+            panel_ChildForm.BackColor = Color.Silver;
+            panel_ChildForm.Controls.Add(label_Blank);
             resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
             panel_ChildForm.Name = "panel_ChildForm";
+            // 
+            // label_Blank
+            // 
+            resources.ApplyResources(label_Blank, "label_Blank");
+            label_Blank.Name = "label_Blank";
             // 
             // MainWindow
             // 
@@ -200,9 +225,9 @@
             Name = "MainWindow";
             panel_Menu.ResumeLayout(false);
             panel_Logo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox_Home).EndInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
-            panel_TitleBar.PerformLayout();
+            panel_ChildForm.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -215,10 +240,12 @@
         private FontAwesome.Sharp.IconButton iconButton_TaiChinh;
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
         private FontAwesome.Sharp.IconButton iconButton_BenhNhan;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox_Home;
+        private FontAwesome.Sharp.IconPictureBox icon_Home;
         private Panel panel_TitleBar;
         private Label label_TitleChildForm;
         private Panel panel_ChildForm;
         private FontAwesome.Sharp.IconButton iconButton_PhongKham;
+        private FontAwesome.Sharp.IconButton iconButton_ThongTin;
+        private Label label_Blank;
     }
 }

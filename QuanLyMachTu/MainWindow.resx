@@ -117,14 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel_Menu.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconButton_ThongTin.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="iconButton_ThongTin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="iconButton_ThongTin.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="iconButton_ThongTin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="iconButton_ThongTin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 680</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconButton_ThongTin.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>40, 0, 0, 0</value>
+  </data>
+  <data name="iconButton_ThongTin.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="iconButton_ThongTin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 80</value>
+  </data>
+  <data name="iconButton_ThongTin.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="iconButton_ThongTin.Text" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="iconButton_ThongTin.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;iconButton_ThongTin.Name" xml:space="preserve">
+    <value>iconButton_ThongTin</value>
+  </data>
+  <data name="&gt;&gt;iconButton_ThongTin.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;iconButton_ThongTin.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;iconButton_ThongTin.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="iconButton_CaiDat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="iconButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="iconButton_CaiDat.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -134,7 +184,6 @@
   <data name="iconButton_CaiDat.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 600</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="iconButton_CaiDat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>40, 0, 0, 0</value>
   </data>
@@ -144,7 +193,6 @@
   <data name="iconButton_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 80</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="iconButton_CaiDat.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -164,7 +212,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_CaiDat.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="iconButton_TaiChinh.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -209,7 +257,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_TaiChinh.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="iconButton_PhongKham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -254,7 +302,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_PhongKham.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="iconButton_BenhNhan.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -299,7 +347,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_BenhNhan.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="iconButton_LichHen.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -344,7 +392,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_LichHen.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="iconButton_TomTat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -386,27 +434,27 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_TomTat.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <data name="iconPictureBox_Home.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="icon_Home.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 40</value>
   </data>
-  <data name="iconPictureBox_Home.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="icon_Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 120</value>
   </data>
-  <data name="iconPictureBox_Home.TabIndex" type="System.Int32, mscorlib">
+  <data name="icon_Home.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Name" xml:space="preserve">
-    <value>iconPictureBox_Home</value>
+  <data name="&gt;&gt;icon_Home.Name" xml:space="preserve">
+    <value>icon_Home</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Type" xml:space="preserve">
+  <data name="&gt;&gt;icon_Home.Type" xml:space="preserve">
     <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.Parent" xml:space="preserve">
+  <data name="&gt;&gt;icon_Home.Parent" xml:space="preserve">
     <value>panel_Logo</value>
   </data>
-  <data name="&gt;&gt;iconPictureBox_Home.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;icon_Home.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panel_Logo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -431,7 +479,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;panel_Logo.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -440,7 +488,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 721</value>
+    <value>280, 853</value>
   </data>
   <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -457,26 +505,26 @@
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label_TitleChildForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="label_TitleChildForm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label_TitleChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label_TitleChildForm.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 16.2pt</value>
   </data>
   <data name="label_TitleChildForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>480, 0</value>
+    <value>0, 0</value>
   </data>
   <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 38</value>
+    <value>1302, 40</value>
   </data>
   <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label_TitleChildForm.Text" xml:space="preserve">
     <value>Trang chủ</value>
+  </data>
+  <data name="label_TitleChildForm.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;label_TitleChildForm.Name" xml:space="preserve">
     <value>label_TitleChildForm</value>
@@ -497,7 +545,7 @@
     <value>280, 0</value>
   </data>
   <data name="panel_TitleBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1062, 41</value>
+    <value>1302, 40</value>
   </data>
   <data name="panel_TitleBar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -514,14 +562,50 @@
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="panel_ChildForm.GridSize" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>20, 20</value>
+  </metadata>
+  <data name="label_Blank.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label_Blank.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 48pt</value>
+  </data>
+  <data name="label_Blank.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label_Blank.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1302, 813</value>
+  </data>
+  <data name="label_Blank.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label_Blank.Text" xml:space="preserve">
+    <value>Bạn chưa chọn gì cả :(</value>
+  </data>
+  <data name="label_Blank.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label_Blank.Name" xml:space="preserve">
+    <value>label_Blank</value>
+  </data>
+  <data name="&gt;&gt;label_Blank.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Blank.Parent" xml:space="preserve">
+    <value>panel_ChildForm</value>
+  </data>
+  <data name="&gt;&gt;label_Blank.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="panel_ChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="panel_ChildForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 41</value>
+    <value>280, 40</value>
   </data>
   <data name="panel_ChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1062, 680</value>
+    <value>1302, 813</value>
   </data>
   <data name="panel_ChildForm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -545,7 +629,7 @@
     <value>11, 28</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1342, 721</value>
+    <value>1582, 853</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>

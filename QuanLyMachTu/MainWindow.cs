@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using QuanLyMachTu.Child_Forms;
 
 namespace QuanLyMachTu
 {
@@ -31,12 +32,13 @@ namespace QuanLyMachTu
 
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
-            public static Color color2 = Color.FromArgb(249, 118, 176);
-            public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(249, 88, 155);
-            public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color_TomTat = Color.FromArgb(172, 126, 241);
+            public static Color color_LichHen = Color.FromArgb(249, 118, 176);
+            public static Color color_BenhNhan = Color.FromArgb(253, 138, 114);
+            public static Color color_PhongKham = Color.FromArgb(95, 77, 221);
+            public static Color color_TaiChinh = Color.FromArgb(249, 88, 155);
+            public static Color color_ThongTin = Color.FromArgb(24, 161, 251);
+            public static Color color_CaiDat = Color.FromArgb(24, 161, 251);
         }
 
         //Methods
@@ -67,7 +69,7 @@ namespace QuanLyMachTu
                 //icon_CurrentChildForm.IconColor = color;
 
                 label_TitleChildForm.Text = currentButton.Text;
-                label_TitleChildForm.ForeColor = color;
+                // label_TitleChildForm.ForeColor = color;
             }
         }
 
@@ -107,10 +109,12 @@ namespace QuanLyMachTu
         }
 
 
-        private void iconPictureBox1_Click(object sender, EventArgs e)
+        private void icon_Home_Click(object sender, EventArgs e)
         {
             DisableButton();
             leftBorderButton.Visible = false;
+
+            currentChildForm.Close();
 
             //icon_CurrentChildForm.IconChar = IconChar.Home;
             //icon_CurrentChildForm.IconColor = Color.MediumPurple;
@@ -123,32 +127,36 @@ namespace QuanLyMachTu
 
         private void iconButton_TomTat_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color_TomTat);
         }
 
         private void iconButton_LichHen_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color_LichHen);
         }
 
         private void iconButton_BenhNhan_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color_BenhNhan);
+        }
+        private void iconButton_PhongKham_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color_TaiChinh);
         }
 
         private void iconButton_TaiChinh_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateButton(sender, RGBColors.color_TaiChinh);
         }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color_CaiDat);
+            OpenChildForm(new Form_CaiDat());
         }
-
-        private void iconButton_PhongKham_Click(object sender, EventArgs e)
+        private void iconButton_ThongTin_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color_ThongTin);
         }
 
         #endregion

@@ -12,7 +12,9 @@ namespace QuanLyMachTu
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new LoginWindow());
+            // Uncomment this line to enable login
+            // Application.Run(new LoginWindow());
+
             Application.Run(new MainWindow());
         }
     }
