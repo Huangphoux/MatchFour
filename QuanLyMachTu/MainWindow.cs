@@ -115,7 +115,7 @@ namespace QuanLyMachTu
             ActivateButton(sender, RGBColors.color2);
         }
 
-        private void iconButton_QuanLy_Click(object sender, EventArgs e)
+        private void iconButton_BenhNhan_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
         }
@@ -141,6 +141,5 @@ namespace QuanLyMachTu
             label_TitleChildForm.Text = "Trang chủ";
             label_TitleChildForm.ForeColor = Color.Black;
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace QuanLyMachTu
+﻿    namespace QuanLyMachTu
 {
     partial class MainWindow
     {
@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
+            iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
             iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
-            iconButton_QuanLy = new FontAwesome.Sharp.IconButton();
+            iconButton_BenhNhan = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
             panel_Logo = new Panel();
@@ -52,12 +53,27 @@
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
             panel_Menu.Controls.Add(iconButton_CaiDat);
             panel_Menu.Controls.Add(iconButton_TaiChinh);
-            panel_Menu.Controls.Add(iconButton_QuanLy);
+            panel_Menu.Controls.Add(iconButton_PhongKham);
+            panel_Menu.Controls.Add(iconButton_BenhNhan);
             panel_Menu.Controls.Add(iconButton_LichHen);
             panel_Menu.Controls.Add(iconButton_TomTat);
             panel_Menu.Controls.Add(panel_Logo);
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.Name = "panel_Menu";
+            // 
+            // iconButton_PhongKham
+            // 
+            iconButton_PhongKham.BackColor = Color.White;
+            resources.ApplyResources(iconButton_PhongKham, "iconButton_PhongKham");
+            iconButton_PhongKham.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_PhongKham.FlatAppearance.BorderSize = 0;
+            iconButton_PhongKham.ForeColor = Color.Black;
+            iconButton_PhongKham.IconChar = FontAwesome.Sharp.IconChar.HouseMedical;
+            iconButton_PhongKham.IconColor = Color.Black;
+            iconButton_PhongKham.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_PhongKham.IconSize = 50;
+            iconButton_PhongKham.Name = "iconButton_PhongKham";
+            iconButton_PhongKham.UseVisualStyleBackColor = false;
             // 
             // iconButton_CaiDat
             // 
@@ -89,20 +105,20 @@
             iconButton_TaiChinh.UseVisualStyleBackColor = false;
             iconButton_TaiChinh.Click += iconButton_TaiChinh_Click;
             // 
-            // iconButton_QuanLy
+            // iconButton_BenhNhan
             // 
-            iconButton_QuanLy.BackColor = Color.White;
-            resources.ApplyResources(iconButton_QuanLy, "iconButton_QuanLy");
-            iconButton_QuanLy.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_QuanLy.FlatAppearance.BorderSize = 0;
-            iconButton_QuanLy.ForeColor = Color.Black;
-            iconButton_QuanLy.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            iconButton_QuanLy.IconColor = Color.Black;
-            iconButton_QuanLy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_QuanLy.IconSize = 50;
-            iconButton_QuanLy.Name = "iconButton_QuanLy";
-            iconButton_QuanLy.UseVisualStyleBackColor = false;
-            iconButton_QuanLy.Click += iconButton_QuanLy_Click;
+            iconButton_BenhNhan.BackColor = Color.White;
+            resources.ApplyResources(iconButton_BenhNhan, "iconButton_BenhNhan");
+            iconButton_BenhNhan.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_BenhNhan.FlatAppearance.BorderSize = 0;
+            iconButton_BenhNhan.ForeColor = Color.Black;
+            iconButton_BenhNhan.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
+            iconButton_BenhNhan.IconColor = Color.Black;
+            iconButton_BenhNhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_BenhNhan.IconSize = 50;
+            iconButton_BenhNhan.Name = "iconButton_BenhNhan";
+            iconButton_BenhNhan.UseVisualStyleBackColor = false;
+            iconButton_BenhNhan.Click += iconButton_BenhNhan_Click;
             // 
             // iconButton_LichHen
             // 
@@ -111,7 +127,7 @@
             iconButton_LichHen.FlatAppearance.BorderColor = Color.Silver;
             iconButton_LichHen.FlatAppearance.BorderSize = 0;
             iconButton_LichHen.ForeColor = Color.Black;
-            iconButton_LichHen.IconChar = FontAwesome.Sharp.IconChar.CalendarWeek;
+            iconButton_LichHen.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
             iconButton_LichHen.IconColor = Color.Black;
             iconButton_LichHen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton_LichHen.IconSize = 50;
@@ -136,7 +152,7 @@
             // 
             // panel_Logo
             // 
-            panel_Logo.BackColor = Color.LightGray;
+            panel_Logo.BackColor = Color.WhiteSmoke;
             panel_Logo.Controls.Add(iconPictureBox_Home);
             resources.ApplyResources(panel_Logo, "panel_Logo");
             panel_Logo.Name = "panel_Logo";
@@ -145,7 +161,7 @@
             // 
             iconPictureBox_Home.BackColor = Color.LightGray;
             iconPictureBox_Home.ForeColor = SystemColors.ControlText;
-            iconPictureBox_Home.IconChar = FontAwesome.Sharp.IconChar.ClinicMedical;
+            iconPictureBox_Home.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
             iconPictureBox_Home.IconColor = SystemColors.ControlText;
             iconPictureBox_Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox_Home.IconSize = 120;
@@ -197,10 +213,11 @@
         private FontAwesome.Sharp.IconButton iconButton_CaiDat;
         private FontAwesome.Sharp.IconButton iconButton_TaiChinh;
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
-        private FontAwesome.Sharp.IconButton iconButton_QuanLy;
+        private FontAwesome.Sharp.IconButton iconButton_BenhNhan;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox_Home;
         private Panel panel_TitleBar;
         private Label label_TitleChildForm;
         private Panel panel_ChildForm;
+        private FontAwesome.Sharp.IconButton iconButton_PhongKham;
     }
 }

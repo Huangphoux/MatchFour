@@ -132,7 +132,7 @@
     <value>NoControl</value>
   </data>
   <data name="iconButton_CaiDat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 520</value>
+    <value>0, 600</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="iconButton_CaiDat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -179,7 +179,7 @@
     <value>NoControl</value>
   </data>
   <data name="iconButton_TaiChinh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 440</value>
+    <value>0, 520</value>
   </data>
   <data name="iconButton_TaiChinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>40, 0, 0, 0</value>
@@ -211,50 +211,95 @@
   <data name="&gt;&gt;iconButton_TaiChinh.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="iconButton_QuanLy.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="iconButton_PhongKham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="iconButton_QuanLy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="iconButton_PhongKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="iconButton_QuanLy.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="iconButton_PhongKham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="iconButton_QuanLy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="iconButton_PhongKham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="iconButton_QuanLy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 360</value>
+  <data name="iconButton_PhongKham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 440</value>
   </data>
-  <data name="iconButton_QuanLy.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="iconButton_PhongKham.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>40, 0, 0, 0</value>
   </data>
-  <data name="iconButton_QuanLy.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="iconButton_PhongKham.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
-  <data name="iconButton_QuanLy.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="iconButton_PhongKham.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 80</value>
   </data>
-  <data name="iconButton_QuanLy.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="iconButton_PhongKham.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="iconButton_QuanLy.Text" xml:space="preserve">
-    <value>Quản lý</value>
+  <data name="iconButton_PhongKham.Text" xml:space="preserve">
+    <value>Phòng khám</value>
   </data>
-  <data name="iconButton_QuanLy.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+  <data name="iconButton_PhongKham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Name" xml:space="preserve">
-    <value>iconButton_QuanLy</value>
+  <data name="&gt;&gt;iconButton_PhongKham.Name" xml:space="preserve">
+    <value>iconButton_PhongKham</value>
   </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Type" xml:space="preserve">
+  <data name="&gt;&gt;iconButton_PhongKham.Type" xml:space="preserve">
     <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
   </data>
-  <data name="&gt;&gt;iconButton_QuanLy.Parent" xml:space="preserve">
+  <data name="&gt;&gt;iconButton_PhongKham.Parent" xml:space="preserve">
     <value>panel_Menu</value>
   </data>
-  <data name="&gt;&gt;iconButton_QuanLy.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;iconButton_PhongKham.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="iconButton_BenhNhan.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="iconButton_BenhNhan.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="iconButton_BenhNhan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="iconButton_BenhNhan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="iconButton_BenhNhan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 360</value>
+  </data>
+  <data name="iconButton_BenhNhan.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>40, 0, 0, 0</value>
+  </data>
+  <data name="iconButton_BenhNhan.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="iconButton_BenhNhan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 80</value>
+  </data>
+  <data name="iconButton_BenhNhan.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="iconButton_BenhNhan.Text" xml:space="preserve">
+    <value>Bệnh nhân</value>
+  </data>
+  <data name="iconButton_BenhNhan.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;iconButton_BenhNhan.Name" xml:space="preserve">
+    <value>iconButton_BenhNhan</value>
+  </data>
+  <data name="&gt;&gt;iconButton_BenhNhan.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;iconButton_BenhNhan.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;iconButton_BenhNhan.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="iconButton_LichHen.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -299,7 +344,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_LichHen.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="iconButton_TomTat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -341,7 +386,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;iconButton_TomTat.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="iconPictureBox_Home.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 40</value>
@@ -386,7 +431,7 @@
     <value>panel_Menu</value>
   </data>
   <data name="&gt;&gt;panel_Logo.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>

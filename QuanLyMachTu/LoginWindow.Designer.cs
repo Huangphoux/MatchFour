@@ -122,6 +122,7 @@
             icon_Login.IconSize = 30;
             icon_Login.Name = "icon_Login";
             icon_Login.UseVisualStyleBackColor = false;
+            icon_Login.Click += icon_Login_Click;
             // 
             // label_Password
             // 

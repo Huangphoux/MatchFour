@@ -172,7 +172,7 @@
     <value>80, 360</value>
   </data>
   <data name="textBox_Password.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>⬤</value>
+    <value>●</value>
   </data>
   <data name="textBox_Password.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 27</value>
