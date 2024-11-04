@@ -89,10 +89,7 @@ namespace QuanLyMachTu
         private void OpenChildForm(Form childForm)
         {
             //open only form
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
+            currentChildForm?.Close();
 
             currentChildForm = childForm;
             //End
@@ -114,7 +111,7 @@ namespace QuanLyMachTu
             DisableButton();
             leftBorderButton.Visible = false;
 
-            currentChildForm.Close();
+            currentChildForm?.Close();
 
             //icon_CurrentChildForm.IconChar = IconChar.Home;
             //icon_CurrentChildForm.IconColor = Color.MediumPurple;
