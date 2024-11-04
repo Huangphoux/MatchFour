@@ -46,8 +46,8 @@
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
             panel_ChildForm = new Panel();
-            label_Blank = new Label();
             timer_Clock = new System.Windows.Forms.Timer(components);
+            panel1 = new Panel();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
@@ -240,21 +240,21 @@
             // 
             // panel_ChildForm
             // 
-            panel_ChildForm.BackColor = Color.Silver;
-            panel_ChildForm.Controls.Add(label_Blank);
+            panel_ChildForm.BackColor = Color.White;
+            panel_ChildForm.Controls.Add(panel1);
             resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
             panel_ChildForm.Name = "panel_ChildForm";
-            // 
-            // label_Blank
-            // 
-            resources.ApplyResources(label_Blank, "label_Blank");
-            label_Blank.Name = "label_Blank";
             // 
             // timer_Clock
             // 
             timer_Clock.Enabled = true;
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
             // 
             // MainWindow
             // 
@@ -289,10 +289,10 @@
         private Panel panel_ChildForm;
         private FontAwesome.Sharp.IconButton iconButton_PhongKham;
         private FontAwesome.Sharp.IconButton iconButton_ThongTin;
-        private Label label_Blank;
         private Label label_Logo;
         private Label label_Clock;
         private System.Windows.Forms.Timer timer_Clock;
         private FontAwesome.Sharp.IconButton iconButton_HoaDon;
+        private Panel panel1;
     }
 }

@@ -161,6 +161,7 @@ namespace QuanLyMachTu
         private void iconButton_ThongTin_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color_ThongTin);
+            OpenChildForm(new Form_ThongTin());
         }
 
         #endregion

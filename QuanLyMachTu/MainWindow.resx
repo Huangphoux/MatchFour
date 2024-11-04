@@ -481,6 +481,90 @@
   <data name="&gt;&gt;iconButton_TomTat.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;label_Clock.Name" xml:space="preserve">
+    <value>label_Clock</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.Parent" xml:space="preserve">
+    <value>panel_Logo</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Name" xml:space="preserve">
+    <value>label_Logo</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.Parent" xml:space="preserve">
+    <value>panel_Logo</value>
+  </data>
+  <data name="&gt;&gt;label_Logo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;icon_Home.Name" xml:space="preserve">
+    <value>icon_Home</value>
+  </data>
+  <data name="&gt;&gt;icon_Home.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
+  </data>
+  <data name="&gt;&gt;icon_Home.Parent" xml:space="preserve">
+    <value>panel_Logo</value>
+  </data>
+  <data name="&gt;&gt;icon_Home.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel_Logo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel_Logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel_Logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 200</value>
+  </data>
+  <data name="panel_Logo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel_Logo.Name" xml:space="preserve">
+    <value>panel_Logo</value>
+  </data>
+  <data name="&gt;&gt;panel_Logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Logo.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;panel_Logo.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel_Menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 853</value>
+  </data>
+  <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.Name" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="label_Clock.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
@@ -563,75 +647,6 @@ Four</value>
   <data name="&gt;&gt;icon_Home.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panel_Logo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel_Logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel_Logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 200</value>
-  </data>
-  <data name="panel_Logo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel_Logo.Name" xml:space="preserve">
-    <value>panel_Logo</value>
-  </data>
-  <data name="&gt;&gt;panel_Logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_Logo.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;panel_Logo.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel_Menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 853</value>
-  </data>
-  <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Name" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label_TitleChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="label_TitleChildForm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 16.2pt</value>
-  </data>
-  <data name="label_TitleChildForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1262, 40</value>
-  </data>
-  <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label_TitleChildForm.Text" xml:space="preserve">
-    <value>Trang chủ</value>
-  </data>
-  <data name="label_TitleChildForm.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="&gt;&gt;label_TitleChildForm.Name" xml:space="preserve">
     <value>label_TitleChildForm</value>
   </data>
@@ -668,37 +683,58 @@ Four</value>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label_Blank.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="label_TitleChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="label_Blank.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="label_TitleChildForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16.2pt</value>
   </data>
-  <data name="label_Blank.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="label_TitleChildForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="label_Blank.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1262, 813</value>
+  <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1262, 40</value>
   </data>
-  <data name="label_Blank.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="label_Blank.Text" xml:space="preserve">
-    <value>Bạn chưa chọn gì cả :(</value>
+  <data name="label_TitleChildForm.Text" xml:space="preserve">
+    <value>Trang chủ</value>
   </data>
-  <data name="label_Blank.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="label_TitleChildForm.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;label_Blank.Name" xml:space="preserve">
-    <value>label_Blank</value>
+  <data name="&gt;&gt;label_TitleChildForm.Name" xml:space="preserve">
+    <value>label_TitleChildForm</value>
   </data>
-  <data name="&gt;&gt;label_Blank.Type" xml:space="preserve">
+  <data name="&gt;&gt;label_TitleChildForm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label_Blank.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label_TitleChildForm.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;label_TitleChildForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 220</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 125</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>panel_ChildForm</value>
   </data>
-  <data name="&gt;&gt;label_Blank.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panel_ChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
