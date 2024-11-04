@@ -140,13 +140,13 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="iconButton_ThongTin.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_ThongTin.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_ThongTin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_ThongTin.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -185,13 +185,13 @@
     <value>0, 680</value>
   </data>
   <data name="iconButton_CaiDat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_CaiDat.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_CaiDat.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -230,13 +230,13 @@
     <value>0, 600</value>
   </data>
   <data name="iconButton_TaiChinh.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_TaiChinh.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_TaiChinh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_TaiChinh.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -275,13 +275,13 @@
     <value>0, 520</value>
   </data>
   <data name="iconButton_HoaDon.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_HoaDon.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_HoaDon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_HoaDon.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -320,13 +320,13 @@
     <value>0, 440</value>
   </data>
   <data name="iconButton_PhongKham.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_PhongKham.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_PhongKham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_PhongKham.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -365,13 +365,13 @@
     <value>0, 360</value>
   </data>
   <data name="iconButton_BenhNhan.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_BenhNhan.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_BenhNhan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_BenhNhan.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -410,13 +410,13 @@
     <value>0, 280</value>
   </data>
   <data name="iconButton_LichHen.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_LichHen.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_LichHen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_LichHen.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -452,13 +452,13 @@
     <value>0, 200</value>
   </data>
   <data name="iconButton_TomTat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>70, 0, 0, 0</value>
+    <value>60, 0, 0, 0</value>
   </data>
   <data name="iconButton_TomTat.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="iconButton_TomTat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 80</value>
+    <value>278, 80</value>
   </data>
   <data name="iconButton_TomTat.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -493,18 +493,6 @@
   <data name="&gt;&gt;label_Clock.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label_Logo.Name" xml:space="preserve">
-    <value>label_Logo</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.Parent" xml:space="preserve">
-    <value>panel_Logo</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;icon_Home.Name" xml:space="preserve">
     <value>icon_Home</value>
   </data>
@@ -515,7 +503,7 @@
     <value>panel_Logo</value>
   </data>
   <data name="&gt;&gt;icon_Home.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="panel_Logo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -524,7 +512,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel_Logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 200</value>
+    <value>278, 200</value>
   </data>
   <data name="panel_Logo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -548,7 +536,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel_Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 853</value>
+    <value>280, 853</value>
   </data>
   <data name="panel_Menu.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -572,7 +560,7 @@
     <value>0, 160</value>
   </data>
   <data name="label_Clock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 40</value>
+    <value>278, 40</value>
   </data>
   <data name="label_Clock.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -595,39 +583,8 @@
   <data name="&gt;&gt;label_Clock.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label_Logo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label_Logo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>UD Digi Kyokasho NK-B, 22.2pt, style=Bold</value>
-  </data>
-  <data name="label_Logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 60</value>
-  </data>
-  <data name="label_Logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 86</value>
-  </data>
-  <data name="label_Logo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label_Logo.Text" xml:space="preserve">
-    <value>Match
-Four</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.Name" xml:space="preserve">
-    <value>label_Logo</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.Parent" xml:space="preserve">
-    <value>panel_Logo</value>
-  </data>
-  <data name="&gt;&gt;label_Logo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="icon_Home.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 40</value>
+    <value>80, 40</value>
   </data>
   <data name="icon_Home.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 120</value>
@@ -645,7 +602,7 @@ Four</value>
     <value>panel_Logo</value>
   </data>
   <data name="&gt;&gt;icon_Home.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label_TitleChildForm.Name" xml:space="preserve">
     <value>label_TitleChildForm</value>
@@ -663,10 +620,10 @@ Four</value>
     <value>Top</value>
   </data>
   <data name="panel_TitleBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 0</value>
+    <value>280, 0</value>
   </data>
   <data name="panel_TitleBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1262, 40</value>
+    <value>1302, 40</value>
   </data>
   <data name="panel_TitleBar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -693,7 +650,7 @@ Four</value>
     <value>0, 0</value>
   </data>
   <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1262, 40</value>
+    <value>1302, 40</value>
   </data>
   <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -716,35 +673,62 @@ Four</value>
   <data name="&gt;&gt;label_TitleChildForm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>240, 220</value>
+  <data name="customGrpBox_TaiChinh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>660, 40</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 125</value>
+  <data name="customGrpBox_TaiChinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 380</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="customGrpBox_TaiChinh.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
+  <data name="customGrpBox_TaiChinh.Text" xml:space="preserve">
+    <value>Tài chính</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;customGrpBox_TaiChinh.Name" xml:space="preserve">
+    <value>customGrpBox_TaiChinh</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;customGrpBox_TaiChinh.Type" xml:space="preserve">
+    <value>QuanLyMachTu.CustomGrpBox, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;customGrpBox_TaiChinh.Parent" xml:space="preserve">
     <value>panel_ChildForm</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;customGrpBox_TaiChinh.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="customGrpBox_LichHen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="customGrpBox_LichHen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 380</value>
+  </data>
+  <data name="customGrpBox_LichHen.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="customGrpBox_LichHen.Text" xml:space="preserve">
+    <value>Lịch hẹn</value>
+  </data>
+  <data name="&gt;&gt;customGrpBox_LichHen.Name" xml:space="preserve">
+    <value>customGrpBox_LichHen</value>
+  </data>
+  <data name="&gt;&gt;customGrpBox_LichHen.Type" xml:space="preserve">
+    <value>QuanLyMachTu.CustomGrpBox, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;customGrpBox_LichHen.Parent" xml:space="preserve">
+    <value>panel_ChildForm</value>
+  </data>
+  <data name="&gt;&gt;customGrpBox_LichHen.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="panel_ChildForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="panel_ChildForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 40</value>
+    <value>280, 40</value>
   </data>
   <data name="panel_ChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1262, 813</value>
+    <value>1302, 813</value>
   </data>
   <data name="panel_ChildForm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

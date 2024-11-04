@@ -41,13 +41,13 @@
             iconButton_TomTat = new FontAwesome.Sharp.IconButton();
             panel_Logo = new Panel();
             label_Clock = new Label();
-            label_Logo = new Label();
             icon_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
             panel_ChildForm = new Panel();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
+            customGrpBox_LichHen = new CustomGrpBox();
+            customGrpBox_TaiChinh = new CustomGrpBox();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
@@ -195,7 +195,6 @@
             // 
             panel_Logo.BackColor = Color.WhiteSmoke;
             panel_Logo.Controls.Add(label_Clock);
-            panel_Logo.Controls.Add(label_Logo);
             panel_Logo.Controls.Add(icon_Home);
             resources.ApplyResources(panel_Logo, "panel_Logo");
             panel_Logo.Name = "panel_Logo";
@@ -206,12 +205,6 @@
             resources.ApplyResources(label_Clock, "label_Clock");
             label_Clock.Name = "label_Clock";
             label_Clock.Click += icon_Home_Click;
-            // 
-            // label_Logo
-            // 
-            resources.ApplyResources(label_Logo, "label_Logo");
-            label_Logo.Name = "label_Logo";
-            label_Logo.Click += icon_Home_Click;
             // 
             // icon_Home
             // 
@@ -241,7 +234,8 @@
             // panel_ChildForm
             // 
             panel_ChildForm.BackColor = Color.White;
-            panel_ChildForm.Controls.Add(panel1);
+            panel_ChildForm.Controls.Add(customGrpBox_TaiChinh);
+            panel_ChildForm.Controls.Add(customGrpBox_LichHen);
             resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
             panel_ChildForm.Name = "panel_ChildForm";
             // 
@@ -251,10 +245,17 @@
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
             // 
-            // panel1
+            // customGrpBox_LichHen
             // 
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
+            resources.ApplyResources(customGrpBox_LichHen, "customGrpBox_LichHen");
+            customGrpBox_LichHen.Name = "customGrpBox_LichHen";
+            customGrpBox_LichHen.TabStop = false;
+            // 
+            // customGrpBox_TaiChinh
+            // 
+            resources.ApplyResources(customGrpBox_TaiChinh, "customGrpBox_TaiChinh");
+            customGrpBox_TaiChinh.Name = "customGrpBox_TaiChinh";
+            customGrpBox_TaiChinh.TabStop = false;
             // 
             // MainWindow
             // 
@@ -267,7 +268,6 @@
             Name = "MainWindow";
             panel_Menu.ResumeLayout(false);
             panel_Logo.ResumeLayout(false);
-            panel_Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
             panel_ChildForm.ResumeLayout(false);
@@ -289,10 +289,10 @@
         private Panel panel_ChildForm;
         private FontAwesome.Sharp.IconButton iconButton_PhongKham;
         private FontAwesome.Sharp.IconButton iconButton_ThongTin;
-        private Label label_Logo;
         private Label label_Clock;
         private System.Windows.Forms.Timer timer_Clock;
         private FontAwesome.Sharp.IconButton iconButton_HoaDon;
-        private Panel panel1;
+        private CustomGrpBox customGrpBox_TaiChinh;
+        private CustomGrpBox customGrpBox_LichHen;
     }
 }
