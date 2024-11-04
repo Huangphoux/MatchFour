@@ -37,10 +37,11 @@
             panel_Username = new Panel();
             icon_Logo = new FontAwesome.Sharp.IconPictureBox();
             label_Logo = new Label();
-            icon_Login = new FontAwesome.Sharp.IconButton();
+            icon_SignIn = new FontAwesome.Sharp.IconButton();
             label_Password = new Label();
             label_Username = new Label();
             icon_Exit = new FontAwesome.Sharp.IconButton();
+            icon_SignUp = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)icon_Username).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).BeginInit();
@@ -111,18 +112,18 @@
             resources.ApplyResources(label_Logo, "label_Logo");
             label_Logo.Name = "label_Logo";
             // 
-            // icon_Login
+            // icon_SignIn
             // 
-            icon_Login.BackColor = Color.WhiteSmoke;
-            icon_Login.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(icon_Login, "icon_Login");
-            icon_Login.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            icon_Login.IconColor = Color.Black;
-            icon_Login.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Login.IconSize = 30;
-            icon_Login.Name = "icon_Login";
-            icon_Login.UseVisualStyleBackColor = false;
-            icon_Login.Click += icon_Login_Click;
+            icon_SignIn.BackColor = Color.WhiteSmoke;
+            icon_SignIn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(icon_SignIn, "icon_SignIn");
+            icon_SignIn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            icon_SignIn.IconColor = Color.Black;
+            icon_SignIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_SignIn.IconSize = 30;
+            icon_SignIn.Name = "icon_SignIn";
+            icon_SignIn.UseVisualStyleBackColor = false;
+            icon_SignIn.Click += icon_Login_Click;
             // 
             // label_Password
             // 
@@ -147,15 +148,28 @@
             icon_Exit.UseVisualStyleBackColor = false;
             icon_Exit.Click += icon_Exit_Click;
             // 
+            // icon_SignUp
+            // 
+            icon_SignUp.BackColor = Color.WhiteSmoke;
+            icon_SignUp.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(icon_SignUp, "icon_SignUp");
+            icon_SignUp.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            icon_SignUp.IconColor = Color.Black;
+            icon_SignUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_SignUp.IconSize = 30;
+            icon_SignUp.Name = "icon_SignUp";
+            icon_SignUp.UseVisualStyleBackColor = false;
+            // 
             // LoginWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(icon_SignUp);
             Controls.Add(icon_Exit);
             Controls.Add(label_Username);
             Controls.Add(label_Password);
-            Controls.Add(icon_Login);
+            Controls.Add(icon_SignIn);
             Controls.Add(label_Logo);
             Controls.Add(icon_Logo);
             Controls.Add(panel_Username);
@@ -184,9 +198,10 @@
         private Panel panel_Username;
         private FontAwesome.Sharp.IconPictureBox icon_Logo;
         private Label label_Logo;
-        private FontAwesome.Sharp.IconButton icon_Login;
+        private FontAwesome.Sharp.IconButton icon_SignIn;
         private Label label_Password;
         private Label label_Username;
         private FontAwesome.Sharp.IconButton icon_Exit;
+        private FontAwesome.Sharp.IconButton icon_SignUp;
     }
 }

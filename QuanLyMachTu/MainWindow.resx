@@ -672,7 +672,7 @@ Four</value>
     <value>Fill</value>
   </data>
   <data name="label_Blank.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 48pt</value>
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="label_Blank.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
