@@ -31,8 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
-            iconButton_ThongTin = new FontAwesome.Sharp.IconButton();
-            iconButton_CaiDat = new FontAwesome.Sharp.IconButton();
             iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
             iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
             iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
@@ -44,14 +42,19 @@
             icon_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
+            icon_CaiDat = new FontAwesome.Sharp.IconPictureBox();
+            icon_ThongTin = new FontAwesome.Sharp.IconPictureBox();
             panel_ChildForm = new Panel();
-            timer_Clock = new System.Windows.Forms.Timer(components);
-            customGrpBox_LichHen = new CustomGrpBox();
             customGrpBox_TaiChinh = new CustomGrpBox();
+            customGrpBox_LichHen = new CustomGrpBox();
+            timer_Clock = new System.Windows.Forms.Timer(components);
+            panel_Divider = new Panel();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
             panel_TitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)icon_CaiDat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)icon_ThongTin).BeginInit();
             panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,8 +63,6 @@
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.BackColor = Color.WhiteSmoke;
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
-            panel_Menu.Controls.Add(iconButton_ThongTin);
-            panel_Menu.Controls.Add(iconButton_CaiDat);
             panel_Menu.Controls.Add(iconButton_TaiChinh);
             panel_Menu.Controls.Add(iconButton_HoaDon);
             panel_Menu.Controls.Add(iconButton_PhongKham);
@@ -70,36 +71,6 @@
             panel_Menu.Controls.Add(iconButton_TomTat);
             panel_Menu.Controls.Add(panel_Logo);
             panel_Menu.Name = "panel_Menu";
-            // 
-            // iconButton_ThongTin
-            // 
-            iconButton_ThongTin.BackColor = Color.White;
-            resources.ApplyResources(iconButton_ThongTin, "iconButton_ThongTin");
-            iconButton_ThongTin.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_ThongTin.FlatAppearance.BorderSize = 0;
-            iconButton_ThongTin.ForeColor = Color.Black;
-            iconButton_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            iconButton_ThongTin.IconColor = Color.Black;
-            iconButton_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_ThongTin.IconSize = 50;
-            iconButton_ThongTin.Name = "iconButton_ThongTin";
-            iconButton_ThongTin.UseVisualStyleBackColor = false;
-            iconButton_ThongTin.Click += iconButton_ThongTin_Click;
-            // 
-            // iconButton_CaiDat
-            // 
-            iconButton_CaiDat.BackColor = Color.White;
-            resources.ApplyResources(iconButton_CaiDat, "iconButton_CaiDat");
-            iconButton_CaiDat.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_CaiDat.FlatAppearance.BorderSize = 0;
-            iconButton_CaiDat.ForeColor = Color.Black;
-            iconButton_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            iconButton_CaiDat.IconColor = Color.Black;
-            iconButton_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_CaiDat.IconSize = 50;
-            iconButton_CaiDat.Name = "iconButton_CaiDat";
-            iconButton_CaiDat.UseVisualStyleBackColor = false;
-            iconButton_CaiDat.Click += iconButton_CaiDat_Click;
             // 
             // iconButton_TaiChinh
             // 
@@ -222,7 +193,10 @@
             // panel_TitleBar
             // 
             panel_TitleBar.BackColor = Color.Gainsboro;
+            panel_TitleBar.Controls.Add(panel_Divider);
             panel_TitleBar.Controls.Add(label_TitleChildForm);
+            panel_TitleBar.Controls.Add(icon_CaiDat);
+            panel_TitleBar.Controls.Add(icon_ThongTin);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
             // 
@@ -230,6 +204,32 @@
             // 
             resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
             label_TitleChildForm.Name = "label_TitleChildForm";
+            // 
+            // icon_CaiDat
+            // 
+            icon_CaiDat.BackColor = Color.Gainsboro;
+            icon_CaiDat.ForeColor = SystemColors.ControlText;
+            icon_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            icon_CaiDat.IconColor = SystemColors.ControlText;
+            icon_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_CaiDat.IconSize = 40;
+            resources.ApplyResources(icon_CaiDat, "icon_CaiDat");
+            icon_CaiDat.Name = "icon_CaiDat";
+            icon_CaiDat.TabStop = false;
+            icon_CaiDat.Click += iconButton_CaiDat_Click;
+            // 
+            // icon_ThongTin
+            // 
+            icon_ThongTin.BackColor = Color.Gainsboro;
+            icon_ThongTin.ForeColor = SystemColors.ControlText;
+            icon_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            icon_ThongTin.IconColor = SystemColors.ControlText;
+            icon_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_ThongTin.IconSize = 40;
+            resources.ApplyResources(icon_ThongTin, "icon_ThongTin");
+            icon_ThongTin.Name = "icon_ThongTin";
+            icon_ThongTin.TabStop = false;
+            icon_ThongTin.Click += iconButton_ThongTin_Click;
             // 
             // panel_ChildForm
             // 
@@ -239,11 +239,11 @@
             resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
             panel_ChildForm.Name = "panel_ChildForm";
             // 
-            // timer_Clock
+            // customGrpBox_TaiChinh
             // 
-            timer_Clock.Enabled = true;
-            timer_Clock.Interval = 1000;
-            timer_Clock.Tick += timer_Clock_Tick;
+            resources.ApplyResources(customGrpBox_TaiChinh, "customGrpBox_TaiChinh");
+            customGrpBox_TaiChinh.Name = "customGrpBox_TaiChinh";
+            customGrpBox_TaiChinh.TabStop = false;
             // 
             // customGrpBox_LichHen
             // 
@@ -251,11 +251,17 @@
             customGrpBox_LichHen.Name = "customGrpBox_LichHen";
             customGrpBox_LichHen.TabStop = false;
             // 
-            // customGrpBox_TaiChinh
+            // timer_Clock
             // 
-            resources.ApplyResources(customGrpBox_TaiChinh, "customGrpBox_TaiChinh");
-            customGrpBox_TaiChinh.Name = "customGrpBox_TaiChinh";
-            customGrpBox_TaiChinh.TabStop = false;
+            timer_Clock.Enabled = true;
+            timer_Clock.Interval = 1000;
+            timer_Clock.Tick += timer_Clock_Tick;
+            // 
+            // panel_Divider
+            // 
+            panel_Divider.BackColor = Color.Black;
+            resources.ApplyResources(panel_Divider, "panel_Divider");
+            panel_Divider.Name = "panel_Divider";
             // 
             // MainWindow
             // 
@@ -270,6 +276,8 @@
             panel_Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)icon_CaiDat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)icon_ThongTin).EndInit();
             panel_ChildForm.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -294,5 +302,8 @@
         private FontAwesome.Sharp.IconButton iconButton_HoaDon;
         private CustomGrpBox customGrpBox_TaiChinh;
         private CustomGrpBox customGrpBox_LichHen;
+        private FontAwesome.Sharp.IconPictureBox icon_ThongTin;
+        private FontAwesome.Sharp.IconPictureBox icon_CaiDat;
+        private Panel panel_Divider;
     }
 }

@@ -40,17 +40,17 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Display;
             iconPictureBox1.IconColor = SystemColors.ControlText;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 80;
-            iconPictureBox1.Location = new Point(80, 80);
+            iconPictureBox1.IconSize = 60;
+            iconPictureBox1.Location = new Point(40, 40);
             iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(80, 80);
+            iconPictureBox1.Size = new Size(60, 60);
             iconPictureBox1.TabIndex = 1;
             iconPictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(180, 100);
+            label1.Location = new Point(100, 60);
             label1.Name = "label1";
             label1.Size = new Size(207, 41);
             label1.TabIndex = 2;

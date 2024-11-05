@@ -76,12 +76,13 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(label_Credits);
             Controls.Add(label_Logo);
             Controls.Add(icon_Home);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form_ThongTin";
             Text = "Thông tin";
             ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
