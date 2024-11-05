@@ -31,8 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
-            iconButton_TaiChinh = new FontAwesome.Sharp.IconButton();
             iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
+            iconButton_DichVu = new FontAwesome.Sharp.IconButton();
+            iconButton_DuocPham = new FontAwesome.Sharp.IconButton();
+            iconButton_NhanVien = new FontAwesome.Sharp.IconButton();
             iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
             iconButton_BenhNhan = new FontAwesome.Sharp.IconButton();
             iconButton_LichHen = new FontAwesome.Sharp.IconButton();
@@ -43,12 +45,13 @@
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
             icon_CaiDat = new FontAwesome.Sharp.IconPictureBox();
+            panel_DivideButton = new Panel();
             icon_ThongTin = new FontAwesome.Sharp.IconPictureBox();
             panel_ChildForm = new Panel();
             customGrpBox_TaiChinh = new CustomGrpBox();
             customGrpBox_LichHen = new CustomGrpBox();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            panel_Divider = new Panel();
+            panel_DivideLabel = new Panel();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
@@ -63,29 +66,16 @@
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.BackColor = Color.WhiteSmoke;
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
-            panel_Menu.Controls.Add(iconButton_TaiChinh);
             panel_Menu.Controls.Add(iconButton_HoaDon);
+            panel_Menu.Controls.Add(iconButton_DichVu);
+            panel_Menu.Controls.Add(iconButton_DuocPham);
+            panel_Menu.Controls.Add(iconButton_NhanVien);
             panel_Menu.Controls.Add(iconButton_PhongKham);
             panel_Menu.Controls.Add(iconButton_BenhNhan);
             panel_Menu.Controls.Add(iconButton_LichHen);
             panel_Menu.Controls.Add(iconButton_TomTat);
             panel_Menu.Controls.Add(panel_Logo);
             panel_Menu.Name = "panel_Menu";
-            // 
-            // iconButton_TaiChinh
-            // 
-            iconButton_TaiChinh.BackColor = Color.White;
-            resources.ApplyResources(iconButton_TaiChinh, "iconButton_TaiChinh");
-            iconButton_TaiChinh.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_TaiChinh.FlatAppearance.BorderSize = 0;
-            iconButton_TaiChinh.ForeColor = Color.Black;
-            iconButton_TaiChinh.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
-            iconButton_TaiChinh.IconColor = Color.Black;
-            iconButton_TaiChinh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_TaiChinh.IconSize = 50;
-            iconButton_TaiChinh.Name = "iconButton_TaiChinh";
-            iconButton_TaiChinh.UseVisualStyleBackColor = false;
-            iconButton_TaiChinh.Click += iconButton_TaiChinh_Click;
             // 
             // iconButton_HoaDon
             // 
@@ -101,6 +91,51 @@
             iconButton_HoaDon.Name = "iconButton_HoaDon";
             iconButton_HoaDon.UseVisualStyleBackColor = false;
             iconButton_HoaDon.Click += iconButton_HoaDon_Click;
+            // 
+            // iconButton_DichVu
+            // 
+            iconButton_DichVu.BackColor = Color.White;
+            resources.ApplyResources(iconButton_DichVu, "iconButton_DichVu");
+            iconButton_DichVu.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_DichVu.FlatAppearance.BorderSize = 0;
+            iconButton_DichVu.ForeColor = Color.Black;
+            iconButton_DichVu.IconChar = FontAwesome.Sharp.IconChar.HandHoldingMedical;
+            iconButton_DichVu.IconColor = Color.Black;
+            iconButton_DichVu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_DichVu.IconSize = 50;
+            iconButton_DichVu.Name = "iconButton_DichVu";
+            iconButton_DichVu.UseVisualStyleBackColor = false;
+            iconButton_DichVu.Click += iconButton_DichVu_Click;
+            // 
+            // iconButton_DuocPham
+            // 
+            iconButton_DuocPham.BackColor = Color.White;
+            resources.ApplyResources(iconButton_DuocPham, "iconButton_DuocPham");
+            iconButton_DuocPham.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_DuocPham.FlatAppearance.BorderSize = 0;
+            iconButton_DuocPham.ForeColor = Color.Black;
+            iconButton_DuocPham.IconChar = FontAwesome.Sharp.IconChar.Pills;
+            iconButton_DuocPham.IconColor = Color.Black;
+            iconButton_DuocPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_DuocPham.IconSize = 50;
+            iconButton_DuocPham.Name = "iconButton_DuocPham";
+            iconButton_DuocPham.UseVisualStyleBackColor = false;
+            iconButton_DuocPham.Click += iconButton_DuocPham_Click;
+            // 
+            // iconButton_NhanVien
+            // 
+            iconButton_NhanVien.BackColor = Color.White;
+            resources.ApplyResources(iconButton_NhanVien, "iconButton_NhanVien");
+            iconButton_NhanVien.FlatAppearance.BorderColor = Color.Silver;
+            iconButton_NhanVien.FlatAppearance.BorderSize = 0;
+            iconButton_NhanVien.ForeColor = Color.Black;
+            iconButton_NhanVien.IconChar = FontAwesome.Sharp.IconChar.Users;
+            iconButton_NhanVien.IconColor = Color.Black;
+            iconButton_NhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton_NhanVien.IconSize = 50;
+            iconButton_NhanVien.Name = "iconButton_NhanVien";
+            iconButton_NhanVien.UseVisualStyleBackColor = false;
+            iconButton_NhanVien.Click += iconButton_NhanVien_Click;
             // 
             // iconButton_PhongKham
             // 
@@ -124,7 +159,7 @@
             iconButton_BenhNhan.FlatAppearance.BorderColor = Color.Silver;
             iconButton_BenhNhan.FlatAppearance.BorderSize = 0;
             iconButton_BenhNhan.ForeColor = Color.Black;
-            iconButton_BenhNhan.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
+            iconButton_BenhNhan.IconChar = FontAwesome.Sharp.IconChar.Bed;
             iconButton_BenhNhan.IconColor = Color.Black;
             iconButton_BenhNhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton_BenhNhan.IconSize = 50;
@@ -193,9 +228,10 @@
             // panel_TitleBar
             // 
             panel_TitleBar.BackColor = Color.Gainsboro;
-            panel_TitleBar.Controls.Add(panel_Divider);
             panel_TitleBar.Controls.Add(label_TitleChildForm);
+            panel_TitleBar.Controls.Add(panel_DivideLabel);
             panel_TitleBar.Controls.Add(icon_CaiDat);
+            panel_TitleBar.Controls.Add(panel_DivideButton);
             panel_TitleBar.Controls.Add(icon_ThongTin);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
@@ -208,25 +244,31 @@
             // icon_CaiDat
             // 
             icon_CaiDat.BackColor = Color.Gainsboro;
+            resources.ApplyResources(icon_CaiDat, "icon_CaiDat");
             icon_CaiDat.ForeColor = SystemColors.ControlText;
             icon_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
             icon_CaiDat.IconColor = SystemColors.ControlText;
             icon_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             icon_CaiDat.IconSize = 40;
-            resources.ApplyResources(icon_CaiDat, "icon_CaiDat");
             icon_CaiDat.Name = "icon_CaiDat";
             icon_CaiDat.TabStop = false;
             icon_CaiDat.Click += iconButton_CaiDat_Click;
             // 
+            // panel_DivideButton
+            // 
+            panel_DivideButton.BackColor = Color.Black;
+            resources.ApplyResources(panel_DivideButton, "panel_DivideButton");
+            panel_DivideButton.Name = "panel_DivideButton";
+            // 
             // icon_ThongTin
             // 
             icon_ThongTin.BackColor = Color.Gainsboro;
+            resources.ApplyResources(icon_ThongTin, "icon_ThongTin");
             icon_ThongTin.ForeColor = SystemColors.ControlText;
             icon_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             icon_ThongTin.IconColor = SystemColors.ControlText;
             icon_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             icon_ThongTin.IconSize = 40;
-            resources.ApplyResources(icon_ThongTin, "icon_ThongTin");
             icon_ThongTin.Name = "icon_ThongTin";
             icon_ThongTin.TabStop = false;
             icon_ThongTin.Click += iconButton_ThongTin_Click;
@@ -257,11 +299,11 @@
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
             // 
-            // panel_Divider
+            // panel_DivideLabel
             // 
-            panel_Divider.BackColor = Color.Black;
-            resources.ApplyResources(panel_Divider, "panel_Divider");
-            panel_Divider.Name = "panel_Divider";
+            panel_DivideLabel.BackColor = Color.Black;
+            resources.ApplyResources(panel_DivideLabel, "panel_DivideLabel");
+            panel_DivideLabel.Name = "panel_DivideLabel";
             // 
             // MainWindow
             // 
@@ -288,7 +330,6 @@
         private FontAwesome.Sharp.IconButton iconButton_TomTat;
         private Panel panel_Logo;
         private FontAwesome.Sharp.IconButton iconButton_CaiDat;
-        private FontAwesome.Sharp.IconButton iconButton_TaiChinh;
         private FontAwesome.Sharp.IconButton iconButton_LichHen;
         private FontAwesome.Sharp.IconButton iconButton_BenhNhan;
         private FontAwesome.Sharp.IconPictureBox icon_Home;
@@ -304,6 +345,10 @@
         private CustomGrpBox customGrpBox_LichHen;
         private FontAwesome.Sharp.IconPictureBox icon_ThongTin;
         private FontAwesome.Sharp.IconPictureBox icon_CaiDat;
-        private Panel panel_Divider;
+        private Panel panel_DivideButton;
+        private FontAwesome.Sharp.IconButton iconButton_NhanVien;
+        private FontAwesome.Sharp.IconButton iconButton_DuocPham;
+        private FontAwesome.Sharp.IconButton iconButton_DichVu;
+        private Panel panel_DivideLabel;
     }
 }

@@ -30,16 +30,16 @@ namespace QuanLyMachTu
 
         }
 
-        private struct RGBColors
-        {
-            public static Color color_TomTat = Color.FromArgb(172, 126, 241);
-            public static Color color_LichHen = Color.FromArgb(249, 118, 176);
-            public static Color color_BenhNhan = Color.FromArgb(253, 138, 114);
-            public static Color color_PhongKham = Color.FromArgb(95, 77, 221);
-            public static Color color_TaiChinh = Color.FromArgb(249, 88, 155);
-            public static Color color_ThongTin = Color.FromArgb(24, 161, 251);
-            public static Color color_CaiDat = Color.FromArgb(24, 161, 251);
-        }
+        //private struct RGBColors
+        //{
+        //    public static Color color_TomTat = Color.FromArgb(172, 126, 241);
+        //    public static Color color_LichHen = Color.FromArgb(249, 118, 176);
+        //    public static Color color_BenhNhan = Color.FromArgb(253, 138, 114);
+        //    public static Color color_PhongKham = Color.FromArgb(95, 77, 221);
+        //    public static Color color_TaiChinh = Color.FromArgb(249, 88, 155);
+        //    public static Color color_ThongTin = Color.FromArgb(24, 161, 251);
+        //    public static Color color_CaiDat = Color.FromArgb(24, 161, 251);
+        //}
 
         //Methods
         private void ActivateButton(object senderButton, Color color)
@@ -119,51 +119,70 @@ namespace QuanLyMachTu
             label_TitleChildForm.Text = "Trang chủ";
             label_TitleChildForm.ForeColor = Color.Black;
         }
+        public void ResizeAndCenter(int width, int height)
+        {
+            this.Width = width;
+            this.Height = height;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Left = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
+            this.Top = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
+        }
+
+        Color ActivateColor = Color.Teal;
 
         #region Button Click
 
         private void iconButton_TomTat_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color_TomTat);
+            ActivateButton(sender, ActivateColor);
         }
 
         private void iconButton_LichHen_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color_LichHen);
+            ActivateButton(sender, ActivateColor);
         }
 
         private void iconButton_BenhNhan_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color_BenhNhan);
+            ActivateButton(sender, ActivateColor);
         }
         private void iconButton_PhongKham_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color_TaiChinh);
+            ActivateButton(sender, ActivateColor);
         }
         private void iconButton_HoaDon_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color_TaiChinh);
-        }
-
-        private void iconButton_TaiChinh_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color_TaiChinh);
+            ActivateButton(sender, ActivateColor);
         }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Form_CaiDat());
+            OpenChildForm(new Form_CaiDat(this));
         }
         private void iconButton_ThongTin_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Form_ThongTin());
         }
 
+
+        private void iconButton_NhanVien_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, ActivateColor);
+        }
+        private void iconButton_DuocPham_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, ActivateColor);
+        }
+        private void iconButton_DichVu_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, ActivateColor);
+        }
+
         #endregion
 
         private void timer_Clock_Tick(object sender, EventArgs e)
         {
-            label_Clock.Text = $"Bây giờ là {DateTime.Now.ToString("HH:mm:ss")}";
+            label_Clock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
     }

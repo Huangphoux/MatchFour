@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            label1 = new Label();
+            label_WindowSize = new Label();
+            comboBox_WindowSize = new ComboBox();
+            checkBox_Fullscreen = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // iconPictureBox1
             // 
-            iconPictureBox1.BackColor = SystemColors.Control;
+            iconPictureBox1.BackColor = Color.White;
             iconPictureBox1.ForeColor = SystemColors.ControlText;
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Display;
             iconPictureBox1.IconColor = SystemColors.ControlText;
@@ -47,21 +49,50 @@
             iconPictureBox1.TabIndex = 1;
             iconPictureBox1.TabStop = false;
             // 
-            // label1
+            // label_WindowSize
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(100, 60);
-            label1.Name = "label1";
-            label1.Size = new Size(207, 41);
-            label1.TabIndex = 2;
-            label1.Text = "Kích cỡ cửa sổ";
+            label_WindowSize.FlatStyle = FlatStyle.Flat;
+            label_WindowSize.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_WindowSize.Location = new Point(100, 40);
+            label_WindowSize.Name = "label_WindowSize";
+            label_WindowSize.Size = new Size(180, 60);
+            label_WindowSize.TabIndex = 2;
+            label_WindowSize.Text = "Kích cỡ cửa sổ";
+            label_WindowSize.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // comboBox_WindowSize
+            // 
+            comboBox_WindowSize.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_WindowSize.FlatStyle = FlatStyle.Flat;
+            comboBox_WindowSize.FormattingEnabled = true;
+            comboBox_WindowSize.Items.AddRange(new object[] { "800 × 600", "1024 × 768", "1280 × 600", "1360 × 768", "1600 × 900", "1920 × 1080" });
+            comboBox_WindowSize.Location = new Point(40, 120);
+            comboBox_WindowSize.Name = "comboBox_WindowSize";
+            comboBox_WindowSize.Size = new Size(240, 49);
+            comboBox_WindowSize.TabIndex = 3;
+            comboBox_WindowSize.SelectedIndexChanged += comboBox_WindowSize_SelectedIndexChanged;
+            // 
+            // checkBox_Fullscreen
+            // 
+            checkBox_Fullscreen.FlatStyle = FlatStyle.Flat;
+            checkBox_Fullscreen.Location = new Point(40, 200);
+            checkBox_Fullscreen.Name = "checkBox_Fullscreen";
+            checkBox_Fullscreen.Size = new Size(240, 60);
+            checkBox_Fullscreen.TabIndex = 4;
+            checkBox_Fullscreen.Text = "Toàn màn hình";
+            checkBox_Fullscreen.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox_Fullscreen.UseVisualStyleBackColor = true;
+            checkBox_Fullscreen.CheckedChanged += checkBox_Fullscreen_CheckedChanged;
             // 
             // Form_CaiDat
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1200, 700);
-            Controls.Add(label1);
+            Controls.Add(checkBox_Fullscreen);
+            Controls.Add(comboBox_WindowSize);
+            Controls.Add(label_WindowSize);
             Controls.Add(iconPictureBox1);
             Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -70,11 +101,12 @@
             Text = "Cài đặt";
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private Label label1;
+        private Label label_WindowSize;
+        private ComboBox comboBox_WindowSize;
+        private CheckBox checkBox_Fullscreen;
     }
 }
