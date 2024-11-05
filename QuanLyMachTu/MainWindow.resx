@@ -590,7 +590,7 @@
     <value>0, 0</value>
   </data>
   <data name="label_TitleChildForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1179, 40</value>
+    <value>1177, 38</value>
   </data>
   <data name="label_TitleChildForm.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -617,10 +617,10 @@
     <value>Right</value>
   </data>
   <data name="panel_DivideLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1179, 0</value>
+    <value>1177, 0</value>
   </data>
   <data name="panel_DivideLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1, 40</value>
+    <value>1, 38</value>
   </data>
   <data name="panel_DivideLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -641,10 +641,10 @@
     <value>Right</value>
   </data>
   <data name="icon_CaiDat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1180, 0</value>
+    <value>1178, 0</value>
   </data>
   <data name="icon_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>40, 38</value>
   </data>
   <data name="icon_CaiDat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -665,10 +665,10 @@
     <value>Right</value>
   </data>
   <data name="panel_DivideButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1220, 0</value>
+    <value>1218, 0</value>
   </data>
   <data name="panel_DivideButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1, 40</value>
+    <value>1, 38</value>
   </data>
   <data name="panel_DivideButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -689,10 +689,10 @@
     <value>Right</value>
   </data>
   <data name="icon_ThongTin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1221, 0</value>
+    <value>1219, 0</value>
   </data>
   <data name="icon_ThongTin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>40, 38</value>
   </data>
   <data name="icon_ThongTin.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -713,10 +713,10 @@
     <value>Right</value>
   </data>
   <data name="panel_DivideExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1261, 0</value>
+    <value>1259, 0</value>
   </data>
   <data name="panel_DivideExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1, 40</value>
+    <value>1, 38</value>
   </data>
   <data name="panel_DivideExit.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -740,10 +740,10 @@
     <value>NoControl</value>
   </data>
   <data name="icon_Thoat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1262, 0</value>
+    <value>1260, 0</value>
   </data>
   <data name="icon_Thoat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>40, 38</value>
   </data>
   <data name="icon_Thoat.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

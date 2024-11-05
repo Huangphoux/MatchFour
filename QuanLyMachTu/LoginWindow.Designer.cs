@@ -40,11 +40,12 @@
             icon_SignIn = new FontAwesome.Sharp.IconButton();
             label_Password = new Label();
             label_Username = new Label();
-            icon_Exit = new FontAwesome.Sharp.IconButton();
             icon_SignUp = new FontAwesome.Sharp.IconButton();
+            icon_Exit = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)icon_Username).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Exit).BeginInit();
             SuspendLayout();
             // 
             // icon_Username
@@ -102,7 +103,7 @@
             icon_Logo.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
             icon_Logo.IconColor = SystemColors.ControlText;
             icon_Logo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Logo.IconSize = 80;
+            icon_Logo.IconSize = 120;
             resources.ApplyResources(icon_Logo, "icon_Logo");
             icon_Logo.Name = "icon_Logo";
             icon_Logo.TabStop = false;
@@ -135,19 +136,6 @@
             resources.ApplyResources(label_Username, "label_Username");
             label_Username.Name = "label_Username";
             // 
-            // icon_Exit
-            // 
-            icon_Exit.BackColor = Color.WhiteSmoke;
-            icon_Exit.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(icon_Exit, "icon_Exit");
-            icon_Exit.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            icon_Exit.IconColor = Color.Black;
-            icon_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Exit.IconSize = 30;
-            icon_Exit.Name = "icon_Exit";
-            icon_Exit.UseVisualStyleBackColor = false;
-            icon_Exit.Click += icon_Exit_Click;
-            // 
             // icon_SignUp
             // 
             icon_SignUp.BackColor = Color.WhiteSmoke;
@@ -160,13 +148,26 @@
             icon_SignUp.Name = "icon_SignUp";
             icon_SignUp.UseVisualStyleBackColor = false;
             // 
+            // icon_Exit
+            // 
+            icon_Exit.BackColor = Color.White;
+            icon_Exit.ForeColor = SystemColors.ControlText;
+            icon_Exit.IconChar = FontAwesome.Sharp.IconChar.SquareXmark;
+            icon_Exit.IconColor = SystemColors.ControlText;
+            icon_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_Exit.IconSize = 60;
+            resources.ApplyResources(icon_Exit, "icon_Exit");
+            icon_Exit.Name = "icon_Exit";
+            icon_Exit.TabStop = false;
+            icon_Exit.Click += icon_Exit_Click;
+            // 
             // LoginWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(icon_SignUp);
             Controls.Add(icon_Exit);
+            Controls.Add(icon_SignUp);
             Controls.Add(label_Username);
             Controls.Add(label_Password);
             Controls.Add(icon_SignIn);
@@ -184,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)icon_Username).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Exit).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,7 +203,7 @@
         private FontAwesome.Sharp.IconButton icon_SignIn;
         private Label label_Password;
         private Label label_Username;
-        private FontAwesome.Sharp.IconButton icon_Exit;
         private FontAwesome.Sharp.IconButton icon_SignUp;
+        private FontAwesome.Sharp.IconPictureBox icon_Exit;
     }
 }

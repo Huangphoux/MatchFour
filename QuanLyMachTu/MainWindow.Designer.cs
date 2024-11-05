@@ -230,7 +230,8 @@
             // 
             // panel_TitleBar
             // 
-            panel_TitleBar.BackColor = Color.Gainsboro;
+            panel_TitleBar.BackColor = Color.WhiteSmoke;
+            panel_TitleBar.BorderStyle = BorderStyle.FixedSingle;
             panel_TitleBar.Controls.Add(label_TitleChildForm);
             panel_TitleBar.Controls.Add(panel_DivideLabel);
             panel_TitleBar.Controls.Add(icon_CaiDat);
@@ -243,6 +244,7 @@
             // 
             // label_TitleChildForm
             // 
+            label_TitleChildForm.BackColor = Color.Transparent;
             resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
             label_TitleChildForm.Name = "label_TitleChildForm";
             // 
@@ -254,13 +256,13 @@
             // 
             // icon_CaiDat
             // 
-            icon_CaiDat.BackColor = Color.Gainsboro;
+            icon_CaiDat.BackColor = Color.Transparent;
             resources.ApplyResources(icon_CaiDat, "icon_CaiDat");
             icon_CaiDat.ForeColor = SystemColors.ControlText;
             icon_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
             icon_CaiDat.IconColor = SystemColors.ControlText;
             icon_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_CaiDat.IconSize = 40;
+            icon_CaiDat.IconSize = 38;
             icon_CaiDat.Name = "icon_CaiDat";
             icon_CaiDat.TabStop = false;
             icon_CaiDat.Click += iconButton_CaiDat_Click;
@@ -273,13 +275,13 @@
             // 
             // icon_ThongTin
             // 
-            icon_ThongTin.BackColor = Color.Gainsboro;
+            icon_ThongTin.BackColor = Color.Transparent;
             resources.ApplyResources(icon_ThongTin, "icon_ThongTin");
             icon_ThongTin.ForeColor = SystemColors.ControlText;
             icon_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
             icon_ThongTin.IconColor = SystemColors.ControlText;
             icon_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_ThongTin.IconSize = 40;
+            icon_ThongTin.IconSize = 38;
             icon_ThongTin.Name = "icon_ThongTin";
             icon_ThongTin.TabStop = false;
             icon_ThongTin.Click += iconButton_ThongTin_Click;
@@ -292,13 +294,13 @@
             // 
             // icon_Thoat
             // 
-            icon_Thoat.BackColor = Color.Gainsboro;
+            icon_Thoat.BackColor = Color.Transparent;
             resources.ApplyResources(icon_Thoat, "icon_Thoat");
             icon_Thoat.ForeColor = SystemColors.ControlText;
             icon_Thoat.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             icon_Thoat.IconColor = SystemColors.ControlText;
             icon_Thoat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Thoat.IconSize = 40;
+            icon_Thoat.IconSize = 38;
             icon_Thoat.Name = "icon_Thoat";
             icon_Thoat.TabStop = false;
             icon_Thoat.Click += icon_Thoat_Click;
