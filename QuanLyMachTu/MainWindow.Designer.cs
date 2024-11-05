@@ -44,20 +44,23 @@
             icon_Home = new FontAwesome.Sharp.IconPictureBox();
             panel_TitleBar = new Panel();
             label_TitleChildForm = new Label();
+            panel_DivideLabel = new Panel();
             icon_CaiDat = new FontAwesome.Sharp.IconPictureBox();
             panel_DivideButton = new Panel();
             icon_ThongTin = new FontAwesome.Sharp.IconPictureBox();
+            panel_DivideExit = new Panel();
+            icon_Thoat = new FontAwesome.Sharp.IconPictureBox();
             panel_ChildForm = new Panel();
             customGrpBox_TaiChinh = new CustomGrpBox();
             customGrpBox_LichHen = new CustomGrpBox();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            panel_DivideLabel = new Panel();
             panel_Menu.SuspendLayout();
             panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
             panel_TitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_CaiDat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_ThongTin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Thoat).BeginInit();
             panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
@@ -233,6 +236,8 @@
             panel_TitleBar.Controls.Add(icon_CaiDat);
             panel_TitleBar.Controls.Add(panel_DivideButton);
             panel_TitleBar.Controls.Add(icon_ThongTin);
+            panel_TitleBar.Controls.Add(panel_DivideExit);
+            panel_TitleBar.Controls.Add(icon_Thoat);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
             // 
@@ -240,6 +245,12 @@
             // 
             resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
             label_TitleChildForm.Name = "label_TitleChildForm";
+            // 
+            // panel_DivideLabel
+            // 
+            panel_DivideLabel.BackColor = Color.Black;
+            resources.ApplyResources(panel_DivideLabel, "panel_DivideLabel");
+            panel_DivideLabel.Name = "panel_DivideLabel";
             // 
             // icon_CaiDat
             // 
@@ -273,6 +284,25 @@
             icon_ThongTin.TabStop = false;
             icon_ThongTin.Click += iconButton_ThongTin_Click;
             // 
+            // panel_DivideExit
+            // 
+            panel_DivideExit.BackColor = Color.Black;
+            resources.ApplyResources(panel_DivideExit, "panel_DivideExit");
+            panel_DivideExit.Name = "panel_DivideExit";
+            // 
+            // icon_Thoat
+            // 
+            icon_Thoat.BackColor = Color.Gainsboro;
+            resources.ApplyResources(icon_Thoat, "icon_Thoat");
+            icon_Thoat.ForeColor = SystemColors.ControlText;
+            icon_Thoat.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            icon_Thoat.IconColor = SystemColors.ControlText;
+            icon_Thoat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_Thoat.IconSize = 40;
+            icon_Thoat.Name = "icon_Thoat";
+            icon_Thoat.TabStop = false;
+            icon_Thoat.Click += icon_Thoat_Click;
+            // 
             // panel_ChildForm
             // 
             panel_ChildForm.BackColor = Color.White;
@@ -299,12 +329,6 @@
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
             // 
-            // panel_DivideLabel
-            // 
-            panel_DivideLabel.BackColor = Color.Black;
-            resources.ApplyResources(panel_DivideLabel, "panel_DivideLabel");
-            panel_DivideLabel.Name = "panel_DivideLabel";
-            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -314,12 +338,14 @@
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
+            FormClosing += MainWindow_FormClosing;
             panel_Menu.ResumeLayout(false);
             panel_Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
             panel_TitleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_CaiDat).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_ThongTin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)icon_Thoat).EndInit();
             panel_ChildForm.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -350,5 +376,7 @@
         private FontAwesome.Sharp.IconButton iconButton_DuocPham;
         private FontAwesome.Sharp.IconButton iconButton_DichVu;
         private Panel panel_DivideLabel;
+        private Panel panel_DivideExit;
+        private FontAwesome.Sharp.IconPictureBox icon_Thoat;
     }
 }

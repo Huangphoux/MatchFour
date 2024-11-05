@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using QuanLyMachTu.Child_Forms;
+using System.Windows.Forms;
 
 namespace QuanLyMachTu
 {
@@ -121,14 +122,14 @@ namespace QuanLyMachTu
         }
         public void ResizeAndCenter(int width, int height)
         {
-            this.Width = width;
-            this.Height = height;
-            this.StartPosition = FormStartPosition.Manual;
-            this.Left = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
-            this.Top = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
+            Width = width;
+            Height = height;
+            StartPosition = FormStartPosition.Manual;
+            Left = (Screen.PrimaryScreen.WorkingArea.Width - Width) / 2;
+            Top = (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2;
         }
 
-        Color ActivateColor = Color.Teal;
+        private readonly Color ActivateColor = Color.Teal;
 
         #region Button Click
 
@@ -185,5 +186,37 @@ namespace QuanLyMachTu
             label_Clock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        private bool isSignoutInitiated = false;
+
+        private void icon_Thoat_Click(object sender, EventArgs e)
+        {
+            ShowExitConfirmation();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isSignoutInitiated)
+            {
+                e.Cancel = true;
+                ShowExitConfirmation();
+            }
+        }
+
+        private void ShowExitConfirmation()
+        {
+            DialogResult dialogResult = MessageBox.Show(
+                "Bạn có thực sự muốn thoát khỏi chương trình?",
+                "Trước khi thoát chương trình",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (dialogResult == DialogResult.OK)
+            {
+                isSignoutInitiated = true;
+                Application.Exit();
+            }
+        }
     }
 }
