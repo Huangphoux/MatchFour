@@ -3,13 +3,14 @@ using QuanLyMachTu.Child_Forms;
 using System.Windows.Forms;
 
 namespace QuanLyMachTu
-{
+{    
     public partial class MainWindow : Form
     {
-        private IconButton currentButton;
         private readonly Panel leftBorderButton;
         private Form currentChildForm;
-
+        private PageButton currentButton;
+        
+        //Methods
         public MainWindow()
         {
             InitializeComponent();
@@ -21,6 +22,8 @@ namespace QuanLyMachTu
 
             panel_Menu.Controls.Add(leftBorderButton);
 
+            currentButton = pageButton_TongQuan;
+
             //Form
             // Text = string.Empty;
             // this.ControlBox = false;
@@ -29,6 +32,7 @@ namespace QuanLyMachTu
 
             // MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
 
+            // Initialize the SqlConnection
         }
 
         //private struct RGBColors
@@ -43,48 +47,19 @@ namespace QuanLyMachTu
         //}
 
         //Methods
-        private void ActivateButton(object senderButton, Color color)
+        private void ActivateButton(PageButton senderButton)
         {
-            if (senderButton != null)
-            {
-                DisableButton();
-
-                //Button
-                currentButton = (IconButton)senderButton;
-
-                currentButton.ForeColor = color;
-                currentButton.BackColor = Color.White;
-                currentButton.TextAlign = ContentAlignment.MiddleRight;
-                currentButton.IconColor = color;
-                //currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
-                //currentButton.ImageAlign = ContentAlignment.MiddleRight;
-
-                //Left border button
-                leftBorderButton.BackColor = color;
-                leftBorderButton.Location = new Point(0, currentButton.Location.Y);
-                leftBorderButton.Visible = true;
-                leftBorderButton.BringToFront();
-
-                //Current Child Form Icon
-                //icon_CurrentChildForm.IconChar = currentButton.IconChar;
-                //icon_CurrentChildForm.IconColor = color;
-
-                label_TitleChildForm.Text = currentButton.Text;
-                // label_TitleChildForm.ForeColor = color;
-            }
+            DisableButton(currentButton);
+            currentButton = senderButton;
+            senderButton.BackColor = Color.FromArgb(57, 62, 70);
         }
 
-        private void DisableButton()
+        private void DisableButton(PageButton currentButton)
         {
-            if (currentButton != null)
-            {
-                currentButton.ForeColor = Color.Black;
-                currentButton.BackColor = Color.White;
-                currentButton.TextAlign = ContentAlignment.MiddleCenter;
-                currentButton.IconColor = Color.Black;
-                //currentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-                //currentButton.ImageAlign = ContentAlignment.MiddleLeft;
-            }
+            if (currentButton == null)
+                return;
+
+            currentButton.BackColor = Color.FromArgb(34, 40, 49);
         }
 
         private void OpenChildForm(Form childForm)
@@ -99,8 +74,8 @@ namespace QuanLyMachTu
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
-            panel_ChildForm.Controls.Add(childForm);
-            panel_ChildForm.Tag = childForm;
+            //panel_ChildForm.Controls.Add(childForm);
+            //panel_ChildForm.Tag = childForm;
 
             childForm.BringToFront();
             childForm.Show();
@@ -109,16 +84,13 @@ namespace QuanLyMachTu
 
         private void icon_Home_Click(object sender, EventArgs e)
         {
-            DisableButton();
+            DisableButton((PageButton)sender);
             leftBorderButton.Visible = false;
 
             currentChildForm?.Close();
 
             //icon_CurrentChildForm.IconChar = IconChar.Home;
             //icon_CurrentChildForm.IconColor = Color.MediumPurple;
-
-            label_TitleChildForm.Text = "Trang chủ";
-            label_TitleChildForm.ForeColor = Color.Black;
         }
         public void ResizeAndCenter(int width, int height)
         {
@@ -133,27 +105,22 @@ namespace QuanLyMachTu
 
         #region Button Click
 
-        private void iconButton_TomTat_Click(object sender, EventArgs e)
+        private void pageButton_TongQuat_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
-        }
-
-        private void iconButton_LichHen_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
 
         private void iconButton_BenhNhan_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
         private void iconButton_PhongKham_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
         private void iconButton_HoaDon_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
@@ -168,15 +135,15 @@ namespace QuanLyMachTu
 
         private void iconButton_NhanVien_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
         private void iconButton_DuocPham_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
         private void iconButton_DichVu_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, ActivateColor);
+            ActivateButton((PageButton)sender);
         }
 
         #endregion
@@ -216,7 +183,7 @@ namespace QuanLyMachTu
             {
                 isSignoutInitiated = true;
                 Application.Exit();
-            }
+            }            
         }
     }
 }
