@@ -31,222 +31,218 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
-            iconButton_HoaDon = new FontAwesome.Sharp.IconButton();
-            iconButton_DichVu = new FontAwesome.Sharp.IconButton();
-            iconButton_DuocPham = new FontAwesome.Sharp.IconButton();
-            iconButton_NhanVien = new FontAwesome.Sharp.IconButton();
-            iconButton_PhongKham = new FontAwesome.Sharp.IconButton();
-            iconButton_BenhNhan = new FontAwesome.Sharp.IconButton();
-            iconButton_LichHen = new FontAwesome.Sharp.IconButton();
-            iconButton_TomTat = new FontAwesome.Sharp.IconButton();
-            panel_Logo = new Panel();
             label_Clock = new Label();
-            icon_Home = new FontAwesome.Sharp.IconPictureBox();
+            pageButton_DichVu = new PageButton();
+            pictureBox_logo = new PictureBox();
+            pageButton_DuocPham = new PageButton();
+            pageButton_PhongKham = new PageButton();
+            pageButton_NhanVien = new PageButton();
+            pageButton_BenhNhan = new PageButton();
+            pageButton_TongQuan = new PageButton();
             panel_TitleBar = new Panel();
-            label_TitleChildForm = new Label();
+            pageButton2 = new PageButton();
+            pageButton1 = new PageButton();
             panel_DivideLabel = new Panel();
-            icon_CaiDat = new FontAwesome.Sharp.IconPictureBox();
             panel_DivideButton = new Panel();
-            icon_ThongTin = new FontAwesome.Sharp.IconPictureBox();
             panel_DivideExit = new Panel();
-            icon_Thoat = new FontAwesome.Sharp.IconPictureBox();
-            panel_ChildForm = new Panel();
-            customGrpBox_TaiChinh = new CustomGrpBox();
-            customGrpBox_LichHen = new CustomGrpBox();
             timer_Clock = new System.Windows.Forms.Timer(components);
+            benhNhanControl1 = new BenhNhanControl();
             panel_Menu.SuspendLayout();
-            panel_Logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)icon_Home).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)icon_CaiDat).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)icon_ThongTin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)icon_Thoat).BeginInit();
-            panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Menu
             // 
             resources.ApplyResources(panel_Menu, "panel_Menu");
-            panel_Menu.BackColor = Color.WhiteSmoke;
-            panel_Menu.BorderStyle = BorderStyle.FixedSingle;
-            panel_Menu.Controls.Add(iconButton_HoaDon);
-            panel_Menu.Controls.Add(iconButton_DichVu);
-            panel_Menu.Controls.Add(iconButton_DuocPham);
-            panel_Menu.Controls.Add(iconButton_NhanVien);
-            panel_Menu.Controls.Add(iconButton_PhongKham);
-            panel_Menu.Controls.Add(iconButton_BenhNhan);
-            panel_Menu.Controls.Add(iconButton_LichHen);
-            panel_Menu.Controls.Add(iconButton_TomTat);
-            panel_Menu.Controls.Add(panel_Logo);
+            panel_Menu.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Menu.Controls.Add(label_Clock);
+            panel_Menu.Controls.Add(pageButton_DichVu);
+            panel_Menu.Controls.Add(pictureBox_logo);
+            panel_Menu.Controls.Add(pageButton_DuocPham);
+            panel_Menu.Controls.Add(pageButton_PhongKham);
+            panel_Menu.Controls.Add(pageButton_NhanVien);
+            panel_Menu.Controls.Add(pageButton_BenhNhan);
+            panel_Menu.Controls.Add(pageButton_TongQuan);
             panel_Menu.Name = "panel_Menu";
-            // 
-            // iconButton_HoaDon
-            // 
-            iconButton_HoaDon.BackColor = Color.White;
-            resources.ApplyResources(iconButton_HoaDon, "iconButton_HoaDon");
-            iconButton_HoaDon.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_HoaDon.FlatAppearance.BorderSize = 0;
-            iconButton_HoaDon.ForeColor = Color.Black;
-            iconButton_HoaDon.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
-            iconButton_HoaDon.IconColor = Color.Black;
-            iconButton_HoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_HoaDon.IconSize = 50;
-            iconButton_HoaDon.Name = "iconButton_HoaDon";
-            iconButton_HoaDon.UseVisualStyleBackColor = false;
-            iconButton_HoaDon.Click += iconButton_HoaDon_Click;
-            // 
-            // iconButton_DichVu
-            // 
-            iconButton_DichVu.BackColor = Color.White;
-            resources.ApplyResources(iconButton_DichVu, "iconButton_DichVu");
-            iconButton_DichVu.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_DichVu.FlatAppearance.BorderSize = 0;
-            iconButton_DichVu.ForeColor = Color.Black;
-            iconButton_DichVu.IconChar = FontAwesome.Sharp.IconChar.HandHoldingMedical;
-            iconButton_DichVu.IconColor = Color.Black;
-            iconButton_DichVu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_DichVu.IconSize = 50;
-            iconButton_DichVu.Name = "iconButton_DichVu";
-            iconButton_DichVu.UseVisualStyleBackColor = false;
-            iconButton_DichVu.Click += iconButton_DichVu_Click;
-            // 
-            // iconButton_DuocPham
-            // 
-            iconButton_DuocPham.BackColor = Color.White;
-            resources.ApplyResources(iconButton_DuocPham, "iconButton_DuocPham");
-            iconButton_DuocPham.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_DuocPham.FlatAppearance.BorderSize = 0;
-            iconButton_DuocPham.ForeColor = Color.Black;
-            iconButton_DuocPham.IconChar = FontAwesome.Sharp.IconChar.Pills;
-            iconButton_DuocPham.IconColor = Color.Black;
-            iconButton_DuocPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_DuocPham.IconSize = 50;
-            iconButton_DuocPham.Name = "iconButton_DuocPham";
-            iconButton_DuocPham.UseVisualStyleBackColor = false;
-            iconButton_DuocPham.Click += iconButton_DuocPham_Click;
-            // 
-            // iconButton_NhanVien
-            // 
-            iconButton_NhanVien.BackColor = Color.White;
-            resources.ApplyResources(iconButton_NhanVien, "iconButton_NhanVien");
-            iconButton_NhanVien.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_NhanVien.FlatAppearance.BorderSize = 0;
-            iconButton_NhanVien.ForeColor = Color.Black;
-            iconButton_NhanVien.IconChar = FontAwesome.Sharp.IconChar.Users;
-            iconButton_NhanVien.IconColor = Color.Black;
-            iconButton_NhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_NhanVien.IconSize = 50;
-            iconButton_NhanVien.Name = "iconButton_NhanVien";
-            iconButton_NhanVien.UseVisualStyleBackColor = false;
-            iconButton_NhanVien.Click += iconButton_NhanVien_Click;
-            // 
-            // iconButton_PhongKham
-            // 
-            iconButton_PhongKham.BackColor = Color.White;
-            resources.ApplyResources(iconButton_PhongKham, "iconButton_PhongKham");
-            iconButton_PhongKham.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_PhongKham.FlatAppearance.BorderSize = 0;
-            iconButton_PhongKham.ForeColor = Color.Black;
-            iconButton_PhongKham.IconChar = FontAwesome.Sharp.IconChar.HouseMedical;
-            iconButton_PhongKham.IconColor = Color.Black;
-            iconButton_PhongKham.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_PhongKham.IconSize = 50;
-            iconButton_PhongKham.Name = "iconButton_PhongKham";
-            iconButton_PhongKham.UseVisualStyleBackColor = false;
-            iconButton_PhongKham.Click += iconButton_PhongKham_Click;
-            // 
-            // iconButton_BenhNhan
-            // 
-            iconButton_BenhNhan.BackColor = Color.White;
-            resources.ApplyResources(iconButton_BenhNhan, "iconButton_BenhNhan");
-            iconButton_BenhNhan.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_BenhNhan.FlatAppearance.BorderSize = 0;
-            iconButton_BenhNhan.ForeColor = Color.Black;
-            iconButton_BenhNhan.IconChar = FontAwesome.Sharp.IconChar.Bed;
-            iconButton_BenhNhan.IconColor = Color.Black;
-            iconButton_BenhNhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_BenhNhan.IconSize = 50;
-            iconButton_BenhNhan.Name = "iconButton_BenhNhan";
-            iconButton_BenhNhan.UseVisualStyleBackColor = false;
-            iconButton_BenhNhan.Click += iconButton_BenhNhan_Click;
-            // 
-            // iconButton_LichHen
-            // 
-            iconButton_LichHen.BackColor = Color.White;
-            resources.ApplyResources(iconButton_LichHen, "iconButton_LichHen");
-            iconButton_LichHen.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_LichHen.FlatAppearance.BorderSize = 0;
-            iconButton_LichHen.ForeColor = Color.Black;
-            iconButton_LichHen.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
-            iconButton_LichHen.IconColor = Color.Black;
-            iconButton_LichHen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_LichHen.IconSize = 50;
-            iconButton_LichHen.Name = "iconButton_LichHen";
-            iconButton_LichHen.UseVisualStyleBackColor = false;
-            iconButton_LichHen.Click += iconButton_LichHen_Click;
-            // 
-            // iconButton_TomTat
-            // 
-            iconButton_TomTat.BackColor = Color.White;
-            resources.ApplyResources(iconButton_TomTat, "iconButton_TomTat");
-            iconButton_TomTat.FlatAppearance.BorderColor = Color.Silver;
-            iconButton_TomTat.FlatAppearance.BorderSize = 0;
-            iconButton_TomTat.ForeColor = Color.Black;
-            iconButton_TomTat.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            iconButton_TomTat.IconColor = Color.Black;
-            iconButton_TomTat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton_TomTat.IconSize = 50;
-            iconButton_TomTat.Name = "iconButton_TomTat";
-            iconButton_TomTat.UseVisualStyleBackColor = false;
-            iconButton_TomTat.Click += iconButton_TomTat_Click;
-            // 
-            // panel_Logo
-            // 
-            panel_Logo.BackColor = Color.WhiteSmoke;
-            panel_Logo.Controls.Add(label_Clock);
-            panel_Logo.Controls.Add(icon_Home);
-            resources.ApplyResources(panel_Logo, "panel_Logo");
-            panel_Logo.Name = "panel_Logo";
-            panel_Logo.Click += icon_Home_Click;
             // 
             // label_Clock
             // 
             resources.ApplyResources(label_Clock, "label_Clock");
+            label_Clock.ForeColor = Color.White;
             label_Clock.Name = "label_Clock";
             label_Clock.Click += icon_Home_Click;
             // 
-            // icon_Home
+            // pageButton_DichVu
             // 
-            icon_Home.BackColor = Color.Transparent;
-            icon_Home.ForeColor = SystemColors.ControlText;
-            icon_Home.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
-            icon_Home.IconColor = SystemColors.ControlText;
-            icon_Home.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Home.IconSize = 120;
-            resources.ApplyResources(icon_Home, "icon_Home");
-            icon_Home.Name = "icon_Home";
-            icon_Home.TabStop = false;
-            icon_Home.Click += icon_Home_Click;
+            pageButton_DichVu.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_DichVu.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_DichVu.BorderRadius = 30;
+            pageButton_DichVu.BorderSize = 0;
+            pageButton_DichVu.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_DichVu, "pageButton_DichVu");
+            pageButton_DichVu.ForeColor = Color.FromArgb(0, 173, 181);
+            pageButton_DichVu.Icon = (Image)resources.GetObject("pageButton_DichVu.Icon");
+            pageButton_DichVu.IconLocation = new Point(40, 31);
+            pageButton_DichVu.IconSize = new Size(28, 28);
+            pageButton_DichVu.Name = "pageButton_DichVu";
+            pageButton_DichVu.Text1 = "Dịch vụ";
+            pageButton_DichVu.TextColor = Color.White;
+            pageButton_DichVu.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_DichVu.TextLocation = new Point(98, 28);
+            pageButton_DichVu.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox_logo
+            // 
+            resources.ApplyResources(pictureBox_logo, "pictureBox_logo");
+            pictureBox_logo.Name = "pictureBox_logo";
+            pictureBox_logo.TabStop = false;
+            // 
+            // pageButton_DuocPham
+            // 
+            pageButton_DuocPham.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_DuocPham.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_DuocPham.BorderRadius = 30;
+            pageButton_DuocPham.BorderSize = 0;
+            pageButton_DuocPham.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_DuocPham, "pageButton_DuocPham");
+            pageButton_DuocPham.ForeColor = Color.White;
+            pageButton_DuocPham.Icon = (Image)resources.GetObject("pageButton_DuocPham.Icon");
+            pageButton_DuocPham.IconLocation = new Point(40, 31);
+            pageButton_DuocPham.IconSize = new Size(28, 28);
+            pageButton_DuocPham.Name = "pageButton_DuocPham";
+            pageButton_DuocPham.Text1 = "Dược phẩm";
+            pageButton_DuocPham.TextColor = Color.White;
+            pageButton_DuocPham.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_DuocPham.TextLocation = new Point(98, 28);
+            pageButton_DuocPham.UseVisualStyleBackColor = false;
+            // 
+            // pageButton_PhongKham
+            // 
+            pageButton_PhongKham.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_PhongKham.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_PhongKham.BorderRadius = 30;
+            pageButton_PhongKham.BorderSize = 0;
+            pageButton_PhongKham.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_PhongKham, "pageButton_PhongKham");
+            pageButton_PhongKham.ForeColor = Color.White;
+            pageButton_PhongKham.Icon = (Image)resources.GetObject("pageButton_PhongKham.Icon");
+            pageButton_PhongKham.IconLocation = new Point(40, 31);
+            pageButton_PhongKham.IconSize = new Size(28, 28);
+            pageButton_PhongKham.Name = "pageButton_PhongKham";
+            pageButton_PhongKham.Text1 = "Phòng khám";
+            pageButton_PhongKham.TextColor = Color.White;
+            pageButton_PhongKham.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_PhongKham.TextLocation = new Point(98, 28);
+            pageButton_PhongKham.UseVisualStyleBackColor = false;
+            // 
+            // pageButton_NhanVien
+            // 
+            pageButton_NhanVien.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_NhanVien.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_NhanVien.BorderRadius = 30;
+            pageButton_NhanVien.BorderSize = 0;
+            pageButton_NhanVien.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_NhanVien, "pageButton_NhanVien");
+            pageButton_NhanVien.ForeColor = Color.White;
+            pageButton_NhanVien.Icon = (Image)resources.GetObject("pageButton_NhanVien.Icon");
+            pageButton_NhanVien.IconLocation = new Point(40, 31);
+            pageButton_NhanVien.IconSize = new Size(28, 28);
+            pageButton_NhanVien.Name = "pageButton_NhanVien";
+            pageButton_NhanVien.Text1 = "Nhân viên";
+            pageButton_NhanVien.TextColor = Color.White;
+            pageButton_NhanVien.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_NhanVien.TextLocation = new Point(98, 28);
+            pageButton_NhanVien.UseVisualStyleBackColor = false;
+            // 
+            // pageButton_BenhNhan
+            // 
+            pageButton_BenhNhan.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_BenhNhan.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_BenhNhan.BorderRadius = 30;
+            pageButton_BenhNhan.BorderSize = 0;
+            pageButton_BenhNhan.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_BenhNhan, "pageButton_BenhNhan");
+            pageButton_BenhNhan.ForeColor = Color.White;
+            pageButton_BenhNhan.Icon = (Image)resources.GetObject("pageButton_BenhNhan.Icon");
+            pageButton_BenhNhan.IconLocation = new Point(40, 31);
+            pageButton_BenhNhan.IconSize = new Size(28, 28);
+            pageButton_BenhNhan.Name = "pageButton_BenhNhan";
+            pageButton_BenhNhan.Text1 = "Bệnh nhân";
+            pageButton_BenhNhan.TextColor = Color.White;
+            pageButton_BenhNhan.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_BenhNhan.TextLocation = new Point(98, 28);
+            pageButton_BenhNhan.UseVisualStyleBackColor = false;
+            pageButton_BenhNhan.Click += iconButton_BenhNhan_Click;
+            // 
+            // pageButton_TongQuan
+            // 
+            pageButton_TongQuan.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_TongQuan.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_TongQuan.BorderRadius = 30;
+            pageButton_TongQuan.BorderSize = 0;
+            pageButton_TongQuan.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_TongQuan, "pageButton_TongQuan");
+            pageButton_TongQuan.ForeColor = Color.White;
+            pageButton_TongQuan.Icon = (Image)resources.GetObject("pageButton_TongQuan.Icon");
+            pageButton_TongQuan.IconLocation = new Point(40, 31);
+            pageButton_TongQuan.IconSize = new Size(28, 28);
+            pageButton_TongQuan.Name = "pageButton_TongQuan";
+            pageButton_TongQuan.Text1 = "Tổng quan";
+            pageButton_TongQuan.TextColor = Color.White;
+            pageButton_TongQuan.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            pageButton_TongQuan.TextLocation = new Point(98, 28);
+            pageButton_TongQuan.UseVisualStyleBackColor = false;
+            pageButton_TongQuan.Click += pageButton_TongQuat_Click;
             // 
             // panel_TitleBar
             // 
-            panel_TitleBar.BackColor = Color.WhiteSmoke;
-            panel_TitleBar.BorderStyle = BorderStyle.FixedSingle;
-            panel_TitleBar.Controls.Add(label_TitleChildForm);
+            panel_TitleBar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_TitleBar.Controls.Add(pageButton2);
+            panel_TitleBar.Controls.Add(pageButton1);
             panel_TitleBar.Controls.Add(panel_DivideLabel);
-            panel_TitleBar.Controls.Add(icon_CaiDat);
             panel_TitleBar.Controls.Add(panel_DivideButton);
-            panel_TitleBar.Controls.Add(icon_ThongTin);
             panel_TitleBar.Controls.Add(panel_DivideExit);
-            panel_TitleBar.Controls.Add(icon_Thoat);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
             // 
-            // label_TitleChildForm
+            // pageButton2
             // 
-            label_TitleChildForm.BackColor = Color.Transparent;
-            resources.ApplyResources(label_TitleChildForm, "label_TitleChildForm");
-            label_TitleChildForm.Name = "label_TitleChildForm";
+            pageButton2.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton2.BorderColor = Color.PaleVioletRed;
+            pageButton2.BorderRadius = 40;
+            pageButton2.BorderSize = 0;
+            pageButton2.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton2, "pageButton2");
+            pageButton2.ForeColor = Color.White;
+            pageButton2.Icon = (Image)resources.GetObject("pageButton2.Icon");
+            pageButton2.IconLocation = new Point(12, 12);
+            pageButton2.IconSize = new Size(35, 35);
+            pageButton2.Name = "pageButton2";
+            pageButton2.Text1 = "";
+            pageButton2.TextColor = Color.FromArgb(57, 54, 70);
+            pageButton2.TextFont = new Font("Segoe UI", 12F);
+            pageButton2.TextLocation = new Point(0, 0);
+            pageButton2.UseVisualStyleBackColor = false;
+            // 
+            // pageButton1
+            // 
+            pageButton1.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton1.BorderColor = Color.PaleVioletRed;
+            pageButton1.BorderRadius = 40;
+            pageButton1.BorderSize = 0;
+            pageButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton1, "pageButton1");
+            pageButton1.ForeColor = Color.White;
+            pageButton1.Icon = (Image)resources.GetObject("pageButton1.Icon");
+            pageButton1.IconLocation = new Point(12, 12);
+            pageButton1.IconSize = new Size(35, 35);
+            pageButton1.Name = "pageButton1";
+            pageButton1.Text1 = "";
+            pageButton1.TextColor = Color.FromArgb(57, 54, 70);
+            pageButton1.TextFont = new Font("Segoe UI", 12F);
+            pageButton1.TextLocation = new Point(0, 0);
+            pageButton1.UseVisualStyleBackColor = false;
             // 
             // panel_DivideLabel
             // 
@@ -254,37 +250,11 @@
             resources.ApplyResources(panel_DivideLabel, "panel_DivideLabel");
             panel_DivideLabel.Name = "panel_DivideLabel";
             // 
-            // icon_CaiDat
-            // 
-            icon_CaiDat.BackColor = Color.Transparent;
-            resources.ApplyResources(icon_CaiDat, "icon_CaiDat");
-            icon_CaiDat.ForeColor = SystemColors.ControlText;
-            icon_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            icon_CaiDat.IconColor = SystemColors.ControlText;
-            icon_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_CaiDat.IconSize = 38;
-            icon_CaiDat.Name = "icon_CaiDat";
-            icon_CaiDat.TabStop = false;
-            icon_CaiDat.Click += iconButton_CaiDat_Click;
-            // 
             // panel_DivideButton
             // 
             panel_DivideButton.BackColor = Color.Black;
             resources.ApplyResources(panel_DivideButton, "panel_DivideButton");
             panel_DivideButton.Name = "panel_DivideButton";
-            // 
-            // icon_ThongTin
-            // 
-            icon_ThongTin.BackColor = Color.Transparent;
-            resources.ApplyResources(icon_ThongTin, "icon_ThongTin");
-            icon_ThongTin.ForeColor = SystemColors.ControlText;
-            icon_ThongTin.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            icon_ThongTin.IconColor = SystemColors.ControlText;
-            icon_ThongTin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_ThongTin.IconSize = 38;
-            icon_ThongTin.Name = "icon_ThongTin";
-            icon_ThongTin.TabStop = false;
-            icon_ThongTin.Click += iconButton_ThongTin_Click;
             // 
             // panel_DivideExit
             // 
@@ -292,93 +262,53 @@
             resources.ApplyResources(panel_DivideExit, "panel_DivideExit");
             panel_DivideExit.Name = "panel_DivideExit";
             // 
-            // icon_Thoat
-            // 
-            icon_Thoat.BackColor = Color.Transparent;
-            resources.ApplyResources(icon_Thoat, "icon_Thoat");
-            icon_Thoat.ForeColor = SystemColors.ControlText;
-            icon_Thoat.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            icon_Thoat.IconColor = SystemColors.ControlText;
-            icon_Thoat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Thoat.IconSize = 38;
-            icon_Thoat.Name = "icon_Thoat";
-            icon_Thoat.TabStop = false;
-            icon_Thoat.Click += icon_Thoat_Click;
-            // 
-            // panel_ChildForm
-            // 
-            panel_ChildForm.BackColor = Color.White;
-            panel_ChildForm.Controls.Add(customGrpBox_TaiChinh);
-            panel_ChildForm.Controls.Add(customGrpBox_LichHen);
-            resources.ApplyResources(panel_ChildForm, "panel_ChildForm");
-            panel_ChildForm.Name = "panel_ChildForm";
-            // 
-            // customGrpBox_TaiChinh
-            // 
-            resources.ApplyResources(customGrpBox_TaiChinh, "customGrpBox_TaiChinh");
-            customGrpBox_TaiChinh.Name = "customGrpBox_TaiChinh";
-            customGrpBox_TaiChinh.TabStop = false;
-            // 
-            // customGrpBox_LichHen
-            // 
-            resources.ApplyResources(customGrpBox_LichHen, "customGrpBox_LichHen");
-            customGrpBox_LichHen.Name = "customGrpBox_LichHen";
-            customGrpBox_LichHen.TabStop = false;
-            // 
             // timer_Clock
             // 
             timer_Clock.Enabled = true;
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
             // 
+            // benhNhanControl1
+            // 
+            resources.ApplyResources(benhNhanControl1, "benhNhanControl1");
+            benhNhanControl1.BackColor = Color.FromArgb(57, 54, 70);
+            benhNhanControl1.Name = "benhNhanControl1";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(panel_ChildForm);
+            Controls.Add(benhNhanControl1);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
             FormClosing += MainWindow_FormClosing;
             panel_Menu.ResumeLayout(false);
-            panel_Logo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)icon_Home).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_logo).EndInit();
             panel_TitleBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)icon_CaiDat).EndInit();
-            ((System.ComponentModel.ISupportInitialize)icon_ThongTin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)icon_Thoat).EndInit();
-            panel_ChildForm.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel panel_Menu;
-        private FontAwesome.Sharp.IconButton iconButton_TomTat;
-        private Panel panel_Logo;
-        private FontAwesome.Sharp.IconButton iconButton_CaiDat;
-        private FontAwesome.Sharp.IconButton iconButton_LichHen;
-        private FontAwesome.Sharp.IconButton iconButton_BenhNhan;
-        private FontAwesome.Sharp.IconPictureBox icon_Home;
         private Panel panel_TitleBar;
-        private Label label_TitleChildForm;
-        private Panel panel_ChildForm;
-        private FontAwesome.Sharp.IconButton iconButton_PhongKham;
-        private FontAwesome.Sharp.IconButton iconButton_ThongTin;
         private Label label_Clock;
         private System.Windows.Forms.Timer timer_Clock;
-        private FontAwesome.Sharp.IconButton iconButton_HoaDon;
-        private CustomGrpBox customGrpBox_TaiChinh;
-        private CustomGrpBox customGrpBox_LichHen;
-        private FontAwesome.Sharp.IconPictureBox icon_ThongTin;
-        private FontAwesome.Sharp.IconPictureBox icon_CaiDat;
         private Panel panel_DivideButton;
-        private FontAwesome.Sharp.IconButton iconButton_NhanVien;
-        private FontAwesome.Sharp.IconButton iconButton_DuocPham;
-        private FontAwesome.Sharp.IconButton iconButton_DichVu;
         private Panel panel_DivideLabel;
         private Panel panel_DivideExit;
-        private FontAwesome.Sharp.IconPictureBox icon_Thoat;
+        private PageButton pageButton_TongQuan;
+        private PageButton pageButton_BenhNhan;
+        private PageButton pageButton_DuocPham;
+        private PageButton pageButton_DichVu;
+        private PageButton pageButton_NhanVien;
+        private PageButton pageButton_PhongKham;
+        private PictureBox pictureBox_logo;
+        private PageButton pageButton1;
+        private PageButton pageButton2;
+        private BenhNhanControl benhNhanControl1;
     }
 }
