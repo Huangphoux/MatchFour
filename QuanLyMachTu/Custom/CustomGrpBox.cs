@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Custom
 {
     public class CustomGrpBox : GroupBox
     {

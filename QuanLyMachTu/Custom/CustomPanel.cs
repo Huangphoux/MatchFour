@@ -8,9 +8,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Custom
 {
-    public class CustomPanel: Panel
+    public class CustomPanel : Panel
     {
         private int _cornerRadius = 20;
 
