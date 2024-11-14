@@ -1,15 +1,17 @@
 ﻿using FontAwesome.Sharp;
 using QuanLyMachTu.Child_Forms;
+using QuanLyMachTu.Custom;
+using QuanLyMachTu.Helper;
 using System.Windows.Forms;
 
 namespace QuanLyMachTu
-{    
+{
     public partial class MainWindow : Form
     {
         private readonly Panel leftBorderButton;
         private Form currentChildForm;
         private PageButton currentButton;
-        
+
         //Methods
         public MainWindow()
         {
@@ -22,8 +24,6 @@ namespace QuanLyMachTu
 
             panel_Menu.Controls.Add(leftBorderButton);
 
-            currentButton = pageButton_TongQuan;
-
             //Form
             // Text = string.Empty;
             // this.ControlBox = false;
@@ -33,6 +33,11 @@ namespace QuanLyMachTu
             // MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
 
             // Initialize the SqlConnection
+        }
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            currentButton = pageButton_TongQuan;
+            ActivateButton(currentButton);
         }
 
         //private struct RGBColors
@@ -51,7 +56,7 @@ namespace QuanLyMachTu
         {
             DisableButton(currentButton);
             currentButton = senderButton;
-            senderButton.BackColor = Color.FromArgb(57, 62, 70);
+            ColoringButton.EnabledColor(currentButton);
         }
 
         private void DisableButton(PageButton currentButton)
@@ -59,7 +64,7 @@ namespace QuanLyMachTu
             if (currentButton == null)
                 return;
 
-            currentButton.BackColor = Color.FromArgb(34, 40, 49);
+            ColoringButton.DisabledColor(currentButton);
         }
 
         private void OpenChildForm(Form childForm)
@@ -110,9 +115,10 @@ namespace QuanLyMachTu
             ActivateButton((PageButton)sender);
         }
 
-        private void iconButton_BenhNhan_Click(object sender, EventArgs e)
+        private void pageButton_BenhNhan_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
+            benhNhanControl.BringToFront();
         }
         private void iconButton_PhongKham_Click(object sender, EventArgs e)
         {
@@ -183,7 +189,8 @@ namespace QuanLyMachTu
             {
                 isSignoutInitiated = true;
                 Application.Exit();
-            }            
+            }
         }
+      
     }
 }

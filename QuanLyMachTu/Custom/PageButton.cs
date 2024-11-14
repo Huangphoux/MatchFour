@@ -9,9 +9,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Custom
 {
-    public class PageButton: Button
+    public class PageButton : Button
     {
         //Fields
         private int borderSize = 0;
@@ -21,13 +21,11 @@ namespace QuanLyMachTu
         private Point iconLocation;
         private Size iconSize;
         private string text;
-        private Font textFont;
-        private Color textColor;
         private Point textLocation;
 
         //Propertiest
         [Category("Page Button Addition")]
-        public int BorderSize 
+        public int BorderSize
         {
             get
             {
@@ -36,11 +34,11 @@ namespace QuanLyMachTu
             set
             {
                 borderSize = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
         [Category("Page Button Addition")]
-        public int BorderRadius 
+        public int BorderRadius
         {
             get
             {
@@ -48,16 +46,16 @@ namespace QuanLyMachTu
             }
             set
             {
-                if (value <= this.Height)
+                if (value <= Height)
                     borderRadius = value;
                 else
-                    borderRadius = this.Height;
+                    borderRadius = Height;
 
-                this.Invalidate();
+                Invalidate();
             }
         }
         [Category("Page Button Addition")]
-        public Color BorderColor 
+        public Color BorderColor
         {
             get
             {
@@ -66,35 +64,35 @@ namespace QuanLyMachTu
             set
             {
                 borderColor = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
         [Category("Page Button Addition")]
-        public Image Icon 
+        public Image Icon
         {
-            get 
-            { 
+            get
+            {
                 return icon;
             }
             set
             {
                 icon = value;
-                iconLocation = new Point(this.Width / 2, this.Height / 2);
+                iconLocation = new Point(Width / 2, Height / 2);
                 iconSize = icon.Size;
-                this.Invalidate();
+                Invalidate();
             }
         }
         [Category("Page Button Addition")]
         public Point IconLocation
         {
-            get 
-            { 
+            get
+            {
                 return iconLocation;
             }
             set
             {
                 iconLocation = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
         [Category("Page Button Addition")]
@@ -107,11 +105,11 @@ namespace QuanLyMachTu
             set
             {
                 iconSize = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
-
-        public string Text1 
+        [Category("Page Button Addition")]
+        public string CustomText
         {
             get
             {
@@ -120,34 +118,12 @@ namespace QuanLyMachTu
             set
             {
                 text = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
-        public Font TextFont 
-        {
-            get
-            {
-                return textFont;
-            }
-            set
-            {
-                textFont = value;
-                this.Invalidate();
-            }
-        }
-        public Color TextColor 
-        { 
-            get 
-            { 
-                return textColor; 
-            }
-            set 
-            {
-                textColor = value;
-                this.Invalidate();
-            }
-        }
-        public Point TextLocation 
+
+        [Category("Page Button Addition")]
+        public Point TextLocation
         {
             get
             {
@@ -156,23 +132,24 @@ namespace QuanLyMachTu
             set
             {
                 textLocation = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
+
+        [Browsable(false)]
+        public override string Text { get => base.Text; set => base.Text = value; }
 
         //Constructor
         public PageButton()
         {
-            this.FlatStyle = FlatStyle.Flat;
-            this.FlatAppearance.BorderSize = 0;
-            this.Size = new Size(150, 40);
-            this.BackColor = Color.MediumSlateBlue;
-            this.ForeColor = Color.White;
-            this.Resize += new EventHandler(Button_Resize);
-            this.text = "PageButton";
-            this.textFont = new Font("Segoe UI", 12, FontStyle.Regular);
-            this.textColor = Color.Black;
-            this.textLocation = new Point(0, 0);
+            base.Text = "";
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderSize = 0;
+            Size = new Size(150, 40);
+            BackColor = Color.MediumSlateBlue;
+            ForeColor = Color.White;
+            Resize += new EventHandler(Button_Resize);
+            textLocation = new Point(0, 0);
         }
 
         //Methods
@@ -184,7 +161,7 @@ namespace QuanLyMachTu
             path.AddArc(rect.Width - radius, rect.Y, radius, radius, 270, 90);
             path.AddArc(rect.Width - radius, rect.Height - radius, radius, radius, 0, 90);
             path.AddArc(rect.X, rect.Height - radius, radius, radius, 90, 90);
-            path.CloseFigure();                        
+            path.CloseFigure();
 
             return path;
         }
@@ -194,19 +171,19 @@ namespace QuanLyMachTu
             base.OnPaint(pevent);
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            RectangleF rectSurface = new RectangleF(0, 0, this.Width, this.Height);
-            RectangleF rectBorder = new RectangleF(1, 1, this.Width - 0.8f, this.Height - 1);
-            
-            if(BorderRadius > 2) //Rounded button
+            RectangleF rectSurface = new RectangleF(0, 0, Width, Height);
+            RectangleF rectBorder = new RectangleF(1, 1, Width - 0.8f, Height - 1);
+
+            if (BorderRadius > 2) //Rounded button
             {
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, BorderRadius))
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, BorderRadius - 1f))
-                using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
+                using (Pen penSurface = new Pen(Parent.BackColor, 2))
                 using (Pen penBorder = new Pen(BorderColor, BorderSize))
                 {
                     penBorder.Alignment = PenAlignment.Inset;
                     //Button surface
-                    this.Region = new Region(pathSurface);
+                    Region = new Region(pathSurface);
                     //Draw surface border for HD result
                     pevent.Graphics.DrawPath(penSurface, pathSurface);
 
@@ -214,17 +191,17 @@ namespace QuanLyMachTu
                     if (BorderSize >= 1)
                         //Draw control border
                         pevent.Graphics.DrawPath(penBorder, pathBorder);
-                }                
+                }
             }
             else //Normal button
             {
-                this.Region = new Region(rectSurface);
-                if(BorderSize >= 1)
+                Region = new Region(rectSurface);
+                if (BorderSize >= 1)
                 {
                     using (Pen penBorder = new Pen(BorderColor, BorderSize))
                     {
                         penBorder.Alignment = PenAlignment.Inset;
-                        pevent.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - 1, this.Height - 1);
+                        pevent.Graphics.DrawRectangle(penBorder, 0, 0, Width - 1, Height - 1);
                     }
                 }
             }
@@ -234,28 +211,28 @@ namespace QuanLyMachTu
                 pevent.Graphics.DrawImage(icon, new Rectangle(iconLocation, iconSize));
             }
 
-            TextRenderer.DrawText(pevent.Graphics, text, textFont, textLocation, textColor);
+            TextRenderer.DrawText(pevent.Graphics, text, base.Font, textLocation, base.ForeColor);
         }
 
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            if (this.Parent != null)
+            if (Parent != null)
             {
-                this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+                Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
             }
         }
 
         private void Container_BackColorChanged(object? sender, EventArgs e)
         {
-            if (this.DesignMode)
-                this.Invalidate();
+            if (DesignMode)
+                Invalidate();
         }
 
         private void Button_Resize(object? sender, EventArgs e)
         {
-            if (borderRadius > this.Height)
-                borderRadius = this.Height;
+            if (borderRadius > Height)
+                borderRadius = Height;
         }
     }
 }

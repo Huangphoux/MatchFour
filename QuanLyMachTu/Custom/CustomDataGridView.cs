@@ -8,10 +8,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Custom
 {
     [ToolboxItem(true)]
-    public class CustomDataGridView: DataGridView
+    public class CustomDataGridView : DataGridView
     {
         private int _cornerRadius = 20;
 
@@ -42,6 +42,6 @@ namespace QuanLyMachTu
         {
             base.OnResize(e);
             Invalidate();
-        }    
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿    namespace QuanLyMachTu
+﻿using QuanLyMachTu.Custom;
+
+namespace QuanLyMachTu
 {
     partial class MainWindow
     {
@@ -46,7 +48,7 @@
             panel_DivideButton = new Panel();
             panel_DivideExit = new Panel();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            benhNhanControl1 = new BenhNhanControl();
+            benhNhanControl = new BenhNhanControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
@@ -79,16 +81,14 @@
             pageButton_DichVu.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_DichVu.BorderRadius = 30;
             pageButton_DichVu.BorderSize = 0;
+            pageButton_DichVu.CustomText = "Dịch vụ";
             pageButton_DichVu.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_DichVu, "pageButton_DichVu");
-            pageButton_DichVu.ForeColor = Color.FromArgb(0, 173, 181);
+            pageButton_DichVu.ForeColor = Color.White;
             pageButton_DichVu.Icon = (Image)resources.GetObject("pageButton_DichVu.Icon");
             pageButton_DichVu.IconLocation = new Point(40, 31);
             pageButton_DichVu.IconSize = new Size(28, 28);
             pageButton_DichVu.Name = "pageButton_DichVu";
-            pageButton_DichVu.Text1 = "Dịch vụ";
-            pageButton_DichVu.TextColor = Color.White;
-            pageButton_DichVu.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_DichVu.TextLocation = new Point(98, 28);
             pageButton_DichVu.UseVisualStyleBackColor = false;
             // 
@@ -104,6 +104,7 @@
             pageButton_DuocPham.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_DuocPham.BorderRadius = 30;
             pageButton_DuocPham.BorderSize = 0;
+            pageButton_DuocPham.CustomText = "Dược phẩm";
             pageButton_DuocPham.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_DuocPham, "pageButton_DuocPham");
             pageButton_DuocPham.ForeColor = Color.White;
@@ -111,9 +112,6 @@
             pageButton_DuocPham.IconLocation = new Point(40, 31);
             pageButton_DuocPham.IconSize = new Size(28, 28);
             pageButton_DuocPham.Name = "pageButton_DuocPham";
-            pageButton_DuocPham.Text1 = "Dược phẩm";
-            pageButton_DuocPham.TextColor = Color.White;
-            pageButton_DuocPham.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_DuocPham.TextLocation = new Point(98, 28);
             pageButton_DuocPham.UseVisualStyleBackColor = false;
             // 
@@ -123,6 +121,7 @@
             pageButton_PhongKham.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_PhongKham.BorderRadius = 30;
             pageButton_PhongKham.BorderSize = 0;
+            pageButton_PhongKham.CustomText = "Phòng khám";
             pageButton_PhongKham.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_PhongKham, "pageButton_PhongKham");
             pageButton_PhongKham.ForeColor = Color.White;
@@ -130,9 +129,6 @@
             pageButton_PhongKham.IconLocation = new Point(40, 31);
             pageButton_PhongKham.IconSize = new Size(28, 28);
             pageButton_PhongKham.Name = "pageButton_PhongKham";
-            pageButton_PhongKham.Text1 = "Phòng khám";
-            pageButton_PhongKham.TextColor = Color.White;
-            pageButton_PhongKham.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_PhongKham.TextLocation = new Point(98, 28);
             pageButton_PhongKham.UseVisualStyleBackColor = false;
             // 
@@ -142,6 +138,7 @@
             pageButton_NhanVien.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_NhanVien.BorderRadius = 30;
             pageButton_NhanVien.BorderSize = 0;
+            pageButton_NhanVien.CustomText = "Nhân viên";
             pageButton_NhanVien.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_NhanVien, "pageButton_NhanVien");
             pageButton_NhanVien.ForeColor = Color.White;
@@ -149,9 +146,6 @@
             pageButton_NhanVien.IconLocation = new Point(40, 31);
             pageButton_NhanVien.IconSize = new Size(28, 28);
             pageButton_NhanVien.Name = "pageButton_NhanVien";
-            pageButton_NhanVien.Text1 = "Nhân viên";
-            pageButton_NhanVien.TextColor = Color.White;
-            pageButton_NhanVien.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_NhanVien.TextLocation = new Point(98, 28);
             pageButton_NhanVien.UseVisualStyleBackColor = false;
             // 
@@ -161,6 +155,7 @@
             pageButton_BenhNhan.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_BenhNhan.BorderRadius = 30;
             pageButton_BenhNhan.BorderSize = 0;
+            pageButton_BenhNhan.CustomText = "Bệnh nhân";
             pageButton_BenhNhan.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_BenhNhan, "pageButton_BenhNhan");
             pageButton_BenhNhan.ForeColor = Color.White;
@@ -168,12 +163,9 @@
             pageButton_BenhNhan.IconLocation = new Point(40, 31);
             pageButton_BenhNhan.IconSize = new Size(28, 28);
             pageButton_BenhNhan.Name = "pageButton_BenhNhan";
-            pageButton_BenhNhan.Text1 = "Bệnh nhân";
-            pageButton_BenhNhan.TextColor = Color.White;
-            pageButton_BenhNhan.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_BenhNhan.TextLocation = new Point(98, 28);
             pageButton_BenhNhan.UseVisualStyleBackColor = false;
-            pageButton_BenhNhan.Click += iconButton_BenhNhan_Click;
+            pageButton_BenhNhan.Click += pageButton_BenhNhan_Click;
             // 
             // pageButton_TongQuan
             // 
@@ -181,6 +173,7 @@
             pageButton_TongQuan.BorderColor = Color.FromArgb(238, 238, 238);
             pageButton_TongQuan.BorderRadius = 30;
             pageButton_TongQuan.BorderSize = 0;
+            pageButton_TongQuan.CustomText = "Tổng quan";
             pageButton_TongQuan.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton_TongQuan, "pageButton_TongQuan");
             pageButton_TongQuan.ForeColor = Color.White;
@@ -188,9 +181,6 @@
             pageButton_TongQuan.IconLocation = new Point(40, 31);
             pageButton_TongQuan.IconSize = new Size(28, 28);
             pageButton_TongQuan.Name = "pageButton_TongQuan";
-            pageButton_TongQuan.Text1 = "Tổng quan";
-            pageButton_TongQuan.TextColor = Color.White;
-            pageButton_TongQuan.TextFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_TongQuan.TextLocation = new Point(98, 28);
             pageButton_TongQuan.UseVisualStyleBackColor = false;
             pageButton_TongQuan.Click += pageButton_TongQuat_Click;
@@ -212,16 +202,14 @@
             pageButton2.BorderColor = Color.PaleVioletRed;
             pageButton2.BorderRadius = 40;
             pageButton2.BorderSize = 0;
+            pageButton2.CustomText = null;
             pageButton2.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton2, "pageButton2");
-            pageButton2.ForeColor = Color.White;
+            pageButton2.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton2.Icon = (Image)resources.GetObject("pageButton2.Icon");
             pageButton2.IconLocation = new Point(12, 12);
             pageButton2.IconSize = new Size(35, 35);
             pageButton2.Name = "pageButton2";
-            pageButton2.Text1 = "";
-            pageButton2.TextColor = Color.FromArgb(57, 54, 70);
-            pageButton2.TextFont = new Font("Segoe UI", 12F);
             pageButton2.TextLocation = new Point(0, 0);
             pageButton2.UseVisualStyleBackColor = false;
             // 
@@ -231,16 +219,14 @@
             pageButton1.BorderColor = Color.PaleVioletRed;
             pageButton1.BorderRadius = 40;
             pageButton1.BorderSize = 0;
+            pageButton1.CustomText = null;
             pageButton1.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(pageButton1, "pageButton1");
-            pageButton1.ForeColor = Color.White;
+            pageButton1.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton1.Icon = (Image)resources.GetObject("pageButton1.Icon");
             pageButton1.IconLocation = new Point(12, 12);
             pageButton1.IconSize = new Size(35, 35);
             pageButton1.Name = "pageButton1";
-            pageButton1.Text1 = "";
-            pageButton1.TextColor = Color.FromArgb(57, 54, 70);
-            pageButton1.TextFont = new Font("Segoe UI", 12F);
             pageButton1.TextLocation = new Point(0, 0);
             pageButton1.UseVisualStyleBackColor = false;
             // 
@@ -268,27 +254,27 @@
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += timer_Clock_Tick;
             // 
-            // benhNhanControl1
+            // benhNhanControl
             // 
-            resources.ApplyResources(benhNhanControl1, "benhNhanControl1");
-            benhNhanControl1.BackColor = Color.FromArgb(57, 54, 70);
-            benhNhanControl1.Name = "benhNhanControl1";
+            resources.ApplyResources(benhNhanControl, "benhNhanControl");
+            benhNhanControl.BackColor = Color.FromArgb(57, 54, 70);
+            benhNhanControl.Name = "benhNhanControl";
             // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(benhNhanControl1);
+            Controls.Add(benhNhanControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
             FormClosing += MainWindow_FormClosing;
+            Load += MainWindow_Load;
             panel_Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).EndInit();
             panel_TitleBar.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -309,6 +295,6 @@
         private PictureBox pictureBox_logo;
         private PageButton pageButton1;
         private PageButton pageButton2;
-        private BenhNhanControl benhNhanControl1;
+        private BenhNhanControl benhNhanControl;
     }
 }

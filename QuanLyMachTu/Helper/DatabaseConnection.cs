@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Helper
 {
     internal static class DatabaseConnection
     {
