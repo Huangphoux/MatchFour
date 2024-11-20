@@ -49,6 +49,7 @@ namespace QuanLyMachTu
             panel_DivideExit = new Panel();
             timer_Clock = new System.Windows.Forms.Timer(components);
             benhNhanControl = new BenhNhanControl();
+            phongKhamControl = new PhongKhamControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
@@ -131,6 +132,7 @@ namespace QuanLyMachTu
             pageButton_PhongKham.Name = "pageButton_PhongKham";
             pageButton_PhongKham.TextLocation = new Point(98, 28);
             pageButton_PhongKham.UseVisualStyleBackColor = false;
+            pageButton_PhongKham.Click += pageButton_PhongKham_Click;
             // 
             // pageButton_NhanVien
             // 
@@ -212,6 +214,7 @@ namespace QuanLyMachTu
             pageButton2.Name = "pageButton2";
             pageButton2.TextLocation = new Point(0, 0);
             pageButton2.UseVisualStyleBackColor = false;
+            pageButton2.Click += iconButton_CaiDat_Click;
             // 
             // pageButton1
             // 
@@ -260,11 +263,18 @@ namespace QuanLyMachTu
             benhNhanControl.BackColor = Color.FromArgb(57, 54, 70);
             benhNhanControl.Name = "benhNhanControl";
             // 
+            // phongKhamControl
+            // 
+            phongKhamControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(phongKhamControl, "phongKhamControl");
+            phongKhamControl.Name = "phongKhamControl";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            Controls.Add(phongKhamControl);
             Controls.Add(benhNhanControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
@@ -296,5 +306,6 @@ namespace QuanLyMachTu
         private PageButton pageButton1;
         private PageButton pageButton2;
         private BenhNhanControl benhNhanControl;
+        private PhongKhamControl phongKhamControl;
     }
 }

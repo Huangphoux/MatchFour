@@ -166,7 +166,7 @@
   <data name="pageButton_DichVu.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAulJREFUaEPtmU1rE1EUhuvKD7AbURA/di79Cbpw4UIUV/4IkVbduRE3Cm7rSkWt
+        DAAACwwBP0AiyAAAAulJREFUaEPtmU1rE1EUhuvKD7AbURA/di79Cbpw4UIUV/4IkVbduRE3Cm7rSkWt
         OTciKPoD/AG2gkIFm3OSilU3iiDW2iJ+1FduTErzzkxv7piZieALDxR6z3PfzEy+JiMj//MPxrWwWwz3
         nWHRGRBgURQP78xiH3sqSaf8x5Si6+JnhuJBdI58omCfPGBf6enzsklFFAvsG3gm57HJKU6L4okzLHGJ
         AlhyimlRjE+0sJH7RMVf307xPGWTclDM+A7cq690jnx15bsoZnKdCX/ZJGRVoRjjfsF0rvmkrALEMMX9
@@ -206,7 +206,7 @@
     <value>pageButton_DichVu</value>
   </data>
   <data name="&gt;&gt;pageButton_DichVu.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_DichVu.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -217,7 +217,7 @@
   <data name="pictureBox_logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABIpJREFUeF7tmVmIXFUQhuMG7ttjjAv6oI8KauKCioqI4JviFpcHRQw+KEIUfYiK
+        DAAACwwBP0AiyAAABIpJREFUeF7tmVmIXFUQhuMG7ttjjAv6oI8KauKCioqI4JviFpcHRQw+KEIUfYiK
         qKAIAUECwqTr9ERoV3ABRciTPsi4TJh01e1BByOauD4ZJ2jwl7r2aW7XPT1zu/v27e7h/PBBd5+qU3XO
         3Fv31pl166KioqKioqKixqCZJRyr2N/XvFwTN5DgS2IcThHM6W/Wbs0JwBGO8bQToAfbtwFHWr81IfoG
         JzjGu4FFd0GMj1wLJ1v/qdbOBGekl3lgwSFIsGeGcY6dZyrlmtjkBPvtIleDGL/WE1xl55sq1QW3EeMv
@@ -269,7 +269,7 @@
   <data name="pageButton_DuocPham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAmRJREFUaEPtl81qFEEUhbPSF1DR6MKfF3CZpWQRdeV7iD6KC3UtSaoSF3kBf3Cl
+        DAAACwwBP0AiyAAAAmRJREFUaEPtl81qFEEUhbPSF1DR6MKfF3CZpWQRdeV7iD6KC3UtSaoSF3kBf3Cl
         GNyIiwldNYMgvkBAXERUPHKb6dCcVEtVV91CsT84dJieOufcdHXPzMrKxMTfhfV4az1QVA5vOEedEyUK
         iXPU4QKlxDnqcIFS4hx1uEApcY46cmNyiVwZh9ecM/HfwttjrNi3OlxorNi3GrbBmnF4wIXGqvVqsMY5
         ahiPdesx4yIFNbMONzi3KDset63Dt0B4aX3f9rjD+UWwC1yyDkeBUB05HG3NcZF7ZGM9Hp8IU5bxeMQ9
@@ -307,7 +307,7 @@
     <value>pageButton_DuocPham</value>
   </data>
   <data name="&gt;&gt;pageButton_DuocPham.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_DuocPham.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -324,7 +324,7 @@
   <data name="pageButton_PhongKham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAsdJREFUaEPtWD2LFEEUPDlQMVATIxXRXEFBEE3VwEDBP2CkhmJ0XCp4evgBYiQo
+        DAAACwwBP0AiyAAAAsdJREFUaEPtWD2LFEEUPDlQMVATIxXRXEFBEE3VwEDBP2CkhmJ0XCp4evgBYiQo
         d/t6VdhIQRT8AyaignfzelfkAlFEQRGOQwMtee32slO7I7K367TeFFQw3a9fV033zLzpsbEKKwC3m9jh
         FFedIhPFUpvzorgiHts5PjkAWCUZJsXjm/NAP1qfeExYLI9PBmEV+ojvR/G4zOOTQC3DcRYbBCvuicd9
         bjfWPI5xnlJh28R5NFmosTGH1ddaWMPtbZOa1BZzHntZZGRXTE9fYIY9+WwlwilO05227TRhjDHxmrdZ
@@ -364,7 +364,7 @@
     <value>pageButton_PhongKham</value>
   </data>
   <data name="&gt;&gt;pageButton_PhongKham.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_PhongKham.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -381,7 +381,7 @@
   <data name="pageButton_NhanVien.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABL5JREFUaEPNmUuIHFUUhuP7iY+Fgi/U+EREFFE3vhciokjUlRriSnAhgqLiRhcu
+        DAAACwwBP0AiyAAABL5JREFUaEPNmUuIHFUUhuP7iY+Fgi/U+EREFFE3vhciokjUlRriSnAhgqLiRhcu
         4kZwNoFBdKbP7THSEje60YUhxBc6aIgzfU61xpiILyJB1Eh8/vLXVHW6Tt/O9KOqJj98dHPPqXPP6b63
         6t5bq1aVpEYHV4nhKTG8IYb5oPhJDHtF8V+KYS/bguFT+gTFk80EV/o4KyZJcB2TCwaMgyg+CYZrfNxa
         1WjjYlH84ZMbg31zi7jIx69NTcUTkaTGgrF8/NoUDFM+IU+Pb5+tFzG8VIxeo0Txpk/Ik/v69gibitFr
@@ -429,7 +429,7 @@
     <value>pageButton_NhanVien</value>
   </data>
   <data name="&gt;&gt;pageButton_NhanVien.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_NhanVien.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -446,7 +446,7 @@
   <data name="pageButton_BenhNhan.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABJFJREFUaEPtmVuIHEUUhuMV75cn74ji7SmCqOCDgjcQVBQRBBHBF0UwT4IBURIV
+        DAAACwwBP0AiyAAABJFJREFUaEPtmVuIHEUUhuMV75cn74ji7SmCqOCDgjcQVBQRBBHBF0UwT4IBURIV
         FbwgKIKrwc2cmkl0iCKCgqBuDEYQ8hCWzZwzMSZeEBIWo0ZNTNT8cjo9a83fNZnuddI7D37wP0z1qb9O
         9aX6dM2iRSNGOrhRFG+IwYLhN5coVBSvN7q4gePHhkYHF4nis2DAEK1tbcKF3H9BaXZxjRh2JpJNKovt
         4mr2WRCyM18h+WgSP8oMLmC/2hHDp5xcWfktx3614g8sJzUPXc++tREUKxIJVdUE+9ZGvlRyQpXkSyz7
@@ -494,7 +494,7 @@
     <value>pageButton_BenhNhan</value>
   </data>
   <data name="&gt;&gt;pageButton_BenhNhan.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_BenhNhan.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -511,7 +511,7 @@
   <data name="pageButton_TongQuan.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAtpJREFUaEPtmk1u1EAQRrOBG4DgHogz8LNkw0XgCAGOABJCacOGs7AiEd2DWJHA
+        DAAACwwBP0AiyAAAAtpJREFUaEPtmk1u1EAQRrOBG4DgHogz8LNkw0XgCAGOABJCacOGs7AiEd2DWJHA
         BYKQggSFarDN+I3bXV0NmlnkSSVFns+vPmsmTmTNwcElU45Wci9EOe2SiGU0+zrJXXp2Ts1FbFzMZ3r+
         OW9P5GoX5VlI8pUFNmfI87h1LOeHJF+6KE+101jQip5I4dyM+ZnXLFNzfojyZCxopfRODDPkedw6Nedr
         p7GgFUpyU5vn1J4/FrRCQW5q85za88eCVigoSf7HXYt5HWaKUFCS6N8ELcZzcqPZkOQOPZvwnFKHWShw
@@ -545,7 +545,7 @@
     <value>pageButton_TongQuan</value>
   </data>
   <data name="&gt;&gt;pageButton_TongQuan.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton_TongQuan.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -578,7 +578,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pageButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -641,7 +641,7 @@
     <value>pageButton2</value>
   </data>
   <data name="&gt;&gt;pageButton2.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton2.Parent" xml:space="preserve">
     <value>panel_TitleBar</value>
@@ -691,7 +691,7 @@
     <value>pageButton1</value>
   </data>
   <data name="&gt;&gt;pageButton1.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pageButton1.Parent" xml:space="preserve">
     <value>panel_TitleBar</value>
@@ -805,7 +805,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -820,7 +820,7 @@
     <value>308, 100</value>
   </data>
   <data name="benhNhanControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 8, 8, 8</value>
   </data>
   <data name="benhNhanControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>1590, 864</value>
@@ -838,6 +838,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="phongKhamControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>308, 100</value>
+  </data>
+  <data name="phongKhamControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 864</value>
+  </data>
+  <data name="phongKhamControl.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.Name" xml:space="preserve">
+    <value>phongKhamControl</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.PhongKhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -120,9 +120,10 @@ namespace QuanLyMachTu
             ActivateButton((PageButton)sender);
             benhNhanControl.BringToFront();
         }
-        private void iconButton_PhongKham_Click(object sender, EventArgs e)
+        private void pageButton_PhongKham_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
+            phongKhamControl.BringToFront();
         }
         private void iconButton_HoaDon_Click(object sender, EventArgs e)
         {
