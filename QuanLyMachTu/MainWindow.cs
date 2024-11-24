@@ -179,8 +179,8 @@ namespace QuanLyMachTu
         private void ShowExitConfirmation()
         {
             DialogResult dialogResult = MessageBox.Show(
-                "Bạn có thực sự muốn thoát khỏi chương trình?",
-                "Trước khi thoát chương trình",
+                "Bạn có thực sự muốn thoát chương trình?",
+                "Xác nhận thoát chương trình",
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button2
