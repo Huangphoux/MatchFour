@@ -16,40 +16,13 @@ namespace QuanLyMachTu
         public MainWindow()
         {
             InitializeComponent();
-
-            leftBorderButton = new Panel
-            {
-                Size = new Size(10, 80)
-            };
-
-            panel_Menu.Controls.Add(leftBorderButton);
-
-            //Form
-            // Text = string.Empty;
-            // this.ControlBox = false;
-
             DoubleBuffered = true;
-
-            // MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
-
-            // Initialize the SqlConnection
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
             currentButton = pageButton_TongQuan;
             ActivateButton(currentButton);
         }
-
-        //private struct RGBColors
-        //{
-        //    public static Color color_TomTat = Color.FromArgb(172, 126, 241);
-        //    public static Color color_LichHen = Color.FromArgb(249, 118, 176);
-        //    public static Color color_BenhNhan = Color.FromArgb(253, 138, 114);
-        //    public static Color color_PhongKham = Color.FromArgb(95, 77, 221);
-        //    public static Color color_TaiChinh = Color.FromArgb(249, 88, 155);
-        //    public static Color color_ThongTin = Color.FromArgb(24, 161, 251);
-        //    public static Color color_CaiDat = Color.FromArgb(24, 161, 251);
-        //}
 
         //Methods
         private void ActivateButton(PageButton senderButton)
@@ -144,9 +117,10 @@ namespace QuanLyMachTu
         {
             ActivateButton((PageButton)sender);
         }
-        private void iconButton_DuocPham_Click(object sender, EventArgs e)
+        private void pageButton_DuocPham_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
+            duocPhamControl.BringToFront();
         }
         private void iconButton_DichVu_Click(object sender, EventArgs e)
         {

@@ -141,7 +141,7 @@
             customDataGridView_PK.EnableHeadersVisualStyles = false;
             customDataGridView_PK.GridColor = Color.White;
             customDataGridView_PK.Location = new Point(20, 134);
-            customDataGridView_PK.Margin = new Padding(2, 2, 2, 2);
+            customDataGridView_PK.Margin = new Padding(2);
             customDataGridView_PK.Name = "customDataGridView_PK";
             customDataGridView_PK.ReadOnly = true;
             customDataGridView_PK.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -158,7 +158,7 @@
             panel1.Controls.Add(pageButton_PKTab);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1272, 67);
             panel1.TabIndex = 19;
@@ -179,7 +179,7 @@
             pageButton_PCTab.IconLocation = new Point(15, 13);
             pageButton_PCTab.IconSize = new Size(34, 34);
             pageButton_PCTab.Location = new Point(256, 10);
-            pageButton_PCTab.Margin = new Padding(2, 2, 2, 2);
+            pageButton_PCTab.Margin = new Padding(2);
             pageButton_PCTab.Name = "pageButton_PCTab";
             pageButton_PCTab.Size = new Size(200, 48);
             pageButton_PCTab.TabIndex = 10;
@@ -203,7 +203,7 @@
             pageButton_PKTab.IconLocation = new Point(15, 15);
             pageButton_PKTab.IconSize = new Size(30, 30);
             pageButton_PKTab.Location = new Point(20, 10);
-            pageButton_PKTab.Margin = new Padding(2, 2, 2, 2);
+            pageButton_PKTab.Margin = new Padding(2);
             pageButton_PKTab.Name = "pageButton_PKTab";
             pageButton_PKTab.Size = new Size(200, 48);
             pageButton_PKTab.TabIndex = 9;
@@ -221,7 +221,7 @@
             customPanel_Sum.Controls.Add(label_SoBenhNhan);
             customPanel_Sum.CornerRadius = 40;
             customPanel_Sum.Location = new Point(20, 630);
-            customPanel_Sum.Margin = new Padding(2, 2, 2, 2);
+            customPanel_Sum.Margin = new Padding(2);
             customPanel_Sum.Name = "customPanel_Sum";
             customPanel_Sum.Size = new Size(899, 48);
             customPanel_Sum.TabIndex = 18;
@@ -290,7 +290,7 @@
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
             panel_Toolbar.Location = new Point(0, 67);
-            panel_Toolbar.Margin = new Padding(2, 2, 2, 2);
+            panel_Toolbar.Margin = new Padding(2);
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(939, 64);
             panel_Toolbar.TabIndex = 16;
@@ -310,7 +310,7 @@
             pageButton_Filters.IconLocation = new Point(11, 11);
             pageButton_Filters.IconSize = new Size(34, 34);
             pageButton_Filters.Location = new Point(875, 10);
-            pageButton_Filters.Margin = new Padding(2, 2, 2, 2);
+            pageButton_Filters.Margin = new Padding(2);
             pageButton_Filters.Name = "pageButton_Filters";
             pageButton_Filters.Size = new Size(44, 44);
             pageButton_Filters.TabIndex = 20;
@@ -332,7 +332,7 @@
             pageButton_Remove.IconLocation = new Point(11, 11);
             pageButton_Remove.IconSize = new Size(34, 34);
             pageButton_Remove.Location = new Point(72, 10);
-            pageButton_Remove.Margin = new Padding(2, 2, 2, 2);
+            pageButton_Remove.Margin = new Padding(2);
             pageButton_Remove.Name = "pageButton_Remove";
             pageButton_Remove.Size = new Size(44, 44);
             pageButton_Remove.TabIndex = 2;
@@ -354,7 +354,7 @@
             pageButton_Upload.IconLocation = new Point(11, 11);
             pageButton_Upload.IconSize = new Size(34, 34);
             pageButton_Upload.Location = new Point(20, 10);
-            pageButton_Upload.Margin = new Padding(2, 2, 2, 2);
+            pageButton_Upload.Margin = new Padding(2);
             pageButton_Upload.Name = "pageButton_Upload";
             pageButton_Upload.Size = new Size(44, 44);
             pageButton_Upload.TabIndex = 1;
@@ -393,7 +393,7 @@
             panel_Filters.Controls.Add(textBox_Filters_MaPK);
             panel_Filters.Controls.Add(label_Filters);
             panel_Filters.Location = new Point(939, 67);
-            panel_Filters.Margin = new Padding(2, 2, 2, 2);
+            panel_Filters.Margin = new Padding(2);
             panel_Filters.Name = "panel_Filters";
             panel_Filters.Size = new Size(333, 624);
             panel_Filters.TabIndex = 17;
@@ -451,7 +451,7 @@
             textBox_Filters_TGKTGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGKTGiay.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGKTGiay.Location = new Point(274, 337);
-            textBox_Filters_TGKTGiay.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGKTGiay.Margin = new Padding(2);
             textBox_Filters_TGKTGiay.Name = "textBox_Filters_TGKTGiay";
             textBox_Filters_TGKTGiay.Size = new Size(32, 27);
             textBox_Filters_TGKTGiay.TabIndex = 32;
@@ -465,7 +465,7 @@
             textBox_Filters_TGKTPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGKTPhut.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGKTPhut.Location = new Point(229, 337);
-            textBox_Filters_TGKTPhut.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGKTPhut.Margin = new Padding(2);
             textBox_Filters_TGKTPhut.Name = "textBox_Filters_TGKTPhut";
             textBox_Filters_TGKTPhut.Size = new Size(32, 27);
             textBox_Filters_TGKTPhut.TabIndex = 31;
@@ -479,7 +479,7 @@
             textBox_Filters_TGKTGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGKTGio.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGKTGio.Location = new Point(184, 337);
-            textBox_Filters_TGKTGio.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGKTGio.Margin = new Padding(2);
             textBox_Filters_TGKTGio.Name = "textBox_Filters_TGKTGio";
             textBox_Filters_TGKTGio.Size = new Size(32, 27);
             textBox_Filters_TGKTGio.TabIndex = 30;
@@ -523,7 +523,7 @@
             textBox_Filters_TGBDGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGBDGiay.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGBDGiay.Location = new Point(110, 337);
-            textBox_Filters_TGBDGiay.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGBDGiay.Margin = new Padding(2);
             textBox_Filters_TGBDGiay.Name = "textBox_Filters_TGBDGiay";
             textBox_Filters_TGBDGiay.Size = new Size(32, 27);
             textBox_Filters_TGBDGiay.TabIndex = 27;
@@ -537,7 +537,7 @@
             textBox_Filters_TGBDPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGBDPhut.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGBDPhut.Location = new Point(65, 337);
-            textBox_Filters_TGBDPhut.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGBDPhut.Margin = new Padding(2);
             textBox_Filters_TGBDPhut.Name = "textBox_Filters_TGBDPhut";
             textBox_Filters_TGBDPhut.Size = new Size(32, 27);
             textBox_Filters_TGBDPhut.TabIndex = 26;
@@ -552,7 +552,7 @@
             comboBox_Filter_TrangThai.FormattingEnabled = true;
             comboBox_Filter_TrangThai.Items.AddRange(new object[] { "Open", "Close" });
             comboBox_Filter_TrangThai.Location = new Point(184, 182);
-            comboBox_Filter_TrangThai.Margin = new Padding(2, 2, 2, 2);
+            comboBox_Filter_TrangThai.Margin = new Padding(2);
             comboBox_Filter_TrangThai.Name = "comboBox_Filter_TrangThai";
             comboBox_Filter_TrangThai.Size = new Size(134, 36);
             comboBox_Filter_TrangThai.TabIndex = 25;
@@ -594,7 +594,7 @@
             textBox_Filters_ThoiGianKT.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_ThoiGianKT.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_ThoiGianKT.Location = new Point(185, 337);
-            textBox_Filters_ThoiGianKT.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_ThoiGianKT.Margin = new Padding(2);
             textBox_Filters_ThoiGianKT.Name = "textBox_Filters_ThoiGianKT";
             textBox_Filters_ThoiGianKT.Size = new Size(84, 27);
             textBox_Filters_ThoiGianKT.TabIndex = 20;
@@ -606,7 +606,7 @@
             textBox_Filters_TGBDGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_TGBDGio.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_TGBDGio.Location = new Point(20, 337);
-            textBox_Filters_TGBDGio.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_TGBDGio.Margin = new Padding(2);
             textBox_Filters_TGBDGio.Name = "textBox_Filters_TGBDGio";
             textBox_Filters_TGBDGio.Size = new Size(32, 27);
             textBox_Filters_TGBDGio.TabIndex = 19;
@@ -620,7 +620,7 @@
             textBox_Filters_MaNV.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_MaNV.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_MaNV.Location = new Point(20, 261);
-            textBox_Filters_MaNV.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_MaNV.Margin = new Padding(2);
             textBox_Filters_MaNV.Name = "textBox_Filters_MaNV";
             textBox_Filters_MaNV.Size = new Size(292, 27);
             textBox_Filters_MaNV.TabIndex = 18;
@@ -693,7 +693,7 @@
             textBox_GE.Font = new Font("Segoe UI Semilight", 12F);
             textBox_GE.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_GE.Location = new Point(114, 182);
-            textBox_GE.Margin = new Padding(2, 2, 2, 2);
+            textBox_GE.Margin = new Padding(2);
             textBox_GE.Name = "textBox_GE";
             textBox_GE.ReadOnly = true;
             textBox_GE.Size = new Size(31, 27);
@@ -708,7 +708,7 @@
             textBox_Filters_SoGhe.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_SoGhe.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_SoGhe.Location = new Point(20, 182);
-            textBox_Filters_SoGhe.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_SoGhe.Margin = new Padding(2);
             textBox_Filters_SoGhe.Name = "textBox_Filters_SoGhe";
             textBox_Filters_SoGhe.Size = new Size(88, 27);
             textBox_Filters_SoGhe.TabIndex = 5;
@@ -720,7 +720,7 @@
             button_Filter_OK.Font = new Font("Segoe UI", 10F);
             button_Filter_OK.ForeColor = Color.FromArgb(148, 255, 216);
             button_Filter_OK.Location = new Point(20, 568);
-            button_Filter_OK.Margin = new Padding(2, 2, 2, 2);
+            button_Filter_OK.Margin = new Padding(2);
             button_Filter_OK.Name = "button_Filter_OK";
             button_Filter_OK.Size = new Size(75, 34);
             button_Filter_OK.TabIndex = 4;
@@ -735,7 +735,7 @@
             textBox_Filters_MaPK.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Filters_MaPK.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_MaPK.Location = new Point(20, 102);
-            textBox_Filters_MaPK.Margin = new Padding(2, 2, 2, 2);
+            textBox_Filters_MaPK.Margin = new Padding(2);
             textBox_Filters_MaPK.Name = "textBox_Filters_MaPK";
             textBox_Filters_MaPK.Size = new Size(292, 27);
             textBox_Filters_MaPK.TabIndex = 3;
@@ -787,7 +787,7 @@
             customDataGridView_PC.EnableHeadersVisualStyles = false;
             customDataGridView_PC.GridColor = Color.White;
             customDataGridView_PC.Location = new Point(359, 134);
-            customDataGridView_PC.Margin = new Padding(2, 2, 2, 2);
+            customDataGridView_PC.Margin = new Padding(2);
             customDataGridView_PC.Name = "customDataGridView_PC";
             customDataGridView_PC.ReadOnly = true;
             customDataGridView_PC.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -827,7 +827,7 @@
             panel_Upload.Controls.Add(textBox_Upload_MaPK);
             panel_Upload.Controls.Add(label20);
             panel_Upload.Location = new Point(939, 67);
-            panel_Upload.Margin = new Padding(2, 2, 2, 2);
+            panel_Upload.Margin = new Padding(2);
             panel_Upload.Name = "panel_Upload";
             panel_Upload.Size = new Size(333, 624);
             panel_Upload.TabIndex = 36;
@@ -885,7 +885,7 @@
             textBox_Upload_TGKTGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTGiay.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGKTGiay.Location = new Point(274, 261);
-            textBox_Upload_TGKTGiay.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGKTGiay.Margin = new Padding(2);
             textBox_Upload_TGKTGiay.Name = "textBox_Upload_TGKTGiay";
             textBox_Upload_TGKTGiay.Size = new Size(32, 27);
             textBox_Upload_TGKTGiay.TabIndex = 32;
@@ -899,7 +899,7 @@
             textBox_Upload_TGKTPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTPhut.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGKTPhut.Location = new Point(229, 261);
-            textBox_Upload_TGKTPhut.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGKTPhut.Margin = new Padding(2);
             textBox_Upload_TGKTPhut.Name = "textBox_Upload_TGKTPhut";
             textBox_Upload_TGKTPhut.Size = new Size(32, 27);
             textBox_Upload_TGKTPhut.TabIndex = 31;
@@ -913,7 +913,7 @@
             textBox_Upload_TGKTGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTGio.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGKTGio.Location = new Point(184, 261);
-            textBox_Upload_TGKTGio.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGKTGio.Margin = new Padding(2);
             textBox_Upload_TGKTGio.Name = "textBox_Upload_TGKTGio";
             textBox_Upload_TGKTGio.Size = new Size(32, 27);
             textBox_Upload_TGKTGio.TabIndex = 30;
@@ -957,7 +957,7 @@
             textBox_Upload_TGBDGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDGiay.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGBDGiay.Location = new Point(110, 261);
-            textBox_Upload_TGBDGiay.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGBDGiay.Margin = new Padding(2);
             textBox_Upload_TGBDGiay.Name = "textBox_Upload_TGBDGiay";
             textBox_Upload_TGBDGiay.Size = new Size(32, 27);
             textBox_Upload_TGBDGiay.TabIndex = 27;
@@ -971,7 +971,7 @@
             textBox_Upload_TGBDPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDPhut.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGBDPhut.Location = new Point(65, 261);
-            textBox_Upload_TGBDPhut.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGBDPhut.Margin = new Padding(2);
             textBox_Upload_TGBDPhut.Name = "textBox_Upload_TGBDPhut";
             textBox_Upload_TGBDPhut.Size = new Size(32, 27);
             textBox_Upload_TGBDPhut.TabIndex = 26;
@@ -987,7 +987,7 @@
             comboBox_Upload_TrangThai.FormattingEnabled = true;
             comboBox_Upload_TrangThai.Items.AddRange(new object[] { "Open", "Close" });
             comboBox_Upload_TrangThai.Location = new Point(184, 102);
-            comboBox_Upload_TrangThai.Margin = new Padding(2, 2, 2, 2);
+            comboBox_Upload_TrangThai.Margin = new Padding(2);
             comboBox_Upload_TrangThai.Name = "comboBox_Upload_TrangThai";
             comboBox_Upload_TrangThai.Size = new Size(134, 36);
             comboBox_Upload_TrangThai.TabIndex = 25;
@@ -1029,7 +1029,7 @@
             textBox_Upload_TGBDGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDGio.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_TGBDGio.Location = new Point(20, 261);
-            textBox_Upload_TGBDGio.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_TGBDGio.Margin = new Padding(2);
             textBox_Upload_TGBDGio.Name = "textBox_Upload_TGBDGio";
             textBox_Upload_TGBDGio.Size = new Size(32, 27);
             textBox_Upload_TGBDGio.TabIndex = 19;
@@ -1043,7 +1043,7 @@
             textBox_Upload_MaNV.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_MaNV.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_MaNV.Location = new Point(20, 182);
-            textBox_Upload_MaNV.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_MaNV.Margin = new Padding(2);
             textBox_Upload_MaNV.Name = "textBox_Upload_MaNV";
             textBox_Upload_MaNV.Size = new Size(122, 27);
             textBox_Upload_MaNV.TabIndex = 18;
@@ -1117,7 +1117,7 @@
             textBox9.Font = new Font("Segoe UI Semilight", 12F);
             textBox9.ForeColor = Color.FromArgb(244, 238, 224);
             textBox9.Location = new Point(278, 182);
-            textBox9.Margin = new Padding(2, 2, 2, 2);
+            textBox9.Margin = new Padding(2);
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
             textBox9.Size = new Size(31, 27);
@@ -1132,7 +1132,7 @@
             textBox_Upload_SoGhe.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_SoGhe.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_SoGhe.Location = new Point(184, 182);
-            textBox_Upload_SoGhe.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_SoGhe.Margin = new Padding(2);
             textBox_Upload_SoGhe.Name = "textBox_Upload_SoGhe";
             textBox_Upload_SoGhe.Size = new Size(88, 27);
             textBox_Upload_SoGhe.TabIndex = 5;
@@ -1145,7 +1145,7 @@
             pageButton_Upload_OK.Font = new Font("Segoe UI", 10F);
             pageButton_Upload_OK.ForeColor = Color.FromArgb(148, 255, 216);
             pageButton_Upload_OK.Location = new Point(20, 568);
-            pageButton_Upload_OK.Margin = new Padding(2, 2, 2, 2);
+            pageButton_Upload_OK.Margin = new Padding(2);
             pageButton_Upload_OK.Name = "pageButton_Upload_OK";
             pageButton_Upload_OK.Size = new Size(75, 34);
             pageButton_Upload_OK.TabIndex = 4;
@@ -1160,7 +1160,7 @@
             textBox_Upload_MaPK.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_MaPK.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_MaPK.Location = new Point(20, 102);
-            textBox_Upload_MaPK.Margin = new Padding(2, 2, 2, 2);
+            textBox_Upload_MaPK.Margin = new Padding(2);
             textBox_Upload_MaPK.Name = "textBox_Upload_MaPK";
             textBox_Upload_MaPK.Size = new Size(122, 27);
             textBox_Upload_MaPK.TabIndex = 3;
@@ -1184,14 +1184,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_Upload);
+            Controls.Add(panel_Filters);
             Controls.Add(customDataGridView_PC);
             Controls.Add(panel1);
             Controls.Add(customPanel_Sum);
             Controls.Add(panel_Toolbar);
             Controls.Add(customDataGridView_PK);
-            Controls.Add(panel_Upload);
-            Controls.Add(panel_Filters);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "PhongKhamControl";
             Size = new Size(1272, 691);
             Load += PhongKhamControl_Load;
