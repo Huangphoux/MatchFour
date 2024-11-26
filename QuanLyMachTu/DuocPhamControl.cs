@@ -41,6 +41,8 @@ namespace QuanLyMachTu
         const int FIL_FUNC = 2;
 
         //controllers
+
+        #region "Controls"
         int controlPage;
         DataTable controlDataTable;
         private Panel panel_TopPanel;
@@ -87,8 +89,35 @@ namespace QuanLyMachTu
         private TextBox textBox_Ngay;
         private Label label_Ngay;
         private CustomDataGridView customDataGridView;
+        private Panel panel_Filter;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label2;
+        private TextBox textBox3;
+        private Label label3;
+        private ComboBox comboBox1;
+        private Label label4;
+        private TextBox textBox4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private TextBox textBox5;
+        private Label label8;
+        private TextBox textBox6;
+        private Label label9;
+        private TextBox textBox7;
+        private Label label10;
+        private TextBox textBox8;
+        private TextBox textBox9;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private TextBox textBox10;
+        private TextBox textBox12;
+        private Button button1;
+        private Label label15;
         CustomDataGridView controlDataGridView;
-
+        #endregion
         public DuocPhamControl()
         {
             InitializeComponent();
@@ -97,14 +126,15 @@ namespace QuanLyMachTu
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(DuocPhamControl));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_TopPanel = new Panel();
             panel_Toolbar = new Panel();
             pageButton_Filter = new PageButton();
             pageButton_Remove = new PageButton();
             pageButton_Upload = new PageButton();
             panel_Upload = new Panel();
+            textBox_SoLuong = new TextBox();
             textBox_HSD = new TextBox();
             label_HSD = new Label();
             textBox_Nam = new TextBox();
@@ -131,10 +161,37 @@ namespace QuanLyMachTu
             button_Upload_OK = new Button();
             label_Upload = new Label();
             customDataGridView = new CustomDataGridView();
-            textBox_SoLuong = new TextBox();
+            panel_Filter = new Panel();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            textBox3 = new TextBox();
+            label3 = new Label();
+            comboBox1 = new ComboBox();
+            label4 = new Label();
+            textBox4 = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            textBox5 = new TextBox();
+            label8 = new Label();
+            textBox6 = new TextBox();
+            label9 = new Label();
+            textBox7 = new TextBox();
+            label10 = new Label();
+            textBox8 = new TextBox();
+            textBox9 = new TextBox();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            textBox10 = new TextBox();
+            textBox12 = new TextBox();
+            button1 = new Button();
+            label15 = new Label();
             panel_Toolbar.SuspendLayout();
             panel_Upload.SuspendLayout();
             ((ISupportInitialize)customDataGridView).BeginInit();
+            panel_Filter.SuspendLayout();
             SuspendLayout();
             // 
             // panel_TopPanel
@@ -264,6 +321,19 @@ namespace QuanLyMachTu
             panel_Upload.Name = "panel_Upload";
             panel_Upload.Size = new Size(333, 624);
             panel_Upload.TabIndex = 21;
+            panel_Upload.Paint += panel_Upload_Paint;
+            // 
+            // textBox_SoLuong
+            // 
+            textBox_SoLuong.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_SoLuong.BorderStyle = BorderStyle.None;
+            textBox_SoLuong.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_SoLuong.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_SoLuong.Location = new Point(164, 362);
+            textBox_SoLuong.Margin = new Padding(2);
+            textBox_SoLuong.Name = "textBox_SoLuong";
+            textBox_SoLuong.Size = new Size(102, 27);
+            textBox_SoLuong.TabIndex = 48;
             // 
             // textBox_HSD
             // 
@@ -616,26 +686,26 @@ namespace QuanLyMachTu
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(20, 134);
@@ -648,21 +718,399 @@ namespace QuanLyMachTu
             customDataGridView.Size = new Size(899, 480);
             customDataGridView.TabIndex = 22;
             // 
-            // textBox_SoLuong
+            // panel_Filter
             // 
-            textBox_SoLuong.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_SoLuong.BorderStyle = BorderStyle.None;
-            textBox_SoLuong.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_SoLuong.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_SoLuong.Location = new Point(164, 362);
-            textBox_SoLuong.Margin = new Padding(2);
-            textBox_SoLuong.Name = "textBox_SoLuong";
-            textBox_SoLuong.Size = new Size(102, 27);
-            textBox_SoLuong.TabIndex = 48;
+            panel_Filter.Anchor = AnchorStyles.Right;
+            panel_Filter.AutoScroll = true;
+            panel_Filter.AutoSize = true;
+            panel_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Filter.Controls.Add(textBox1);
+            panel_Filter.Controls.Add(textBox2);
+            panel_Filter.Controls.Add(label2);
+            panel_Filter.Controls.Add(textBox3);
+            panel_Filter.Controls.Add(label3);
+            panel_Filter.Controls.Add(comboBox1);
+            panel_Filter.Controls.Add(label4);
+            panel_Filter.Controls.Add(textBox4);
+            panel_Filter.Controls.Add(label5);
+            panel_Filter.Controls.Add(label6);
+            panel_Filter.Controls.Add(label7);
+            panel_Filter.Controls.Add(textBox5);
+            panel_Filter.Controls.Add(label8);
+            panel_Filter.Controls.Add(textBox6);
+            panel_Filter.Controls.Add(label9);
+            panel_Filter.Controls.Add(textBox7);
+            panel_Filter.Controls.Add(label10);
+            panel_Filter.Controls.Add(textBox8);
+            panel_Filter.Controls.Add(textBox9);
+            panel_Filter.Controls.Add(label12);
+            panel_Filter.Controls.Add(label13);
+            panel_Filter.Controls.Add(label14);
+            panel_Filter.Controls.Add(textBox10);
+            panel_Filter.Controls.Add(textBox12);
+            panel_Filter.Controls.Add(button1);
+            panel_Filter.Controls.Add(label15);
+            panel_Filter.Location = new Point(939, 67);
+            panel_Filter.Margin = new Padding(2);
+            panel_Filter.Name = "panel_Filter";
+            panel_Filter.Size = new Size(333, 624);
+            panel_Filter.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(57, 54, 70);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI Semilight", 12F);
+            textBox1.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox1.Location = new Point(164, 362);
+            textBox1.Margin = new Padding(2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(102, 27);
+            textBox1.TabIndex = 48;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.FromArgb(57, 54, 70);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI Semilight", 12F);
+            textBox2.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox2.Location = new Point(251, 446);
+            textBox2.Margin = new Padding(2);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(48, 27);
+            textBox2.TabIndex = 47;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(193, 193, 193);
+            label2.ImageAlign = ContentAlignment.BottomCenter;
+            label2.Location = new Point(244, 405);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 23);
+            label2.TabIndex = 46;
+            label2.Text = "HSD";
+            label2.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = Color.FromArgb(57, 54, 70);
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Font = new Font("Segoe UI Semilight", 12F);
+            textBox3.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox3.Location = new Point(184, 439);
+            textBox3.Margin = new Padding(2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(48, 27);
+            textBox3.TabIndex = 45;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(193, 193, 193);
+            label3.ImageAlign = ContentAlignment.BottomCenter;
+            label3.Location = new Point(188, 405);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(47, 23);
+            label3.TabIndex = 44;
+            label3.Text = "Năm";
+            label3.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox1.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" });
+            comboBox1.Location = new Point(96, 432);
+            comboBox1.Margin = new Padding(2);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(69, 36);
+            comboBox1.TabIndex = 43;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(193, 193, 193);
+            label4.ImageAlign = ContentAlignment.BottomCenter;
+            label4.Location = new Point(104, 405);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 23);
+            label4.TabIndex = 42;
+            label4.Text = "Tháng";
+            label4.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox4
+            // 
+            textBox4.BackColor = Color.FromArgb(57, 54, 70);
+            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.Font = new Font("Segoe UI Semilight", 12F);
+            textBox4.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox4.Location = new Point(24, 439);
+            textBox4.Margin = new Padding(2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(44, 27);
+            textBox4.TabIndex = 41;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(193, 193, 193);
+            label5.ImageAlign = ContentAlignment.BottomCenter;
+            label5.Location = new Point(24, 404);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 23);
+            label5.TabIndex = 40;
+            label5.Text = "Ngày";
+            label5.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(193, 193, 193);
+            label6.ImageAlign = ContentAlignment.BottomCenter;
+            label6.Location = new Point(164, 337);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(78, 23);
+            label6.TabIndex = 39;
+            label6.Text = "Số lượng";
+            label6.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(193, 193, 193);
+            label7.ImageAlign = ContentAlignment.BottomCenter;
+            label7.Location = new Point(15, 337);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(59, 23);
+            label7.TabIndex = 37;
+            label7.Text = "Đơn vị";
+            label7.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox5
+            // 
+            textBox5.BackColor = Color.FromArgb(57, 54, 70);
+            textBox5.BorderStyle = BorderStyle.None;
+            textBox5.Font = new Font("Segoe UI Semilight", 12F);
+            textBox5.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox5.Location = new Point(15, 362);
+            textBox5.Margin = new Padding(2);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(102, 27);
+            textBox5.TabIndex = 36;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(193, 193, 193);
+            label8.ImageAlign = ContentAlignment.BottomCenter;
+            label8.Location = new Point(12, 274);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(68, 23);
+            label8.TabIndex = 35;
+            label8.Text = "Xuất xứ";
+            label8.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox6
+            // 
+            textBox6.BackColor = Color.FromArgb(57, 54, 70);
+            textBox6.BorderStyle = BorderStyle.None;
+            textBox6.Font = new Font("Segoe UI Semilight", 12F);
+            textBox6.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox6.Location = new Point(12, 308);
+            textBox6.Margin = new Padding(2);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(285, 27);
+            textBox6.TabIndex = 34;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(193, 193, 193);
+            label9.ImageAlign = ContentAlignment.BottomCenter;
+            label9.Location = new Point(164, 205);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 23);
+            label9.TabIndex = 33;
+            label9.Text = "Giá bán";
+            label9.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox7
+            // 
+            textBox7.BackColor = Color.FromArgb(57, 54, 70);
+            textBox7.BorderStyle = BorderStyle.None;
+            textBox7.Font = new Font("Segoe UI Semilight", 12F);
+            textBox7.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox7.Location = new Point(164, 240);
+            textBox7.Margin = new Padding(2);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(102, 27);
+            textBox7.TabIndex = 32;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(193, 193, 193);
+            label10.ImageAlign = ContentAlignment.BottomCenter;
+            label10.Location = new Point(12, 205);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(79, 23);
+            label10.TabIndex = 31;
+            label10.Text = "Giá nhập";
+            label10.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox8
+            // 
+            textBox8.BackColor = Color.FromArgb(57, 54, 70);
+            textBox8.BorderStyle = BorderStyle.None;
+            textBox8.Font = new Font("Segoe UI Semilight", 12F);
+            textBox8.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox8.Location = new Point(12, 245);
+            textBox8.Margin = new Padding(2);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(102, 27);
+            textBox8.TabIndex = 30;
+            // 
+            // textBox9
+            // 
+            textBox9.BackColor = Color.FromArgb(57, 54, 70);
+            textBox9.Font = new Font("Segoe UI Semilight", 12F);
+            textBox9.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox9.Location = new Point(21, 508);
+            textBox9.Margin = new Padding(2);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(294, 41);
+            textBox9.TabIndex = 29;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(193, 193, 193);
+            label12.ImageAlign = ContentAlignment.BottomCenter;
+            label12.Location = new Point(23, 470);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(55, 23);
+            label12.TabIndex = 28;
+            label12.Text = "Mô tả";
+            label12.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(193, 193, 193);
+            label13.ImageAlign = ContentAlignment.BottomCenter;
+            label13.Location = new Point(12, 134);
+            label13.Margin = new Padding(2, 0, 2, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(128, 23);
+            label13.TabIndex = 14;
+            label13.Text = "Tên dược phẩm";
+            label13.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.FromArgb(193, 193, 193);
+            label14.ImageAlign = ContentAlignment.BottomCenter;
+            label14.Location = new Point(12, 55);
+            label14.Margin = new Padding(2, 0, 2, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(126, 23);
+            label14.TabIndex = 13;
+            label14.Text = "Mã dược phẩm";
+            label14.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox10
+            // 
+            textBox10.BackColor = Color.FromArgb(57, 54, 70);
+            textBox10.BorderStyle = BorderStyle.None;
+            textBox10.Font = new Font("Segoe UI Semilight", 12F);
+            textBox10.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox10.Location = new Point(12, 159);
+            textBox10.Margin = new Padding(2);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(293, 27);
+            textBox10.TabIndex = 12;
+            // 
+            // textBox12
+            // 
+            textBox12.BackColor = Color.FromArgb(57, 54, 70);
+            textBox12.BorderStyle = BorderStyle.None;
+            textBox12.Font = new Font("Segoe UI Semilight", 12F);
+            textBox12.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox12.Location = new Point(12, 90);
+            textBox12.Margin = new Padding(2);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(293, 27);
+            textBox12.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F);
+            button1.ForeColor = Color.FromArgb(148, 255, 216);
+            button1.Location = new Point(20, 568);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 34);
+            button1.TabIndex = 4;
+            button1.Text = "OK";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.White;
+            label15.Location = new Point(12, 6);
+            label15.Margin = new Padding(2, 0, 2, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(69, 32);
+            label15.TabIndex = 2;
+            label15.Text = "Filter";
             // 
             // DuocPhamControl
             // 
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_Filter);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Upload);
             Controls.Add(panel_Toolbar);
@@ -675,6 +1123,8 @@ namespace QuanLyMachTu
             panel_Upload.ResumeLayout(false);
             panel_Upload.PerformLayout();
             ((ISupportInitialize)customDataGridView).EndInit();
+            panel_Filter.ResumeLayout(false);
+            panel_Filter.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -711,11 +1161,12 @@ namespace QuanLyMachTu
 
             LoadDataToDataSet("SELECT * FROM DUOCPHAM", "DUOCPHAM");
             datatable = dataset.Tables["DUOCPHAM"];
-            datatable.PrimaryKey = new DataColumn[] { datatable.Columns["MaBN"] };
+            datatable.PrimaryKey = new DataColumn[] { datatable.Columns["MaDP"] };
 
             comboBox_Thang.SelectedItem = comboBox_Thang.Items[0];
 
             connection.Close();
+
             UpdateDataGridView(customDataGridView, datatable);
         }
 
@@ -756,16 +1207,34 @@ namespace QuanLyMachTu
                 targetRow = datatable.NewRow();
 
                 targetRow["MaDP"] = primaryKey;
-                targetRow["SoGhe"] = textBox_Upload_SoGhe.Text;
-                targetRow["TrangThai"] = GetTrangThai(comboBox_Upload_TrangThai);
+                targetRow["TenDP"] = textBox_TenDP.Text;
+                targetRow["GiaNhap"] = textBox_GiaNhap.Text;
+                targetRow["GiaBan"] = textBox_GiaBan.Text;
+                targetRow["XuatXu"] = textBox_XuatXu.Text;
+                targetRow["DonVi"] = textBox_DonVi.Text;
+                targetRow["SoLuong"] = textBox_SoLuong.Text;
+                targetRow["NgayNhap"] = GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam);
+                targetRow["HSD"] = textBox_HSD.Text;
+                targetRow["MoTa"] = textBox_MoTa.Text;
+
 
                 datatable.Rows.Add(targetRow);
             }
             else //Update
             {
+                targetRow["MaDP"] = primaryKey;
+                targetRow["TenDP"] = textBox_TenDP.Text;
+                targetRow["GiaNhap"] = textBox_GiaNhap.Text;
+                targetRow["GiaBan"] = textBox_GiaBan.Text;
+                targetRow["XuatXu"] = textBox_XuatXu.Text;
+                targetRow["DonVi"] = textBox_DonVi.Text;
+                targetRow["SoLuong"] = textBox_SoLuong.Text;
+                targetRow["NgayNhap"] = GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam);
+                targetRow["HSD"] = textBox_HSD.Text;
+                targetRow["MoTa"] = textBox_MoTa.Text;
             }
 
-            UpdateDataGridView(customDataGridView_PK, datatablePK);
+            UpdateDataGridView(customDataGridView, datatable);
         }
 
         private void pageButton_Filter_Click(object sender, EventArgs e)
@@ -841,6 +1310,7 @@ namespace QuanLyMachTu
             return error;
         }
 
+        #region Bit errors
         const int MADP_ERR = 1;
         const int TENDP_ERR = 2;
         const int GIANHAP_ERR = 4;
@@ -852,7 +1322,7 @@ namespace QuanLyMachTu
         const int NAM_ERR = 256;
         const int HSD_ERR = 512;
         const int MOTA_ERR = 1024;
-
+        #endregion
 
         private void WarningUploadTextBoxError(int error)
         {
@@ -878,6 +1348,22 @@ namespace QuanLyMachTu
                 ColoringTextBox.WarningColor(textBox_HSD);
             if ((error & MOTA_ERR) == MOTA_ERR)
                 ColoringTextBox.WarningColor(textBox_MoTa);
+        }
+
+        private void panel_Upload_Paint(object sender, PaintEventArgs e)
+        {
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
+
+            Pen linePen = new Pen(lineColor, 1);
+            int startX = 15, endX = 395;
+
+            graphic.DrawLine(linePen, new Point(startX, 165), new Point(endX, 165)); //MaBN line
+            graphic.DrawLine(linePen, new Point(startX, 264), new Point(endX, 264)); //TenBN line
+            graphic.DrawLine(linePen, new Point(startX, 363), new Point(94, 363)); //Ngay line
+            graphic.DrawLine(linePen, new Point(239, 363), new Point(endX, 363)); //Nam line
+            graphic.DrawLine(linePen, new Point(startX, 462), new Point(199, 462)); //SDL line
+            graphic.DrawLine(linePen, new Point(startX, 561), new Point(endX, 561)); //Email line
         }
     }
 }
