@@ -855,6 +855,9 @@
   <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="duocPhamControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 88</value>
   </data>
