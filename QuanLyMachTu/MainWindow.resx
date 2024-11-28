@@ -576,7 +576,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pageButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -792,7 +792,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -826,7 +826,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -853,7 +853,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -880,6 +880,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dichVuControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dichVuControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 88</value>
+  </data>
+  <data name="dichVuControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="dichVuControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1345, 756</value>
+  </data>
+  <data name="dichVuControl.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;dichVuControl.Name" xml:space="preserve">
+    <value>dichVuControl</value>
+  </data>
+  <data name="&gt;&gt;dichVuControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.DichVuControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dichVuControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dichVuControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

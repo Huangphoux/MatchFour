@@ -98,33 +98,15 @@ namespace QuanLyMachTu
             ActivateButton((PageButton)sender);
             phongKhamControl.BringToFront();
         }
-        private void iconButton_HoaDon_Click(object sender, EventArgs e)
-        {
-            ActivateButton((PageButton)sender);
-        }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Form_CaiDat(this));
         }
-        private void iconButton_ThongTin_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Form_ThongTin());
-        }
-
-
-        private void iconButton_NhanVien_Click(object sender, EventArgs e)
-        {
-            ActivateButton((PageButton)sender);
-        }
         private void pageButton_DuocPham_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
             duocPhamControl.BringToFront();
-        }
-        private void iconButton_DichVu_Click(object sender, EventArgs e)
-        {
-            ActivateButton((PageButton)sender);
         }
 
         #endregion
@@ -166,6 +148,11 @@ namespace QuanLyMachTu
                 Application.Exit();
             }
         }
-      
+
+        private void pageButton_DichVu_Click(object sender, EventArgs e)
+        {
+            ActivateButton((PageButton)sender);
+            dichVuControl.BringToFront();
+        }
     }
 }
