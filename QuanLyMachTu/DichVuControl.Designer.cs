@@ -60,25 +60,35 @@
             textBox_DV_MaDV_Filter = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            panel_TinhTrang = new Panel();
+            panel_TinhTrang_Filter = new Panel();
+            comboBox_TinhTrang_Filter = new ComboBox();
+            label10 = new Label();
+            textBox_TT_TenPK_Filter = new TextBox();
+            label6 = new Label();
+            textBox_TT_MaPK_Filter = new TextBox();
+            label9 = new Label();
             button_TT_OK = new Button();
-            textBox1 = new TextBox();
+            textBox_TT_TenDV_Filter = new TextBox();
             label1 = new Label();
-            textBox3 = new TextBox();
+            textBox_TT_MaDV_Filter = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            textBox_TT_TenPK = new TextBox();
-            label6 = new Label();
-            textBox_TT_MaPK = new TextBox();
-            label9 = new Label();
-            label10 = new Label();
-            comboBox_TinhTrang = new ComboBox();
+            panel_TinhTrang_Upload = new Panel();
+            comboBox_TinhTrang_Upload = new ComboBox();
+            label11 = new Label();
+            textBox_TT_MaPK_Upload = new TextBox();
+            label13 = new Label();
+            button_OK_Upload = new Button();
+            textBox_TT_MaDV_Upload = new TextBox();
+            label15 = new Label();
+            label_TT_Upload = new Label();
             panel_TopPanel.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
             panel_DV_Upload.SuspendLayout();
             panel_DV_Filter.SuspendLayout();
-            panel_TinhTrang.SuspendLayout();
+            panel_TinhTrang_Filter.SuspendLayout();
+            panel_TinhTrang_Upload.SuspendLayout();
             SuspendLayout();
             // 
             // panel_TopPanel
@@ -512,26 +522,94 @@
             label5.TabIndex = 0;
             label5.Text = "Upload";
             // 
-            // panel_TinhTrang
+            // panel_TinhTrang_Filter
             // 
-            panel_TinhTrang.Anchor = AnchorStyles.Right;
-            panel_TinhTrang.AutoSize = true;
-            panel_TinhTrang.Controls.Add(comboBox_TinhTrang);
-            panel_TinhTrang.Controls.Add(label10);
-            panel_TinhTrang.Controls.Add(textBox_TT_TenPK);
-            panel_TinhTrang.Controls.Add(label6);
-            panel_TinhTrang.Controls.Add(textBox_TT_MaPK);
-            panel_TinhTrang.Controls.Add(label9);
-            panel_TinhTrang.Controls.Add(button_TT_OK);
-            panel_TinhTrang.Controls.Add(textBox1);
-            panel_TinhTrang.Controls.Add(label1);
-            panel_TinhTrang.Controls.Add(textBox3);
-            panel_TinhTrang.Controls.Add(label7);
-            panel_TinhTrang.Controls.Add(label8);
-            panel_TinhTrang.Location = new Point(939, 67);
-            panel_TinhTrang.Name = "panel_TinhTrang";
-            panel_TinhTrang.Size = new Size(333, 624);
-            panel_TinhTrang.TabIndex = 32;
+            panel_TinhTrang_Filter.Anchor = AnchorStyles.Right;
+            panel_TinhTrang_Filter.AutoSize = true;
+            panel_TinhTrang_Filter.Controls.Add(comboBox_TinhTrang_Filter);
+            panel_TinhTrang_Filter.Controls.Add(label10);
+            panel_TinhTrang_Filter.Controls.Add(textBox_TT_TenPK_Filter);
+            panel_TinhTrang_Filter.Controls.Add(label6);
+            panel_TinhTrang_Filter.Controls.Add(textBox_TT_MaPK_Filter);
+            panel_TinhTrang_Filter.Controls.Add(label9);
+            panel_TinhTrang_Filter.Controls.Add(button_TT_OK);
+            panel_TinhTrang_Filter.Controls.Add(textBox_TT_TenDV_Filter);
+            panel_TinhTrang_Filter.Controls.Add(label1);
+            panel_TinhTrang_Filter.Controls.Add(textBox_TT_MaDV_Filter);
+            panel_TinhTrang_Filter.Controls.Add(label7);
+            panel_TinhTrang_Filter.Controls.Add(label8);
+            panel_TinhTrang_Filter.Location = new Point(939, 67);
+            panel_TinhTrang_Filter.Name = "panel_TinhTrang_Filter";
+            panel_TinhTrang_Filter.Size = new Size(333, 627);
+            panel_TinhTrang_Filter.TabIndex = 32;
+            // 
+            // comboBox_TinhTrang_Filter
+            // 
+            comboBox_TinhTrang_Filter.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
+            comboBox_TinhTrang_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TinhTrang_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_TinhTrang_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_TinhTrang_Filter.FormattingEnabled = true;
+            comboBox_TinhTrang_Filter.Items.AddRange(new object[] { "Open", "Close" });
+            comboBox_TinhTrang_Filter.Location = new Point(18, 447);
+            comboBox_TinhTrang_Filter.Margin = new Padding(2);
+            comboBox_TinhTrang_Filter.Name = "comboBox_TinhTrang_Filter";
+            comboBox_TinhTrang_Filter.Size = new Size(134, 36);
+            comboBox_TinhTrang_Filter.TabIndex = 37;
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(193, 193, 193);
+            label10.Location = new Point(18, 408);
+            label10.Name = "label10";
+            label10.Size = new Size(151, 25);
+            label10.TabIndex = 35;
+            label10.Text = "Tình trạng";
+            // 
+            // textBox_TT_TenPK_Filter
+            // 
+            textBox_TT_TenPK_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_TenPK_Filter.BorderStyle = BorderStyle.None;
+            textBox_TT_TenPK_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_TenPK_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_TenPK_Filter.Location = new Point(18, 363);
+            textBox_TT_TenPK_Filter.Margin = new Padding(2);
+            textBox_TT_TenPK_Filter.Name = "textBox_TT_TenPK_Filter";
+            textBox_TT_TenPK_Filter.Size = new Size(294, 27);
+            textBox_TT_TenPK_Filter.TabIndex = 34;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(193, 193, 193);
+            label6.Location = new Point(18, 322);
+            label6.Name = "label6";
+            label6.Size = new Size(151, 25);
+            label6.TabIndex = 33;
+            label6.Text = "Tên phòng khám";
+            // 
+            // textBox_TT_MaPK_Filter
+            // 
+            textBox_TT_MaPK_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_MaPK_Filter.BorderStyle = BorderStyle.None;
+            textBox_TT_MaPK_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_MaPK_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_MaPK_Filter.Location = new Point(18, 281);
+            textBox_TT_MaPK_Filter.Margin = new Padding(2);
+            textBox_TT_MaPK_Filter.Name = "textBox_TT_MaPK_Filter";
+            textBox_TT_MaPK_Filter.Size = new Size(294, 27);
+            textBox_TT_MaPK_Filter.TabIndex = 32;
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(193, 193, 193);
+            label9.Location = new Point(18, 240);
+            label9.Name = "label9";
+            label9.Size = new Size(151, 25);
+            label9.TabIndex = 31;
+            label9.Text = "Mã phòng khám";
             // 
             // button_TT_OK
             // 
@@ -546,17 +624,17 @@
             button_TT_OK.Text = "OK";
             button_TT_OK.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox_TT_TenDV_Filter
             // 
-            textBox1.BackColor = Color.FromArgb(57, 54, 70);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI Semilight", 12F);
-            textBox1.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox1.Location = new Point(18, 190);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(294, 27);
-            textBox1.TabIndex = 8;
+            textBox_TT_TenDV_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_TenDV_Filter.BorderStyle = BorderStyle.None;
+            textBox_TT_TenDV_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_TenDV_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_TenDV_Filter.Location = new Point(18, 190);
+            textBox_TT_TenDV_Filter.Margin = new Padding(2);
+            textBox_TT_TenDV_Filter.Name = "textBox_TT_TenDV_Filter";
+            textBox_TT_TenDV_Filter.Size = new Size(294, 27);
+            textBox_TT_TenDV_Filter.TabIndex = 8;
             // 
             // label1
             // 
@@ -568,17 +646,17 @@
             label1.TabIndex = 7;
             label1.Text = "Tên dịch vụ";
             // 
-            // textBox3
+            // textBox_TT_MaDV_Filter
             // 
-            textBox3.BackColor = Color.FromArgb(57, 54, 70);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Segoe UI Semilight", 12F);
-            textBox3.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox3.Location = new Point(18, 108);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(294, 27);
-            textBox3.TabIndex = 4;
+            textBox_TT_MaDV_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_MaDV_Filter.BorderStyle = BorderStyle.None;
+            textBox_TT_MaDV_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_MaDV_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_MaDV_Filter.Location = new Point(18, 108);
+            textBox_TT_MaDV_Filter.Margin = new Padding(2);
+            textBox_TT_MaDV_Filter.Name = "textBox_TT_MaDV_Filter";
+            textBox_TT_MaDV_Filter.Size = new Size(294, 27);
+            textBox_TT_MaDV_Filter.TabIndex = 4;
             // 
             // label7
             // 
@@ -597,86 +675,128 @@
             label8.ForeColor = Color.White;
             label8.Location = new Point(18, 17);
             label8.Name = "label8";
-            label8.Size = new Size(92, 32);
+            label8.Size = new Size(69, 32);
             label8.TabIndex = 0;
-            label8.Text = "Upload";
+            label8.Text = "Filter";
             // 
-            // textBox_TT_TenPK
+            // panel_TinhTrang_Upload
             // 
-            textBox_TT_TenPK.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_TT_TenPK.BorderStyle = BorderStyle.None;
-            textBox_TT_TenPK.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_TT_TenPK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TT_TenPK.Location = new Point(18, 363);
-            textBox_TT_TenPK.Margin = new Padding(2);
-            textBox_TT_TenPK.Name = "textBox_TT_TenPK";
-            textBox_TT_TenPK.Size = new Size(294, 27);
-            textBox_TT_TenPK.TabIndex = 34;
+            panel_TinhTrang_Upload.Anchor = AnchorStyles.Right;
+            panel_TinhTrang_Upload.AutoSize = true;
+            panel_TinhTrang_Upload.Controls.Add(comboBox_TinhTrang_Upload);
+            panel_TinhTrang_Upload.Controls.Add(label11);
+            panel_TinhTrang_Upload.Controls.Add(textBox_TT_MaPK_Upload);
+            panel_TinhTrang_Upload.Controls.Add(label13);
+            panel_TinhTrang_Upload.Controls.Add(button_OK_Upload);
+            panel_TinhTrang_Upload.Controls.Add(textBox_TT_MaDV_Upload);
+            panel_TinhTrang_Upload.Controls.Add(label15);
+            panel_TinhTrang_Upload.Controls.Add(label_TT_Upload);
+            panel_TinhTrang_Upload.Location = new Point(939, 67);
+            panel_TinhTrang_Upload.Name = "panel_TinhTrang_Upload";
+            panel_TinhTrang_Upload.Size = new Size(333, 624);
+            panel_TinhTrang_Upload.TabIndex = 38;
             // 
-            // label6
+            // comboBox_TinhTrang_Upload
             // 
-            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(193, 193, 193);
-            label6.Location = new Point(18, 322);
-            label6.Name = "label6";
-            label6.Size = new Size(151, 25);
-            label6.TabIndex = 33;
-            label6.Text = "Tên phòng khám";
+            comboBox_TinhTrang_Upload.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
+            comboBox_TinhTrang_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TinhTrang_Upload.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_TinhTrang_Upload.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_TinhTrang_Upload.FormattingEnabled = true;
+            comboBox_TinhTrang_Upload.Items.AddRange(new object[] { "Open", "Close" });
+            comboBox_TinhTrang_Upload.Location = new Point(18, 268);
+            comboBox_TinhTrang_Upload.Margin = new Padding(2);
+            comboBox_TinhTrang_Upload.Name = "comboBox_TinhTrang_Upload";
+            comboBox_TinhTrang_Upload.Size = new Size(134, 36);
+            comboBox_TinhTrang_Upload.TabIndex = 37;
             // 
-            // textBox_TT_MaPK
+            // label11
             // 
-            textBox_TT_MaPK.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_TT_MaPK.BorderStyle = BorderStyle.None;
-            textBox_TT_MaPK.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_TT_MaPK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TT_MaPK.Location = new Point(18, 281);
-            textBox_TT_MaPK.Margin = new Padding(2);
-            textBox_TT_MaPK.Name = "textBox_TT_MaPK";
-            textBox_TT_MaPK.Size = new Size(294, 27);
-            textBox_TT_MaPK.TabIndex = 32;
+            label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(193, 193, 193);
+            label11.Location = new Point(18, 229);
+            label11.Name = "label11";
+            label11.Size = new Size(151, 25);
+            label11.TabIndex = 35;
+            label11.Text = "Tình trạng";
             // 
-            // label9
+            // textBox_TT_MaPK_Upload
             // 
-            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(193, 193, 193);
-            label9.Location = new Point(18, 240);
-            label9.Name = "label9";
-            label9.Size = new Size(151, 25);
-            label9.TabIndex = 31;
-            label9.Text = "Mã phòng khám";
+            textBox_TT_MaPK_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_MaPK_Upload.BorderStyle = BorderStyle.None;
+            textBox_TT_MaPK_Upload.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_MaPK_Upload.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_MaPK_Upload.Location = new Point(18, 190);
+            textBox_TT_MaPK_Upload.Margin = new Padding(2);
+            textBox_TT_MaPK_Upload.Name = "textBox_TT_MaPK_Upload";
+            textBox_TT_MaPK_Upload.Size = new Size(294, 27);
+            textBox_TT_MaPK_Upload.TabIndex = 32;
             // 
-            // label10
+            // label13
             // 
-            label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(193, 193, 193);
-            label10.Location = new Point(18, 408);
-            label10.Name = "label10";
-            label10.Size = new Size(151, 25);
-            label10.TabIndex = 35;
-            label10.Text = "Tình trạng";
+            label13.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(193, 193, 193);
+            label13.Location = new Point(18, 149);
+            label13.Name = "label13";
+            label13.Size = new Size(151, 25);
+            label13.TabIndex = 31;
+            label13.Text = "Mã phòng khám";
             // 
-            // comboBox_TinhTrang
+            // button_OK_Upload
             // 
-            comboBox_TinhTrang.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
-            comboBox_TinhTrang.BackColor = Color.FromArgb(57, 54, 70);
-            comboBox_TinhTrang.Font = new Font("Segoe UI Semilight", 12F);
-            comboBox_TinhTrang.ForeColor = Color.FromArgb(244, 238, 224);
-            comboBox_TinhTrang.FormattingEnabled = true;
-            comboBox_TinhTrang.Items.AddRange(new object[] { "Open", "Close" });
-            comboBox_TinhTrang.Location = new Point(18, 447);
-            comboBox_TinhTrang.Margin = new Padding(2);
-            comboBox_TinhTrang.Name = "comboBox_TinhTrang";
-            comboBox_TinhTrang.Size = new Size(134, 36);
-            comboBox_TinhTrang.TabIndex = 37;
+            button_OK_Upload.FlatStyle = FlatStyle.Flat;
+            button_OK_Upload.Font = new Font("Segoe UI", 10F);
+            button_OK_Upload.ForeColor = Color.FromArgb(148, 255, 216);
+            button_OK_Upload.Location = new Point(18, 567);
+            button_OK_Upload.Margin = new Padding(2);
+            button_OK_Upload.Name = "button_OK_Upload";
+            button_OK_Upload.Size = new Size(75, 34);
+            button_OK_Upload.TabIndex = 30;
+            button_OK_Upload.Text = "OK";
+            button_OK_Upload.UseVisualStyleBackColor = true;
+            // 
+            // textBox_TT_MaDV_Upload
+            // 
+            textBox_TT_MaDV_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TT_MaDV_Upload.BorderStyle = BorderStyle.None;
+            textBox_TT_MaDV_Upload.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TT_MaDV_Upload.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TT_MaDV_Upload.Location = new Point(18, 108);
+            textBox_TT_MaDV_Upload.Margin = new Padding(2);
+            textBox_TT_MaDV_Upload.Name = "textBox_TT_MaDV_Upload";
+            textBox_TT_MaDV_Upload.Size = new Size(294, 27);
+            textBox_TT_MaDV_Upload.TabIndex = 4;
+            // 
+            // label15
+            // 
+            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.FromArgb(193, 193, 193);
+            label15.Location = new Point(18, 67);
+            label15.Name = "label15";
+            label15.Size = new Size(98, 25);
+            label15.TabIndex = 1;
+            label15.Text = "Mã dịch vụ";
+            // 
+            // label_TT_Upload
+            // 
+            label_TT_Upload.AutoSize = true;
+            label_TT_Upload.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_TT_Upload.ForeColor = Color.White;
+            label_TT_Upload.Location = new Point(18, 17);
+            label_TT_Upload.Name = "label_TT_Upload";
+            label_TT_Upload.Size = new Size(92, 32);
+            label_TT_Upload.TabIndex = 0;
+            label_TT_Upload.Text = "Upload";
             // 
             // DichVuControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_TinhTrang_Filter);
+            Controls.Add(panel_TinhTrang_Upload);
             Controls.Add(panel_DV_Filter);
             Controls.Add(panel_DV_Upload);
-            Controls.Add(panel_TinhTrang);
             Controls.Add(panel_Toolbar);
             Controls.Add(panel_TopPanel);
             Controls.Add(customDataGridView);
@@ -691,8 +811,10 @@
             panel_DV_Upload.PerformLayout();
             panel_DV_Filter.ResumeLayout(false);
             panel_DV_Filter.PerformLayout();
-            panel_TinhTrang.ResumeLayout(false);
-            panel_TinhTrang.PerformLayout();
+            panel_TinhTrang_Filter.ResumeLayout(false);
+            panel_TinhTrang_Filter.PerformLayout();
+            panel_TinhTrang_Upload.ResumeLayout(false);
+            panel_TinhTrang_Upload.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -728,18 +850,27 @@
         private Label label4;
         private Label label5;
         private ComboBox comboBox_DV_Filter_Operation;
-        private Panel panel_TinhTrang;
+        private Panel panel_TinhTrang_Filter;
         private Label label10;
-        private TextBox textBox_TT_TenPK;
+        private TextBox textBox_TT_TenPK_Filter;
         private Label label6;
-        private TextBox textBox_TT_MaPK;
+        private TextBox textBox_TT_MaPK_Filter;
         private Label label9;
         private Button button_TT_OK;
-        private TextBox textBox1;
+        private TextBox textBox_TT_TenDV_Filter;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox textBox_TT_MaDV_Filter;
         private Label label7;
         private Label label8;
-        private ComboBox comboBox_TinhTrang;
+        private ComboBox comboBox_TinhTrang_Filter;
+        private Panel panel_TinhTrang_Upload;
+        private ComboBox comboBox_TinhTrang_Upload;
+        private Label label11;
+        private TextBox textBox_TT_MaPK_Upload;
+        private Label label13;
+        private Button button_OK_Upload;
+        private TextBox textBox_TT_MaDV_Upload;
+        private Label label15;
+        private Label label_TT_Upload;
     }
 }
