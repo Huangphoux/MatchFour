@@ -123,6 +123,7 @@
             pageButton_TinhTrang.TabIndex = 11;
             pageButton_TinhTrang.TextLocation = new Point(64, 12);
             pageButton_TinhTrang.UseVisualStyleBackColor = false;
+            pageButton_TinhTrang.Click += pageButton_TinhTrang_Click;
             // 
             // pageButton_DV
             // 
@@ -524,9 +525,9 @@
             label5.ForeColor = Color.White;
             label5.Location = new Point(18, 17);
             label5.Name = "label5";
-            label5.Size = new Size(92, 32);
+            label5.Size = new Size(69, 32);
             label5.TabIndex = 0;
-            label5.Text = "Upload";
+            label5.Text = "Filter";
             // 
             // panel_TinhTrang_Filter
             // 
@@ -629,6 +630,7 @@
             button_TT_OK.TabIndex = 30;
             button_TT_OK.Text = "OK";
             button_TT_OK.UseVisualStyleBackColor = true;
+            button_TT_OK.Click += button_TT_OK_Click;
             // 
             // textBox_TT_TenDV_Filter
             // 
@@ -760,6 +762,7 @@
             button_OK_Upload.TabIndex = 30;
             button_OK_Upload.Text = "OK";
             button_OK_Upload.UseVisualStyleBackColor = true;
+            button_OK_Upload.Click += button_OK_Upload_Click;
             // 
             // textBox_TT_MaDV_Upload
             // 
@@ -799,8 +802,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(57, 54, 70);
-            Controls.Add(panel_DV_Filter);
             Controls.Add(panel_DV_Upload);
+            Controls.Add(panel_DV_Filter);
             Controls.Add(panel_TinhTrang_Filter);
             Controls.Add(panel_TinhTrang_Upload);
             Controls.Add(panel_Toolbar);
