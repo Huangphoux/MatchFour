@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DichVuControl));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_TopPanel = new Panel();
             pageButton_TinhTrang = new Custom.PageButton();
             pageButton_DV = new Custom.PageButton();
@@ -146,6 +146,7 @@
             pageButton_DV.TabIndex = 10;
             pageButton_DV.TextLocation = new Point(64, 12);
             pageButton_DV.UseVisualStyleBackColor = false;
+            pageButton_DV.Click += pageButton_DV_Click;
             // 
             // panel_Toolbar
             // 
@@ -178,6 +179,7 @@
             pageButton_Filter.TabIndex = 6;
             pageButton_Filter.TextLocation = new Point(0, 0);
             pageButton_Filter.UseVisualStyleBackColor = false;
+            pageButton_Filter.Click += pageButton_Filter_Click;
             // 
             // pageButton_Remove
             // 
@@ -199,6 +201,7 @@
             pageButton_Remove.TabIndex = 5;
             pageButton_Remove.TextLocation = new Point(0, 0);
             pageButton_Remove.UseVisualStyleBackColor = false;
+            pageButton_Remove.Click += pageButton_Remove_Click;
             // 
             // pageButton_Upload
             // 
@@ -220,6 +223,7 @@
             pageButton_Upload.TabIndex = 4;
             pageButton_Upload.TextLocation = new Point(0, 0);
             pageButton_Upload.UseVisualStyleBackColor = false;
+            pageButton_Upload.Click += pageButton_Upload_Click;
             // 
             // customDataGridView
             // 
@@ -232,26 +236,26 @@
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(20, 134);
@@ -295,6 +299,7 @@
             button_DV_OK.TabIndex = 30;
             button_DV_OK.Text = "OK";
             button_DV_OK.UseVisualStyleBackColor = true;
+            button_DV_OK.Click += button_DV_OK_Click;
             // 
             // textBox_DV_MoTa
             // 
@@ -426,7 +431,7 @@
             comboBox_DV_Filter_Operation.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_DV_Filter_Operation.FormattingEnabled = true;
             comboBox_DV_Filter_Operation.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
-            comboBox_DV_Filter_Operation.Location = new Point(264, 277);
+            comboBox_DV_Filter_Operation.Location = new Point(25, 277);
             comboBox_DV_Filter_Operation.Margin = new Padding(2);
             comboBox_DV_Filter_Operation.Name = "comboBox_DV_Filter_Operation";
             comboBox_DV_Filter_Operation.Size = new Size(48, 36);
@@ -444,6 +449,7 @@
             button_DV_OK_Filter.TabIndex = 30;
             button_DV_OK_Filter.Text = "OK";
             button_DV_OK_Filter.UseVisualStyleBackColor = true;
+            button_DV_OK_Filter.Click += button_DV_OK_Filter_Click;
             // 
             // textBox_DV_TenDV_Filter
             // 
@@ -473,7 +479,7 @@
             textBox_DV_ChiPhi_Filter.BorderStyle = BorderStyle.None;
             textBox_DV_ChiPhi_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_DV_ChiPhi_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_DV_ChiPhi_Filter.Location = new Point(18, 281);
+            textBox_DV_ChiPhi_Filter.Location = new Point(89, 281);
             textBox_DV_ChiPhi_Filter.Margin = new Padding(2);
             textBox_DV_ChiPhi_Filter.Name = "textBox_DV_ChiPhi_Filter";
             textBox_DV_ChiPhi_Filter.Size = new Size(223, 27);
@@ -793,10 +799,10 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(57, 54, 70);
-            Controls.Add(panel_TinhTrang_Filter);
-            Controls.Add(panel_TinhTrang_Upload);
             Controls.Add(panel_DV_Filter);
             Controls.Add(panel_DV_Upload);
+            Controls.Add(panel_TinhTrang_Filter);
+            Controls.Add(panel_TinhTrang_Upload);
             Controls.Add(panel_Toolbar);
             Controls.Add(panel_TopPanel);
             Controls.Add(customDataGridView);
