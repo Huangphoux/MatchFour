@@ -14,7 +14,7 @@ using QuanLyMachTu.Helper;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace QuanLyMachTu
+namespace QuanLyMachTu.Controls
 {
     public partial class DuocPhamControl : UserControl
     {

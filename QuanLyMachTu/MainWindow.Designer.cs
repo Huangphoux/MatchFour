@@ -1,4 +1,5 @@
-﻿using QuanLyMachTu.Custom;
+﻿using QuanLyMachTu.Controls;
+using QuanLyMachTu.Custom;
 
 namespace QuanLyMachTu
 {
