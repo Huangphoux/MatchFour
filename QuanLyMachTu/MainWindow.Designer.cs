@@ -43,15 +43,15 @@ namespace QuanLyMachTu
             pageButton_BenhNhan = new PageButton();
             pageButton_TongQuan = new PageButton();
             panel_TitleBar = new Panel();
-            pageButton2 = new PageButton();
-            pageButton1 = new PageButton();
+            pageButton_SignOut = new PageButton();
+            pageButton_CaiDat = new PageButton();
+            pageButton_ThongTin = new PageButton();
             panel_DivideLabel = new Panel();
             panel_DivideButton = new Panel();
             panel_DivideExit = new Panel();
             timer_Clock = new System.Windows.Forms.Timer(components);
             benhNhanControl = new BenhNhanControl();
             phongKhamControl = new PhongKhamControl();
-            duocPhamControl = new DuocPhamControl();
             dichVuControl = new DichVuControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
@@ -195,48 +195,68 @@ namespace QuanLyMachTu
             // panel_TitleBar
             // 
             panel_TitleBar.BackColor = Color.FromArgb(57, 54, 70);
-            panel_TitleBar.Controls.Add(pageButton2);
-            panel_TitleBar.Controls.Add(pageButton1);
+            panel_TitleBar.Controls.Add(pageButton_SignOut);
+            panel_TitleBar.Controls.Add(pageButton_CaiDat);
+            panel_TitleBar.Controls.Add(pageButton_ThongTin);
             panel_TitleBar.Controls.Add(panel_DivideLabel);
             panel_TitleBar.Controls.Add(panel_DivideButton);
             panel_TitleBar.Controls.Add(panel_DivideExit);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
             // 
-            // pageButton2
+            // pageButton_SignOut
             // 
-            pageButton2.BackColor = Color.FromArgb(57, 54, 70);
-            pageButton2.BorderColor = Color.PaleVioletRed;
-            pageButton2.BorderRadius = 40;
-            pageButton2.BorderSize = 0;
-            pageButton2.CustomText = null;
-            pageButton2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton2, "pageButton2");
-            pageButton2.ForeColor = Color.FromArgb(57, 54, 70);
-            pageButton2.Icon = (Image)resources.GetObject("pageButton2.Icon");
-            pageButton2.IconLocation = new Point(12, 12);
-            pageButton2.IconSize = new Size(35, 35);
-            pageButton2.Name = "pageButton2";
-            pageButton2.TextLocation = new Point(0, 0);
-            pageButton2.UseVisualStyleBackColor = false;
-            pageButton2.Click += iconButton_CaiDat_Click;
+            pageButton_SignOut.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_SignOut.BorderColor = Color.PaleVioletRed;
+            pageButton_SignOut.BorderRadius = 40;
+            pageButton_SignOut.BorderSize = 0;
+            pageButton_SignOut.CustomText = null;
+            pageButton_SignOut.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_SignOut, "pageButton_SignOut");
+            pageButton_SignOut.ForeColor = Color.FromArgb(57, 54, 70);
+            pageButton_SignOut.Icon = (Image)resources.GetObject("pageButton_SignOut.Icon");
+            pageButton_SignOut.IconLocation = new Point(15, 15);
+            pageButton_SignOut.IconSize = new Size(30, 30);
+            pageButton_SignOut.Name = "pageButton_SignOut";
+            pageButton_SignOut.TextLocation = new Point(0, 0);
+            pageButton_SignOut.UseVisualStyleBackColor = false;
+            pageButton_SignOut.Click += pageButton_SignOut_Click;
             // 
-            // pageButton1
+            // pageButton_CaiDat
             // 
-            pageButton1.BackColor = Color.FromArgb(57, 54, 70);
-            pageButton1.BorderColor = Color.PaleVioletRed;
-            pageButton1.BorderRadius = 40;
-            pageButton1.BorderSize = 0;
-            pageButton1.CustomText = null;
-            pageButton1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton1, "pageButton1");
-            pageButton1.ForeColor = Color.FromArgb(57, 54, 70);
-            pageButton1.Icon = (Image)resources.GetObject("pageButton1.Icon");
-            pageButton1.IconLocation = new Point(12, 12);
-            pageButton1.IconSize = new Size(35, 35);
-            pageButton1.Name = "pageButton1";
-            pageButton1.TextLocation = new Point(0, 0);
-            pageButton1.UseVisualStyleBackColor = false;
+            pageButton_CaiDat.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_CaiDat.BorderColor = Color.PaleVioletRed;
+            pageButton_CaiDat.BorderRadius = 40;
+            pageButton_CaiDat.BorderSize = 0;
+            pageButton_CaiDat.CustomText = null;
+            pageButton_CaiDat.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_CaiDat, "pageButton_CaiDat");
+            pageButton_CaiDat.ForeColor = Color.FromArgb(57, 54, 70);
+            pageButton_CaiDat.Icon = (Image)resources.GetObject("pageButton_CaiDat.Icon");
+            pageButton_CaiDat.IconLocation = new Point(12, 12);
+            pageButton_CaiDat.IconSize = new Size(35, 35);
+            pageButton_CaiDat.Name = "pageButton_CaiDat";
+            pageButton_CaiDat.TextLocation = new Point(0, 0);
+            pageButton_CaiDat.UseVisualStyleBackColor = false;
+            pageButton_CaiDat.Click += iconButton_CaiDat_Click;
+            // 
+            // pageButton_ThongTin
+            // 
+            pageButton_ThongTin.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_ThongTin.BorderColor = Color.PaleVioletRed;
+            pageButton_ThongTin.BorderRadius = 40;
+            pageButton_ThongTin.BorderSize = 0;
+            pageButton_ThongTin.CustomText = null;
+            pageButton_ThongTin.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_ThongTin, "pageButton_ThongTin");
+            pageButton_ThongTin.ForeColor = Color.FromArgb(57, 54, 70);
+            pageButton_ThongTin.Icon = (Image)resources.GetObject("pageButton_ThongTin.Icon");
+            pageButton_ThongTin.IconLocation = new Point(12, 12);
+            pageButton_ThongTin.IconSize = new Size(35, 35);
+            pageButton_ThongTin.Name = "pageButton_ThongTin";
+            pageButton_ThongTin.TextLocation = new Point(0, 0);
+            pageButton_ThongTin.UseVisualStyleBackColor = false;
+            pageButton_ThongTin.Click += pageButton_ThongTin_Click;
             // 
             // panel_DivideLabel
             // 
@@ -274,12 +294,6 @@ namespace QuanLyMachTu
             resources.ApplyResources(phongKhamControl, "phongKhamControl");
             phongKhamControl.Name = "phongKhamControl";
             // 
-            // duocPhamControl
-            // 
-            duocPhamControl.BackColor = Color.FromArgb(57, 54, 70);
-            resources.ApplyResources(duocPhamControl, "duocPhamControl");
-            duocPhamControl.Name = "duocPhamControl";
-            // 
             // dichVuControl
             // 
             dichVuControl.BackColor = Color.FromArgb(57, 54, 70);
@@ -292,13 +306,11 @@ namespace QuanLyMachTu
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             Controls.Add(dichVuControl);
-            Controls.Add(duocPhamControl);
             Controls.Add(phongKhamControl);
             Controls.Add(benhNhanControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
-            FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
             panel_Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).EndInit();
@@ -322,11 +334,12 @@ namespace QuanLyMachTu
         private PageButton pageButton_NhanVien;
         private PageButton pageButton_PhongKham;
         private PictureBox pictureBox_logo;
-        private PageButton pageButton1;
-        private PageButton pageButton2;
+        private PageButton pageButton_ThongTin;
+        private PageButton pageButton_CaiDat;
         private BenhNhanControl benhNhanControl;
         private PhongKhamControl phongKhamControl;
         private DuocPhamControl duocPhamControl;
         private DichVuControl dichVuControl;
+        private PageButton pageButton_SignOut;
     }
 }

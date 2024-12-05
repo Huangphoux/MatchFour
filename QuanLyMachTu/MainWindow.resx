@@ -576,15 +576,61 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
-  <data name="pageButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="pageButton_SignOut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="pageButton2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="pageButton_SignOut.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="pageButton2.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pageButton_SignOut.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAkdJREFUaEPdms8uQ0EUxruyFZaCuLddSbARKws8FJ5AEQ8g/sRLiI0FZqrpgl13
+        Vm3NlI2NiFgx5/ZIuHOuMw3pHP2S36Y358v3Ze69M21amm02RxJtd1JtbKrtuwiUNS7TNmQrhQoGSDMJ
+        KFvFmLxErYSHsRiTF20gB4zJixqWBMbkRQ1LAmPyooYlgTF5UcOSwJi8qGFJYExe1LAkMCYvalgSGJMX
+        NRyTRJsTtxEupzW7mCqzhzF5UWaxSJTZx1j9izKMxYzuLGCmQ7cqp+n502gWMkR5s5iU6+0KZEq0ve19
+        ZhrBZfJmcTEbkKly0ZlMlL3Dz8LK+GZReS3XuquQq+8yOaP4KPuSXnXXINvXMnC7Tdbb41loSp6RBFwZ
+        amV+LOOZSAHK6O4KZAwq4xkIwm2OzxiTf2byw9LAmJl+XJn8YCjO8M0dIdanaq0JtBqIClcmHzCc3js/
+        hsgyfsAwPlfCLfE1dX2wmMavi7i3i6auD5ZfFHHDm1Akhv701soedldmCB72wZCFROVevzfTujWGl2QX
+        GY4NsfiI8n0lPuUZSKD40EiXAHkmsSk+xheXAHlGcRmWL1ZD8lW3UnssQyZ3G/3zHx8uH+ayTMoeJcqc
+        BZcAkYbxOMBY/Yswi4uyx8lVdylRnXm3Ie5iTF6kmSAwJi9qWBIYkxc1LAmMyYsalgTG5EUNSwJj8qKG
+        JYExeVHDksCYvKhhSWBMXm4DMpSBBNzB8R5j8nJFqpSJCJTdwpi84M9dWRlBKwMrASXC/3hWKn0AaORL
+        uVN+KjsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pageButton_SignOut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_SignOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1272, 27</value>
+  </data>
+  <data name="pageButton_SignOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 51</value>
+  </data>
+  <data name="pageButton_SignOut.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.Name" xml:space="preserve">
+    <value>pageButton_SignOut</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pageButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_CaiDat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="pageButton_CaiDat.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAB+tJREFUeF7tnWmIHEUUx9v7PlC8LxDjrSiKxAOPKAiieERFIvpR8YsHfhCPuImK
@@ -624,37 +670,37 @@
         CzI9fg7UcKajAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pageButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="pageButton_CaiDat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pageButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1223, 18</value>
+  <data name="pageButton_CaiDat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1163, 27</value>
   </data>
-  <data name="pageButton2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pageButton_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 51</value>
   </data>
-  <data name="pageButton2.TabIndex" type="System.Int32, mscorlib">
+  <data name="pageButton_CaiDat.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;pageButton2.Name" xml:space="preserve">
-    <value>pageButton2</value>
+  <data name="&gt;&gt;pageButton_CaiDat.Name" xml:space="preserve">
+    <value>pageButton_CaiDat</value>
   </data>
-  <data name="&gt;&gt;pageButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_CaiDat.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pageButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_CaiDat.Parent" xml:space="preserve">
     <value>panel_TitleBar</value>
   </data>
-  <data name="&gt;&gt;pageButton2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;pageButton_CaiDat.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="pageButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="pageButton_ThongTin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="pageButton1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="pageButton_ThongTin.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="pageButton1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pageButton_ThongTin.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAA0NJREFUaEPtmsmO00AQhn1guYPEfmR7GgRCIoITBwQIBuaAWI48AMPAkVfwdEcz
@@ -674,29 +720,29 @@
         Ojo6OmaSovgHgz5+3YcWubIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pageButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="pageButton_ThongTin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pageButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1277, 18</value>
+  <data name="pageButton_ThongTin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1218, 27</value>
   </data>
-  <data name="pageButton1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pageButton_ThongTin.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 51</value>
   </data>
-  <data name="pageButton1.TabIndex" type="System.Int32, mscorlib">
+  <data name="pageButton_ThongTin.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;pageButton1.Name" xml:space="preserve">
-    <value>pageButton1</value>
+  <data name="&gt;&gt;pageButton_ThongTin.Name" xml:space="preserve">
+    <value>pageButton_ThongTin</value>
   </data>
-  <data name="&gt;&gt;pageButton1.Type" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_ThongTin.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pageButton1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_ThongTin.Parent" xml:space="preserve">
     <value>panel_TitleBar</value>
   </data>
-  <data name="&gt;&gt;pageButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;pageButton_ThongTin.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="panel_DivideLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -720,7 +766,7 @@
     <value>panel_TitleBar</value>
   </data>
   <data name="&gt;&gt;panel_DivideLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="panel_DivideButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -744,7 +790,7 @@
     <value>panel_TitleBar</value>
   </data>
   <data name="&gt;&gt;panel_DivideButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panel_DivideExit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -768,7 +814,7 @@
     <value>panel_TitleBar</value>
   </data>
   <data name="&gt;&gt;panel_DivideExit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="panel_TitleBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -792,7 +838,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -826,7 +872,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -853,33 +899,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="duocPhamControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 88</value>
-  </data>
-  <data name="duocPhamControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="duocPhamControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1345, 756</value>
-  </data>
-  <data name="duocPhamControl.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;duocPhamControl.Name" xml:space="preserve">
-    <value>duocPhamControl</value>
-  </data>
-  <data name="&gt;&gt;duocPhamControl.Type" xml:space="preserve">
-    <value>QuanLyMachTu.DuocPhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;duocPhamControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="dichVuControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">

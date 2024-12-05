@@ -11,6 +11,12 @@ namespace QuanLyMachTu
         private readonly Panel leftBorderButton;
         private Form currentChildForm;
         private PageButton currentButton;
+        Form_CaiDat formCaiDat;
+        Form_ThongTin formThongTin;
+
+        LoginWindow loginWindow;
+
+        bool isApplicationRunning = true;
 
         //Methods
         public MainWindow()
@@ -22,6 +28,14 @@ namespace QuanLyMachTu
         {
             currentButton = pageButton_TongQuan;
             ActivateButton(currentButton);
+
+            formCaiDat = new Form_CaiDat(this);
+            formThongTin = new();
+
+            loginWindow = new();
+            loginWindow.ShowDialog();
+
+            isApplicationRunning = false;
         }
 
         //Methods
@@ -101,7 +115,7 @@ namespace QuanLyMachTu
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Form_CaiDat(this));
+            formCaiDat.ShowDialog();
         }
         private void pageButton_DuocPham_Click(object sender, EventArgs e)
         {
@@ -116,21 +130,25 @@ namespace QuanLyMachTu
             label_Clock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private bool isSignoutInitiated = false;
 
-        private void icon_Thoat_Click(object sender, EventArgs e)
+        private void pageButton_SignOut_Click(object sender, EventArgs e)
         {
-            ShowExitConfirmation();
+            this.Close();
+
+            loginWindow = new();
+            loginWindow.Show();
         }
 
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!isSignoutInitiated)
-            {
-                e.Cancel = true;
-                ShowExitConfirmation();
-            }
-        }
+        //private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    if (!isApplicationRunning)
+        //    {
+        //        e.Cancel = true;
+        //        ShowExitConfirmation();
+        //    }
+        //}
+
+
 
         private void ShowExitConfirmation()
         {
@@ -144,7 +162,6 @@ namespace QuanLyMachTu
 
             if (dialogResult == DialogResult.OK)
             {
-                isSignoutInitiated = true;
                 Application.Exit();
             }
         }
@@ -153,6 +170,11 @@ namespace QuanLyMachTu
         {
             ActivateButton((PageButton)sender);
             dichVuControl.BringToFront();
+        }
+
+        private void pageButton_ThongTin_Click(object sender, EventArgs e)
+        {
+            formThongTin.ShowDialog();
         }
     }
 }

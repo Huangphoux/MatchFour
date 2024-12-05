@@ -13,8 +13,6 @@ namespace QuanLyMachTu
             ApplicationConfiguration.Initialize();
 
             // Uncomment this line to enable login
-            // Application.Run(new LoginWindow());
-
             Application.Run(new MainWindow());
         }
     }
