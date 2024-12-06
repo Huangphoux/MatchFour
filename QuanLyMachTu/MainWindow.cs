@@ -176,5 +176,11 @@ namespace QuanLyMachTu
         {
             formThongTin.ShowDialog();
         }
+
+        private void pageButton_NhanVien_Click(object sender, EventArgs e)
+        {
+            ActivateButton((PageButton)sender);
+            nhanVienControl.BringToFront();
+        }
     }
 }

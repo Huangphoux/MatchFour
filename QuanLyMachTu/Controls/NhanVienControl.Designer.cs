@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVienControl));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_Tab = new Panel();
             pageButton_Tab_Khoa = new Custom.PageButton();
             pageButton_Tab_NhanVien = new Custom.PageButton();
@@ -107,6 +107,7 @@
             textBox_Khoa_MaKhoa = new TextBox();
             label32 = new Label();
             panel_Khoa_Filter = new Panel();
+            label27 = new Label();
             label19 = new Label();
             textBox_Khoa_MaNVQuanLy_Filter = new TextBox();
             label20 = new Label();
@@ -117,7 +118,6 @@
             button_Khoa_OK_Filter = new Button();
             textBox_Khoa_MaKhoa_Filter = new TextBox();
             label26 = new Label();
-            label27 = new Label();
             panel_Tab.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
@@ -185,6 +185,7 @@
             pageButton_Tab_NhanVien.TabIndex = 9;
             pageButton_Tab_NhanVien.TextLocation = new Point(64, 12);
             pageButton_Tab_NhanVien.UseVisualStyleBackColor = false;
+            pageButton_Tab_NhanVien.Click += pageButton_Tab_NhanVien_Click;
             // 
             // panel_Toolbar
             // 
@@ -220,6 +221,7 @@
             pageButton_Filter.TabIndex = 3;
             pageButton_Filter.TextLocation = new Point(0, 0);
             pageButton_Filter.UseVisualStyleBackColor = false;
+            pageButton_Filter.Click += pageButton_Filter_Click;
             // 
             // pageButton_Remove
             // 
@@ -241,6 +243,7 @@
             pageButton_Remove.TabIndex = 2;
             pageButton_Remove.TextLocation = new Point(0, 0);
             pageButton_Remove.UseVisualStyleBackColor = false;
+            pageButton_Remove.Click += pageButton_Remove_Click;
             // 
             // pageButton_Upload
             // 
@@ -262,6 +265,7 @@
             pageButton_Upload.TabIndex = 1;
             pageButton_Upload.TextLocation = new Point(0, 0);
             pageButton_Upload.UseVisualStyleBackColor = false;
+            pageButton_Upload.Click += pageButton_Upload_Click;
             // 
             // customDataGridView
             // 
@@ -274,26 +278,26 @@
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(20, 134);
@@ -730,6 +734,7 @@
             button_NV_OK.TabIndex = 4;
             button_NV_OK.Text = "OK";
             button_NV_OK.UseVisualStyleBackColor = true;
+            button_NV_OK.Click += button_NV_OK_Click;
             // 
             // textBox_NV_Upload_MaNV
             // 
@@ -1114,6 +1119,7 @@
             button_NV_OK_Filter.TabIndex = 4;
             button_NV_OK_Filter.Text = "OK";
             button_NV_OK_Filter.UseVisualStyleBackColor = true;
+            button_NV_OK_Filter.Click += button_NV_OK_Filter_Click;
             // 
             // textBox_NV_MaNV_Filter
             // 
@@ -1304,6 +1310,21 @@
             panel_Khoa_Filter.Size = new Size(333, 624);
             panel_Khoa_Filter.TabIndex = 23;
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.Transparent;
+            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label27.ForeColor = Color.FromArgb(193, 193, 193);
+            label27.ImageAlign = ContentAlignment.BottomCenter;
+            label27.Location = new Point(296, 267);
+            label27.Margin = new Padding(2, 0, 2, 0);
+            label27.Name = "label27";
+            label27.Size = new Size(22, 23);
+            label27.TabIndex = 15;
+            label27.Text = "≥";
+            label27.TextAlign = ContentAlignment.BottomLeft;
+            // 
             // label19
             // 
             label19.AutoSize = true;
@@ -1437,37 +1458,23 @@
             label26.TabIndex = 2;
             label26.Text = "Filter";
             // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.BackColor = Color.Transparent;
-            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label27.ForeColor = Color.FromArgb(193, 193, 193);
-            label27.ImageAlign = ContentAlignment.BottomCenter;
-            label27.Location = new Point(296, 267);
-            label27.Margin = new Padding(2, 0, 2, 0);
-            label27.Name = "label27";
-            label27.Size = new Size(22, 23);
-            label27.TabIndex = 15;
-            label27.Text = "≥";
-            label27.TextAlign = ContentAlignment.BottomLeft;
-            // 
             // NhanVienControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(57, 54, 70);
-            Controls.Add(panel_NV_Upload);
             Controls.Add(panel_NV_Filter);
-            Controls.Add(panel_Khoa_Filter);
+            Controls.Add(panel_NV_Upload);
             Controls.Add(panel_Khoa_Upload);
+            Controls.Add(panel_Khoa_Filter);
             Controls.Add(customPanel_Sum);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Toolbar);
             Controls.Add(panel_Tab);
             Name = "NhanVienControl";
             Size = new Size(1272, 691);
+            Load += NhanVienControl_Load;
             panel_Tab.ResumeLayout(false);
             panel_Toolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)customDataGridView).EndInit();

@@ -53,6 +53,7 @@ namespace QuanLyMachTu
             benhNhanControl = new BenhNhanControl();
             phongKhamControl = new PhongKhamControl();
             dichVuControl = new DichVuControl();
+            nhanVienControl = new NhanVienControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
@@ -155,6 +156,7 @@ namespace QuanLyMachTu
             pageButton_NhanVien.Name = "pageButton_NhanVien";
             pageButton_NhanVien.TextLocation = new Point(98, 28);
             pageButton_NhanVien.UseVisualStyleBackColor = false;
+            pageButton_NhanVien.Click += pageButton_NhanVien_Click;
             // 
             // pageButton_BenhNhan
             // 
@@ -300,11 +302,18 @@ namespace QuanLyMachTu
             resources.ApplyResources(dichVuControl, "dichVuControl");
             dichVuControl.Name = "dichVuControl";
             // 
+            // nhanVienControl
+            // 
+            resources.ApplyResources(nhanVienControl, "nhanVienControl");
+            nhanVienControl.BackColor = Color.FromArgb(57, 54, 70);
+            nhanVienControl.Name = "nhanVienControl";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            Controls.Add(nhanVienControl);
             Controls.Add(dichVuControl);
             Controls.Add(phongKhamControl);
             Controls.Add(benhNhanControl);
@@ -341,5 +350,6 @@ namespace QuanLyMachTu
         private DuocPhamControl duocPhamControl;
         private DichVuControl dichVuControl;
         private PageButton pageButton_SignOut;
+        private NhanVienControl nhanVienControl;
     }
 }
