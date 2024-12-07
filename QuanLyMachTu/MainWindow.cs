@@ -1,22 +1,18 @@
-﻿using FontAwesome.Sharp;
-using QuanLyMachTu.Child_Forms;
+﻿using QuanLyMachTu.Child_Forms;
 using QuanLyMachTu.Custom;
 using QuanLyMachTu.Helper;
-using System.Windows.Forms;
 
 namespace QuanLyMachTu
 {
     public partial class MainWindow : Form
     {
         private readonly Panel leftBorderButton;
-        private Form currentChildForm;
+        private readonly Form currentChildForm;
         private PageButton currentButton;
-        Form_CaiDat formCaiDat;
-        Form_ThongTin formThongTin;
-
-        LoginWindow loginWindow;
-
-        bool isApplicationRunning = true;
+        private Form_CaiDat formCaiDat;
+        private Form_ThongTin formThongTin;
+        private LoginWindow loginWindow;
+        private bool isApplicationRunning = true;
 
         //Methods
         public MainWindow()
@@ -33,9 +29,14 @@ namespace QuanLyMachTu
             formThongTin = new();
 
             loginWindow = new();
-            loginWindow.ShowDialog();
+            _ = loginWindow.ShowDialog();
 
             isApplicationRunning = false;
+
+            elapsedTime = TimeSpan.Zero;
+            timer_Clock.Start();
+
+            MainWindow_Resize(this, EventArgs.Empty);
         }
 
         //Methods
@@ -53,26 +54,6 @@ namespace QuanLyMachTu
 
             ColoringButton.DisabledColor(currentButton);
         }
-
-        private void OpenChildForm(Form childForm)
-        {
-            //open only form
-            currentChildForm?.Close();
-
-            currentChildForm = childForm;
-            //End
-
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-
-            //panel_ChildForm.Controls.Add(childForm);
-            //panel_ChildForm.Tag = childForm;
-
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
 
         private void icon_Home_Click(object sender, EventArgs e)
         {
@@ -92,8 +73,6 @@ namespace QuanLyMachTu
             Left = (Screen.PrimaryScreen.WorkingArea.Width - Width) / 2;
             Top = (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2;
         }
-
-        private readonly Color ActivateColor = Color.Teal;
 
         #region Button Click
 
@@ -115,7 +94,7 @@ namespace QuanLyMachTu
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
         {
-            formCaiDat.ShowDialog();
+            _ = formCaiDat.ShowDialog();
         }
         private void pageButton_DuocPham_Click(object sender, EventArgs e)
         {
@@ -125,45 +104,18 @@ namespace QuanLyMachTu
 
         #endregion
 
+
+        private TimeSpan elapsedTime;
+
         private void timer_Clock_Tick(object sender, EventArgs e)
         {
-            label_Clock.Text = DateTime.Now.ToString("HH:mm:ss");
+            elapsedTime = elapsedTime.Add(TimeSpan.FromSeconds(1));
+            label_Clock.Text = elapsedTime.ToString(@"hh\:mm\:ss");
         }
-
 
         private void pageButton_SignOut_Click(object sender, EventArgs e)
         {
-            this.Close();
-
-            loginWindow = new();
-            loginWindow.Show();
-        }
-
-        //private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    if (!isApplicationRunning)
-        //    {
-        //        e.Cancel = true;
-        //        ShowExitConfirmation();
-        //    }
-        //}
-
-
-
-        private void ShowExitConfirmation()
-        {
-            DialogResult dialogResult = MessageBox.Show(
-                "Bạn có thực sự muốn thoát chương trình?",
-                "Xác nhận thoát chương trình",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button2
-            );
-
-            if (dialogResult == DialogResult.OK)
-            {
-                Application.Exit();
-            }
+            Close();
         }
 
         private void pageButton_DichVu_Click(object sender, EventArgs e)
@@ -174,13 +126,25 @@ namespace QuanLyMachTu
 
         private void pageButton_ThongTin_Click(object sender, EventArgs e)
         {
-            formThongTin.ShowDialog();
+            _ = formThongTin.ShowDialog();
         }
 
         private void pageButton_NhanVien_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
             nhanVienControl.BringToFront();
+        }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                pageButton_SignOut.Visible = true;
+            }
+            else
+            {
+                pageButton_SignOut.Visible = false;
+            }
         }
     }
 }

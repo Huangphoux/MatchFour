@@ -576,7 +576,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="pageButton_SignOut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -587,7 +587,7 @@
   <data name="pageButton_SignOut.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAkdJREFUaEPdms8uQ0EUxruyFZaCuLddSbARKws8FJ5AEQ8g/sRLiI0FZqrpgl13
+        DAAACwwBP0AiyAAAAkdJREFUaEPdms8uQ0EUxruyFZaCuLddSbARKws8FJ5AEQ8g/sRLiI0FZqrpgl13
         Vm3NlI2NiFgx5/ZIuHOuMw3pHP2S36Y358v3Ze69M21amm02RxJtd1JtbKrtuwiUNS7TNmQrhQoGSDMJ
         KFvFmLxErYSHsRiTF20gB4zJixqWBMbkRQ1LAmPyooYlgTF5UcOSwJi8qGFJYExe1LAkMCYvalgSGJMX
         NRyTRJsTtxEupzW7mCqzhzF5UWaxSJTZx1j9izKMxYzuLGCmQ7cqp+n502gWMkR5s5iU6+0KZEq0ve19
@@ -611,6 +611,9 @@
   </data>
   <data name="pageButton_SignOut.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="pageButton_SignOut.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;pageButton_SignOut.Name" xml:space="preserve">
     <value>pageButton_SignOut</value>
@@ -838,7 +841,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -872,7 +875,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -931,11 +934,14 @@
   <data name="nhanVienControl.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="nhanVienControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="nhanVienControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 88</value>
   </data>
   <data name="nhanVienControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
+    <value>1345, 756</value>
   </data>
   <data name="nhanVienControl.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -950,6 +956,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nhanVienControl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="duocPhamControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 88</value>
+  </data>
+  <data name="duocPhamControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="duocPhamControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1345, 756</value>
+  </data>
+  <data name="duocPhamControl.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Name" xml:space="preserve">
+    <value>duocPhamControl</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Controls.DuocPhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

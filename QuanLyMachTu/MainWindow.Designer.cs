@@ -54,6 +54,7 @@ namespace QuanLyMachTu
             phongKhamControl = new PhongKhamControl();
             dichVuControl = new DichVuControl();
             nhanVienControl = new NhanVienControl();
+            duocPhamControl = new DuocPhamControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
@@ -308,19 +309,27 @@ namespace QuanLyMachTu
             nhanVienControl.BackColor = Color.FromArgb(57, 54, 70);
             nhanVienControl.Name = "nhanVienControl";
             // 
+            // duocPhamControl
+            // 
+            duocPhamControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(duocPhamControl, "duocPhamControl");
+            duocPhamControl.Name = "duocPhamControl";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(nhanVienControl);
+            Controls.Add(duocPhamControl);
             Controls.Add(dichVuControl);
             Controls.Add(phongKhamControl);
+            Controls.Add(nhanVienControl);
             Controls.Add(benhNhanControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
             Load += MainWindow_Load;
+            Resize += MainWindow_Resize;
             panel_Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).EndInit();
             panel_TitleBar.ResumeLayout(false);
@@ -347,9 +356,9 @@ namespace QuanLyMachTu
         private PageButton pageButton_CaiDat;
         private BenhNhanControl benhNhanControl;
         private PhongKhamControl phongKhamControl;
-        private DuocPhamControl duocPhamControl;
         private DichVuControl dichVuControl;
         private PageButton pageButton_SignOut;
         private NhanVienControl nhanVienControl;
+        private DuocPhamControl duocPhamControl;
     }
 }

@@ -23,23 +23,37 @@
                 MessageBox.Show("Sai tên đăng nhập.\nVui lòng nhập lại.",
                                 "Sai tên đăng nhập");
                 textBox_Username.Clear();
+                textBox_Password.Clear();
+                return;
             }
-            else if (textBox_Password.Text != "123456")
+            
+            if (textBox_Password.Text != "123456")
             {
 
                 MessageBox.Show("Sai mật khẩu.\nVui lòng nhập lại.",
                                 "Sai tên đăng nhập");
                 textBox_Password.Clear();
+                return;
+            }
+
+            textBox_Username.Clear();
+            textBox_Password.Clear();
+
+            DialogResult = DialogResult.OK;
+
+            Hide();
+        }
+
+        private void checkBox_ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_ShowPassword.Checked)
+            {
+                textBox_Password.PasswordChar = '\0';
             }
             else
             {
-                textBox_Username.Clear();
-                textBox_Password.Clear();
-
-                DialogResult = DialogResult.OK;
+                textBox_Password.PasswordChar = '●';
             }
-
-            Hide();
         }
     }
 }
