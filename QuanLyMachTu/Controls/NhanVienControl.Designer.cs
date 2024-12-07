@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVienControl));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel_Tab = new Panel();
             pageButton_Tab_Khoa = new Custom.PageButton();
             pageButton_Tab_NhanVien = new Custom.PageButton();
@@ -97,6 +97,7 @@
             textBox_NV_MaNV_Filter = new TextBox();
             label25 = new Label();
             panel_Khoa_Upload = new Panel();
+            textBox_Khoa_TenKhoa = new TextBox();
             label18 = new Label();
             textBox_Khoa_MaNVQuanLy = new TextBox();
             label13 = new Label();
@@ -107,14 +108,14 @@
             textBox_Khoa_MaKhoa = new TextBox();
             label32 = new Label();
             panel_Khoa_Filter = new Panel();
-            label27 = new Label();
+            comboBox_Khoa_Operation = new ComboBox();
             label19 = new Label();
             textBox_Khoa_MaNVQuanLy_Filter = new TextBox();
             label20 = new Label();
             textBox_Khoa_SoLuong_Filter = new TextBox();
             label21 = new Label();
             label22 = new Label();
-            textBox_Khoa_TenKhoa = new TextBox();
+            textBox_Khoa_TenKhoa_Filter = new TextBox();
             button_Khoa_OK_Filter = new Button();
             textBox_Khoa_MaKhoa_Filter = new TextBox();
             label26 = new Label();
@@ -162,6 +163,7 @@
             pageButton_Tab_Khoa.TabIndex = 10;
             pageButton_Tab_Khoa.TextLocation = new Point(64, 12);
             pageButton_Tab_Khoa.UseVisualStyleBackColor = false;
+            pageButton_Tab_Khoa.Click += pageButton_Tab_Khoa_Click;
             // 
             // pageButton_Tab_NhanVien
             // 
@@ -278,26 +280,26 @@
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(20, 134);
@@ -1151,6 +1153,7 @@
             panel_Khoa_Upload.AutoScroll = true;
             panel_Khoa_Upload.AutoSize = true;
             panel_Khoa_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Khoa_Upload.Controls.Add(textBox_Khoa_TenKhoa);
             panel_Khoa_Upload.Controls.Add(label18);
             panel_Khoa_Upload.Controls.Add(textBox_Khoa_MaNVQuanLy);
             panel_Khoa_Upload.Controls.Add(label13);
@@ -1165,6 +1168,18 @@
             panel_Khoa_Upload.Name = "panel_Khoa_Upload";
             panel_Khoa_Upload.Size = new Size(333, 624);
             panel_Khoa_Upload.TabIndex = 22;
+            // 
+            // textBox_Khoa_TenKhoa
+            // 
+            textBox_Khoa_TenKhoa.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_Khoa_TenKhoa.BorderStyle = BorderStyle.None;
+            textBox_Khoa_TenKhoa.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_Khoa_TenKhoa.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_Khoa_TenKhoa.Location = new Point(15, 182);
+            textBox_Khoa_TenKhoa.Margin = new Padding(2);
+            textBox_Khoa_TenKhoa.Name = "textBox_Khoa_TenKhoa";
+            textBox_Khoa_TenKhoa.Size = new Size(298, 27);
+            textBox_Khoa_TenKhoa.TabIndex = 15;
             // 
             // label18
             // 
@@ -1262,6 +1277,7 @@
             button_Khoa_OK.TabIndex = 4;
             button_Khoa_OK.Text = "OK";
             button_Khoa_OK.UseVisualStyleBackColor = true;
+            button_Khoa_OK.Click += button_Khoa_OK_Click;
             // 
             // textBox_Khoa_MaKhoa
             // 
@@ -1272,7 +1288,7 @@
             textBox_Khoa_MaKhoa.Location = new Point(20, 102);
             textBox_Khoa_MaKhoa.Margin = new Padding(2);
             textBox_Khoa_MaKhoa.Name = "textBox_Khoa_MaKhoa";
-            textBox_Khoa_MaKhoa.Size = new Size(131, 27);
+            textBox_Khoa_MaKhoa.Size = new Size(298, 27);
             textBox_Khoa_MaKhoa.TabIndex = 3;
             // 
             // label32
@@ -1293,14 +1309,14 @@
             panel_Khoa_Filter.AutoScroll = true;
             panel_Khoa_Filter.AutoSize = true;
             panel_Khoa_Filter.BackColor = Color.FromArgb(57, 54, 70);
-            panel_Khoa_Filter.Controls.Add(label27);
+            panel_Khoa_Filter.Controls.Add(comboBox_Khoa_Operation);
             panel_Khoa_Filter.Controls.Add(label19);
             panel_Khoa_Filter.Controls.Add(textBox_Khoa_MaNVQuanLy_Filter);
             panel_Khoa_Filter.Controls.Add(label20);
             panel_Khoa_Filter.Controls.Add(textBox_Khoa_SoLuong_Filter);
             panel_Khoa_Filter.Controls.Add(label21);
             panel_Khoa_Filter.Controls.Add(label22);
-            panel_Khoa_Filter.Controls.Add(textBox_Khoa_TenKhoa);
+            panel_Khoa_Filter.Controls.Add(textBox_Khoa_TenKhoa_Filter);
             panel_Khoa_Filter.Controls.Add(button_Khoa_OK_Filter);
             panel_Khoa_Filter.Controls.Add(textBox_Khoa_MaKhoa_Filter);
             panel_Khoa_Filter.Controls.Add(label26);
@@ -1310,20 +1326,19 @@
             panel_Khoa_Filter.Size = new Size(333, 624);
             panel_Khoa_Filter.TabIndex = 23;
             // 
-            // label27
+            // comboBox_Khoa_Operation
             // 
-            label27.AutoSize = true;
-            label27.BackColor = Color.Transparent;
-            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label27.ForeColor = Color.FromArgb(193, 193, 193);
-            label27.ImageAlign = ContentAlignment.BottomCenter;
-            label27.Location = new Point(296, 267);
-            label27.Margin = new Padding(2, 0, 2, 0);
-            label27.Name = "label27";
-            label27.Size = new Size(22, 23);
-            label27.TabIndex = 15;
-            label27.Text = "≥";
-            label27.TextAlign = ContentAlignment.BottomLeft;
+            comboBox_Khoa_Operation.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Khoa_Operation.FlatStyle = FlatStyle.Flat;
+            comboBox_Khoa_Operation.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_Khoa_Operation.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_Khoa_Operation.FormattingEnabled = true;
+            comboBox_Khoa_Operation.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_Khoa_Operation.Location = new Point(271, 259);
+            comboBox_Khoa_Operation.Margin = new Padding(2);
+            comboBox_Khoa_Operation.Name = "comboBox_Khoa_Operation";
+            comboBox_Khoa_Operation.Size = new Size(48, 36);
+            comboBox_Khoa_Operation.TabIndex = 34;
             // 
             // label19
             // 
@@ -1376,7 +1391,7 @@
             textBox_Khoa_SoLuong_Filter.Location = new Point(21, 265);
             textBox_Khoa_SoLuong_Filter.Margin = new Padding(2);
             textBox_Khoa_SoLuong_Filter.Name = "textBox_Khoa_SoLuong_Filter";
-            textBox_Khoa_SoLuong_Filter.Size = new Size(264, 27);
+            textBox_Khoa_SoLuong_Filter.Size = new Size(227, 27);
             textBox_Khoa_SoLuong_Filter.TabIndex = 11;
             // 
             // label21
@@ -1409,17 +1424,17 @@
             label22.Text = "Mã khoa";
             label22.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // textBox_Khoa_TenKhoa
+            // textBox_Khoa_TenKhoa_Filter
             // 
-            textBox_Khoa_TenKhoa.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_Khoa_TenKhoa.BorderStyle = BorderStyle.None;
-            textBox_Khoa_TenKhoa.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_Khoa_TenKhoa.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Khoa_TenKhoa.Location = new Point(20, 182);
-            textBox_Khoa_TenKhoa.Margin = new Padding(2);
-            textBox_Khoa_TenKhoa.Name = "textBox_Khoa_TenKhoa";
-            textBox_Khoa_TenKhoa.Size = new Size(293, 27);
-            textBox_Khoa_TenKhoa.TabIndex = 5;
+            textBox_Khoa_TenKhoa_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_Khoa_TenKhoa_Filter.BorderStyle = BorderStyle.None;
+            textBox_Khoa_TenKhoa_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_Khoa_TenKhoa_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_Khoa_TenKhoa_Filter.Location = new Point(20, 182);
+            textBox_Khoa_TenKhoa_Filter.Margin = new Padding(2);
+            textBox_Khoa_TenKhoa_Filter.Name = "textBox_Khoa_TenKhoa_Filter";
+            textBox_Khoa_TenKhoa_Filter.Size = new Size(293, 27);
+            textBox_Khoa_TenKhoa_Filter.TabIndex = 5;
             // 
             // button_Khoa_OK_Filter
             // 
@@ -1433,6 +1448,7 @@
             button_Khoa_OK_Filter.TabIndex = 4;
             button_Khoa_OK_Filter.Text = "OK";
             button_Khoa_OK_Filter.UseVisualStyleBackColor = true;
+            button_Khoa_OK_Filter.Click += button_Khoa_OK_Filter_Click;
             // 
             // textBox_Khoa_MaKhoa_Filter
             // 
@@ -1464,10 +1480,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_Khoa_Filter);
+            Controls.Add(panel_Khoa_Upload);
             Controls.Add(panel_NV_Filter);
             Controls.Add(panel_NV_Upload);
-            Controls.Add(panel_Khoa_Upload);
-            Controls.Add(panel_Khoa_Filter);
             Controls.Add(customPanel_Sum);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Toolbar);
@@ -1565,7 +1581,6 @@
         private CheckBox checkBox2;
         private TextBox textBox8;
         private ComboBox comboBox1;
-        private Label label27;
         private Label label28;
         private TextBox textBox11;
         private Label label29;
@@ -1590,9 +1605,11 @@
         private TextBox textBox_Khoa_SoLuong_Filter;
         private Label label21;
         private Label label22;
-        private TextBox textBox_Khoa_TenKhoa;
+        private TextBox textBox_Khoa_TenKhoa_Filter;
         private Button button_Khoa_OK_Filter;
         private TextBox textBox_Khoa_MaKhoa_Filter;
         private Label label26;
+        private ComboBox comboBox_Khoa_Operation;
+        private TextBox textBox_Khoa_TenKhoa;
     }
 }

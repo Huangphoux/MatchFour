@@ -273,8 +273,6 @@ namespace QuanLyMachTu.Controls
                 ColoringTextBox.WarningColor(textBox_NV_Upload_NamKN);
         }
 
-        #endregion
-
         private void button_NV_OK_Click(object sender, EventArgs e)
         {
             int error = CheckUploadTextBox();
@@ -320,7 +318,6 @@ namespace QuanLyMachTu.Controls
 
             UpdateDataGridView(customDataGridView, datatable_NV);
         }
-
         private void button_NV_OK_Filter_Click(object sender, EventArgs e)
         {
             string selectCommand = "1 = 1 ";
@@ -333,7 +330,7 @@ namespace QuanLyMachTu.Controls
 
             if (string.IsNullOrEmpty(textBox_NV_MaKhoa_Filter.Text) == false)
                 selectCommand += $"AND MaKhoa = '{textBox_NV_MaKhoa_Filter.Text}' ";
-            
+
 
             string operation = GetOperation(comboBox_NV_Filter_Operation);
             string ngaySinh = GetNgayThangNam(textBox_NV_Filter_Ngay, comboBox_NV_Filter_Thang, textBox_NV_Filter_Nam);
@@ -363,5 +360,124 @@ namespace QuanLyMachTu.Controls
 
             UpdateDataGridView(customDataGridView, resultDatatable);
         }
+
+        #endregion
+
+
+        #region Khoa Tab
+        private void pageButton_Tab_Khoa_Click(object sender, EventArgs e)
+        {
+            DisablePage(controlPage);
+            controlPage = KHOA_TAB;
+            EnablePage(controlPage);
+        }
+        private void LoadTabKhoa()
+        {
+            LoadDataToDataSet("SELECT * FROM KHOA", "KHOA");
+            datatable_NV = dataset.Tables["KHOA"];
+            datatable_NV.PrimaryKey = new DataColumn[] { datatable_NV.Columns["MaKhoa"] };
+
+            comboBox_Khoa_Operation.SelectedItem = comboBox_Khoa_Operation.Items[0];
+        }
+
+        #region Error bits
+        const int MAKHOA_KHOA_ERR = 1;
+        const int TENKHOA_ERR = 2;
+        const int SOLUONG_ERR = 4;
+        const int MANV_KHOA_ERR = 8;
+        #endregion
+
+        private int CheckUploadTextBox_Khoa()
+        {
+            int error = 0;
+
+            if (string.IsNullOrEmpty(textBox_Khoa_MaKhoa.Text))
+                error |= MAKHOA_KHOA_ERR;
+            if (string.IsNullOrEmpty(textBox_Khoa_TenKhoa.Text))
+                error |= TENKHOA_ERR;
+            if (string.IsNullOrEmpty(textBox_Khoa_SoLuong.Text))
+                error |= SOLUONG_ERR;
+            if (string.IsNullOrEmpty(textBox_Khoa_MaNVQuanLy.Text))
+                error |= MANV_KHOA_ERR;
+
+            return error;
+        }
+        private void WarningUploadTextBoxError_Khoa(int error)
+        {
+            if ((error & MAKHOA_KHOA_ERR) == MAKHOA_KHOA_ERR)
+                ColoringTextBox.WarningColor(textBox_Khoa_MaKhoa);
+            if ((error & TENKHOA_ERR) == TENKHOA_ERR)
+                ColoringTextBox.WarningColor(textBox_Khoa_TenKhoa);
+            if ((error & SOLUONG_ERR) == SOLUONG_ERR)
+                ColoringTextBox.WarningColor(textBox_Khoa_SoLuong);
+            if ((error & MANV_KHOA_ERR) == MANV_KHOA_ERR)
+                ColoringTextBox.WarningColor(textBox_Khoa_MaNVQuanLy);
+        }
+
+        private void button_Khoa_OK_Click(object sender, EventArgs e)
+        {
+            int error = CheckUploadTextBox_Khoa();
+            if (error != 0)
+            {
+                WarningUploadTextBoxError_Khoa(error);
+                return;
+            }
+
+            string primaryKey = textBox_Khoa_MaKhoa.Text;
+            DataRow targetRow = datatable_Khoa.Rows.Find(primaryKey);
+
+            if (targetRow == null) // Insert
+            {
+                targetRow = datatable_Khoa.NewRow();
+
+                targetRow["MaKhoa"] = primaryKey;
+                targetRow["TenKhoa"] = textBox_Khoa_TenKhoa.Text;
+                targetRow["SoLuong"] = textBox_Khoa_SoLuong.Text;
+                targetRow["MaNV_QuanLy"] = textBox_Khoa_MaNVQuanLy.Text;
+
+                datatable_Khoa.Rows.Add(targetRow);
+            }
+            else //Update
+            {
+                targetRow["MaKhoa"] = primaryKey;
+                targetRow["TenKhoa"] = textBox_Khoa_TenKhoa.Text;
+                targetRow["SoLuong"] = textBox_Khoa_SoLuong.Text;
+                targetRow["MaNV_QuanLy"] = textBox_Khoa_MaNVQuanLy.Text;
+            }
+
+            UpdateDataGridView(customDataGridView, datatable_Khoa);
+        }
+        private void button_Khoa_OK_Filter_Click(object sender, EventArgs e)
+        {
+            string selectCommand = "1 = 1 ";
+
+            if (string.IsNullOrEmpty(textBox_Khoa_MaKhoa_Filter.Text) == false)
+                selectCommand += $"AND MaKhoa = '{textBox_Khoa_MaKhoa_Filter.Text}' ";
+
+            if (string.IsNullOrEmpty(textBox_Khoa_TenKhoa_Filter.Text) == false)
+                selectCommand += $"AND TenKhoa = '{textBox_Khoa_TenKhoa_Filter.Text}' ";
+            
+            string operation = GetOperation(comboBox_Khoa_Operation);
+            if (string.IsNullOrEmpty(textBox_Khoa_SoLuong_Filter.Text) == false)
+                selectCommand += $"AND SoLuong {operation} '{textBox_Khoa_SoLuong_Filter.Text}' ";
+            
+            if (string.IsNullOrEmpty(textBox_Khoa_MaNVQuanLy_Filter.Text) == false)
+                selectCommand += $"AND MaNV_QuanLy = '{textBox_Khoa_MaNVQuanLy_Filter.Text}' ";
+
+            DataRow[] resultRow = datatable_Khoa.Select(selectCommand);
+            DataTable resultDatatable = datatable_Khoa.Clone();
+
+            foreach (DataRow row in resultRow)
+            {
+                if (resultDatatable.Rows.Contains(row["MaKhoa"]))
+                    continue;
+
+                resultDatatable.ImportRow(row);
+            }
+
+            UpdateDataGridView(customDataGridView, resultDatatable);
+        }
+
+        #endregion
     }
 }
