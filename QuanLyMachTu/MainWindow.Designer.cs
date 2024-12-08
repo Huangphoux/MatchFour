@@ -55,6 +55,7 @@ namespace QuanLyMachTu
             dichVuControl = new DichVuControl();
             nhanVienControl = new NhanVienControl();
             duocPhamControl = new DuocPhamControl();
+            tongQuanControl = new TongQuanControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
@@ -209,13 +210,13 @@ namespace QuanLyMachTu
             // 
             // pageButton_SignOut
             // 
+            resources.ApplyResources(pageButton_SignOut, "pageButton_SignOut");
             pageButton_SignOut.BackColor = Color.FromArgb(57, 54, 70);
             pageButton_SignOut.BorderColor = Color.PaleVioletRed;
             pageButton_SignOut.BorderRadius = 40;
             pageButton_SignOut.BorderSize = 0;
             pageButton_SignOut.CustomText = null;
             pageButton_SignOut.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton_SignOut, "pageButton_SignOut");
             pageButton_SignOut.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton_SignOut.Icon = (Image)resources.GetObject("pageButton_SignOut.Icon");
             pageButton_SignOut.IconLocation = new Point(15, 15);
@@ -227,13 +228,13 @@ namespace QuanLyMachTu
             // 
             // pageButton_CaiDat
             // 
+            resources.ApplyResources(pageButton_CaiDat, "pageButton_CaiDat");
             pageButton_CaiDat.BackColor = Color.FromArgb(57, 54, 70);
             pageButton_CaiDat.BorderColor = Color.PaleVioletRed;
             pageButton_CaiDat.BorderRadius = 40;
             pageButton_CaiDat.BorderSize = 0;
             pageButton_CaiDat.CustomText = null;
             pageButton_CaiDat.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton_CaiDat, "pageButton_CaiDat");
             pageButton_CaiDat.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton_CaiDat.Icon = (Image)resources.GetObject("pageButton_CaiDat.Icon");
             pageButton_CaiDat.IconLocation = new Point(12, 12);
@@ -245,13 +246,13 @@ namespace QuanLyMachTu
             // 
             // pageButton_ThongTin
             // 
+            resources.ApplyResources(pageButton_ThongTin, "pageButton_ThongTin");
             pageButton_ThongTin.BackColor = Color.FromArgb(57, 54, 70);
             pageButton_ThongTin.BorderColor = Color.PaleVioletRed;
             pageButton_ThongTin.BorderRadius = 40;
             pageButton_ThongTin.BorderSize = 0;
             pageButton_ThongTin.CustomText = null;
             pageButton_ThongTin.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton_ThongTin, "pageButton_ThongTin");
             pageButton_ThongTin.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton_ThongTin.Icon = (Image)resources.GetObject("pageButton_ThongTin.Icon");
             pageButton_ThongTin.IconLocation = new Point(12, 12);
@@ -315,11 +316,18 @@ namespace QuanLyMachTu
             resources.ApplyResources(duocPhamControl, "duocPhamControl");
             duocPhamControl.Name = "duocPhamControl";
             // 
+            // tongQuanControl
+            // 
+            tongQuanControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(tongQuanControl, "tongQuanControl");
+            tongQuanControl.Name = "tongQuanControl";
+            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            Controls.Add(tongQuanControl);
             Controls.Add(duocPhamControl);
             Controls.Add(dichVuControl);
             Controls.Add(phongKhamControl);
@@ -360,5 +368,6 @@ namespace QuanLyMachTu
         private PageButton pageButton_SignOut;
         private NhanVienControl nhanVienControl;
         private DuocPhamControl duocPhamControl;
+        private TongQuanControl tongQuanControl;
     }
 }

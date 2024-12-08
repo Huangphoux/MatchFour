@@ -36,21 +36,20 @@
             panel_Password = new Panel();
             panel_Username = new Panel();
             icon_Logo = new FontAwesome.Sharp.IconPictureBox();
-            label_Logo = new Label();
             icon_SignIn = new FontAwesome.Sharp.IconButton();
-            label_Password = new Label();
-            label_Username = new Label();
             icon_SignUp = new FontAwesome.Sharp.IconButton();
             icon_Exit = new FontAwesome.Sharp.IconPictureBox();
-            panel1 = new Panel();
+            label_Logo = new Label();
             checkBox_ShowPassword = new CheckBox();
-            panel2 = new Panel();
+            pictureBox_Logo = new PictureBox();
+            panel_TopBar = new Panel();
+            label_Login = new Label();
             ((System.ComponentModel.ISupportInitialize)icon_Username).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)icon_Exit).BeginInit();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Logo).BeginInit();
+            panel_TopBar.SuspendLayout();
             SuspendLayout();
             // 
             // icon_Username
@@ -104,20 +103,15 @@
             // icon_Logo
             // 
             icon_Logo.BackColor = Color.Transparent;
-            icon_Logo.ForeColor = Color.FromArgb(244, 238, 224);
+            icon_Logo.ForeColor = Color.FromArgb(57, 54, 70);
             icon_Logo.IconChar = FontAwesome.Sharp.IconChar.HeartPulse;
-            icon_Logo.IconColor = Color.FromArgb(244, 238, 224);
+            icon_Logo.IconColor = Color.FromArgb(57, 54, 70);
             icon_Logo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Logo.IconSize = 200;
+            icon_Logo.IconSize = 80;
             resources.ApplyResources(icon_Logo, "icon_Logo");
             icon_Logo.Name = "icon_Logo";
             icon_Logo.TabStop = false;
-            // 
-            // label_Logo
-            // 
-            resources.ApplyResources(label_Logo, "label_Logo");
-            label_Logo.ForeColor = Color.FromArgb(244, 238, 224);
-            label_Logo.Name = "label_Logo";
+            icon_Logo.MouseDown += icon_Logo_MouseDown;
             // 
             // icon_SignIn
             // 
@@ -132,18 +126,6 @@
             icon_SignIn.UseVisualStyleBackColor = false;
             icon_SignIn.Click += icon_Login_Click;
             // 
-            // label_Password
-            // 
-            resources.ApplyResources(label_Password, "label_Password");
-            label_Password.ForeColor = Color.Black;
-            label_Password.Name = "label_Password";
-            // 
-            // label_Username
-            // 
-            resources.ApplyResources(label_Username, "label_Username");
-            label_Username.ForeColor = Color.Black;
-            label_Username.Name = "label_Username";
-            // 
             // icon_SignUp
             // 
             icon_SignUp.BackColor = Color.WhiteSmoke;
@@ -155,6 +137,7 @@
             icon_SignUp.IconSize = 30;
             icon_SignUp.Name = "icon_SignUp";
             icon_SignUp.UseVisualStyleBackColor = false;
+            icon_SignUp.Click += icon_SignUp_Click;
             // 
             // icon_Exit
             // 
@@ -169,23 +152,13 @@
             icon_Exit.TabStop = false;
             icon_Exit.Click += icon_Exit_Click;
             // 
-            // panel1
+            // label_Logo
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(checkBox_ShowPassword);
-            panel1.Controls.Add(icon_Exit);
-            panel1.Controls.Add(icon_Username);
-            panel1.Controls.Add(icon_SignUp);
-            panel1.Controls.Add(icon_Password);
-            panel1.Controls.Add(label_Username);
-            panel1.Controls.Add(textBox_Password);
-            panel1.Controls.Add(label_Password);
-            panel1.Controls.Add(textBox_Username);
-            panel1.Controls.Add(icon_SignIn);
-            panel1.Controls.Add(panel_Password);
-            panel1.Controls.Add(panel_Username);
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
+            label_Logo.BackColor = Color.Transparent;
+            resources.ApplyResources(label_Logo, "label_Logo");
+            label_Logo.ForeColor = Color.FromArgb(57, 54, 70);
+            label_Logo.Name = "label_Logo";
+            label_Logo.MouseDown += label_Logo_MouseDown;
             // 
             // checkBox_ShowPassword
             // 
@@ -194,32 +167,56 @@
             checkBox_ShowPassword.UseVisualStyleBackColor = true;
             checkBox_ShowPassword.CheckedChanged += checkBox_ShowPassword_CheckedChanged;
             // 
-            // panel2
+            // pictureBox_Logo
             // 
-            panel2.BackColor = Color.FromArgb(57, 54, 70);
-            panel2.Controls.Add(label_Logo);
-            panel2.Controls.Add(icon_Logo);
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
+            resources.ApplyResources(pictureBox_Logo, "pictureBox_Logo");
+            pictureBox_Logo.Name = "pictureBox_Logo";
+            pictureBox_Logo.TabStop = false;
+            // 
+            // panel_TopBar
+            // 
+            panel_TopBar.BackColor = Color.Transparent;
+            panel_TopBar.Controls.Add(icon_Logo);
+            panel_TopBar.Controls.Add(label_Logo);
+            resources.ApplyResources(panel_TopBar, "panel_TopBar");
+            panel_TopBar.Name = "panel_TopBar";
+            panel_TopBar.MouseDown += panel_TopBar_MouseDown;
+            // 
+            // label_Login
+            // 
+            resources.ApplyResources(label_Login, "label_Login");
+            label_Login.Name = "label_Login";
             // 
             // LoginWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(label_Login);
+            Controls.Add(icon_Exit);
+            Controls.Add(panel_TopBar);
+            Controls.Add(checkBox_ShowPassword);
+            Controls.Add(icon_SignIn);
+            Controls.Add(icon_Username);
+            Controls.Add(panel_Username);
+            Controls.Add(icon_SignUp);
+            Controls.Add(panel_Password);
+            Controls.Add(icon_Password);
+            Controls.Add(textBox_Username);
+            Controls.Add(textBox_Password);
+            Controls.Add(pictureBox_Logo);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginWindow";
+            ShowInTaskbar = false;
             Load += LoginWindow_Load;
             ((System.ComponentModel.ISupportInitialize)icon_Username).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Password).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Logo).EndInit();
             ((System.ComponentModel.ISupportInitialize)icon_Exit).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Logo).EndInit();
+            panel_TopBar.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -231,14 +228,13 @@
         private Panel panel_Password;
         private Panel panel_Username;
         private FontAwesome.Sharp.IconPictureBox icon_Logo;
-        private Label label_Logo;
         private FontAwesome.Sharp.IconButton icon_SignIn;
-        private Label label_Password;
-        private Label label_Username;
         private FontAwesome.Sharp.IconButton icon_SignUp;
         private FontAwesome.Sharp.IconPictureBox icon_Exit;
-        private Panel panel1;
-        private Panel panel2;
         private CheckBox checkBox_ShowPassword;
+        private PictureBox pictureBox_Logo;
+        private Label label_Logo;
+        private Panel panel_TopBar;
+        private Label label_Login;
     }
 }

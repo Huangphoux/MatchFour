@@ -576,7 +576,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="pageButton_SignOut.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="pageButton_SignOut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -626,6 +629,9 @@
   </data>
   <data name="&gt;&gt;pageButton_SignOut.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="pageButton_CaiDat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="pageButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -696,6 +702,9 @@
   </data>
   <data name="&gt;&gt;pageButton_CaiDat.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="pageButton_ThongTin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="pageButton_ThongTin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -841,7 +850,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -875,7 +884,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -902,7 +911,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="dichVuControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -929,7 +938,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dichVuControl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="nhanVienControl.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -956,7 +965,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nhanVienControl.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -983,6 +992,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tongQuanControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tongQuanControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 88</value>
+  </data>
+  <data name="tongQuanControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tongQuanControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1345, 756</value>
+  </data>
+  <data name="tongQuanControl.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Name" xml:space="preserve">
+    <value>tongQuanControl</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Controls.TongQuanControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
