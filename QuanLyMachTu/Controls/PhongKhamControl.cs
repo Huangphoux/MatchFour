@@ -10,8 +10,6 @@ using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-
 //using System.Windows.Controls;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -35,8 +33,8 @@ namespace QuanLyMachTu
         private DataTable datatablePK;
         private DataTable datatablePC;
         //Database connection
-        private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-        //private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
+        // private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
+        private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
 
         //Control variables
         //tab index
@@ -47,7 +45,6 @@ namespace QuanLyMachTu
         const int FIL_FUNC = 2;
         //controllers
         int controlPage;
-        int controlFunc;
         DataTable controlDataTable;
         CustomDataGridView controlDataGridView;
         public PhongKhamControl()
@@ -63,14 +60,9 @@ namespace QuanLyMachTu
         //Initialize methods
         private void InitializeState()
         {
-            InitializeState_PK();
-            InitializeState_PC();
-
-            controlDataGridView = customDataGridView_PK;
+            controlDataGridView = customDataGridView_PC;
             controlPage = PK_TAB;
-            controlFunc = FIL_FUNC;
             SwitchMode(controlPage);
-            EnablePage(controlPage);
             panel_Filters.BringToFront();
         }
         //Activate / Deactivate tab
@@ -80,13 +72,9 @@ namespace QuanLyMachTu
             {
                 case PK_TAB:
                     ColoringButton.EnabledColor(pageButton_PKTab);
-                    ColoringDataGridView.ActivateDGV(controlDataGridView);
-                    EnableUploadComponents_PK();
                     break;
                 case PC_TAB:
                     ColoringButton.EnabledColor(pageButton_PCTab);
-                    ColoringDataGridView.ActivateDGV(controlDataGridView);
-                    EnableUploadComponents_PC();
                     break;
             }
         }
@@ -96,31 +84,11 @@ namespace QuanLyMachTu
             {
                 case PK_TAB:
                     ColoringButton.DisabledColor(pageButton_PKTab);
-                    ColoringDataGridView.DeactivateDGV(controlDataGridView);
-                    DisableUploadComponents_PK();
                     break;
                 case PC_TAB:
                     ColoringButton.DisabledColor(pageButton_PCTab);
-                    ColoringDataGridView.DeactivateDGV(controlDataGridView);
-                    DisableUploadComponents_PC();
                     break;
             }
-        }
-        private void SwitchMode(int controlPage)
-        {
-            switch (controlPage)
-            {
-                case PK_TAB:
-                    controlDataTable = datatablePK;
-                    controlDataGridView = customDataGridView_PK;
-                    break;
-                case PC_TAB:
-                    controlDataTable = datatablePC;
-                    controlDataGridView = customDataGridView_PC;
-                    break;
-            }
-
-            RepaintPanel(panel_Upload);
         }
         //Load methods
         private void LoadData()
@@ -133,6 +101,9 @@ namespace QuanLyMachTu
             LoadTabPhanCong();
 
             connection.Close();
+
+            UpdateDataGridView(customDataGridView_PK, datatablePK);
+            UpdateDataGridView(customDataGridView_PC, datatablePC);
         }
         private void LoadDataToDataSet(string commandStr, string tableName)
         {
@@ -144,11 +115,14 @@ namespace QuanLyMachTu
         {
             //Load data to data grid view
             dgv.DataSource = datatable;
+
+            //Display statitic number
+            //label_HienThiDTTong.Text = CalculateSumOfDoanhSo(dgv).ToString();
+            label_HienThiSoBN.Text = dgv.Rows.Count.ToString();
         }
         //Upload button
         private void pageButton_Upload_Click(object sender, EventArgs e)
         {
-            controlFunc = INS_FUNC;
             panel_Upload.BringToFront();
         }
         private void pageButton_Upload_OK_Click(object sender, EventArgs e)
@@ -166,7 +140,6 @@ namespace QuanLyMachTu
         //Filter button
         private void pageButton_Filters_Click(object sender, EventArgs e)
         {
-            controlFunc = FIL_FUNC;
             panel_Filters.BringToFront();
         }
         private void pageButton_Filters_OK_Click(object sender, EventArgs e)
@@ -219,25 +192,19 @@ namespace QuanLyMachTu
             Color panel_PK_color = deactivatedColor;
             Color panel_PC_color = deactivatedColor;
 
-            //Unchanged
-            Color SpecialColor = Color.FromArgb(38, 187, 255);
-
-            Graphics graphic = e.Graphics;
-            Pen unchangePen = new Pen(SpecialColor, 2);
-            int startX = 20, offset = 5;
-            graphic.DrawLine(unchangePen, new Point(startX, textBox_Upload_MaPK.Location.Y + textBox_Upload_MaPK.Height + offset),
-                                          new Point(textBox_Upload_MaPK.Location.X + textBox_Upload_MaPK.Width + offset, textBox_Upload_MaPK.Location.Y + textBox_Upload_MaPK.Height + offset)); //MaPK line
-
             switch (controlPage)
             {
                 case PK_TAB:
-                    panel_PK_color = activatedColor;                    
+                    panel_PK_color = activatedColor;
+                    panel_PKUpload_Highlight(sender, e);
                     break;
                 case PC_TAB:
                     panel_PC_color = activatedColor;
+                    panel_PCUpload_Highlight(sender, e);
                     break;
             }
 
+            e.Graphics.DrawLine(new Pen(activatedColor), new Point(20, 165), new Point(182, 165)); //MaPK line
             panel_PKUpload_Paint(sender, e, panel_PK_color);
             panel_PCUpload_Paint(sender, e, panel_PC_color);
         }
@@ -251,34 +218,18 @@ namespace QuanLyMachTu
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_MaPK.Location.Y + textBox_Filters_MaPK.Height + offset),
-                                      new Point(textBox_Filters_MaPK.Location.X + textBox_Filters_MaPK.Width + offset, textBox_Filters_MaPK.Location.Y + textBox_Filters_MaPK.Height + offset)); //MaPK line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_SoGhe.Location.X - offset, textBox_Filters_SoGhe.Location.Y + textBox_Filters_SoGhe.Height + offset),
-                                      new Point(textBox_Filters_SoGhe.Location.X + textBox_Filters_SoGhe.Width + offset, textBox_Filters_SoGhe.Location.Y + textBox_Filters_SoGhe.Height + offset)); //SoGhe line            
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_MaNV.Location.Y + textBox_Filters_MaNV.Height + offset),
-                                      new Point(textBox_Filters_MaNV.Location.X + textBox_Filters_MaNV.Width + offset, textBox_Filters_MaNV.Location.Y + textBox_Filters_MaNV.Height + offset)); //MaNV line
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_TGBDGio.Location.Y + textBox_Filters_TGBDGio.Height + offset),
-                                      new Point(textBox_Filters_TGBDGio.Location.X + textBox_Filters_TGBDGio.Width + offset, textBox_Filters_TGBDGio.Location.Y + textBox_Filters_TGBDGio.Height + offset)); //TGBD Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGBDPhut.Location.X - offset, textBox_Filters_TGBDPhut.Location.Y + textBox_Filters_TGBDPhut.Height + offset),
-                                      new Point(textBox_Filters_TGBDPhut.Location.X + textBox_Filters_TGBDPhut.Width + offset, textBox_Filters_TGBDPhut.Location.Y + textBox_Filters_TGBDPhut.Height + offset)); //TGBD Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGBDGiay.Location.X - offset, textBox_Filters_TGBDGiay.Location.Y + textBox_Filters_TGBDGiay.Height + offset),
-                                      new Point(textBox_Filters_TGBDGiay.Location.X + textBox_Filters_TGBDGiay.Width + offset, textBox_Filters_TGBDGiay.Location.Y + textBox_Filters_TGBDGiay.Height + offset)); //TGBD Giay line
-
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTGio.Location.X - offset, textBox_Filters_TGKTGio.Location.Y + textBox_Filters_TGKTGio.Height + offset),
-                                      new Point(textBox_Filters_TGKTGio.Location.X + textBox_Filters_TGKTGio.Width + offset, textBox_Filters_TGKTGio.Location.Y + textBox_Filters_TGKTGio.Height + offset)); //TGKT Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTPhut.Location.X - offset, textBox_Filters_TGKTPhut.Location.Y + textBox_Filters_TGKTPhut.Height + offset),
-                                      new Point(textBox_Filters_TGKTPhut.Location.X + textBox_Filters_TGKTPhut.Width + offset, textBox_Filters_TGKTPhut.Location.Y + textBox_Filters_TGKTPhut.Height + offset)); //TGKT Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTGiay.Location.X - offset, textBox_Filters_TGKTGiay.Location.Y + textBox_Filters_TGKTGiay.Height + offset),
-                                      new Point(textBox_Filters_TGKTGiay.Location.X + textBox_Filters_TGKTGiay.Width + offset, textBox_Filters_TGKTGiay.Location.Y + textBox_Filters_TGKTGiay.Height + offset)); //TGKT Giay line
+            int startX = 20, endX = 395;
+            graphic.DrawLine(linePen, new Point(startX, 165), new Point(endX, 165)); //MaPK line
+            graphic.DrawLine(linePen, new Point(startX, 264), new Point(115, 264)); //SoGhe line
+            graphic.DrawLine(linePen, new Point(startX, 363), new Point(endX, 363)); //MaNV line
+            graphic.DrawLine(linePen, new Point(25, 462), new Point(65, 462)); //TGBD Gio line
+            graphic.DrawLine(linePen, new Point(81, 462), new Point(121, 462)); //TGBD Phut line
+            graphic.DrawLine(linePen, new Point(137, 462), new Point(177, 462)); //TGBD Giay line
+            graphic.DrawLine(linePen, new Point(230, 462), new Point(270, 462)); //TGKT Gio line
+            graphic.DrawLine(linePen, new Point(286, 462), new Point(326, 462)); //TGKT Phut line
+            graphic.DrawLine(linePen, new Point(342, 462), new Point(382, 462)); //TGKT Giay line
         }
-        //Additions        
-        private void WarningComboBox(ComboBox cb)
-        {
-            cb.BackColor = Color.FromArgb(255, 140, 158);
-        }
+        //Additions
         private string GetTrangThai(ComboBox trangThai)
         {
             return (string)trangThai.SelectedItem;
@@ -304,98 +255,39 @@ namespace QuanLyMachTu
         {
             ColoringTextBox.NormalColor((TextBox)sender);
         }
-        private void textBox_NoHour_KeyPress(object sender, KeyPressEventArgs e)
+        private void WarningComboBox(ComboBox cb)
         {
-            TextBox textBox = sender as TextBox;
-            int caretPos = textBox.SelectionStart;
-            int convertedNumber;
-
-            if (Char.IsControl(e.KeyChar))
-            {
-                switch (e.KeyChar)
-                {
-                    case (char)Keys.Back:
-                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
-                        break;
-                    default:
-                        return;
-                }
-
-                if (int.TryParse(textBox.Text, out convertedNumber) == false)
-                    convertedNumber = 0;
-
-                convertedNumber = Math.Min(convertedNumber, 59);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else if (Char.IsDigit(e.KeyChar))
-            {
-                string number = textBox.Text + e.KeyChar;
-                convertedNumber = int.Parse(number);
-
-                convertedNumber = Math.Min(convertedNumber, 59);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = true;
-                return;
-            }
+            cb.BackColor = Color.FromArgb(255, 140, 158);
         }
-
-        private void textBox_Hour_KeyPress(object sender, KeyPressEventArgs e)
+        private void SwitchMode(int controlPage)
         {
-            TextBox textBox = sender as TextBox;
-            int caretPos = textBox.SelectionStart;
-            int convertedNumber;
+            EnablePage(controlPage);
 
-            if (Char.IsControl(e.KeyChar))
+            switch (controlPage)
             {
-                switch (e.KeyChar)
-                {
-                    case (char)Keys.Back:
-                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
-                        break;
-                    default:
-                        return;
-                }
-
-                if (int.TryParse(textBox.Text, out convertedNumber) == false)
-                    convertedNumber = 0;
-
-                convertedNumber = Math.Min(convertedNumber, 23);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
+                case PK_TAB:
+                    //DataGridView
+                    ColoringDataGridView.DeactivateDGV(controlDataGridView);
+                    controlDataTable = datatablePK;
+                    controlDataGridView = customDataGridView_PK;
+                    ColoringDataGridView.ActivateDGV(controlDataGridView);
+                    //Upload
+                    EnableUploadComponents_PK();
+                    DisableUploadComponents_PC();
+                    break;
+                case PC_TAB:
+                    //DataGridView
+                    ColoringDataGridView.DeactivateDGV(controlDataGridView);
+                    controlDataTable = datatablePC;
+                    controlDataGridView = customDataGridView_PC;
+                    ColoringDataGridView.ActivateDGV(controlDataGridView);
+                    //Upload
+                    EnableUploadComponents_PC();
+                    DisableUploadComponents_PK();
+                    break;
             }
-            else if (Char.IsDigit(e.KeyChar))
-            {
-                string number = textBox.Text + e.KeyChar;
-                convertedNumber = int.Parse(number);
 
-                convertedNumber = Math.Min(convertedNumber, 23);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void textBox_EnabledChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            textBox.BackColor = Color.FromArgb(57, 54, 70);
+            RepaintPanel(panel_Upload);
         }
 
         //---------------------------------------------------------------Phong Kham tab---------------------------------------------------------------        
@@ -408,17 +300,6 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = PK_TAB;
             SwitchMode(controlPage);
-            EnablePage(controlPage);
-        }
-        //Initial State
-        private void InitializeState_PK()
-        {
-            //Components
-            comboBox_Upload_TrangThai.SelectedItem = comboBox_Upload_TrangThai.Items[0];
-
-            //Page status
-            controlDataGridView = customDataGridView_PK;
-            DisablePage(PK_TAB);
         }
         //Load data
         private void LoadTabPhongKham()
@@ -427,7 +308,7 @@ namespace QuanLyMachTu
             datatablePK = dataset.Tables["PHONGKHAM"];
             datatablePK.PrimaryKey = new DataColumn[] { datatablePK.Columns["MaPK"] };
 
-            UpdateDataGridView(customDataGridView_PK, datatablePK);
+            comboBox_Upload_TrangThai.SelectedItem = comboBox_Upload_TrangThai.Items[0];
         }
         //Check and prevent errors
         private int CheckUploadError_PK()
@@ -504,7 +385,7 @@ namespace QuanLyMachTu
                 selectCommandPK += $"AND MaPK = '{textBox_Filters_MaPK.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_SoGhe.Text) == false)
                 selectCommandPK += $"AND SoGhe = '{textBox_Filters_SoGhe.Text}' ";
-            string trangThai = GetTrangThai(comboBox_Filters_TrangThai);
+            string trangThai = GetTrangThai(comboBox_Filter_TrangThai);
             if (string.IsNullOrEmpty(trangThai) == false)
                 selectCommandPK += $"AND TrangThai = '{trangThai}' ";
 
@@ -556,15 +437,32 @@ namespace QuanLyMachTu
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            Pen sectionPen = new Pen(lineColor, 2);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(sectionPen, new Point(startX - 3 * offset, label_Upload_PhongKham.Location.Y + label_Upload_PhongKham.Height / 2 + offset),
-                                         new Point(label_Upload_PhongKham.Location.X, label_Upload_PhongKham.Location.Y + label_Upload_PhongKham.Height / 2 + offset)); //label_Upload_PhongKham line
-            graphic.DrawLine(sectionPen, new Point(label_Upload_PhongKham.Location.X + label_Upload_PhongKham.Width, label_Upload_PhongKham.Location.Y + label_Upload_PhongKham.Height / 2 + offset),
-                                         new Point(endX + offset, label_Upload_PhongKham.Location.Y + label_Upload_PhongKham.Height / 2 + offset)); //label_Upload_PhongKham line
+            int startX = 20, endX = 395;
+            graphic.DrawLine(linePen, new Point(225, 264), new Point(345, 264)); //SoGhe line
+        }
+        private void panel_PKUpload_Highlight(object sender, PaintEventArgs e)
+        {
+            Color frameColor = Color.FromArgb(38, 187, 255);
 
-            graphic.DrawLine(linePen, new Point(textBox_Upload_SoGhe.Location.X - offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset),
-                                      new Point(textBox_Upload_SoGhe.Location.X + textBox_Upload_SoGhe.Width + offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset)); //SoGhe line
+            Graphics graphic = e.Graphics;
+            Pen framePen = new Pen(frameColor, 4);
+
+            int heihgt_distance = 46;
+            int width_distance = 10;
+            int startY = 78;
+
+            Point[] frameShape = new Point[]
+            {
+                new Point(20 - width_distance, startY),
+                new Point(397 + width_distance, startY),
+                new Point(397 + width_distance, 227 + heihgt_distance),
+                new Point(225 - width_distance, 227 + heihgt_distance),
+                new Point(225 - width_distance, 128 + heihgt_distance),
+                new Point(20 - width_distance, 128 + heihgt_distance),
+                new Point(20 - width_distance, startY)
+            };
+
+            graphic.DrawPolygon(framePen, frameShape);
         }
 
         //---------------------------------------------------------------Phan Cong tab---------------------------------------------------------------        
@@ -577,30 +475,6 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = PC_TAB;
             SwitchMode(controlPage);
-            EnablePage(controlPage);
-        }
-        //Initial state
-        private void InitializeState_PC()
-        {
-            //Components
-            //Upload
-            textBox_Upload_TGBDGio.Text = "00";
-            textBox_Upload_TGBDPhut.Text = "00";
-            textBox_Upload_TGBDGiay.Text = "00";
-            textBox_Upload_TGKTGio.Text = "23";
-            textBox_Upload_TGKTPhut.Text = "59";
-            textBox_Upload_TGKTGiay.Text = "59";
-            //Filters
-            textBox_Filters_TGBDGio.Text = "00";
-            textBox_Filters_TGBDPhut.Text = "00";
-            textBox_Filters_TGBDGiay.Text = "00";
-            textBox_Filters_TGKTGio.Text = "23";
-            textBox_Filters_TGKTPhut.Text = "59";
-            textBox_Filters_TGKTGiay.Text = "59";
-
-            //Page status
-            controlDataGridView = customDataGridView_PC;
-            DisablePage(PC_TAB);
         }
         //Load data
         private void LoadTabPhanCong()
@@ -609,7 +483,19 @@ namespace QuanLyMachTu
             datatablePC = dataset.Tables["LAMVIEC"];
             datatablePC.PrimaryKey = new DataColumn[] { datatablePC.Columns["MaNV"], datatablePC.Columns["MaPK"] };
 
-            UpdateDataGridView(customDataGridView_PC, datatablePC);
+            textBox_Upload_TGBDGio.Text = "00";
+            textBox_Upload_TGBDPhut.Text = "00";
+            textBox_Upload_TGBDGiay.Text = "00";
+            textBox_Upload_TGKTGio.Text = "23";
+            textBox_Upload_TGKTPhut.Text = "59";
+            textBox_Upload_TGKTGiay.Text = "59";
+
+            textBox_Filters_TGBDGio.Text = "00";
+            textBox_Filters_TGBDPhut.Text = "00";
+            textBox_Filters_TGBDGiay.Text = "00";
+            textBox_Filters_TGKTGio.Text = "23";
+            textBox_Filters_TGKTPhut.Text = "59";
+            textBox_Filters_TGKTGiay.Text = "59";
         }
         //Check and prevent errors
         private int CheckUploadError_PC()
@@ -704,7 +590,7 @@ namespace QuanLyMachTu
             //Search for Phan Cong with addition information            
             if (string.IsNullOrEmpty(textBox_Filters_SoGhe.Text) == false)
                 selectCommandPK += $"AND SoGhe = '{textBox_Filters_SoGhe.Text}' ";
-            string trangThai = GetTrangThai(comboBox_Filters_TrangThai);
+            string trangThai = GetTrangThai(comboBox_Filter_TrangThai);
             if (string.IsNullOrEmpty(trangThai) == false)
                 selectCommandPK += $"AND TrangThai = '{trangThai}' ";
 
@@ -751,116 +637,132 @@ namespace QuanLyMachTu
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            Pen sectionPen = new Pen(lineColor, 2);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(sectionPen, new Point(startX - 3 * offset, label_Upload_PhanCong.Location.Y + label_Upload_PhanCong.Height / 2 + offset),
-                                         new Point(label_Upload_PhanCong.Location.X, label_Upload_PhanCong.Location.Y + label_Upload_PhanCong.Height / 2 + offset)); //label_Upload_PhanCong line
-            graphic.DrawLine(sectionPen, new Point(label_Upload_PhanCong.Location.X + label_Upload_PhanCong.Width, label_Upload_PhanCong.Location.Y + label_Upload_PhanCong.Height / 2 + offset),
-                                         new Point(endX + offset, label_Upload_PhanCong.Location.Y + label_Upload_PhanCong.Height / 2 + offset)); //label_Upload_PhanCong line
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_Upload_MaNV.Location.Y + textBox_Upload_MaNV.Height + offset),
-                                      new Point(textBox_Upload_MaNV.Location.X + textBox_Upload_MaNV.Width + offset, textBox_Upload_MaNV.Location.Y + textBox_Upload_MaNV.Height + offset)); //MaNV line
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_Upload_TGBDGio.Location.Y + textBox_Upload_TGBDGio.Height + offset),
-                                      new Point(textBox_Upload_TGBDGio.Location.X + textBox_Upload_TGBDGio.Width + offset, textBox_Upload_TGBDGio.Location.Y + textBox_Upload_TGBDGio.Height + offset)); //TGBD Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGBDPhut.Location.X - offset, textBox_Upload_TGBDPhut.Location.Y + textBox_Upload_TGBDPhut.Height + offset), 
-                                      new Point(textBox_Upload_TGBDPhut.Location.X + textBox_Upload_TGBDPhut.Width + offset, textBox_Upload_TGBDPhut.Location.Y + textBox_Upload_TGBDPhut.Height + offset)); //TGBD Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGBDGiay.Location.X - offset, textBox_Upload_TGBDGiay.Location.Y + textBox_Upload_TGBDGiay.Height + offset),
-                                      new Point(textBox_Upload_TGBDGiay.Location.X + textBox_Upload_TGBDGiay.Width + offset, textBox_Upload_TGBDGiay.Location.Y + textBox_Upload_TGBDGiay.Height + offset)); //TGBD Giay line
-
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGKTGio.Location.X - offset, textBox_Upload_TGKTGio.Location.Y + textBox_Upload_TGKTGio.Height + offset),
-                                      new Point(textBox_Upload_TGKTGio.Location.X + textBox_Upload_TGKTGio.Width + offset, textBox_Upload_TGKTGio.Location.Y + textBox_Upload_TGKTGio.Height + offset)); //TGKT Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGKTPhut.Location.X - offset, textBox_Upload_TGKTPhut.Location.Y + textBox_Upload_TGKTPhut.Height + offset),
-                                      new Point(textBox_Upload_TGKTPhut.Location.X + textBox_Upload_TGKTPhut.Width + offset, textBox_Upload_TGKTPhut.Location.Y + textBox_Upload_TGKTPhut.Height + offset)); //TGKT Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGKTGiay.Location.X - offset, textBox_Upload_TGKTGiay.Location.Y + textBox_Upload_TGKTGiay.Height + offset),
-                                      new Point(textBox_Upload_TGKTGiay.Location.X + textBox_Upload_TGKTGiay.Width + offset, textBox_Upload_TGKTGiay.Location.Y + textBox_Upload_TGKTGiay.Height + offset)); //TGKT Giay line
+            int startX = 20, endX = 395;
+            graphic.DrawLine(linePen, new Point(startX, 264), new Point(182, 264)); //MaNV line            
+            graphic.DrawLine(linePen, new Point(25, 363), new Point(65, 363)); //TGBD Gio line
+            graphic.DrawLine(linePen, new Point(81, 363), new Point(121, 363)); //TGBD Phut line
+            graphic.DrawLine(linePen, new Point(137, 363), new Point(177, 363)); //TGBD Giay line
+            graphic.DrawLine(linePen, new Point(230, 363), new Point(270, 363)); //TGKT Gio line
+            graphic.DrawLine(linePen, new Point(286, 363), new Point(326, 363)); //TGKT Phut line
+            graphic.DrawLine(linePen, new Point(342, 363), new Point(382, 363)); //TGKT Giay line
         }
-        private void customDataGridView_CellMouseDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
+        private void panel_PCUpload_Highlight(object sender, PaintEventArgs e)
         {
-            if (e.RowIndex < 0)
+            Color frameColor = Color.FromArgb(38, 187, 255);
+
+            Graphics graphic = e.Graphics;
+            Pen framePen = new Pen(frameColor, 4);
+
+            int heihgt_distance = 46;
+            int width_distance = 10;
+            int startY = 78;
+
+            Point[] frameShape = new Point[]
+            {
+                new Point(20 - width_distance, startY),
+                new Point(182 + width_distance, startY),
+                new Point(182 + width_distance, 227 + heihgt_distance),
+                new Point(398 + width_distance, 227 + heihgt_distance),
+                new Point(398 + width_distance, 326 + heihgt_distance),
+                new Point(20 - width_distance, 326 + heihgt_distance),
+                new Point(20 - width_distance, startY)
+            };
+
+            graphic.DrawPolygon(framePen, frameShape);
+        }
+
+        private void textBox_NoHour_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int caretPos = textBox.SelectionStart;
+            int convertedNumber;
+
+            if (Char.IsControl(e.KeyChar))
+            {
+                switch (e.KeyChar)
+                {
+                    case (char)Keys.Back:
+                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
+                        break;
+                    default:
+                        return;
+                }
+
+                if (int.TryParse(textBox.Text, out convertedNumber) == false)
+                    convertedNumber = 0;
+
+                convertedNumber = Math.Min(convertedNumber, 59);
+                textBox.Text = convertedNumber.ToString("D2");
+                textBox.SelectionStart = caretPos;
+
+                e.Handled = true;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                string number = textBox.Text + e.KeyChar;
+                convertedNumber = int.Parse(number);
+
+                convertedNumber = Math.Min(convertedNumber, 59);
+                textBox.Text = convertedNumber.ToString("D2");
+                textBox.SelectionStart = caretPos;
+
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
                 return;
-            if (e.Button != MouseButtons.Left)
+            }
+        }
+
+        private void textBox_Hour_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int caretPos = textBox.SelectionStart;
+            int convertedNumber;
+
+            if (Char.IsControl(e.KeyChar))
+            {
+                switch (e.KeyChar)
+                {
+                    case (char)Keys.Back:
+                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
+                        break;
+                    default:
+                        return;
+                }
+
+                if (int.TryParse(textBox.Text, out convertedNumber) == false)
+                    convertedNumber = 0;
+
+                convertedNumber = Math.Min(convertedNumber, 23);
+                textBox.Text = convertedNumber.ToString("D2");
+                textBox.SelectionStart = caretPos;
+
+                e.Handled = true;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                string number = textBox.Text + e.KeyChar;
+                convertedNumber = int.Parse(number);
+
+                convertedNumber = Math.Min(convertedNumber, 23);
+                textBox.Text = convertedNumber.ToString("D2");
+                textBox.SelectionStart = caretPos;
+
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
                 return;
-
-            DataGridView dgv = sender as DataGridView;
-            DataRowView drv = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            DataRow row = drv.Row;
-
-            switch (controlPage)
-            {
-                case PK_TAB:
-                    fillPanel_PK(row);
-                    break;
-                case PC_TAB:
-                    fillPanel_PC(row);
-                    break;
             }
         }
 
-        private void fillPanel_PC(DataRow row)
+        private void textBox_EnabledChanged(object sender, EventArgs e)
         {
-            TimeSpan startTime, finishTime;
-
-            string primaryKey = row["MaPK"].ToString();
-            DataRow row_PK = datatablePK.Rows.Find(primaryKey);
-
-            switch (controlFunc)
-            {
-                case INS_FUNC:                    
-                    textBox_Upload_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Upload_TrangThai.Text = row_PK["TrangThai"].ToString();
-                    textBox_Upload_SoGhe.Text = row_PK["SoGhe"].ToString();
-
-                    textBox_Upload_MaNV.Text = row["MaNV"].ToString();
-
-                    startTime = row.Field<TimeSpan>("ThoiGianBD");
-                    finishTime = row.Field<TimeSpan>("ThoiGianKT");
-
-                    textBox_Upload_TGBDGio.Text = startTime.Hours.ToString("D2");
-                    textBox_Upload_TGBDPhut.Text = startTime.Minutes.ToString("D2");
-                    textBox_Upload_TGBDGiay.Text = startTime.Seconds.ToString("D2");
-
-                    textBox_Upload_TGKTGio.Text = finishTime.Hours.ToString("D2");
-                    textBox_Upload_TGKTPhut.Text = finishTime.Minutes.ToString("D2");
-                    textBox_Upload_TGKTGiay.Text = finishTime.Seconds.ToString("D2");
-
-                    break;                    
-                case FIL_FUNC:
-                    textBox_Filters_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Filters_TrangThai.Text = row_PK["TrangThai"].ToString();
-                    textBox_Filters_SoGhe.Text = row_PK["SoGhe"].ToString();
-
-                    textBox_Filters_MaNV.Text = row["MaNV"].ToString();
-
-                    startTime = row.Field<TimeSpan>("ThoiGianBD");
-                    finishTime = row.Field<TimeSpan>("ThoiGianKT");
-
-                    textBox_Filters_TGBDGio.Text = startTime.Hours.ToString("D2");
-                    textBox_Filters_TGBDPhut.Text = startTime.Minutes.ToString("D2");
-                    textBox_Filters_TGBDGiay.Text = startTime.Seconds.ToString("D2");
-
-                    textBox_Filters_TGKTGio.Text = finishTime.Hours.ToString("D2");
-                    textBox_Filters_TGKTPhut.Text = finishTime.Minutes.ToString("D2");
-                    textBox_Filters_TGKTGiay.Text = finishTime.Seconds.ToString("D2");
-                    break;
-            }
-        }
-
-        private void fillPanel_PK(DataRow row)
-        {
-            switch (controlFunc)
-            {
-                case INS_FUNC:
-                    textBox_Upload_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Upload_TrangThai.Text = row["TrangThai"].ToString();
-                    textBox_Upload_SoGhe.Text = row["SoGhe"].ToString();
-                    break;
-                case FIL_FUNC:
-                    textBox_Filters_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Filters_TrangThai.Text = row["TrangThai"].ToString();
-                    textBox_Filters_SoGhe.Text = row["SoGhe"].ToString();
-                    break;
-            }
+            TextBox textBox = sender as TextBox;
+            textBox.BackColor = Color.FromArgb(57, 54, 70);
         }
     }
 }
