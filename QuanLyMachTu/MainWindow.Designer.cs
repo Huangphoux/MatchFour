@@ -33,6 +33,8 @@ namespace QuanLyMachTu
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             panel_Menu = new Panel();
+            pageButton_LichKham = new PageButton();
+            pageButton_HoaDon = new PageButton();
             label_Clock = new Label();
             pageButton_DichVu = new PageButton();
             pictureBox_logo = new PictureBox();
@@ -44,21 +46,24 @@ namespace QuanLyMachTu
             panel_TitleBar = new Panel();
             pageButton2 = new PageButton();
             pageButton1 = new PageButton();
-            panel_DivideLabel = new Panel();
-            panel_DivideButton = new Panel();
-            panel_DivideExit = new Panel();
             timer_Clock = new System.Windows.Forms.Timer(components);
             benhNhanControl = new BenhNhanControl();
             phongKhamControl = new PhongKhamControl();
+            hoaDonControl = new HoaDonControl();
+            panel_CustomControl = new Panel();
+            lichKhamControl1 = new LichKhamControl();
             panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
+            panel_CustomControl.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Menu
             // 
             resources.ApplyResources(panel_Menu, "panel_Menu");
             panel_Menu.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Menu.Controls.Add(pageButton_LichKham);
+            panel_Menu.Controls.Add(pageButton_HoaDon);
             panel_Menu.Controls.Add(label_Clock);
             panel_Menu.Controls.Add(pageButton_DichVu);
             panel_Menu.Controls.Add(pictureBox_logo);
@@ -68,6 +73,42 @@ namespace QuanLyMachTu
             panel_Menu.Controls.Add(pageButton_BenhNhan);
             panel_Menu.Controls.Add(pageButton_TongQuan);
             panel_Menu.Name = "panel_Menu";
+            // 
+            // pageButton_LichKham
+            // 
+            pageButton_LichKham.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_LichKham.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_LichKham.BorderRadius = 30;
+            pageButton_LichKham.BorderSize = 0;
+            pageButton_LichKham.CustomText = "Lịch khám";
+            pageButton_LichKham.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_LichKham, "pageButton_LichKham");
+            pageButton_LichKham.ForeColor = Color.White;
+            pageButton_LichKham.Icon = (Image)resources.GetObject("pageButton_LichKham.Icon");
+            pageButton_LichKham.IconLocation = new Point(40, 31);
+            pageButton_LichKham.IconSize = new Size(30, 30);
+            pageButton_LichKham.Name = "pageButton_LichKham";
+            pageButton_LichKham.TextLocation = new Point(98, 28);
+            pageButton_LichKham.UseVisualStyleBackColor = false;
+            pageButton_LichKham.Click += pageButton_LichKham_Click;
+            // 
+            // pageButton_HoaDon
+            // 
+            pageButton_HoaDon.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_HoaDon.BorderColor = Color.FromArgb(238, 238, 238);
+            pageButton_HoaDon.BorderRadius = 30;
+            pageButton_HoaDon.BorderSize = 0;
+            pageButton_HoaDon.CustomText = "Hoá đơn";
+            pageButton_HoaDon.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(pageButton_HoaDon, "pageButton_HoaDon");
+            pageButton_HoaDon.ForeColor = Color.White;
+            pageButton_HoaDon.Icon = (Image)resources.GetObject("pageButton_HoaDon.Icon");
+            pageButton_HoaDon.IconLocation = new Point(40, 31);
+            pageButton_HoaDon.IconSize = new Size(28, 28);
+            pageButton_HoaDon.Name = "pageButton_HoaDon";
+            pageButton_HoaDon.TextLocation = new Point(98, 28);
+            pageButton_HoaDon.UseVisualStyleBackColor = false;
+            pageButton_HoaDon.Click += pageButton_HoaDon_Click;
             // 
             // label_Clock
             // 
@@ -192,21 +233,18 @@ namespace QuanLyMachTu
             panel_TitleBar.BackColor = Color.FromArgb(57, 54, 70);
             panel_TitleBar.Controls.Add(pageButton2);
             panel_TitleBar.Controls.Add(pageButton1);
-            panel_TitleBar.Controls.Add(panel_DivideLabel);
-            panel_TitleBar.Controls.Add(panel_DivideButton);
-            panel_TitleBar.Controls.Add(panel_DivideExit);
             resources.ApplyResources(panel_TitleBar, "panel_TitleBar");
             panel_TitleBar.Name = "panel_TitleBar";
             // 
             // pageButton2
             // 
+            resources.ApplyResources(pageButton2, "pageButton2");
             pageButton2.BackColor = Color.FromArgb(57, 54, 70);
             pageButton2.BorderColor = Color.PaleVioletRed;
             pageButton2.BorderRadius = 40;
             pageButton2.BorderSize = 0;
             pageButton2.CustomText = null;
             pageButton2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton2, "pageButton2");
             pageButton2.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton2.Icon = (Image)resources.GetObject("pageButton2.Icon");
             pageButton2.IconLocation = new Point(12, 12);
@@ -218,13 +256,13 @@ namespace QuanLyMachTu
             // 
             // pageButton1
             // 
+            resources.ApplyResources(pageButton1, "pageButton1");
             pageButton1.BackColor = Color.FromArgb(57, 54, 70);
             pageButton1.BorderColor = Color.PaleVioletRed;
             pageButton1.BorderRadius = 40;
             pageButton1.BorderSize = 0;
             pageButton1.CustomText = null;
             pageButton1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(pageButton1, "pageButton1");
             pageButton1.ForeColor = Color.FromArgb(57, 54, 70);
             pageButton1.Icon = (Image)resources.GetObject("pageButton1.Icon");
             pageButton1.IconLocation = new Point(12, 12);
@@ -232,24 +270,6 @@ namespace QuanLyMachTu
             pageButton1.Name = "pageButton1";
             pageButton1.TextLocation = new Point(0, 0);
             pageButton1.UseVisualStyleBackColor = false;
-            // 
-            // panel_DivideLabel
-            // 
-            panel_DivideLabel.BackColor = Color.Black;
-            resources.ApplyResources(panel_DivideLabel, "panel_DivideLabel");
-            panel_DivideLabel.Name = "panel_DivideLabel";
-            // 
-            // panel_DivideButton
-            // 
-            panel_DivideButton.BackColor = Color.Black;
-            resources.ApplyResources(panel_DivideButton, "panel_DivideButton");
-            panel_DivideButton.Name = "panel_DivideButton";
-            // 
-            // panel_DivideExit
-            // 
-            panel_DivideExit.BackColor = Color.Black;
-            resources.ApplyResources(panel_DivideExit, "panel_DivideExit");
-            panel_DivideExit.Name = "panel_DivideExit";
             // 
             // timer_Clock
             // 
@@ -265,17 +285,38 @@ namespace QuanLyMachTu
             // 
             // phongKhamControl
             // 
-            phongKhamControl.BackColor = Color.FromArgb(57, 54, 70);
             resources.ApplyResources(phongKhamControl, "phongKhamControl");
+            phongKhamControl.BackColor = Color.FromArgb(57, 54, 70);
             phongKhamControl.Name = "phongKhamControl";
+            // 
+            // hoaDonControl
+            // 
+            hoaDonControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(hoaDonControl, "hoaDonControl");
+            hoaDonControl.Name = "hoaDonControl";
+            // 
+            // panel_CustomControl
+            // 
+            panel_CustomControl.BackColor = Color.FromArgb(57, 54, 70);
+            panel_CustomControl.Controls.Add(lichKhamControl1);
+            panel_CustomControl.Controls.Add(phongKhamControl);
+            panel_CustomControl.Controls.Add(benhNhanControl);
+            panel_CustomControl.Controls.Add(hoaDonControl);
+            resources.ApplyResources(panel_CustomControl, "panel_CustomControl");
+            panel_CustomControl.Name = "panel_CustomControl";
+            // 
+            // lichKhamControl1
+            // 
+            lichKhamControl1.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(lichKhamControl1, "lichKhamControl1");
+            lichKhamControl1.Name = "lichKhamControl1";
             // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(phongKhamControl);
-            Controls.Add(benhNhanControl);
+            Controls.Add(panel_CustomControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
             Name = "MainWindow";
@@ -284,6 +325,7 @@ namespace QuanLyMachTu
             panel_Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox_logo).EndInit();
             panel_TitleBar.ResumeLayout(false);
+            panel_CustomControl.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -293,9 +335,6 @@ namespace QuanLyMachTu
         private Panel panel_TitleBar;
         private Label label_Clock;
         private System.Windows.Forms.Timer timer_Clock;
-        private Panel panel_DivideButton;
-        private Panel panel_DivideLabel;
-        private Panel panel_DivideExit;
         private PageButton pageButton_TongQuan;
         private PageButton pageButton_BenhNhan;
         private PageButton pageButton_DuocPham;
@@ -307,5 +346,10 @@ namespace QuanLyMachTu
         private PageButton pageButton2;
         private BenhNhanControl benhNhanControl;
         private PhongKhamControl phongKhamControl;
+        private HoaDonControl hoaDonControl;
+        private PageButton pageButton_HoaDon;
+        private Panel panel_CustomControl;
+        private PageButton pageButton_LichKham;
+        private LichKhamControl lichKhamControl1;
     }
 }

@@ -38,10 +38,6 @@
             pageButton_PCTab = new Custom.PageButton();
             pageButton_PKTab = new Custom.PageButton();
             customPanel_Sum = new Custom.CustomPanel();
-            label_HienThiDTTong = new Label();
-            label_HienThiSoBN = new Label();
-            label_DoanhThuTong = new Label();
-            label_SoBenhNhan = new Label();
             panel_Toolbar = new Panel();
             pageButton_Filters = new Custom.PageButton();
             pageButton_Remove = new Custom.PageButton();
@@ -57,7 +53,7 @@
             label4 = new Label();
             textBox_Filters_TGBDGiay = new TextBox();
             textBox_Filters_TGBDPhut = new TextBox();
-            comboBox_Filter_TrangThai = new ComboBox();
+            comboBox_Filters_TrangThai = new ComboBox();
             label2 = new Label();
             label3 = new Label();
             textBox_Filters_ThoiGianKT = new TextBox();
@@ -74,6 +70,8 @@
             label_Filters = new Label();
             customDataGridView_PC = new Custom.CustomDataGridView();
             panel_Upload = new Panel();
+            label_Upload_PhanCong = new Label();
+            label_Upload_PhongKham = new Label();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
@@ -100,7 +98,6 @@
             label20 = new Label();
             ((System.ComponentModel.ISupportInitialize)customDataGridView_PK).BeginInit();
             panel1.SuspendLayout();
-            customPanel_Sum.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             panel_Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView_PC).BeginInit();
@@ -148,6 +145,7 @@
             customDataGridView_PK.RowHeadersWidth = 62;
             customDataGridView_PK.Size = new Size(360, 600);
             customDataGridView_PK.TabIndex = 14;
+            customDataGridView_PK.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             customDataGridView_PK.Click += PK_Tab_Activated;
             // 
             // panel1
@@ -197,8 +195,8 @@
             pageButton_PKTab.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             pageButton_PKTab.ForeColor = Color.FromArgb(193, 193, 193);
             pageButton_PKTab.Icon = (Image)resources.GetObject("pageButton_PKTab.Icon");
-            pageButton_PKTab.IconLocation = new Point(15, 15);
-            pageButton_PKTab.IconSize = new Size(30, 30);
+            pageButton_PKTab.IconLocation = new Point(15, 13);
+            pageButton_PKTab.IconSize = new Size(34, 34);
             pageButton_PKTab.Location = new Point(25, 12);
             pageButton_PKTab.Name = "pageButton_PKTab";
             pageButton_PKTab.Size = new Size(250, 60);
@@ -211,67 +209,11 @@
             // 
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
-            customPanel_Sum.Controls.Add(label_HienThiDTTong);
-            customPanel_Sum.Controls.Add(label_HienThiSoBN);
-            customPanel_Sum.Controls.Add(label_DoanhThuTong);
-            customPanel_Sum.Controls.Add(label_SoBenhNhan);
             customPanel_Sum.CornerRadius = 40;
             customPanel_Sum.Location = new Point(25, 787);
             customPanel_Sum.Name = "customPanel_Sum";
             customPanel_Sum.Size = new Size(1124, 60);
             customPanel_Sum.TabIndex = 18;
-            // 
-            // label_HienThiDTTong
-            // 
-            label_HienThiDTTong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_HienThiDTTong.AutoSize = true;
-            label_HienThiDTTong.BackColor = Color.Transparent;
-            label_HienThiDTTong.Font = new Font("Segoe UI Semilight", 10F);
-            label_HienThiDTTong.ForeColor = Color.White;
-            label_HienThiDTTong.Location = new Point(672, 14);
-            label_HienThiDTTong.Name = "label_HienThiDTTong";
-            label_HienThiDTTong.Size = new Size(23, 28);
-            label_HienThiDTTong.TabIndex = 3;
-            label_HienThiDTTong.Text = "0";
-            // 
-            // label_HienThiSoBN
-            // 
-            label_HienThiSoBN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label_HienThiSoBN.AutoSize = true;
-            label_HienThiSoBN.BackColor = Color.Transparent;
-            label_HienThiSoBN.Font = new Font("Segoe UI Semilight", 10F);
-            label_HienThiSoBN.ForeColor = Color.White;
-            label_HienThiSoBN.Location = new Point(191, 14);
-            label_HienThiSoBN.Name = "label_HienThiSoBN";
-            label_HienThiSoBN.Size = new Size(23, 28);
-            label_HienThiSoBN.TabIndex = 2;
-            label_HienThiSoBN.Text = "0";
-            // 
-            // label_DoanhThuTong
-            // 
-            label_DoanhThuTong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_DoanhThuTong.AutoSize = true;
-            label_DoanhThuTong.BackColor = Color.Transparent;
-            label_DoanhThuTong.Font = new Font("Segoe UI Semilight", 10F);
-            label_DoanhThuTong.ForeColor = Color.White;
-            label_DoanhThuTong.Location = new Point(481, 14);
-            label_DoanhThuTong.Name = "label_DoanhThuTong";
-            label_DoanhThuTong.Size = new Size(150, 28);
-            label_DoanhThuTong.TabIndex = 1;
-            label_DoanhThuTong.Text = "Doanh thu tổng:";
-            // 
-            // label_SoBenhNhan
-            // 
-            label_SoBenhNhan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label_SoBenhNhan.AutoSize = true;
-            label_SoBenhNhan.BackColor = Color.Transparent;
-            label_SoBenhNhan.Font = new Font("Segoe UI Semilight", 10F);
-            label_SoBenhNhan.ForeColor = Color.White;
-            label_SoBenhNhan.Location = new Point(23, 14);
-            label_SoBenhNhan.Name = "label_SoBenhNhan";
-            label_SoBenhNhan.Size = new Size(133, 28);
-            label_SoBenhNhan.TabIndex = 0;
-            label_SoBenhNhan.Text = "Số bệnh nhân:";
             // 
             // panel_Toolbar
             // 
@@ -364,7 +306,7 @@
             panel_Filters.Controls.Add(label4);
             panel_Filters.Controls.Add(textBox_Filters_TGBDGiay);
             panel_Filters.Controls.Add(textBox_Filters_TGBDPhut);
-            panel_Filters.Controls.Add(comboBox_Filter_TrangThai);
+            panel_Filters.Controls.Add(comboBox_Filters_TrangThai);
             panel_Filters.Controls.Add(label2);
             panel_Filters.Controls.Add(label3);
             panel_Filters.Controls.Add(textBox_Filters_ThoiGianKT);
@@ -520,17 +462,17 @@
             textBox_Filters_TGBDPhut.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGBDPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
-            // comboBox_Filter_TrangThai
+            // comboBox_Filters_TrangThai
             // 
-            comboBox_Filter_TrangThai.BackColor = Color.FromArgb(57, 54, 70);
-            comboBox_Filter_TrangThai.Font = new Font("Segoe UI Semilight", 12F);
-            comboBox_Filter_TrangThai.ForeColor = Color.FromArgb(244, 238, 224);
-            comboBox_Filter_TrangThai.FormattingEnabled = true;
-            comboBox_Filter_TrangThai.Items.AddRange(new object[] { "Open", "Close" });
-            comboBox_Filter_TrangThai.Location = new Point(230, 227);
-            comboBox_Filter_TrangThai.Name = "comboBox_Filter_TrangThai";
-            comboBox_Filter_TrangThai.Size = new Size(167, 40);
-            comboBox_Filter_TrangThai.TabIndex = 25;
+            comboBox_Filters_TrangThai.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Filters_TrangThai.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_Filters_TrangThai.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_Filters_TrangThai.FormattingEnabled = true;
+            comboBox_Filters_TrangThai.Items.AddRange(new object[] { "Open", "Close" });
+            comboBox_Filters_TrangThai.Location = new Point(230, 227);
+            comboBox_Filters_TrangThai.Name = "comboBox_Filters_TrangThai";
+            comboBox_Filters_TrangThai.Size = new Size(167, 40);
+            comboBox_Filters_TrangThai.TabIndex = 25;
             // 
             // label2
             // 
@@ -755,6 +697,7 @@
             customDataGridView_PC.RowHeadersWidth = 62;
             customDataGridView_PC.Size = new Size(700, 600);
             customDataGridView_PC.TabIndex = 20;
+            customDataGridView_PC.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             customDataGridView_PC.Click += PC_Tab_Activated;
             // 
             // panel_Upload
@@ -762,6 +705,8 @@
             panel_Upload.Anchor = AnchorStyles.Right;
             panel_Upload.AutoScroll = true;
             panel_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Upload.Controls.Add(label_Upload_PhanCong);
+            panel_Upload.Controls.Add(label_Upload_PhongKham);
             panel_Upload.Controls.Add(label9);
             panel_Upload.Controls.Add(label10);
             panel_Upload.Controls.Add(label11);
@@ -792,6 +737,34 @@
             panel_Upload.TabIndex = 36;
             panel_Upload.Paint += panel_Upload_Paint;
             // 
+            // label_Upload_PhanCong
+            // 
+            label_Upload_PhanCong.AutoSize = true;
+            label_Upload_PhanCong.BackColor = Color.Transparent;
+            label_Upload_PhanCong.FlatStyle = FlatStyle.Flat;
+            label_Upload_PhanCong.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_Upload_PhanCong.ForeColor = Color.FromArgb(193, 193, 193);
+            label_Upload_PhanCong.Location = new Point(25, 346);
+            label_Upload_PhanCong.Name = "label_Upload_PhanCong";
+            label_Upload_PhanCong.Size = new Size(109, 28);
+            label_Upload_PhanCong.TabIndex = 37;
+            label_Upload_PhanCong.Text = "Phân công";
+            label_Upload_PhanCong.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label_Upload_PhongKham
+            // 
+            label_Upload_PhongKham.AutoSize = true;
+            label_Upload_PhongKham.BackColor = Color.Transparent;
+            label_Upload_PhongKham.FlatStyle = FlatStyle.Flat;
+            label_Upload_PhongKham.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_Upload_PhongKham.ForeColor = Color.FromArgb(193, 193, 193);
+            label_Upload_PhongKham.Location = new Point(25, 84);
+            label_Upload_PhongKham.Name = "label_Upload_PhongKham";
+            label_Upload_PhongKham.Size = new Size(129, 28);
+            label_Upload_PhongKham.TabIndex = 36;
+            label_Upload_PhongKham.Text = "Phòng khám";
+            label_Upload_PhongKham.TextAlign = ContentAlignment.BottomLeft;
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -799,7 +772,7 @@
             label9.FlatStyle = FlatStyle.Flat;
             label9.Font = new Font("Segoe UI", 10F);
             label9.ForeColor = Color.FromArgb(193, 193, 193);
-            label9.Location = new Point(200, 326);
+            label9.Location = new Point(200, 533);
             label9.Name = "label9";
             label9.Size = new Size(20, 28);
             label9.TabIndex = 35;
@@ -813,7 +786,7 @@
             label10.FlatStyle = FlatStyle.Flat;
             label10.Font = new Font("Segoe UI", 10F);
             label10.ForeColor = Color.FromArgb(193, 193, 193);
-            label10.Location = new Point(326, 326);
+            label10.Location = new Point(326, 533);
             label10.Name = "label10";
             label10.Size = new Size(16, 28);
             label10.TabIndex = 34;
@@ -827,7 +800,7 @@
             label11.FlatStyle = FlatStyle.Flat;
             label11.Font = new Font("Segoe UI", 10F);
             label11.ForeColor = Color.FromArgb(193, 193, 193);
-            label11.Location = new Point(270, 326);
+            label11.Location = new Point(270, 533);
             label11.Name = "label11";
             label11.Size = new Size(16, 28);
             label11.TabIndex = 33;
@@ -840,7 +813,7 @@
             textBox_Upload_TGKTGiay.BorderStyle = BorderStyle.None;
             textBox_Upload_TGKTGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTGiay.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGKTGiay.Location = new Point(342, 326);
+            textBox_Upload_TGKTGiay.Location = new Point(342, 533);
             textBox_Upload_TGKTGiay.Name = "textBox_Upload_TGKTGiay";
             textBox_Upload_TGKTGiay.Size = new Size(40, 32);
             textBox_Upload_TGKTGiay.TabIndex = 32;
@@ -853,7 +826,7 @@
             textBox_Upload_TGKTPhut.BorderStyle = BorderStyle.None;
             textBox_Upload_TGKTPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTPhut.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGKTPhut.Location = new Point(286, 326);
+            textBox_Upload_TGKTPhut.Location = new Point(286, 533);
             textBox_Upload_TGKTPhut.Name = "textBox_Upload_TGKTPhut";
             textBox_Upload_TGKTPhut.Size = new Size(40, 32);
             textBox_Upload_TGKTPhut.TabIndex = 31;
@@ -866,7 +839,7 @@
             textBox_Upload_TGKTGio.BorderStyle = BorderStyle.None;
             textBox_Upload_TGKTGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGKTGio.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGKTGio.Location = new Point(230, 326);
+            textBox_Upload_TGKTGio.Location = new Point(230, 533);
             textBox_Upload_TGKTGio.Name = "textBox_Upload_TGKTGio";
             textBox_Upload_TGKTGio.Size = new Size(40, 32);
             textBox_Upload_TGKTGio.TabIndex = 30;
@@ -880,7 +853,7 @@
             label12.FlatStyle = FlatStyle.Flat;
             label12.Font = new Font("Segoe UI", 10F);
             label12.ForeColor = Color.FromArgb(193, 193, 193);
-            label12.Location = new Point(121, 326);
+            label12.Location = new Point(121, 533);
             label12.Name = "label12";
             label12.Size = new Size(16, 28);
             label12.TabIndex = 29;
@@ -894,7 +867,7 @@
             label13.FlatStyle = FlatStyle.Flat;
             label13.Font = new Font("Segoe UI", 10F);
             label13.ForeColor = Color.FromArgb(193, 193, 193);
-            label13.Location = new Point(65, 326);
+            label13.Location = new Point(65, 533);
             label13.Name = "label13";
             label13.Size = new Size(16, 28);
             label13.TabIndex = 28;
@@ -907,7 +880,7 @@
             textBox_Upload_TGBDGiay.BorderStyle = BorderStyle.None;
             textBox_Upload_TGBDGiay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDGiay.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGBDGiay.Location = new Point(137, 326);
+            textBox_Upload_TGBDGiay.Location = new Point(137, 533);
             textBox_Upload_TGBDGiay.Name = "textBox_Upload_TGBDGiay";
             textBox_Upload_TGBDGiay.Size = new Size(40, 32);
             textBox_Upload_TGBDGiay.TabIndex = 27;
@@ -920,7 +893,7 @@
             textBox_Upload_TGBDPhut.BorderStyle = BorderStyle.None;
             textBox_Upload_TGBDPhut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDPhut.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGBDPhut.Location = new Point(81, 326);
+            textBox_Upload_TGBDPhut.Location = new Point(81, 533);
             textBox_Upload_TGBDPhut.Name = "textBox_Upload_TGBDPhut";
             textBox_Upload_TGBDPhut.Size = new Size(40, 32);
             textBox_Upload_TGBDPhut.TabIndex = 26;
@@ -935,7 +908,7 @@
             comboBox_Upload_TrangThai.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_Upload_TrangThai.FormattingEnabled = true;
             comboBox_Upload_TrangThai.Items.AddRange(new object[] { "Open", "Close" });
-            comboBox_Upload_TrangThai.Location = new Point(230, 128);
+            comboBox_Upload_TrangThai.Location = new Point(25, 271);
             comboBox_Upload_TrangThai.Name = "comboBox_Upload_TrangThai";
             comboBox_Upload_TrangThai.Size = new Size(167, 40);
             comboBox_Upload_TrangThai.TabIndex = 25;
@@ -947,7 +920,7 @@
             label14.FlatStyle = FlatStyle.Flat;
             label14.Font = new Font("Segoe UI", 10F);
             label14.ForeColor = Color.FromArgb(193, 193, 193);
-            label14.Location = new Point(230, 282);
+            label14.Location = new Point(230, 489);
             label14.Name = "label14";
             label14.Size = new Size(168, 28);
             label14.TabIndex = 22;
@@ -961,7 +934,7 @@
             label15.FlatStyle = FlatStyle.Flat;
             label15.Font = new Font("Segoe UI", 10F);
             label15.ForeColor = Color.FromArgb(193, 193, 193);
-            label15.Location = new Point(25, 282);
+            label15.Location = new Point(25, 489);
             label15.Name = "label15";
             label15.Size = new Size(165, 28);
             label15.TabIndex = 21;
@@ -974,7 +947,7 @@
             textBox_Upload_TGBDGio.BorderStyle = BorderStyle.None;
             textBox_Upload_TGBDGio.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_TGBDGio.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_TGBDGio.Location = new Point(25, 326);
+            textBox_Upload_TGBDGio.Location = new Point(25, 533);
             textBox_Upload_TGBDGio.Name = "textBox_Upload_TGBDGio";
             textBox_Upload_TGBDGio.Size = new Size(40, 32);
             textBox_Upload_TGBDGio.TabIndex = 19;
@@ -987,7 +960,7 @@
             textBox_Upload_MaNV.BorderStyle = BorderStyle.None;
             textBox_Upload_MaNV.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_MaNV.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_MaNV.Location = new Point(25, 227);
+            textBox_Upload_MaNV.Location = new Point(25, 434);
             textBox_Upload_MaNV.Name = "textBox_Upload_MaNV";
             textBox_Upload_MaNV.Size = new Size(152, 32);
             textBox_Upload_MaNV.TabIndex = 18;
@@ -1001,7 +974,7 @@
             label16.FlatStyle = FlatStyle.Flat;
             label16.Font = new Font("Segoe UI", 10F);
             label16.ForeColor = Color.FromArgb(193, 193, 193);
-            label16.Location = new Point(25, 183);
+            label16.Location = new Point(25, 390);
             label16.Name = "label16";
             label16.Size = new Size(129, 28);
             label16.TabIndex = 17;
@@ -1015,7 +988,7 @@
             label17.FlatStyle = FlatStyle.Flat;
             label17.Font = new Font("Segoe UI", 10F);
             label17.ForeColor = Color.FromArgb(193, 193, 193);
-            label17.Location = new Point(230, 84);
+            label17.Location = new Point(25, 227);
             label17.Name = "label17";
             label17.Size = new Size(98, 28);
             label17.TabIndex = 16;
@@ -1029,7 +1002,7 @@
             label18.FlatStyle = FlatStyle.Flat;
             label18.Font = new Font("Segoe UI", 10F);
             label18.ForeColor = Color.FromArgb(193, 193, 193);
-            label18.Location = new Point(230, 183);
+            label18.Location = new Point(230, 227);
             label18.Name = "label18";
             label18.Size = new Size(73, 28);
             label18.TabIndex = 15;
@@ -1042,8 +1015,8 @@
             label19.BackColor = Color.Transparent;
             label19.FlatStyle = FlatStyle.Flat;
             label19.Font = new Font("Segoe UI", 10F);
-            label19.ForeColor = Color.FromArgb(193, 193, 193);
-            label19.Location = new Point(25, 84);
+            label19.ForeColor = Color.FromArgb(38, 187, 255);
+            label19.Location = new Point(25, 128);
             label19.Name = "label19";
             label19.Size = new Size(156, 28);
             label19.TabIndex = 12;
@@ -1056,7 +1029,7 @@
             textBox9.BorderStyle = BorderStyle.None;
             textBox9.Font = new Font("Segoe UI Semilight", 12F);
             textBox9.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox9.Location = new Point(347, 227);
+            textBox9.Location = new Point(347, 271);
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
             textBox9.Size = new Size(39, 32);
@@ -1070,7 +1043,7 @@
             textBox_Upload_SoGhe.BorderStyle = BorderStyle.None;
             textBox_Upload_SoGhe.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_SoGhe.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_SoGhe.Location = new Point(230, 227);
+            textBox_Upload_SoGhe.Location = new Point(230, 271);
             textBox_Upload_SoGhe.Name = "textBox_Upload_SoGhe";
             textBox_Upload_SoGhe.Size = new Size(110, 32);
             textBox_Upload_SoGhe.TabIndex = 5;
@@ -1096,7 +1069,7 @@
             textBox_Upload_MaPK.BorderStyle = BorderStyle.None;
             textBox_Upload_MaPK.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_MaPK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_MaPK.Location = new Point(25, 128);
+            textBox_Upload_MaPK.Location = new Point(25, 172);
             textBox_Upload_MaPK.Name = "textBox_Upload_MaPK";
             textBox_Upload_MaPK.Size = new Size(152, 32);
             textBox_Upload_MaPK.TabIndex = 3;
@@ -1131,8 +1104,6 @@
             Load += PhongKhamControl_Load;
             ((System.ComponentModel.ISupportInitialize)customDataGridView_PK).EndInit();
             panel1.ResumeLayout(false);
-            customPanel_Sum.ResumeLayout(false);
-            customPanel_Sum.PerformLayout();
             panel_Toolbar.ResumeLayout(false);
             panel_Filters.ResumeLayout(false);
             panel_Filters.PerformLayout();
@@ -1149,10 +1120,6 @@
         private Custom.PageButton pageButton_PCTab;
         private Custom.PageButton pageButton_PKTab;
         private Custom.CustomPanel customPanel_Sum;
-        private Label label_HienThiDTTong;
-        private Label label_HienThiSoBN;
-        private Label label_DoanhThuTong;
-        private Label label_SoBenhNhan;
         private Panel panel_Toolbar;
         private Custom.PageButton pageButton_Remove;
         private Custom.PageButton pageButton_Upload;
@@ -1172,7 +1139,7 @@
         private Label label3;
         private TextBox textBox_Filters_ThoiGianKT;
         private TextBox textBox_Filters_TGBDGio;
-        private ComboBox comboBox_Filter_TrangThai;
+        private ComboBox comboBox_Filters_TrangThai;
         private TextBox textBox_Filters_MaNV;
         private Label label4;
         private TextBox textBox_Filters_TGBDGiay;
@@ -1209,5 +1176,7 @@
         private Button pageButton_Upload_OK;
         private TextBox textBox_Upload_MaPK;
         private Label label20;
+        private Label label_Upload_PhongKham;
+        private Label label_Upload_PhanCong;
     }
 }

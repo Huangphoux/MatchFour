@@ -32,8 +32,8 @@ namespace QuanLyMachTu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BenhNhanControl));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label_Filters = new Label();
             textBox_Filters_MaBN = new TextBox();
             button_BNFilter_OK = new Button();
@@ -77,22 +77,15 @@ namespace QuanLyMachTu
             checkBox_BNUpload_Nu = new CheckBox();
             panel_BNUpload = new Panel();
             customDataGridView = new CustomDataGridView();
-            customPanel_Sum = new CustomPanel();
-            label_HienThiDTTong = new Label();
-            label_HienThiSoBN = new Label();
-            label_DoanhThuTong = new Label();
-            label_SoBenhNhan = new Label();
+            customPanel_DetailsControl = new CustomPanel();
             panel1 = new Panel();
             pageButton_HSBATab = new PageButton();
             pageButton_BNTab = new PageButton();
             pageButton_TKTab = new PageButton();
-            pageButton1 = new PageButton();
             panel_TKUpload = new Panel();
-            textBox_MaTK_Year = new TextBox();
-            textBox_MaTK_TK = new TextBox();
-            textBox11 = new TextBox();
+            textBox_TKUpload_Email = new TextBox();
             textBox_TKUpload_SDT = new TextBox();
-            textBox_TKUpload_Email = new Label();
+            label = new Label();
             label11 = new Label();
             textBox_TKUpload_MatKhau = new TextBox();
             label1 = new Label();
@@ -107,7 +100,7 @@ namespace QuanLyMachTu
             panel_HSBAUpload = new Panel();
             textBox_HSBAUpload_KetQuaTQ = new TextBox();
             label12 = new Label();
-            label10 = new Label();
+            label_HSBAUpload_NgayLap = new Label();
             textBox_HSBAUpload_MaHSBA = new TextBox();
             label13 = new Label();
             textBox_HSBAUpload_Nam = new TextBox();
@@ -123,7 +116,7 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaBN = new TextBox();
             label24 = new Label();
             panel_HSBAFilter = new Panel();
-            label14 = new Label();
+            label_HSBAFilters_NgayLap = new Label();
             label28 = new Label();
             label32 = new Label();
             label33 = new Label();
@@ -142,7 +135,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaBN = new TextBox();
             label31 = new Label();
             panel_TKFilter = new Panel();
-            label34 = new Label();
+            label_TKFilters_NgayTao = new Label();
             label35 = new Label();
             label36 = new Label();
             label37 = new Label();
@@ -166,7 +159,6 @@ namespace QuanLyMachTu
             panel_Toolbar.SuspendLayout();
             panel_BNUpload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
-            customPanel_Sum.SuspendLayout();
             panel1.SuspendLayout();
             panel_TKUpload.SuspendLayout();
             panel_HSBAUpload.SuspendLayout();
@@ -513,9 +505,10 @@ namespace QuanLyMachTu
             textBox_BNUpload_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_BNUpload_MaBN.Location = new Point(25, 128);
             textBox_BNUpload_MaBN.Name = "textBox_BNUpload_MaBN";
-            textBox_BNUpload_MaBN.Size = new Size(366, 32);
+            textBox_BNUpload_MaBN.Size = new Size(365, 32);
             textBox_BNUpload_MaBN.TabIndex = 3;
             textBox_BNUpload_MaBN.KeyPress += button_KeyPress_Normal;
+            textBox_BNUpload_MaBN.Leave += textBox_MaBN_Leave;
             // 
             // button_Upload_OK
             // 
@@ -538,7 +531,7 @@ namespace QuanLyMachTu
             textBox_BNUpload_TenBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_BNUpload_TenBN.Location = new Point(25, 227);
             textBox_BNUpload_TenBN.Name = "textBox_BNUpload_TenBN";
-            textBox_BNUpload_TenBN.Size = new Size(366, 32);
+            textBox_BNUpload_TenBN.Size = new Size(365, 32);
             textBox_BNUpload_TenBN.TabIndex = 5;
             textBox_BNUpload_TenBN.KeyPress += button_KeyPress_Normal;
             // 
@@ -562,7 +555,7 @@ namespace QuanLyMachTu
             textBox_BNUpload_Email.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_BNUpload_Email.Location = new Point(25, 524);
             textBox_BNUpload_Email.Name = "textBox_BNUpload_Email";
-            textBox_BNUpload_Email.Size = new Size(366, 32);
+            textBox_BNUpload_Email.Size = new Size(365, 32);
             textBox_BNUpload_Email.TabIndex = 7;
             textBox_BNUpload_Email.KeyPress += button_KeyPress_Normal;
             // 
@@ -616,9 +609,11 @@ namespace QuanLyMachTu
             textBox_BNUpload_Ngay.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_BNUpload_Ngay.Location = new Point(25, 326);
             textBox_BNUpload_Ngay.Name = "textBox_BNUpload_Ngay";
-            textBox_BNUpload_Ngay.Size = new Size(59, 32);
+            textBox_BNUpload_Ngay.Size = new Size(60, 32);
             textBox_BNUpload_Ngay.TabIndex = 12;
+            textBox_BNUpload_Ngay.TextAlign = HorizontalAlignment.Center;
             textBox_BNUpload_Ngay.KeyPress += Button_KeyPress_PositiveNumber;
+            textBox_BNUpload_Ngay.Leave += textBox_BNDate_Leave;
             // 
             // label5
             // 
@@ -641,7 +636,7 @@ namespace QuanLyMachTu
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(193, 193, 193);
             label6.ImageAlign = ContentAlignment.BottomCenter;
-            label6.Location = new Point(124, 284);
+            label6.Location = new Point(146, 284);
             label6.Name = "label6";
             label6.Size = new Size(66, 28);
             label6.TabIndex = 15;
@@ -656,7 +651,7 @@ namespace QuanLyMachTu
             comboBox_BNUpload_Thang.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_BNUpload_Thang.FormattingEnabled = true;
             comboBox_BNUpload_Thang.Items.AddRange(new object[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" });
-            comboBox_BNUpload_Thang.Location = new Point(124, 318);
+            comboBox_BNUpload_Thang.Location = new Point(146, 318);
             comboBox_BNUpload_Thang.Name = "comboBox_BNUpload_Thang";
             comboBox_BNUpload_Thang.Size = new Size(85, 40);
             comboBox_BNUpload_Thang.TabIndex = 16;
@@ -668,7 +663,7 @@ namespace QuanLyMachTu
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(193, 193, 193);
             label7.ImageAlign = ContentAlignment.BottomCenter;
-            label7.Location = new Point(249, 284);
+            label7.Location = new Point(291, 284);
             label7.Name = "label7";
             label7.Size = new Size(54, 28);
             label7.TabIndex = 17;
@@ -681,11 +676,13 @@ namespace QuanLyMachTu
             textBox_BNUpload_Nam.BorderStyle = BorderStyle.None;
             textBox_BNUpload_Nam.Font = new Font("Segoe UI Semilight", 12F);
             textBox_BNUpload_Nam.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_BNUpload_Nam.Location = new Point(249, 326);
+            textBox_BNUpload_Nam.Location = new Point(291, 326);
             textBox_BNUpload_Nam.Name = "textBox_BNUpload_Nam";
-            textBox_BNUpload_Nam.Size = new Size(85, 32);
+            textBox_BNUpload_Nam.Size = new Size(60, 32);
             textBox_BNUpload_Nam.TabIndex = 18;
+            textBox_BNUpload_Nam.TextAlign = HorizontalAlignment.Center;
             textBox_BNUpload_Nam.KeyPress += Button_KeyPress_PositiveNumber;
+            textBox_BNUpload_Nam.Leave += textBox_BNDate_Leave;
             // 
             // label8
             // 
@@ -787,26 +784,26 @@ namespace QuanLyMachTu
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(25, 168);
@@ -817,72 +814,17 @@ namespace QuanLyMachTu
             customDataGridView.RowHeadersWidth = 62;
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 13;
+            customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             // 
-            // customPanel_Sum
+            // customPanel_DetailsControl
             // 
-            customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
-            customPanel_Sum.Controls.Add(label_HienThiDTTong);
-            customPanel_Sum.Controls.Add(label_HienThiSoBN);
-            customPanel_Sum.Controls.Add(label_DoanhThuTong);
-            customPanel_Sum.Controls.Add(label_SoBenhNhan);
-            customPanel_Sum.CornerRadius = 40;
-            customPanel_Sum.Location = new Point(25, 787);
-            customPanel_Sum.Name = "customPanel_Sum";
-            customPanel_Sum.Size = new Size(1124, 60);
-            customPanel_Sum.TabIndex = 14;
-            // 
-            // label_HienThiDTTong
-            // 
-            label_HienThiDTTong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_HienThiDTTong.AutoSize = true;
-            label_HienThiDTTong.BackColor = Color.Transparent;
-            label_HienThiDTTong.Font = new Font("Segoe UI Semilight", 10F);
-            label_HienThiDTTong.ForeColor = Color.White;
-            label_HienThiDTTong.Location = new Point(672, 14);
-            label_HienThiDTTong.Name = "label_HienThiDTTong";
-            label_HienThiDTTong.Size = new Size(23, 28);
-            label_HienThiDTTong.TabIndex = 3;
-            label_HienThiDTTong.Text = "0";
-            // 
-            // label_HienThiSoBN
-            // 
-            label_HienThiSoBN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label_HienThiSoBN.AutoSize = true;
-            label_HienThiSoBN.BackColor = Color.Transparent;
-            label_HienThiSoBN.Font = new Font("Segoe UI Semilight", 10F);
-            label_HienThiSoBN.ForeColor = Color.White;
-            label_HienThiSoBN.Location = new Point(191, 14);
-            label_HienThiSoBN.Name = "label_HienThiSoBN";
-            label_HienThiSoBN.Size = new Size(23, 28);
-            label_HienThiSoBN.TabIndex = 2;
-            label_HienThiSoBN.Text = "0";
-            // 
-            // label_DoanhThuTong
-            // 
-            label_DoanhThuTong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_DoanhThuTong.AutoSize = true;
-            label_DoanhThuTong.BackColor = Color.Transparent;
-            label_DoanhThuTong.Font = new Font("Segoe UI Semilight", 10F);
-            label_DoanhThuTong.ForeColor = Color.White;
-            label_DoanhThuTong.Location = new Point(481, 14);
-            label_DoanhThuTong.Name = "label_DoanhThuTong";
-            label_DoanhThuTong.Size = new Size(150, 28);
-            label_DoanhThuTong.TabIndex = 1;
-            label_DoanhThuTong.Text = "Doanh thu tổng:";
-            // 
-            // label_SoBenhNhan
-            // 
-            label_SoBenhNhan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label_SoBenhNhan.AutoSize = true;
-            label_SoBenhNhan.BackColor = Color.Transparent;
-            label_SoBenhNhan.Font = new Font("Segoe UI Semilight", 10F);
-            label_SoBenhNhan.ForeColor = Color.White;
-            label_SoBenhNhan.Location = new Point(23, 14);
-            label_SoBenhNhan.Name = "label_SoBenhNhan";
-            label_SoBenhNhan.Size = new Size(133, 28);
-            label_SoBenhNhan.TabIndex = 0;
-            label_SoBenhNhan.Text = "Số bệnh nhân:";
+            customPanel_DetailsControl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            customPanel_DetailsControl.BackColor = Color.FromArgb(79, 69, 87);
+            customPanel_DetailsControl.CornerRadius = 40;
+            customPanel_DetailsControl.Location = new Point(25, 787);
+            customPanel_DetailsControl.Name = "customPanel_DetailsControl";
+            customPanel_DetailsControl.Size = new Size(1124, 60);
+            customPanel_DetailsControl.TabIndex = 14;
             // 
             // panel1
             // 
@@ -890,7 +832,6 @@ namespace QuanLyMachTu
             panel1.Controls.Add(pageButton_HSBATab);
             panel1.Controls.Add(pageButton_BNTab);
             panel1.Controls.Add(pageButton_TKTab);
-            panel1.Controls.Add(pageButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -966,38 +907,15 @@ namespace QuanLyMachTu
             pageButton_TKTab.UseVisualStyleBackColor = false;
             pageButton_TKTab.Click += pageButton_TKTab_Click;
             // 
-            // pageButton1
-            // 
-            pageButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pageButton1.BackColor = Color.FromArgb(57, 54, 70);
-            pageButton1.BorderColor = Color.PaleVioletRed;
-            pageButton1.BorderRadius = 20;
-            pageButton1.BorderSize = 0;
-            pageButton1.CustomText = null;
-            pageButton1.FlatAppearance.BorderSize = 0;
-            pageButton1.FlatStyle = FlatStyle.Flat;
-            pageButton1.ForeColor = Color.White;
-            pageButton1.Icon = (Image)resources.GetObject("pageButton1.Icon");
-            pageButton1.IconLocation = new Point(11, 11);
-            pageButton1.IconSize = new Size(34, 34);
-            pageButton1.Location = new Point(2484, 13);
-            pageButton1.Name = "pageButton1";
-            pageButton1.Size = new Size(55, 55);
-            pageButton1.TabIndex = 3;
-            pageButton1.TextLocation = new Point(0, 0);
-            pageButton1.UseVisualStyleBackColor = false;
-            // 
             // panel_TKUpload
             // 
             panel_TKUpload.Anchor = AnchorStyles.Right;
             panel_TKUpload.AutoScroll = true;
             panel_TKUpload.AutoSize = true;
             panel_TKUpload.BackColor = Color.FromArgb(57, 54, 70);
-            panel_TKUpload.Controls.Add(textBox_MaTK_Year);
-            panel_TKUpload.Controls.Add(textBox_MaTK_TK);
-            panel_TKUpload.Controls.Add(textBox11);
-            panel_TKUpload.Controls.Add(textBox_TKUpload_SDT);
             panel_TKUpload.Controls.Add(textBox_TKUpload_Email);
+            panel_TKUpload.Controls.Add(textBox_TKUpload_SDT);
+            panel_TKUpload.Controls.Add(label);
             panel_TKUpload.Controls.Add(label11);
             panel_TKUpload.Controls.Add(textBox_TKUpload_MatKhau);
             panel_TKUpload.Controls.Add(label1);
@@ -1015,43 +933,16 @@ namespace QuanLyMachTu
             panel_TKUpload.TabIndex = 16;
             panel_TKUpload.Paint += panel_TKUpload_Paint;
             // 
-            // textBox_MaTK_Year
+            // textBox_TKUpload_Email
             // 
-            textBox_MaTK_Year.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_MaTK_Year.BorderStyle = BorderStyle.FixedSingle;
-            textBox_MaTK_Year.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_MaTK_Year.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_MaTK_Year.Location = new Point(237, 126);
-            textBox_MaTK_Year.Name = "textBox_MaTK_Year";
-            textBox_MaTK_Year.ReadOnly = true;
-            textBox_MaTK_Year.Size = new Size(64, 39);
-            textBox_MaTK_Year.TabIndex = 32;
-            textBox_MaTK_Year.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox_MaTK_TK
-            // 
-            textBox_MaTK_TK.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_MaTK_TK.BorderStyle = BorderStyle.FixedSingle;
-            textBox_MaTK_TK.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_MaTK_TK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_MaTK_TK.Location = new Point(200, 126);
-            textBox_MaTK_TK.Name = "textBox_MaTK_TK";
-            textBox_MaTK_TK.ReadOnly = true;
-            textBox_MaTK_TK.Size = new Size(37, 39);
-            textBox_MaTK_TK.TabIndex = 31;
-            textBox_MaTK_TK.Text = "TK";
-            textBox_MaTK_TK.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            textBox11.BackColor = Color.FromArgb(57, 54, 70);
-            textBox11.BorderStyle = BorderStyle.None;
-            textBox11.Font = new Font("Segoe UI Semilight", 12F);
-            textBox11.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox11.Location = new Point(25, 524);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(366, 32);
-            textBox11.TabIndex = 30;
+            textBox_TKUpload_Email.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_TKUpload_Email.BorderStyle = BorderStyle.None;
+            textBox_TKUpload_Email.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_TKUpload_Email.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_TKUpload_Email.Location = new Point(25, 524);
+            textBox_TKUpload_Email.Name = "textBox_TKUpload_Email";
+            textBox_TKUpload_Email.Size = new Size(366, 32);
+            textBox_TKUpload_Email.TabIndex = 30;
             // 
             // textBox_TKUpload_SDT
             // 
@@ -1065,19 +956,19 @@ namespace QuanLyMachTu
             textBox_TKUpload_SDT.TabIndex = 29;
             textBox_TKUpload_SDT.KeyPress += Button_KeyPress_PositiveNumber;
             // 
-            // textBox_TKUpload_Email
+            // label
             // 
-            textBox_TKUpload_Email.AutoSize = true;
-            textBox_TKUpload_Email.BackColor = Color.Transparent;
-            textBox_TKUpload_Email.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TKUpload_Email.ForeColor = Color.FromArgb(193, 193, 193);
-            textBox_TKUpload_Email.ImageAlign = ContentAlignment.BottomCenter;
-            textBox_TKUpload_Email.Location = new Point(25, 480);
-            textBox_TKUpload_Email.Name = "textBox_TKUpload_Email";
-            textBox_TKUpload_Email.Size = new Size(59, 28);
-            textBox_TKUpload_Email.TabIndex = 28;
-            textBox_TKUpload_Email.Text = "Email";
-            textBox_TKUpload_Email.TextAlign = ContentAlignment.BottomLeft;
+            label.AutoSize = true;
+            label.BackColor = Color.Transparent;
+            label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label.ForeColor = Color.FromArgb(193, 193, 193);
+            label.ImageAlign = ContentAlignment.BottomCenter;
+            label.Location = new Point(25, 480);
+            label.Name = "label";
+            label.Size = new Size(59, 28);
+            label.TabIndex = 28;
+            label.Text = "Email";
+            label.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label11
             // 
@@ -1125,11 +1016,13 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaTK.BorderStyle = BorderStyle.None;
             textBox_TKUpload_MaTK.Font = new Font("Segoe UI Semilight", 12F);
             textBox_TKUpload_MaTK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TKUpload_MaTK.Location = new Point(311, 128);
+            textBox_TKUpload_MaTK.Location = new Point(230, 128);
             textBox_TKUpload_MaTK.Name = "textBox_TKUpload_MaTK";
-            textBox_TKUpload_MaTK.Size = new Size(80, 32);
+            textBox_TKUpload_MaTK.Size = new Size(160, 32);
             textBox_TKUpload_MaTK.TabIndex = 24;
+            textBox_TKUpload_MaTK.TextChanged += textBox_Autofind_MaBNfromMaTK_TextChanged;
             textBox_TKUpload_MaTK.KeyPress += Button_KeyPress_PositiveNumber;
+            textBox_TKUpload_MaTK.Leave += textBox_MaTK_Leave;
             // 
             // label18
             // 
@@ -1138,7 +1031,7 @@ namespace QuanLyMachTu
             label18.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(193, 193, 193);
             label18.ImageAlign = ContentAlignment.BottomCenter;
-            label18.Location = new Point(210, 84);
+            label18.Location = new Point(230, 84);
             label18.Name = "label18";
             label18.Size = new Size(126, 28);
             label18.TabIndex = 23;
@@ -1206,8 +1099,9 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_TKUpload_MaBN.Location = new Point(25, 128);
             textBox_TKUpload_MaBN.Name = "textBox_TKUpload_MaBN";
-            textBox_TKUpload_MaBN.Size = new Size(128, 32);
+            textBox_TKUpload_MaBN.Size = new Size(160, 32);
             textBox_TKUpload_MaBN.TabIndex = 3;
+            textBox_TKUpload_MaBN.TextChanged += textBox_Autofind_MaTKfromMaBN_TextChanged;
             // 
             // label17
             // 
@@ -1228,7 +1122,7 @@ namespace QuanLyMachTu
             panel_HSBAUpload.BackColor = Color.FromArgb(57, 54, 70);
             panel_HSBAUpload.Controls.Add(textBox_HSBAUpload_KetQuaTQ);
             panel_HSBAUpload.Controls.Add(label12);
-            panel_HSBAUpload.Controls.Add(label10);
+            panel_HSBAUpload.Controls.Add(label_HSBAUpload_NgayLap);
             panel_HSBAUpload.Controls.Add(textBox_HSBAUpload_MaHSBA);
             panel_HSBAUpload.Controls.Add(label13);
             panel_HSBAUpload.Controls.Add(textBox_HSBAUpload_Nam);
@@ -1254,10 +1148,10 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_KetQuaTQ.BackColor = Color.FromArgb(57, 54, 70);
             textBox_HSBAUpload_KetQuaTQ.Font = new Font("Segoe UI Semilight", 12F);
             textBox_HSBAUpload_KetQuaTQ.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_HSBAUpload_KetQuaTQ.Location = new Point(25, 425);
+            textBox_HSBAUpload_KetQuaTQ.Location = new Point(20, 425);
             textBox_HSBAUpload_KetQuaTQ.Multiline = true;
             textBox_HSBAUpload_KetQuaTQ.Name = "textBox_HSBAUpload_KetQuaTQ";
-            textBox_HSBAUpload_KetQuaTQ.Size = new Size(366, 239);
+            textBox_HSBAUpload_KetQuaTQ.Size = new Size(375, 239);
             textBox_HSBAUpload_KetQuaTQ.TabIndex = 27;
             // 
             // label12
@@ -1274,19 +1168,19 @@ namespace QuanLyMachTu
             label12.Text = "Kết luận";
             label12.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // label10
+            // label_HSBAUpload_NgayLap
             // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(193, 193, 193);
-            label10.ImageAlign = ContentAlignment.BottomCenter;
-            label10.Location = new Point(300, 284);
-            label10.Name = "label10";
-            label10.Size = new Size(91, 28);
-            label10.TabIndex = 25;
-            label10.Text = "Ngày lập";
-            label10.TextAlign = ContentAlignment.BottomLeft;
+            label_HSBAUpload_NgayLap.AutoSize = true;
+            label_HSBAUpload_NgayLap.BackColor = Color.Transparent;
+            label_HSBAUpload_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_HSBAUpload_NgayLap.ForeColor = Color.FromArgb(193, 193, 193);
+            label_HSBAUpload_NgayLap.ImageAlign = ContentAlignment.BottomCenter;
+            label_HSBAUpload_NgayLap.Location = new Point(300, 284);
+            label_HSBAUpload_NgayLap.Name = "label_HSBAUpload_NgayLap";
+            label_HSBAUpload_NgayLap.Size = new Size(91, 28);
+            label_HSBAUpload_NgayLap.TabIndex = 25;
+            label_HSBAUpload_NgayLap.Text = "Ngày lập";
+            label_HSBAUpload_NgayLap.TextAlign = ContentAlignment.BottomLeft;
             // 
             // textBox_HSBAUpload_MaHSBA
             // 
@@ -1294,10 +1188,11 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaHSBA.BorderStyle = BorderStyle.None;
             textBox_HSBAUpload_MaHSBA.Font = new Font("Segoe UI Semilight", 12F);
             textBox_HSBAUpload_MaHSBA.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_HSBAUpload_MaHSBA.Location = new Point(210, 128);
+            textBox_HSBAUpload_MaHSBA.Location = new Point(230, 128);
             textBox_HSBAUpload_MaHSBA.Name = "textBox_HSBAUpload_MaHSBA";
-            textBox_HSBAUpload_MaHSBA.Size = new Size(175, 32);
+            textBox_HSBAUpload_MaHSBA.Size = new Size(160, 32);
             textBox_HSBAUpload_MaHSBA.TabIndex = 24;
+            textBox_HSBAUpload_MaHSBA.TextChanged += textBox_Autofind_MaBNfromMaHSBA_TextChanged;
             // 
             // label13
             // 
@@ -1306,7 +1201,7 @@ namespace QuanLyMachTu
             label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(193, 193, 193);
             label13.ImageAlign = ContentAlignment.BottomCenter;
-            label13.Location = new Point(210, 84);
+            label13.Location = new Point(230, 84);
             label13.Name = "label13";
             label13.Size = new Size(168, 28);
             label13.TabIndex = 23;
@@ -1323,6 +1218,8 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_Nam.Name = "textBox_HSBAUpload_Nam";
             textBox_HSBAUpload_Nam.Size = new Size(60, 32);
             textBox_HSBAUpload_Nam.TabIndex = 18;
+            textBox_HSBAUpload_Nam.TextAlign = HorizontalAlignment.Center;
+            textBox_HSBAUpload_Nam.Leave += textBox_HSBADate_Leave;
             // 
             // label19
             // 
@@ -1375,6 +1272,8 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_Ngay.Name = "textBox_HSBAUpload_Ngay";
             textBox_HSBAUpload_Ngay.Size = new Size(55, 32);
             textBox_HSBAUpload_Ngay.TabIndex = 12;
+            textBox_HSBAUpload_Ngay.TextAlign = HorizontalAlignment.Center;
+            textBox_HSBAUpload_Ngay.Leave += textBox_HSBADate_Leave;
             // 
             // label21
             // 
@@ -1426,7 +1325,7 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaNV.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_HSBAUpload_MaNV.Location = new Point(25, 227);
             textBox_HSBAUpload_MaNV.Name = "textBox_HSBAUpload_MaNV";
-            textBox_HSBAUpload_MaNV.Size = new Size(366, 32);
+            textBox_HSBAUpload_MaNV.Size = new Size(365, 32);
             textBox_HSBAUpload_MaNV.TabIndex = 5;
             // 
             // button_HSBAUpload_OK
@@ -1450,8 +1349,9 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_HSBAUpload_MaBN.Location = new Point(25, 128);
             textBox_HSBAUpload_MaBN.Name = "textBox_HSBAUpload_MaBN";
-            textBox_HSBAUpload_MaBN.Size = new Size(128, 32);
+            textBox_HSBAUpload_MaBN.Size = new Size(160, 32);
             textBox_HSBAUpload_MaBN.TabIndex = 3;
+            textBox_HSBAUpload_MaBN.TextChanged += textBox_Autofind_MaHSBA_TextChanged;
             textBox_HSBAUpload_MaBN.KeyPress += button_KeyPress_Normal;
             // 
             // label24
@@ -1470,7 +1370,7 @@ namespace QuanLyMachTu
             panel_HSBAFilter.Anchor = AnchorStyles.Right;
             panel_HSBAFilter.AutoScroll = true;
             panel_HSBAFilter.BackColor = Color.FromArgb(57, 54, 70);
-            panel_HSBAFilter.Controls.Add(label14);
+            panel_HSBAFilter.Controls.Add(label_HSBAFilters_NgayLap);
             panel_HSBAFilter.Controls.Add(label28);
             panel_HSBAFilter.Controls.Add(label32);
             panel_HSBAFilter.Controls.Add(label33);
@@ -1494,19 +1394,19 @@ namespace QuanLyMachTu
             panel_HSBAFilter.TabIndex = 27;
             panel_HSBAFilter.Paint += panel_HSBAFilter_Paint;
             // 
-            // label14
+            // label_HSBAFilters_NgayLap
             // 
-            label14.AutoSize = true;
-            label14.BackColor = Color.Transparent;
-            label14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.ForeColor = Color.FromArgb(193, 193, 193);
-            label14.ImageAlign = ContentAlignment.BottomCenter;
-            label14.Location = new Point(300, 381);
-            label14.Name = "label14";
-            label14.Size = new Size(91, 28);
-            label14.TabIndex = 32;
-            label14.Text = "Ngày lập";
-            label14.TextAlign = ContentAlignment.BottomLeft;
+            label_HSBAFilters_NgayLap.AutoSize = true;
+            label_HSBAFilters_NgayLap.BackColor = Color.Transparent;
+            label_HSBAFilters_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_HSBAFilters_NgayLap.ForeColor = Color.FromArgb(193, 193, 193);
+            label_HSBAFilters_NgayLap.ImageAlign = ContentAlignment.BottomCenter;
+            label_HSBAFilters_NgayLap.Location = new Point(300, 381);
+            label_HSBAFilters_NgayLap.Name = "label_HSBAFilters_NgayLap";
+            label_HSBAFilters_NgayLap.Size = new Size(91, 28);
+            label_HSBAFilters_NgayLap.TabIndex = 32;
+            label_HSBAFilters_NgayLap.Text = "Ngày lập";
+            label_HSBAFilters_NgayLap.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label28
             // 
@@ -1633,7 +1533,7 @@ namespace QuanLyMachTu
             label29.FlatStyle = FlatStyle.Flat;
             label29.Font = new Font("Segoe UI", 10F);
             label29.ForeColor = Color.FromArgb(193, 193, 193);
-            label29.Location = new Point(210, 84);
+            label29.Location = new Point(230, 84);
             label29.Name = "label29";
             label29.Size = new Size(168, 28);
             label29.TabIndex = 13;
@@ -1660,9 +1560,9 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaHSBA.BorderStyle = BorderStyle.None;
             textBox_HSBAFilter_MaHSBA.Font = new Font("Segoe UI Semilight", 12F);
             textBox_HSBAFilter_MaHSBA.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_HSBAFilter_MaHSBA.Location = new Point(210, 128);
+            textBox_HSBAFilter_MaHSBA.Location = new Point(230, 128);
             textBox_HSBAFilter_MaHSBA.Name = "textBox_HSBAFilter_MaHSBA";
-            textBox_HSBAFilter_MaHSBA.Size = new Size(175, 32);
+            textBox_HSBAFilter_MaHSBA.Size = new Size(160, 32);
             textBox_HSBAFilter_MaHSBA.TabIndex = 10;
             // 
             // textBox_HSBAFilter_SDT
@@ -1708,7 +1608,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_HSBAFilter_MaBN.Location = new Point(25, 128);
             textBox_HSBAFilter_MaBN.Name = "textBox_HSBAFilter_MaBN";
-            textBox_HSBAFilter_MaBN.Size = new Size(128, 32);
+            textBox_HSBAFilter_MaBN.Size = new Size(160, 32);
             textBox_HSBAFilter_MaBN.TabIndex = 3;
             // 
             // label31
@@ -1727,7 +1627,7 @@ namespace QuanLyMachTu
             panel_TKFilter.Anchor = AnchorStyles.Right;
             panel_TKFilter.AutoScroll = true;
             panel_TKFilter.BackColor = Color.FromArgb(57, 54, 70);
-            panel_TKFilter.Controls.Add(label34);
+            panel_TKFilter.Controls.Add(label_TKFilters_NgayTao);
             panel_TKFilter.Controls.Add(label35);
             panel_TKFilter.Controls.Add(label36);
             panel_TKFilter.Controls.Add(label37);
@@ -1753,19 +1653,19 @@ namespace QuanLyMachTu
             panel_TKFilter.TabIndex = 33;
             panel_TKFilter.Paint += panel_TKFilter_Paint;
             // 
-            // label34
+            // label_TKFilters_NgayTao
             // 
-            label34.AutoSize = true;
-            label34.BackColor = Color.Transparent;
-            label34.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.ForeColor = Color.FromArgb(193, 193, 193);
-            label34.ImageAlign = ContentAlignment.BottomCenter;
-            label34.Location = new Point(300, 480);
-            label34.Name = "label34";
-            label34.Size = new Size(93, 28);
-            label34.TabIndex = 32;
-            label34.Text = "Ngày tạo";
-            label34.TextAlign = ContentAlignment.BottomLeft;
+            label_TKFilters_NgayTao.AutoSize = true;
+            label_TKFilters_NgayTao.BackColor = Color.Transparent;
+            label_TKFilters_NgayTao.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_TKFilters_NgayTao.ForeColor = Color.FromArgb(193, 193, 193);
+            label_TKFilters_NgayTao.ImageAlign = ContentAlignment.BottomCenter;
+            label_TKFilters_NgayTao.Location = new Point(300, 480);
+            label_TKFilters_NgayTao.Name = "label_TKFilters_NgayTao";
+            label_TKFilters_NgayTao.Size = new Size(93, 28);
+            label_TKFilters_NgayTao.TabIndex = 32;
+            label_TKFilters_NgayTao.Text = "Ngày tạo";
+            label_TKFilters_NgayTao.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label35
             // 
@@ -1906,7 +1806,7 @@ namespace QuanLyMachTu
             label41.FlatStyle = FlatStyle.Flat;
             label41.Font = new Font("Segoe UI", 10F);
             label41.ForeColor = Color.FromArgb(193, 193, 193);
-            label41.Location = new Point(210, 84);
+            label41.Location = new Point(230, 84);
             label41.Name = "label41";
             label41.Size = new Size(126, 28);
             label41.TabIndex = 13;
@@ -1933,9 +1833,9 @@ namespace QuanLyMachTu
             textBox_TKFilter_MaTK.BorderStyle = BorderStyle.None;
             textBox_TKFilter_MaTK.Font = new Font("Segoe UI Semilight", 12F);
             textBox_TKFilter_MaTK.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TKFilter_MaTK.Location = new Point(210, 128);
+            textBox_TKFilter_MaTK.Location = new Point(230, 128);
             textBox_TKFilter_MaTK.Name = "textBox_TKFilter_MaTK";
-            textBox_TKFilter_MaTK.Size = new Size(175, 32);
+            textBox_TKFilter_MaTK.Size = new Size(160, 32);
             textBox_TKFilter_MaTK.TabIndex = 10;
             // 
             // textBox_TKFilter_SDT
@@ -1992,7 +1892,7 @@ namespace QuanLyMachTu
             textBox_TKFilter_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_TKFilter_MaBN.Location = new Point(25, 128);
             textBox_TKFilter_MaBN.Name = "textBox_TKFilter_MaBN";
-            textBox_TKFilter_MaBN.Size = new Size(128, 32);
+            textBox_TKFilter_MaBN.Size = new Size(160, 32);
             textBox_TKFilter_MaBN.TabIndex = 3;
             // 
             // label43
@@ -2013,15 +1913,15 @@ namespace QuanLyMachTu
             AutoScroll = true;
             BackColor = Color.FromArgb(57, 54, 70);
             Controls.Add(panel1);
-            Controls.Add(customPanel_Sum);
+            Controls.Add(customPanel_DetailsControl);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Toolbar);
+            Controls.Add(panel_TKFilter);
+            Controls.Add(panel_HSBAFilter);
             Controls.Add(panel_BNFilter);
             Controls.Add(panel_TKUpload);
             Controls.Add(panel_HSBAUpload);
             Controls.Add(panel_BNUpload);
-            Controls.Add(panel_TKFilter);
-            Controls.Add(panel_HSBAFilter);
             Name = "BenhNhanControl";
             Size = new Size(1590, 864);
             Load += BenhNhanControl_Load;
@@ -2031,8 +1931,6 @@ namespace QuanLyMachTu
             panel_BNUpload.ResumeLayout(false);
             panel_BNUpload.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).EndInit();
-            customPanel_Sum.ResumeLayout(false);
-            customPanel_Sum.PerformLayout();
             panel1.ResumeLayout(false);
             panel_TKUpload.ResumeLayout(false);
             panel_TKUpload.PerformLayout();
@@ -2091,13 +1989,8 @@ namespace QuanLyMachTu
         private CheckBox checkBox_BNUpload_Nu;
         private Panel panel_BNUpload;
         private CustomDataGridView customDataGridView;
-        private CustomPanel customPanel_Sum;
-        private Label label_SoBenhNhan;
-        private Label label_DoanhThuTong;
-        private Label label_HienThiDTTong;
-        private Label label_HienThiSoBN;
+        private CustomPanel customPanel_DetailsControl;
         private Panel panel1;
-        private PageButton pageButton1;
         private PageButton pageButton_TKTab;
         private PageButton pageButton_BNTab;
         private PageButton pageButton_HSBATab;
@@ -2111,7 +2004,7 @@ namespace QuanLyMachTu
         private TextBox textBox_TKUpload_MaTK;
         private Label label18;
         private Panel panel_HSBAUpload;
-        private Label label10;
+        private Label label_HSBAUpload_NgayLap;
         private TextBox textBox_HSBAUpload_MaHSBA;
         private Label label13;
         private TextBox textBox_HSBAUpload_Nam;
@@ -2126,16 +2019,14 @@ namespace QuanLyMachTu
         private Button button_HSBAUpload_OK;
         private TextBox textBox_HSBAUpload_MaBN;
         private Label label24;
-        private TextBox textBox11;
+        private TextBox textBox_TKUpload_Email;
         private TextBox textBox_TKUpload_SDT;
-        private Label textBox_TKUpload_Email;
+        private Label label;
         private Label label11;
         private TextBox textBox_TKUpload_MatKhau;
         private Label label1;
         private TextBox textBox_HSBAUpload_KetQuaTQ;
         private Label label12;
-        private TextBox textBox_MaTK_Year;
-        private TextBox textBox_MaTK_TK;
         private Panel panel_HSBAFilter;
         private Label label25;
         private Label label26;
@@ -2147,14 +2038,14 @@ namespace QuanLyMachTu
         private Label label31;
         private ComboBox comboBox_HSBAFilter_Operation;
         private TextBox textBox_HSBAFilter_Ngay;
-        private Label label14;
+        private Label label_HSBAFilters_NgayLap;
         private Label label28;
         private Label label32;
         private Label label33;
         private TextBox textBox_HSBAFilter_Nam;
         private ComboBox comboBox_HSBAFilter_Thang;
         private Panel panel_TKFilter;
-        private Label label34;
+        private Label label_TKFilters_NgayTao;
         private Label label35;
         private Label label36;
         private Label label37;
