@@ -153,7 +153,9 @@ namespace QuanLyMachTu
 
         private void MainWindow_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            if (this.WindowState == FormWindowState.Maximized
+                && this.FormBorderStyle == FormBorderStyle.None
+            )
             {
                 pageButton_SignOut.Visible = true;
             }
