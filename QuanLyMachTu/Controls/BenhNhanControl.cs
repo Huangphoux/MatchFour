@@ -1047,26 +1047,5 @@ namespace QuanLyMachTu
                     break;
             }
         }
-
-        private DataTable GetDetailsInSelectedRows(DataTable searchTable, string keyColumnName)
-        {
-            DataTable result = searchTable.Clone();
-            List<string> primaryKeys = new List<string>();
-
-            var rows = customDataGridView.SelectedRows;
-            foreach (DataGridViewRow row in rows)
-                primaryKeys.Add(row.Cells[keyColumnName].ToString());
-
-            string command = "1 = 1 ";
-            foreach (string condition in primaryKeys)
-                command += $"OR {keyColumnName} = '{condition}' ";
-
-            DataRow[] selectedRows = searchTable.Select(command);
-
-            foreach (DataRow row in selectedRows)
-                result.ImportRow(row);
-
-            return result;
-        }
     }
 }

@@ -117,455 +117,506 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel_Menu.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;pageButton_SignOut.Name" xml:space="preserve">
+    <value>pageButton_SignOut</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_SignOut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Name" xml:space="preserve">
+    <value>pageButton_CaiDat</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Name" xml:space="preserve">
+    <value>pageButton_ThongTin</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pageButton_LichKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="panel_TitleBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pageButton_LichKham.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="pageButton_LichKham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="pageButton_LichKham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_LichKham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton_LichKham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 296</value>
-  </data>
-  <data name="pageButton_LichKham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 91</value>
-  </data>
-  <data name="pageButton_LichKham.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="pageButton_LichKham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_LichKham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;pageButton_LichKham.Name" xml:space="preserve">
-    <value>pageButton_LichKham</value>
-  </data>
-  <data name="&gt;&gt;pageButton_LichKham.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pageButton_LichKham.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;pageButton_LichKham.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pageButton_HoaDon.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="pageButton_HoaDon.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="pageButton_HoaDon.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAA+JJREFUaEPtmk+IVVUcx8cyyoigXZvwDyHRpn3YQloYokKoNSZqi9a5cdeiUhHb
-        OSqKFAzvd94wOFAguLecRS4Ggxzf79wRzASlwJW6ivQrvzvnTm++99zHw3PeNWS+8IH33u93zu973z33
-        d899M2NjK3qOJIpfnKInBfYb9rr/vSg05/tyfo+f2UeynAeeBewjWVygLdhHsrhAW7CPZHGBtmAfyeIC
-        bcE+ksUF2oJ9JIsLtAX7SBYXaAv2kSwuYIjifc5rUsdj06DxsXhrB2LFOa9JrsAHg8bH4iM5EPFY7xQ7
-        nOK4eNzlgqOCfWTVpUtYLQXGxeMOF84N1x5a5+bwkih2isLZRk48HjiPh86jEMV518OeiQW8bLluAa+L
-        xxQXzwn7G0qi2G6GeTJGPG51PT61MQBWiccJzskFexyoYOaoKB7zRIMQj5O2zHg+U1MXWjY+d9cSxWGe
-        oOLcHF61HP68j1M8n6mpC/WTtWt1CmxtPBOKvyf/wCuW5zzu1eKBruKzkPMJx1Jhv1HNAC+GJ7Flg8sD
-        Uxz8GnihyrUm4BRfcW7Ivz1zG2vK+TxucDyF5Y4bFC7u2mCnmLa4W8C7zuOsU5yZ8nin/MxjppZv9HAg
-        xI/VYgmw56ic4gceaIhir8XL5/Tqc8WVMGYX54cxP5Vxjw85lgJ7jkoUv/HAwBcWd4rTkVgUW148f79i
-        XSlb1xKPv3hgiWLW1nvIWS+KL0VxURT/1nL/45/+a4oV60rZulbjgRiKWfH4yC7yKn+qwAanuFrLXaQ8
-        kNBAHkXiT8Vyxw0asLT6eSgeF6y1lmMKvBfJWVpak/N4k2MpsOeoRPE9DzRsOVk75fvLpGJduQuIL7Ef
-        bc6uYnMk9tSw56i6PWzjgYZ47La485hY+lxx1W6OMo+3Ob8cU2B/GHOEYymw56hsPYviOg92Htemfscb
-        ltO9jrWdHjZabsg/H8n/s9oBVGrqQv1k61omu6B5CZUobori0FL3UnwuHr/W8hbPxjjP29SF+snWtSo5
-        xTc8QcUQm8YJi1te7u2JwV4HKlzA30bPzADsOaQ6Y07R4XgO2OtQCjth5clq2LILDcG+BKf4rpaTCfY4
-        tOxByRX4uPyGF3fG98t7yeLfL6btybB61J2Zx2v2SMzFc8L+sqrsXgXG7cxw4dxw7WRN38BbHcWW8HPQ
-        LS44KthHsrhAW7CPZHGBtmAfyeICht2ZqztyrtcM+0gWFzDK4uGOnOs1wz6SxQXagn0kiwu0BftIFhdo
-        C/aRLC7QFuwjWVygLdhHsuzHCC4yakRxmX0ky/ZXHY99/M80o3pvtapHhBX93/UE46JdzWvz7sAAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
-  <data name="pageButton_HoaDon.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_HoaDon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton_HoaDon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 860</value>
-  </data>
-  <data name="pageButton_HoaDon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 91</value>
-  </data>
-  <data name="pageButton_HoaDon.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="pageButton_HoaDon.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_HoaDon.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;pageButton_HoaDon.Name" xml:space="preserve">
-    <value>pageButton_HoaDon</value>
-  </data>
-  <data name="&gt;&gt;pageButton_HoaDon.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pageButton_HoaDon.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;pageButton_HoaDon.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label_Clock.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="label_Clock.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 122</value>
+  <data name="panel_TitleBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>308, 0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label_Clock.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="panel_TitleBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
-  <data name="label_Clock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>308, 46</value>
+  <data name="panel_TitleBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 101</value>
   </data>
-  <data name="label_Clock.TabIndex" type="System.Int32, mscorlib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel_TitleBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Name" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pageButton_SignOut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_SignOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pageButton_SignOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_SignOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 46</value>
+  </data>
+  <data name="pageButton_SignOut.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label_Clock.Text" xml:space="preserve">
-    <value>(Thời gian)</value>
+  <data name="&gt;&gt;pageButton_SignOut.Name" xml:space="preserve">
+    <value>pageButton_SignOut</value>
   </data>
-  <data name="label_Clock.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;pageButton_SignOut.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;label_Clock.Name" xml:space="preserve">
-    <value>label_Clock</value>
+  <data name="&gt;&gt;pageButton_SignOut.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
   </data>
-  <data name="&gt;&gt;label_Clock.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pageButton_SignOut.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;label_Clock.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
+  <data name="pageButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="&gt;&gt;label_Clock.ZOrder" xml:space="preserve">
+  <data name="pageButton_CaiDat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="pageButton_CaiDat.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="pageButton_CaiDat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_CaiDat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1374, 31</value>
+  </data>
+  <data name="pageButton_CaiDat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_CaiDat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 58</value>
+  </data>
+  <data name="pageButton_CaiDat.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Name" xml:space="preserve">
+    <value>pageButton_CaiDat</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_CaiDat.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pageButton_ThongTin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_ThongTin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="pageButton_ThongTin.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAzFJREFUaEPtmktrFEEQx+vg467g++jr04giGPTkQVQ00YNoPPoBjI+jX2FSvSRu
+        9SY55ej7cRSin0AiaCIYDSrVk1z+PWF2e7pnZ9n5wR/CVk9V9e6kX9VELS0tLS3jSiaHiO0lYvuUjCyR
+        kRVi+42M/HbK/15xNm0zKxfdMyNFp7OfjNwiI2/I2H9BYnlNRqacr8ZiesfIyBNi+9PrQLBknVgeU9Y9
+        iuGGx7O3u4ntbTKy5iccSfmX+IB6vb0Yvl6yhVPE9qOXYCqx/UAdexLTqAe255P+qjuJ7Q8y3XOYTlpY
+        LhPLHy+Z+rRJHXsd00qDkWsFCQxJMoXpxcW9xnbTDzw0bRLbs5hmHLLF48TyvSDokCVrxM9PY7rVyLI9
+        tY7GA0veu+kxGiz3/SBB2iC292hu7oiTkWn3md9ucLHcxbTD0FWOrngwQJBkGt1vdbqg7aDSKXLhMLof
+        HF0ues5DVZCQbha8dqGSGXQ/GLp4j7k21tcYca92QdsgyXq1DYfOc57TKip4peOND7nYTmKI/qmyxSvW
+        hut0ikFrW2xfYTf6Q//fWP56DpsuzXl+/iB2pxw9qUBnoyK2E9idctyxTIGzUZAeGgyMO4MqcDYKYulh
+        d8ox9ovnaGQkK9idcoys+o4iCEF7DLH9imHKiT1dbAtBewyx/MIw5Yxfh8ftlWb57DmKIQTtURQ2aKWZ
+        lhC0x1DQtJRq4YGgPYaCFh5a2EJHMYSgPYZm5QKGKUcX4Ck2Dwjaqyp486C4Kl6B0ypC0F5VLC8wRP9E
+        PwCoocNGbmCI/slrvZEO8LaEoL2Sqh7xKDrieY4rCEF7JclDdD84UY9pE3ZYq4rRrktEOztOKLZ3MO1w
+        tIyh5QwM0hSxfRe31KI0uZimNxGSoJX3ppVLTfcMphkXlqsFgetXvgq8gumloQlXHvQmQq1o5d1dMPGS
+        SSs3jqR+jXeCuydqHb11NNbBc6gsL+9yF9NS/trbF9P0JkJjcLUo+yjqqsz5kpl4K6gU5DXlSTL2ZdB+
+        Wp/RLZ6xNylb3Ifum41ZOuAKW7oBYbtARj5tnYbqEbCWTlfdZ2rL20y4Z1paWlpaxpT/gz5+3YXR0k4A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pageButton_ThongTin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_ThongTin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1439, 31</value>
+  </data>
+  <data name="pageButton_ThongTin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_ThongTin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 58</value>
+  </data>
+  <data name="pageButton_ThongTin.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Name" xml:space="preserve">
+    <value>pageButton_ThongTin</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.Parent" xml:space="preserve">
+    <value>panel_TitleBar</value>
+  </data>
+  <data name="&gt;&gt;pageButton_ThongTin.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pageButton_DichVu.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="benhNhanControl.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="pageButton_DichVu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  <data name="benhNhanControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="pageButton_DichVu.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAulJREFUaEPtmU1rE1EUhuvKD7AbURA/di79Cbpw4UIUV/4IkVbduRE3Cm7rSkWt
-        OTciKPoD/AG2gkIFm3OSilU3iiDW2iJ+1FduTErzzkxv7piZieALDxR6z3PfzEy+JiMj//MPxrWwWwz3
-        nWHRGRBgURQP78xiH3sqSaf8x5Si6+JnhuJBdI58omCfPGBf6enzsklFFAvsG3gm57HJKU6L4okzLHGJ
-        AlhyimlRjE+0sJH7RMVf307xPGWTclDM+A7cq690jnx15bsoZnKdCX/ZJGRVoRjjfsF0rvmkrALEMMX9
-        ghHDFxZVhe/C/YJhSSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQRY8Fxv2ZcFzwbAg
-        C56LDfuy4LlgWJAFz8WGfVnwXDAsyILnYsO+LHguGBbEMgifKH45w6Oa4Tj7gmFZLH/jE8M3p5C6Yj97
-        +g5LY8nlU3xwisu3m9jF89FJyCOJ8Ymh5b9/XHuKLTyXO7xJLH365uoNHAWwgdd341oYdYZzzvBGDK/b
-        f7cwyusSSdksipDPH/VaA9t4XTc3W9guhotO8Skxq1gQwyV5iR08t5qiv9CI4QTv6XN3DnucYcIZlnkm
-        hWUxXKm9wF72FP6Vko++a2CnM9xqvwKlrA/w3RkmvWPtAxhPWTgw1pZv72eY4jU5eLwq9Lcy2vdlkosG
-        Qk97fwYUK7wmGsVKr/TPja1CHkTPRilP8rywt3smxvwpHuQTm/fh/+eFvaWFi+SFvaXFKb5ymVjE8IO9
-        pcUZ5rlQLP5HE/aWlkG8jIrhGXtLiyiuc6FYxHCVvaVFFMe4UCy1Jo6wt7Tce4vNovjMpfrFz3oHe0uN
-        GC5wsQjOs6/03FBsFcP7lHIh3vlZ9lUSMRwSxc+Ukun4z1ANHGZPpRHD2UTRDPxanh+KiOHUep9Q/VkS
-        w0meG6rUmziY+g6teOWaOMDrhzL+pdEZzohi1uPvXvifgHldN78BBnK+FcBbWEoAAAAASUVORK5CYII=
-</value>
+  <data name="benhNhanControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="pageButton_DichVu.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="benhNhanControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>44, 41, 44, 41</value>
   </data>
-  <data name="pageButton_DichVu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="benhNhanControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
   </data>
-  <data name="pageButton_DichVu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 766</value>
+  <data name="benhNhanControl.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="pageButton_DichVu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 91</value>
+  <data name="&gt;&gt;benhNhanControl.Name" xml:space="preserve">
+    <value>benhNhanControl</value>
   </data>
-  <data name="pageButton_DichVu.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;benhNhanControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.BenhNhanControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="pageButton_DichVu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;benhNhanControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
   </data>
-  <data name="pageButton_DichVu.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
+  <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;pageButton_DichVu.Name" xml:space="preserve">
-    <value>pageButton_DichVu</value>
+  <data name="phongKhamControl.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;pageButton_DichVu.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;pageButton_DichVu.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
+  <data name="phongKhamControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;pageButton_DichVu.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="phongKhamControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>16, 15, 16, 15</value>
   </data>
-  <data name="pictureBox_logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAABIpJREFUeF7tmVmIXFUQhuMG7ttjjAv6oI8KauKCioqI4JviFpcHRQw+KEIUfYiK
-        qKAIAUECwqTr9ERoV3ABRciTPsi4TJh01e1BByOauD4ZJ2jwl7r2aW7XPT1zu/v27e7h/PBBd5+qU3XO
-        3Fv31pl166KioqKioqKixqCZJRyr2N/XvFwTN5DgS2IcThHM6W/Wbs0JwBGO8bQToAfbtwFHWr81IfoG
-        JzjGu4FFd0GMj1wLJ1v/qdbOBGekl3lgwSFIsGeGcY6dZyrlmtjkBPvtIleDGL/WE1xl55sq1QW3EeMv
-        u7jCMA5RgnvsvBMvX+yI8W9uUYMxPcVRn+sk2BVYxLC8rYXUxpsouRY2OMZXgeRD/EaMmxX9HBjPo3O3
-        sMHGnQjVWriIGPtySQcgQcsxzve+swnOJcZeaxeCBD/NJri0O/qYRYJbneCgTTYECT6eWcKpdo7XGSeR
-        4H1rH4RxyAk22zkqlxY7YjzTR7Hb3gCO8v51wRXEuNx/1zG1Cfjl0JgaW3PoJFSltNg5Qd0mFoIE/1AT
-        D2f9KcHtjrGc/jWbuDc75gT3O8Hfdp4QJHhzxxyOz/qPXLsY64nxhU0mBAl+d4LrvO8K/UDXo64muNIx
-        fgnY5SDG17UFnNVJcJSqJ7jQCb63SfRgcVZwgfdtLODEFfsBxofZPmBnC+c5RjNnF4AEPzrBJZ1ERyHH
-        uKVosXOCT2b34DTvW7gfYMzX9+Js75cWR8YHObsQjGVi3NVJuEw5xlOFix3j1d27cbT3rTVxGQkO5Ox6
-        s197CO+vc+mcAbscaY6MJzuJlyHHeNAGCqHFzgm2dPkKNqfFLmC/IozlOuNOM9eWdoy8vaEmuDvrO7C0
-        MBHjBxvAQoI/agmuz/o5wfOFr5oA6aNO8Fz2UacxNJa1tRCDO4sYRo1vcYqd3GLf7PSdnRjvWLsheCvb
-        B2isNGberovsbTiw9OVkpfuXGJ82FnC6t39jEWf20Q8URs8Qs32AxtTY1q4D4+fOIoaVEzyRC/A/r+2Y
-        wzHejhJsHOTwoyi2D9DYmoO1a9tu7SxgWOk9WGc8prvaDrBEjPuyNq6JOwYqdn2iByz6FtkVWwutYDEd
-        FxzQXLPjpcq+drb7gWf7LXbtx9V3yiC+oT6gsQ/HZb+PXLoZ+i5uEyxC9qhLP9vxgjTsH6Qy9dMPhNCX
-        Iz+XfrbjRam0D/DSfqDo4UcvytoApZI+wKuW4KYBT3r/1JcaEjyu6BXk50yvpvbvatNHv5HlIAlu7M52
-        BHKMVwLBV4UY79m5ekltrX8RSPCynat0DboBWrDsXL2ktgH/VZnoDdBDz9BZoJXaFD0gtUz0BljKLIKe
-        uAFTtgFX+zn1sx0fhKnaACf4zD/6nODzwHjfVLMBgpds4ImB8aLNt3SlXaENPDk8YvMtXWUVrFFQY1xs
-        8y1d7bO+BRt87DDmbXs8MqUHk4zDuSTGhJ4UZ58qlYgED03CJuji6wkesPlVIhJcO9bbgTHvGNfYvCpV
-        +n+DBBtJ8Kg+hkYNMV7Qaq/9f2X3fFRUVFRUVFRUVFTUmtN/h30bRhzl8KQAAAAASUVORK5CYII=
-</value>
+  <data name="phongKhamControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
   </data>
-  <data name="pictureBox_logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 56</value>
+  <data name="phongKhamControl.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="pictureBox_logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
+  <data name="&gt;&gt;phongKhamControl.Name" xml:space="preserve">
+    <value>phongKhamControl</value>
   </data>
-  <data name="pictureBox_logo.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;phongKhamControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.PhongKhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pictureBox_logo.Name" xml:space="preserve">
-    <value>pictureBox_logo</value>
+  <data name="dichVuControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;pictureBox_logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dichVuControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;pictureBox_logo.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
+  <data name="dichVuControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;pictureBox_logo.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="dichVuControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
   </data>
-  <data name="pageButton_DuocPham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="pageButton_DuocPham.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="pageButton_DuocPham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAmRJREFUaEPtl81qFEEUhbPSF1DR6MKfF3CZpWQRdeV7iD6KC3UtSaoSF3kBf3Cl
-        GNyIiwldNYMgvkBAXERUPHKb6dCcVEtVV91CsT84dJieOufcdHXPzMrKxMTfhfV4az1QVA5vOEedEyUK
-        iXPU4QKlxDnqcIFS4hx1uEApcY46cmNyiVwZh9ecM/HfwttjrNi3OlxorNi3GrbBmnF4wIXGqvVqsMY5
-        ahiPdesx4yIFNbMONzi3KDset63Dt0B4aX3f9rjD+UWwC1yyDkeBUB05HG3NcZF7ZGM9Hp8IU5bxeMQ9
-        srEenzmogj5xj2yMw89AkKqMxw/ukQ2H1BL3yIYDaol7ZKNmPIBanprxAGp5Oca7c1w1HrfkyOeGyMn7
-        I2OMnyxw1ji86tYu9XLX4wy/lxmTF0WqsfmIc913MuNxaB2etcflMPx+JjUvmhTj/hBy3DzAeXldvnJ0
-        wxiPK7yuT0peErHGsp2Or4TDr505rvfPW4/nrVeDjf7rTGxeMrHGgXti/tRhVc7ZBhf+iSuytcA1GuJ4
-        GLkyvXvmBa9lYvJGEWO87XAzMEQr2WbLv2ey/XgtE5M3ihhj+ZzgAUgzeRDwuhAxeaOINZZHa2CApCGE
-        2LxkYo3lw46HkXsiZjv1ic1LJtVYnkpyz2w6XOZzMaTmRaNmPIBanprxAGp5nXFtcY9sOKCWuEc2HFBL
-        3CMb4/GVQ7RlHL5wj2yswzsOqqB97pGNdbgfCNLWXe6RzcMFThuHD4EwFRmP93sHOMU9itD+wqswjAzR
-        /YZRQ/5LpsE92b8lHwBLr33ZTmpXYmIind9I2k16rahWgwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pageButton_DuocPham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_DuocPham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton_DuocPham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 672</value>
-  </data>
-  <data name="pageButton_DuocPham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 91</value>
-  </data>
-  <data name="pageButton_DuocPham.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="pageButton_DuocPham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_DuocPham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;pageButton_DuocPham.Name" xml:space="preserve">
-    <value>pageButton_DuocPham</value>
-  </data>
-  <data name="&gt;&gt;pageButton_DuocPham.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pageButton_DuocPham.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
-  </data>
-  <data name="&gt;&gt;pageButton_DuocPham.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pageButton_PhongKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="pageButton_PhongKham.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="pageButton_PhongKham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAsdJREFUaEPtWD2LFEEUPDlQMVATIxXRXEFBEE3VwEDBP2CkhmJ0XCp4evgBYiQo
-        d/t6VdhIQRT8AyaignfzelfkAlFEQRGOQwMtee32slO7I7K367TeFFQw3a9fV033zLzpsbEKKwC3m9jh
-        FFedIhPFUpvzorgiHts5PjkAWCUZJsXjm/NAP1qfeExYLI9PBmEV+ojvR/G4zOOTQC3DcRYbBCvuicd9
-        bjfWPI5xnlJh28R5NFmosTGH1ddaWMPtbZOa1BZzHntZZGRXTE9fYIY9+WwlwilO05227TRhjDHxmrdZ
-        vYmT+Wwlwt5UubvcwnqOiWi8xoac6QyTHFMaRHEqZ0TxyCkuGmNMvA59qa5IrYXdOSNdjDHcHjnrsSuf
-        rUSEt5YiY5FGe2PNLGAtt7c5x7lKh1Mc7SM0brPcdjKK4ketiSOcJwmEZ4CNFFA8zvP4pCAeZ61IZOFd
-        K7HkFGd4XJK4+wpbnceUKJ47xec2n9kquBa2cPxQYCWEU0yLxzvxeCuKC9bGccmjYF9PcVzysJVgI9bG
-        ccmDTURyXPJgA5WRssEG/jsjTnHTebwUj0/hMEHx1Woj53HdfqQ4T+noMfAHtDpJPO787r/jr4NFdvFx
-        rYmDs01striZBWx0GfY5j0vOYzHEKF6YmQYwHj6qio998gyPig/hgw2Ms49CI1ZeFB0M2CFbp2z/Vd1O
-        8/hRUhTnWFOhkcAMJzg+oj6PbeLxnibYz3HDRN3jQHuuRVG8yZVUPeLzwr7UFTs5YQSfZXH/KMAa25wq
-        6rAyJZx2mGt7NjhhhHg8KduIaezbYbzxFOtE8SBcK76LwkmGQ7da2GQPuJXjLsNhUTws20iYmxuWQ550
-        FOA5O3Nzw3LIk44CPGdnbm4YRNQgYwYF61w5Rv41VkZSY2UkNVZGUmNlJDUWGuEvaipgnZWRssE6KyNl
-        g3VG/gRQLoghU7nu5wAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pageButton_PhongKham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pageButton_PhongKham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton_PhongKham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 578</value>
-  </data>
-  <data name="pageButton_PhongKham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 91</value>
-  </data>
-  <data name="pageButton_PhongKham.TabIndex" type="System.Int32, mscorlib">
+  <data name="dichVuControl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="pageButton_PhongKham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;dichVuControl.Name" xml:space="preserve">
+    <value>dichVuControl</value>
   </data>
-  <data name="pageButton_PhongKham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
+  <data name="&gt;&gt;dichVuControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.DichVuControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pageButton_PhongKham.Name" xml:space="preserve">
-    <value>pageButton_PhongKham</value>
+  <data name="&gt;&gt;dichVuControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
   </data>
-  <data name="&gt;&gt;pageButton_PhongKham.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;dichVuControl.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;pageButton_PhongKham.Parent" xml:space="preserve">
-    <value>panel_Menu</value>
+  <data name="nhanVienControl.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;pageButton_PhongKham.ZOrder" xml:space="preserve">
+  <data name="nhanVienControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nhanVienControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="nhanVienControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="nhanVienControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
+  </data>
+  <data name="nhanVienControl.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;nhanVienControl.Name" xml:space="preserve">
+    <value>nhanVienControl</value>
+  </data>
+  <data name="&gt;&gt;nhanVienControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Controls.NhanVienControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nhanVienControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;nhanVienControl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="duocPhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="duocPhamControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="duocPhamControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="duocPhamControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
+  </data>
+  <data name="duocPhamControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Name" xml:space="preserve">
+    <value>duocPhamControl</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Controls.DuocPhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="hoaDonControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="hoaDonControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="hoaDonControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>12, 12, 12, 12</value>
+  </data>
+  <data name="hoaDonControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
+  </data>
+  <data name="hoaDonControl.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;hoaDonControl.Name" xml:space="preserve">
+    <value>hoaDonControl</value>
+  </data>
+  <data name="&gt;&gt;hoaDonControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.HoaDonControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hoaDonControl.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;hoaDonControl.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="pageButton_NhanVien.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="lichKhamControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lichKhamControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lichKhamControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="lichKhamControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
+  </data>
+  <data name="lichKhamControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;lichKhamControl1.Name" xml:space="preserve">
+    <value>lichKhamControl1</value>
+  </data>
+  <data name="&gt;&gt;lichKhamControl1.Type" xml:space="preserve">
+    <value>QuanLyMachTu.LichKhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lichKhamControl1.Parent" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;lichKhamControl1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="panel_CustomControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel_CustomControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>308, 101</value>
+  </data>
+  <data name="panel_CustomControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="panel_CustomControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1590, 863</value>
+  </data>
+  <data name="panel_CustomControl.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;panel_CustomControl.Name" xml:space="preserve">
+    <value>panel_CustomControl</value>
+  </data>
+  <data name="&gt;&gt;panel_CustomControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_CustomControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_CustomControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pageButton_TongQuan.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="pageButton_NhanVien.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="pageButton_TongQuan.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
-  <data name="pageButton_NhanVien.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pageButton_TongQuan.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
-  <data name="pageButton_NhanVien.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="pageButton_TongQuan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="pageButton_NhanVien.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="pageButton_TongQuan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pageButton_NhanVien.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 484</value>
+  <data name="pageButton_TongQuan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 202</value>
   </data>
-  <data name="pageButton_NhanVien.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pageButton_TongQuan.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_TongQuan.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 91</value>
   </data>
-  <data name="pageButton_NhanVien.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="pageButton_TongQuan.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="pageButton_NhanVien.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;pageButton_TongQuan.Name" xml:space="preserve">
+    <value>pageButton_TongQuan</value>
   </data>
-  <data name="pageButton_NhanVien.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;pageButton_NhanVien.Name" xml:space="preserve">
-    <value>pageButton_NhanVien</value>
-  </data>
-  <data name="&gt;&gt;pageButton_NhanVien.Type" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_TongQuan.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pageButton_NhanVien.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_TongQuan.Parent" xml:space="preserve">
     <value>panel_Menu</value>
   </data>
-  <data name="&gt;&gt;pageButton_NhanVien.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;pageButton_TongQuan.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="pageButton_BenhNhan.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -608,8 +659,11 @@
   <data name="pageButton_BenhNhan.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 390</value>
   </data>
+  <data name="pageButton_BenhNhan.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
   <data name="pageButton_BenhNhan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 91</value>
+    <value>278, 91</value>
   </data>
   <data name="pageButton_BenhNhan.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -632,56 +686,478 @@
   <data name="&gt;&gt;pageButton_BenhNhan.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="pageButton_TongQuan.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="pageButton_NhanVien.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="pageButton_TongQuan.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="pageButton_NhanVien.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
-  <data name="pageButton_TongQuan.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pageButton_NhanVien.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        DAAACwwBP0AiyAAAAtpJREFUaEPtmk1u1EAQRrOBG4DgHogz8LNkw0XgCAGOABJCacOGs7AiEd2DWJHA
-        BYKQggSFarDN+I3bXV0NmlnkSSVFns+vPmsmTmTNwcElU45Wci9EOe2SiGU0+zrJXXp2Ts1FbFzMZ3r+
-        OW9P5GoX5VlI8pUFNmfI87h1LOeHJF+6KE+101jQip5I4dyM+ZnXLFNzfojyZCxopfRODDPkedw6Nedr
-        p7GgFUpyU5vn1J4/FrRCQW5q85za88eCVigoSf7HXYt5HWaKUFCS6N8ELcZzcqPZkOQOPZvwnFKHWShw
-        SRrhflcHClySRrjf1YECl6QR7nd1oMAlaYT7XR0oyEmY8Q69CjO53CIU5CTMeIdehZlcbhEKXJJGuN/V
-        gQKXpBHud3WgwCVphPtdHSjISZjxDr0KM7ncIhTkJMx4h16FmVxuEQpckka439WBApekEe53daDAJWmE
-        +10dKMhJmOEwXwNdLh8FOQkzHOZroMvlo8AlaYT7XR0ocEka4X5XBwpckka439WBApfEQLeS+12Us7ln
-        wdzv6kCBVbJUbI7Npy98qsL91g4TKLBKloqR5+/kSkhynstzv7XDBAoskvBJrockF2OxJBd6jLmBEOVF
-        fwG/5h4Pcb+lwxYUlCRauEty3Gd/9KM/H89dTEjyuL+I729WcpuvK9xf6jALBUuSlx/lWkjyvi8WX53I
-        DR7rPsjNIR+iPOii/Fy/Eyt5OLX9hfuXOmShICdhYb2I3Gt6MUdRbnVJvq2dUR5NbVO4P9dhEQooGe5O
-        xY/Q9kdu7dLfD2YJ97ODCQoomdydSr/U2zeBc71jMUe4nx1MUEBJzW1Wqc0r3M8OJiigpH/6fjp325yj
-        Nq9wPzuYoMAlaYT7XR0ocEka4X5XBwpckka439WBgn0Z9ixCwb4MexZZf9tgRrTTiXLGnkX0WwZbot3P
-        IXsW0e996MXsxTvz51+hQ9d3US7ZEb8BvlLtn7Ls8U4AAAAASUVORK5CYII=
+        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
 </value>
   </data>
-  <data name="pageButton_TongQuan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="pageButton_NhanVien.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="pageButton_TongQuan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="pageButton_NhanVien.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pageButton_TongQuan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 202</value>
+  <data name="pageButton_NhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 484</value>
   </data>
-  <data name="pageButton_TongQuan.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pageButton_NhanVien.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_NhanVien.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 91</value>
   </data>
-  <data name="pageButton_TongQuan.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="pageButton_NhanVien.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;pageButton_TongQuan.Name" xml:space="preserve">
-    <value>pageButton_TongQuan</value>
+  <data name="pageButton_NhanVien.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;pageButton_TongQuan.Type" xml:space="preserve">
+  <data name="pageButton_NhanVien.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_NhanVien.Name" xml:space="preserve">
+    <value>pageButton_NhanVien</value>
+  </data>
+  <data name="&gt;&gt;pageButton_NhanVien.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pageButton_TongQuan.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pageButton_NhanVien.Parent" xml:space="preserve">
     <value>panel_Menu</value>
   </data>
-  <data name="&gt;&gt;pageButton_TongQuan.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;pageButton_NhanVien.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pageButton_PhongKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_PhongKham.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="pageButton_PhongKham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAsdJREFUaEPtWD2LFEEUPDlQMVATIxXRXEFBEE3VwEDBP2CkhmJ0XCp4evgBYiQo
+        d/t6VdhIQRT8AyaignfzelfkAlFEQRGOQwMtee32slO7I7K367TeFFQw3a9fV033zLzpsbEKKwC3m9jh
+        FFedIhPFUpvzorgiHts5PjkAWCUZJsXjm/NAP1qfeExYLI9PBmEV+ojvR/G4zOOTQC3DcRYbBCvuicd9
+        bjfWPI5xnlJh28R5NFmosTGH1ddaWMPtbZOa1BZzHntZZGRXTE9fYIY9+WwlwilO05227TRhjDHxmrdZ
+        vYmT+Wwlwt5UubvcwnqOiWi8xoac6QyTHFMaRHEqZ0TxyCkuGmNMvA59qa5IrYXdOSNdjDHcHjnrsSuf
+        rUSEt5YiY5FGe2PNLGAtt7c5x7lKh1Mc7SM0brPcdjKK4ketiSOcJwmEZ4CNFFA8zvP4pCAeZ61IZOFd
+        K7HkFGd4XJK4+wpbnceUKJ47xec2n9kquBa2cPxQYCWEU0yLxzvxeCuKC9bGccmjYF9PcVzysJVgI9bG
+        ccmDTURyXPJgA5WRssEG/jsjTnHTebwUj0/hMEHx1Woj53HdfqQ4T+noMfAHtDpJPO787r/jr4NFdvFx
+        rYmDs01striZBWx0GfY5j0vOYzHEKF6YmQYwHj6qio998gyPig/hgw2Ms49CI1ZeFB0M2CFbp2z/Vd1O
+        8/hRUhTnWFOhkcAMJzg+oj6PbeLxnibYz3HDRN3jQHuuRVG8yZVUPeLzwr7UFTs5YQSfZXH/KMAa25wq
+        6rAyJZx2mGt7NjhhhHg8KduIaezbYbzxFOtE8SBcK76LwkmGQ7da2GQPuJXjLsNhUTws20iYmxuWQ550
+        FOA5O3Nzw3LIk44CPGdnbm4YRNQgYwYF61w5Rv41VkZSY2UkNVZGUmNlJDUWGuEvaipgnZWRssE6KyNl
+        g3VG/gRQLoghU7nu5wAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pageButton_PhongKham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_PhongKham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_PhongKham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 578</value>
+  </data>
+  <data name="pageButton_PhongKham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_PhongKham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 91</value>
+  </data>
+  <data name="pageButton_PhongKham.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pageButton_PhongKham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_PhongKham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_PhongKham.Name" xml:space="preserve">
+    <value>pageButton_PhongKham</value>
+  </data>
+  <data name="&gt;&gt;pageButton_PhongKham.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_PhongKham.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_PhongKham.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pageButton_DuocPham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_DuocPham.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="pageButton_DuocPham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAmRJREFUaEPtl81qFEEUhbPSF1DR6MKfF3CZpWQRdeV7iD6KC3UtSaoSF3kBf3Cl
+        GNyIiwldNYMgvkBAXERUPHKb6dCcVEtVV91CsT84dJieOufcdHXPzMrKxMTfhfV4az1QVA5vOEedEyUK
+        iXPU4QKlxDnqcIFS4hx1uEApcY46cmNyiVwZh9ecM/HfwttjrNi3OlxorNi3GrbBmnF4wIXGqvVqsMY5
+        ahiPdesx4yIFNbMONzi3KDset63Dt0B4aX3f9rjD+UWwC1yyDkeBUB05HG3NcZF7ZGM9Hp8IU5bxeMQ9
+        srEenzmogj5xj2yMw89AkKqMxw/ukQ2H1BL3yIYDaol7ZKNmPIBanprxAGp5Oca7c1w1HrfkyOeGyMn7
+        I2OMnyxw1ji86tYu9XLX4wy/lxmTF0WqsfmIc913MuNxaB2etcflMPx+JjUvmhTj/hBy3DzAeXldvnJ0
+        wxiPK7yuT0peErHGsp2Or4TDr505rvfPW4/nrVeDjf7rTGxeMrHGgXti/tRhVc7ZBhf+iSuytcA1GuJ4
+        GLkyvXvmBa9lYvJGEWO87XAzMEQr2WbLv2ey/XgtE5M3ihhj+ZzgAUgzeRDwuhAxeaOINZZHa2CApCGE
+        2LxkYo3lw46HkXsiZjv1ic1LJtVYnkpyz2w6XOZzMaTmRaNmPIBanprxAGp5nXFtcY9sOKCWuEc2HFBL
+        3CMb4/GVQ7RlHL5wj2yswzsOqqB97pGNdbgfCNLWXe6RzcMFThuHD4EwFRmP93sHOMU9itD+wqswjAzR
+        /YZRQ/5LpsE92b8lHwBLr33ZTmpXYmIind9I2k16rahWgwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pageButton_DuocPham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_DuocPham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_DuocPham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 672</value>
+  </data>
+  <data name="pageButton_DuocPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_DuocPham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 91</value>
+  </data>
+  <data name="pageButton_DuocPham.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="pageButton_DuocPham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_DuocPham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DuocPham.Name" xml:space="preserve">
+    <value>pageButton_DuocPham</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DuocPham.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DuocPham.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DuocPham.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBox_logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAABIpJREFUeF7tmVmIXFUQhuMG7ttjjAv6oI8KauKCioqI4JviFpcHRQw+KEIUfYiK
+        qKAIAUECwqTr9ERoV3ABRciTPsi4TJh01e1BByOauD4ZJ2jwl7r2aW7XPT1zu/v27e7h/PBBd5+qU3XO
+        3Fv31pl166KioqKioqKixqCZJRyr2N/XvFwTN5DgS2IcThHM6W/Wbs0JwBGO8bQToAfbtwFHWr81IfoG
+        JzjGu4FFd0GMj1wLJ1v/qdbOBGekl3lgwSFIsGeGcY6dZyrlmtjkBPvtIleDGL/WE1xl55sq1QW3EeMv
+        u7jCMA5RgnvsvBMvX+yI8W9uUYMxPcVRn+sk2BVYxLC8rYXUxpsouRY2OMZXgeRD/EaMmxX9HBjPo3O3
+        sMHGnQjVWriIGPtySQcgQcsxzve+swnOJcZeaxeCBD/NJri0O/qYRYJbneCgTTYECT6eWcKpdo7XGSeR
+        4H1rH4RxyAk22zkqlxY7YjzTR7Hb3gCO8v51wRXEuNx/1zG1Cfjl0JgaW3PoJFSltNg5Qd0mFoIE/1AT
+        D2f9KcHtjrGc/jWbuDc75gT3O8Hfdp4QJHhzxxyOz/qPXLsY64nxhU0mBAl+d4LrvO8K/UDXo64muNIx
+        fgnY5SDG17UFnNVJcJSqJ7jQCb63SfRgcVZwgfdtLODEFfsBxofZPmBnC+c5RjNnF4AEPzrBJZ1ERyHH
+        uKVosXOCT2b34DTvW7gfYMzX9+Js75cWR8YHObsQjGVi3NVJuEw5xlOFix3j1d27cbT3rTVxGQkO5Ox6
+        s197CO+vc+mcAbscaY6MJzuJlyHHeNAGCqHFzgm2dPkKNqfFLmC/IozlOuNOM9eWdoy8vaEmuDvrO7C0
+        MBHjBxvAQoI/agmuz/o5wfOFr5oA6aNO8Fz2UacxNJa1tRCDO4sYRo1vcYqd3GLf7PSdnRjvWLsheCvb
+        B2isNGberovsbTiw9OVkpfuXGJ82FnC6t39jEWf20Q8URs8Qs32AxtTY1q4D4+fOIoaVEzyRC/A/r+2Y
+        wzHejhJsHOTwoyi2D9DYmoO1a9tu7SxgWOk9WGc8prvaDrBEjPuyNq6JOwYqdn2iByz6FtkVWwutYDEd
+        FxzQXLPjpcq+drb7gWf7LXbtx9V3yiC+oT6gsQ/HZb+PXLoZ+i5uEyxC9qhLP9vxgjTsH6Qy9dMPhNCX
+        Iz+XfrbjRam0D/DSfqDo4UcvytoApZI+wKuW4KYBT3r/1JcaEjyu6BXk50yvpvbvatNHv5HlIAlu7M52
+        BHKMVwLBV4UY79m5ekltrX8RSPCynat0DboBWrDsXL2ktgH/VZnoDdBDz9BZoJXaFD0gtUz0BljKLIKe
+        uAFTtgFX+zn1sx0fhKnaACf4zD/6nODzwHjfVLMBgpds4ImB8aLNt3SlXaENPDk8YvMtXWUVrFFQY1xs
+        8y1d7bO+BRt87DDmbXs8MqUHk4zDuSTGhJ4UZ58qlYgED03CJuji6wkesPlVIhJcO9bbgTHvGNfYvCpV
+        +n+DBBtJ8Kg+hkYNMV7Qaq/9f2X3fFRUVFRUVFRUVFTUmtN/h30bRhzl8KQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox_logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox_logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 56</value>
+  </data>
+  <data name="pictureBox_logo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pictureBox_logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pictureBox_logo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox_logo.Name" xml:space="preserve">
+    <value>pictureBox_logo</value>
+  </data>
+  <data name="&gt;&gt;pictureBox_logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox_logo.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pictureBox_logo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pageButton_DichVu.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_DichVu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="pageButton_DichVu.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAulJREFUaEPtmU1rE1EUhuvKD7AbURA/di79Cbpw4UIUV/4IkVbduRE3Cm7rSkWt
+        OTciKPoD/AG2gkIFm3OSilU3iiDW2iJ+1FduTErzzkxv7piZieALDxR6z3PfzEy+JiMj//MPxrWwWwz3
+        nWHRGRBgURQP78xiH3sqSaf8x5Si6+JnhuJBdI58omCfPGBf6enzsklFFAvsG3gm57HJKU6L4okzLHGJ
+        AlhyimlRjE+0sJH7RMVf307xPGWTclDM+A7cq690jnx15bsoZnKdCX/ZJGRVoRjjfsF0rvmkrALEMMX9
+        ghHDFxZVhe/C/YJhSSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQSxF+4JhQRY8Fxv2ZcFzwbAg
+        C56LDfuy4LlgWJAFz8WGfVnwXDAsyILnYsO+LHguGBbEMgifKH45w6Oa4Tj7gmFZLH/jE8M3p5C6Yj97
+        +g5LY8nlU3xwisu3m9jF89FJyCOJ8Ymh5b9/XHuKLTyXO7xJLH365uoNHAWwgdd341oYdYZzzvBGDK/b
+        f7cwyusSSdksipDPH/VaA9t4XTc3W9guhotO8Skxq1gQwyV5iR08t5qiv9CI4QTv6XN3DnucYcIZlnkm
+        hWUxXKm9wF72FP6Vko++a2CnM9xqvwKlrA/w3RkmvWPtAxhPWTgw1pZv72eY4jU5eLwq9Lcy2vdlkosG
+        Qk97fwYUK7wmGsVKr/TPja1CHkTPRilP8rywt3smxvwpHuQTm/fh/+eFvaWFi+SFvaXFKb5ymVjE8IO9
+        pcUZ5rlQLP5HE/aWlkG8jIrhGXtLiyiuc6FYxHCVvaVFFMe4UCy1Jo6wt7Tce4vNovjMpfrFz3oHe0uN
+        GC5wsQjOs6/03FBsFcP7lHIh3vlZ9lUSMRwSxc+Ukun4z1ANHGZPpRHD2UTRDPxanh+KiOHUep9Q/VkS
+        w0meG6rUmziY+g6teOWaOMDrhzL+pdEZzohi1uPvXvifgHldN78BBnK+FcBbWEoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pageButton_DichVu.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_DichVu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_DichVu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 766</value>
+  </data>
+  <data name="pageButton_DichVu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_DichVu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 91</value>
+  </data>
+  <data name="pageButton_DichVu.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="pageButton_DichVu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_DichVu.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DichVu.Name" xml:space="preserve">
+    <value>pageButton_DichVu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DichVu.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DichVu.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_DichVu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label_Clock.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="label_Clock.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label_Clock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 122</value>
+  </data>
+  <data name="label_Clock.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label_Clock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 46</value>
+  </data>
+  <data name="label_Clock.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label_Clock.Text" xml:space="preserve">
+    <value>(Thời gian)</value>
+  </data>
+  <data name="label_Clock.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.Name" xml:space="preserve">
+    <value>label_Clock</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;label_Clock.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pageButton_HoaDon.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_HoaDon.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="pageButton_HoaDon.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAA+JJREFUaEPtmk+IVVUcx8cyyoigXZvwDyHRpn3YQloYokKoNSZqi9a5cdeiUhHb
+        OSqKFAzvd94wOFAguLecRS4Ggxzf79wRzASlwJW6ivQrvzvnTm++99zHw3PeNWS+8IH33u93zu973z33
+        d899M2NjK3qOJIpfnKInBfYb9rr/vSg05/tyfo+f2UeynAeeBewjWVygLdhHsrhAW7CPZHGBtmAfyeIC
+        bcE+ksUF2oJ9JIsLtAX7SBYXaAv2kSwuYIjifc5rUsdj06DxsXhrB2LFOa9JrsAHg8bH4iM5EPFY7xQ7
+        nOK4eNzlgqOCfWTVpUtYLQXGxeMOF84N1x5a5+bwkih2isLZRk48HjiPh86jEMV518OeiQW8bLluAa+L
+        xxQXzwn7G0qi2G6GeTJGPG51PT61MQBWiccJzskFexyoYOaoKB7zRIMQj5O2zHg+U1MXWjY+d9cSxWGe
+        oOLcHF61HP68j1M8n6mpC/WTtWt1CmxtPBOKvyf/wCuW5zzu1eKBruKzkPMJx1Jhv1HNAC+GJ7Flg8sD
+        Uxz8GnihyrUm4BRfcW7Ivz1zG2vK+TxucDyF5Y4bFC7u2mCnmLa4W8C7zuOsU5yZ8nin/MxjppZv9HAg
+        xI/VYgmw56ic4gceaIhir8XL5/Tqc8WVMGYX54cxP5Vxjw85lgJ7jkoUv/HAwBcWd4rTkVgUW148f79i
+        XSlb1xKPv3hgiWLW1nvIWS+KL0VxURT/1nL/45/+a4oV60rZulbjgRiKWfH4yC7yKn+qwAanuFrLXaQ8
+        kNBAHkXiT8Vyxw0asLT6eSgeF6y1lmMKvBfJWVpak/N4k2MpsOeoRPE9DzRsOVk75fvLpGJduQuIL7Ef
+        bc6uYnMk9tSw56i6PWzjgYZ47La485hY+lxx1W6OMo+3Ob8cU2B/GHOEYymw56hsPYviOg92Htemfscb
+        ltO9jrWdHjZabsg/H8n/s9oBVGrqQv1k61omu6B5CZUobori0FL3UnwuHr/W8hbPxjjP29SF+snWtSo5
+        xTc8QcUQm8YJi1te7u2JwV4HKlzA30bPzADsOaQ6Y07R4XgO2OtQCjth5clq2LILDcG+BKf4rpaTCfY4
+        tOxByRX4uPyGF3fG98t7yeLfL6btybB61J2Zx2v2SMzFc8L+sqrsXgXG7cxw4dxw7WRN38BbHcWW8HPQ
+        LS44KthHsrhAW7CPZHGBtmAfyeICht2ZqztyrtcM+0gWFzDK4uGOnOs1wz6SxQXagn0kiwu0BftIFhdo
+        C/aRLC7QFuwjWVygLdhHsuzHCC4yakRxmX0ky/ZXHY99/M80o3pvtapHhBX93/UE46JdzWvz7sAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="pageButton_HoaDon.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_HoaDon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_HoaDon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 860</value>
+  </data>
+  <data name="pageButton_HoaDon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_HoaDon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 91</value>
+  </data>
+  <data name="pageButton_HoaDon.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="pageButton_HoaDon.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_HoaDon.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_HoaDon.Name" xml:space="preserve">
+    <value>pageButton_HoaDon</value>
+  </data>
+  <data name="&gt;&gt;pageButton_HoaDon.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_HoaDon.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_HoaDon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pageButton_LichKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="pageButton_LichKham.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="pageButton_LichKham.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pageButton_LichKham.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_LichKham.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pageButton_LichKham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 296</value>
+  </data>
+  <data name="pageButton_LichKham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="pageButton_LichKham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 91</value>
+  </data>
+  <data name="pageButton_LichKham.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="pageButton_LichKham.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pageButton_LichKham.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;pageButton_LichKham.Name" xml:space="preserve">
+    <value>pageButton_LichKham</value>
+  </data>
+  <data name="&gt;&gt;pageButton_LichKham.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pageButton_LichKham.Parent" xml:space="preserve">
+    <value>panel_Menu</value>
+  </data>
+  <data name="&gt;&gt;pageButton_LichKham.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_Menu.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -709,296 +1185,6 @@
   </data>
   <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="pageButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="pageButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="pageButton2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="pageButton2.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="pageButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1445, 21</value>
-  </data>
-  <data name="pageButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 58</value>
-  </data>
-  <data name="pageButton2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;pageButton2.Name" xml:space="preserve">
-    <value>pageButton2</value>
-  </data>
-  <data name="&gt;&gt;pageButton2.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pageButton2.Parent" xml:space="preserve">
-    <value>panel_TitleBar</value>
-  </data>
-  <data name="&gt;&gt;pageButton2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pageButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="pageButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="pageButton1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="pageButton1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAzFJREFUaEPtmktrFEEQx+vg467g++jr04giGPTkQVQ00YNoPPoBjI+jX2FSvSRu
-        9SY55ej7cRSin0AiaCIYDSrVk1z+PWF2e7pnZ9n5wR/CVk9V9e6kX9VELS0tLS3jSiaHiO0lYvuUjCyR
-        kRVi+42M/HbK/15xNm0zKxfdMyNFp7OfjNwiI2/I2H9BYnlNRqacr8ZiesfIyBNi+9PrQLBknVgeU9Y9
-        iuGGx7O3u4ntbTKy5iccSfmX+IB6vb0Yvl6yhVPE9qOXYCqx/UAdexLTqAe255P+qjuJ7Q8y3XOYTlpY
-        LhPLHy+Z+rRJHXsd00qDkWsFCQxJMoXpxcW9xnbTDzw0bRLbs5hmHLLF48TyvSDokCVrxM9PY7rVyLI9
-        tY7GA0veu+kxGiz3/SBB2iC292hu7oiTkWn3md9ucLHcxbTD0FWOrngwQJBkGt1vdbqg7aDSKXLhMLof
-        HF0ues5DVZCQbha8dqGSGXQ/GLp4j7k21tcYca92QdsgyXq1DYfOc57TKip4peOND7nYTmKI/qmyxSvW
-        hut0ikFrW2xfYTf6Q//fWP56DpsuzXl+/iB2pxw9qUBnoyK2E9idctyxTIGzUZAeGgyMO4MqcDYKYulh
-        d8ox9ovnaGQkK9idcoys+o4iCEF7DLH9imHKiT1dbAtBewyx/MIw5Yxfh8ftlWb57DmKIQTtURQ2aKWZ
-        lhC0x1DQtJRq4YGgPYaCFh5a2EJHMYSgPYZm5QKGKUcX4Ck2Dwjaqyp486C4Kl6B0ypC0F5VLC8wRP9E
-        PwCoocNGbmCI/slrvZEO8LaEoL2Sqh7xKDrieY4rCEF7JclDdD84UY9pE3ZYq4rRrktEOztOKLZ3MO1w
-        tIyh5QwM0hSxfRe31KI0uZimNxGSoJX3ppVLTfcMphkXlqsFgetXvgq8gumloQlXHvQmQq1o5d1dMPGS
-        SSs3jqR+jXeCuydqHb11NNbBc6gsL+9yF9NS/trbF9P0JkJjcLUo+yjqqsz5kpl4K6gU5DXlSTL2ZdB+
-        Wp/RLZ6xNylb3Ifum41ZOuAKW7oBYbtARj5tnYbqEbCWTlfdZ2rL20y4Z1paWlpaxpT/gz5+3YXR0k4A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pageButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pageButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1509, 21</value>
-  </data>
-  <data name="pageButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 58</value>
-  </data>
-  <data name="pageButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;pageButton1.Name" xml:space="preserve">
-    <value>pageButton1</value>
-  </data>
-  <data name="&gt;&gt;pageButton1.Type" xml:space="preserve">
-    <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pageButton1.Parent" xml:space="preserve">
-    <value>panel_TitleBar</value>
-  </data>
-  <data name="&gt;&gt;pageButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel_TitleBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel_TitleBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 0</value>
-  </data>
-  <data name="panel_TitleBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="panel_TitleBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 100</value>
-  </data>
-  <data name="panel_TitleBar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel_TitleBar.Name" xml:space="preserve">
-    <value>panel_TitleBar</value>
-  </data>
-  <data name="&gt;&gt;panel_TitleBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_TitleBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="timer_Clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="benhNhanControl.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="benhNhanControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="benhNhanControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="benhNhanControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>22, 22, 22, 22</value>
-  </data>
-  <data name="benhNhanControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
-  </data>
-  <data name="benhNhanControl.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;benhNhanControl.Name" xml:space="preserve">
-    <value>benhNhanControl</value>
-  </data>
-  <data name="&gt;&gt;benhNhanControl.Type" xml:space="preserve">
-    <value>QuanLyMachTu.BenhNhanControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;benhNhanControl.Parent" xml:space="preserve">
-    <value>panel_CustomControl</value>
-  </data>
-  <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="phongKhamControl.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="phongKhamControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="phongKhamControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="phongKhamControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 8, 8</value>
-  </data>
-  <data name="phongKhamControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
-  </data>
-  <data name="phongKhamControl.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;phongKhamControl.Name" xml:space="preserve">
-    <value>phongKhamControl</value>
-  </data>
-  <data name="&gt;&gt;phongKhamControl.Type" xml:space="preserve">
-    <value>QuanLyMachTu.PhongKhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;phongKhamControl.Parent" xml:space="preserve">
-    <value>panel_CustomControl</value>
-  </data>
-  <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="hoaDonControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="hoaDonControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="hoaDonControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 8, 8</value>
-  </data>
-  <data name="hoaDonControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
-  </data>
-  <data name="hoaDonControl.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;hoaDonControl.Name" xml:space="preserve">
-    <value>hoaDonControl</value>
-  </data>
-  <data name="&gt;&gt;hoaDonControl.Type" xml:space="preserve">
-    <value>QuanLyMachTu.HoaDonControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;hoaDonControl.Parent" xml:space="preserve">
-    <value>panel_CustomControl</value>
-  </data>
-  <data name="&gt;&gt;hoaDonControl.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lichKhamControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lichKhamControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lichKhamControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
-  </data>
-  <data name="lichKhamControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;lichKhamControl1.Name" xml:space="preserve">
-    <value>lichKhamControl1</value>
-  </data>
-  <data name="&gt;&gt;lichKhamControl1.Type" xml:space="preserve">
-    <value>QuanLyMachTu.LichKhamControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lichKhamControl1.Parent" xml:space="preserve">
-    <value>panel_CustomControl</value>
-  </data>
-  <data name="&gt;&gt;lichKhamControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel_CustomControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel_CustomControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 100</value>
-  </data>
-  <data name="panel_CustomControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1590, 864</value>
-  </data>
-  <data name="panel_CustomControl.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;panel_CustomControl.Name" xml:space="preserve">
-    <value>panel_CustomControl</value>
-  </data>
-  <data name="&gt;&gt;panel_CustomControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_CustomControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_CustomControl.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

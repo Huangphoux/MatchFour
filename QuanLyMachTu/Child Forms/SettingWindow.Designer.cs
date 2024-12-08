@@ -95,7 +95,6 @@
             Controls.Add(label_WindowSize);
             Controls.Add(iconPictureBox1);
             Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(6);
             Name = "Form_CaiDat";
             Text = "Cài đặt";
