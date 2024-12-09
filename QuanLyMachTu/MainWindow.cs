@@ -85,7 +85,8 @@ namespace QuanLyMachTu
 
         private void pageButton_TongQuat_Click(object sender, EventArgs e)
         {
-            ActivateButton((PageButton)sender);            
+            ActivateButton((PageButton)sender);
+            tongQuanControl.BringToFront();
         }
         private void pageButton_LichKham_Click(object sender, EventArgs e)
         {
@@ -153,7 +154,9 @@ namespace QuanLyMachTu
 
         private void MainWindow_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            if (this.WindowState == FormWindowState.Maximized
+                && this.FormBorderStyle == FormBorderStyle.None
+            )
             {
                 pageButton_SignOut.Visible = true;
             }

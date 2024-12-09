@@ -751,10 +751,25 @@
   <data name="&gt;&gt;pageButton_NhanVien.Parent" xml:space="preserve">
     <value>panel_Menu</value>
   </data>
+  <data name="&gt;&gt;panel_Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="&gt;&gt;pageButton_NhanVien.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="pageButton_PhongKham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+	  <value>Flat</value>
+  </data>
+  <data name="pageButton_SignOut.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="pageButton_SignOut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="pageButton_PhongKham.Font" type="System.Drawing.Font, System.Drawing">
@@ -814,6 +829,12 @@
   <data name="&gt;&gt;pageButton_PhongKham.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="pageButton_CaiDat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="pageButton_CaiDat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+	  <value>Flat</value>
+  </data>
   <data name="pageButton_DuocPham.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -865,6 +886,12 @@
   </data>
   <data name="&gt;&gt;pageButton_DuocPham.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="pageButton_ThongTin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="pageButton_ThongTin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="&gt;&gt;pageButton_DuocPham.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -1002,6 +1029,9 @@
   <data name="label_Clock.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;panel_TitleBar.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="label_Clock.Text" xml:space="preserve">
     <value>(Thời gian)</value>
   </data>
@@ -1052,6 +1082,9 @@
   <data name="pageButton_HoaDon.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="&gt;&gt;benhNhanControl.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="pageButton_HoaDon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1078,6 +1111,9 @@
   </data>
   <data name="&gt;&gt;pageButton_HoaDon.Type" xml:space="preserve">
     <value>QuanLyMachTu.Custom.PageButton, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;phongKhamControl.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;pageButton_HoaDon.Parent" xml:space="preserve">
     <value>panel_Menu</value>
@@ -1132,6 +1168,9 @@
   <data name="pageButton_LichKham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
+  <data name="&gt;&gt;dichVuControl.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="pageButton_LichKham.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 91</value>
   </data>
@@ -1159,6 +1198,9 @@
   <data name="panel_Menu.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;nhanVienControl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="panel_Menu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -1183,8 +1225,35 @@
   <data name="&gt;&gt;panel_Menu.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panel_Menu.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;duocPhamControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tongQuanControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tongQuanControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 88</value>
+  </data>
+  <data name="tongQuanControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tongQuanControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1345, 756</value>
+  </data>
+  <data name="tongQuanControl.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Name" xml:space="preserve">
+    <value>tongQuanControl</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Type" xml:space="preserve">
+    <value>QuanLyMachTu.Controls.TongQuanControl, QuanLyMachTu, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tongQuanControl.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
