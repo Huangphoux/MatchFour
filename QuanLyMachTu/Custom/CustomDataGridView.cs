@@ -23,6 +23,12 @@ namespace QuanLyMachTu.Custom
             set { _cornerRadius = value; Invalidate(); }
         }
 
+        public CustomDataGridView()
+        {
+            // Enable double buffering to avoid flickering
+            this.DoubleBuffered = true;
+        }
+
         private GraphicsPath GetFigurePath(RectangleF rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -55,6 +61,12 @@ namespace QuanLyMachTu.Custom
         {
             base.OnResize(e);
             Invalidate();
+        }
+
+        protected override void OnScroll(ScrollEventArgs e)
+        {
+            base.OnScroll(e);
+            Invalidate();  // Redraw the border during scroll events
         }
     }
 }

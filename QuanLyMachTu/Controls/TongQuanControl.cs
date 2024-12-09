@@ -23,8 +23,8 @@ namespace QuanLyMachTu.Controls
         private DataSet dataset;
         private DataTable datatable;
 
-        // private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-        private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
+         private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
+        //private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
 
         #endregion
 
@@ -86,38 +86,38 @@ namespace QuanLyMachTu.Controls
         }
         private void LoadData()
         {
-            connection = new SqlConnection(connectionStr);
-            connection.Open();
+            //connection = new SqlConnection(connectionStr);
+            //connection.Open();
 
-            dataset = new DataSet();
+            //dataset = new DataSet();
 
-            LoadDataToDataSet("SELECT * FROM DUOCPHAM", "DUOCPHAM");
-            datatable = dataset.Tables["DUOCPHAM"];
+            //LoadDataToDataSet("SELECT * FROM DUOCPHAM", "DUOCPHAM");
+            //datatable = dataset.Tables["DUOCPHAM"];
 
-            string selectCommand = "1 = 1 ";
-            selectCommand += $"AND HSD > 50";
+            //string selectCommand = "1 = 1 ";
+            //selectCommand += $"AND HSD > 50";
 
-            DataRow[] resultRow = datatable.Select(selectCommand);
-            DataTable resultDatatable = datatable.Clone();
+            //DataRow[] resultRow = datatable.Select(selectCommand);
+            //DataTable resultDatatable = datatable.Clone();
 
-            foreach (DataRow row in resultRow)
-            {
-                if (resultDatatable.Rows.Contains(row["MaDP"]))
-                    continue;
+            //foreach (DataRow row in resultRow)
+            //{
+            //    if (resultDatatable.Rows.Contains(row["MaDP"]))
+            //        continue;
 
-                resultDatatable.ImportRow(row);
-            }
+            //    resultDatatable.ImportRow(row);
+            //}
 
-            for (int i = 0; i < resultRow.Length; i++)
-            {
-                chart_DuocPham.Series[i].XValueMember = resultRow[i]["MaDP"].ToString();
-                chart_DuocPham.Series[i].YValueMembers = resultRow[i]["HSD"].ToString();
-            }
+            //for (int i = 0; i < resultRow.Length; i++)
+            //{
+            //    chart_DuocPham.Series[i].XValueMember = resultRow[i]["MaDP"].ToString();
+            //    chart_DuocPham.Series[i].YValueMembers = resultRow[i]["HSD"].ToString();
+            //}
 
-            chart_DuocPham.DataSource = resultDatatable;
-            chart_DuocPham.DataBind();
+            //chart_DuocPham.DataSource = resultDatatable;
+            //chart_DuocPham.DataBind();
 
-            connection.Close();
+            //connection.Close();
         }
 
     }

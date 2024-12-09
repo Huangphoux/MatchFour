@@ -76,10 +76,13 @@ namespace QuanLyMachTu.Custom
             }
             set
             {
-                icon = value;
-                iconLocation = new Point(Width / 2, Height / 2);
-                iconSize = icon.Size;
-                Invalidate();
+                if (value != null)
+                {
+                    icon = value;
+                    iconLocation = new Point(Width / 2, Height / 2);
+                    iconSize = icon.Size;
+                    Invalidate();
+                }
             }
         }
         [Category("Page Button Addition")]

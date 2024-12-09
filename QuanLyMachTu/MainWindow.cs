@@ -24,6 +24,13 @@ namespace QuanLyMachTu
         {
             currentButton = pageButton_TongQuan;
             ActivateButton(currentButton);
+            DisableButton(pageButton_BenhNhan);
+            DisableButton(pageButton_LichKham);
+            DisableButton(pageButton_NhanVien);
+            DisableButton(pageButton_PhongKham);
+            DisableButton(pageButton_DichVu);
+            DisableButton(pageButton_DuocPham);
+            DisableButton(pageButton_HoaDon);
 
             formCaiDat = new Form_CaiDat(this);
             formThongTin = new();
@@ -81,7 +88,11 @@ namespace QuanLyMachTu
             ActivateButton((PageButton)sender);
             tongQuanControl.BringToFront();
         }
-
+        private void pageButton_LichKham_Click(object sender, EventArgs e)
+        {
+            ActivateButton((PageButton)sender);
+            lichKhamControl1.BringToFront();
+        }
         private void pageButton_BenhNhan_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
@@ -91,6 +102,11 @@ namespace QuanLyMachTu
         {
             ActivateButton((PageButton)sender);
             phongKhamControl.BringToFront();
+        }
+        private void pageButton_HoaDon_Click(object sender, EventArgs e)
+        {
+            ActivateButton((PageButton)sender);
+            hoaDonControl.BringToFront();
         }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
