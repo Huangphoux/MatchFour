@@ -43,6 +43,8 @@
             pageButton_Remove = new Custom.PageButton();
             pageButton_Upload = new Custom.PageButton();
             panel_Filters = new Panel();
+            button_Filter_Reset = new Button();
+            comboBox_Filters_Comparer = new ComboBox();
             label8 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -53,23 +55,22 @@
             label4 = new Label();
             textBox_Filters_TGBDGiay = new TextBox();
             textBox_Filters_TGBDPhut = new TextBox();
+            textBox_Filters_TGBDGio = new TextBox();
             comboBox_Filters_TrangThai = new ComboBox();
             label2 = new Label();
             label3 = new Label();
-            textBox_Filters_ThoiGianKT = new TextBox();
-            textBox_Filters_TGBDGio = new TextBox();
             textBox_Filters_MaNV = new TextBox();
             label1 = new Label();
             label_Filters_Email = new Label();
             label_Filters_TenBN = new Label();
             label_Filters_MaPK = new Label();
-            textBox_GE = new TextBox();
             textBox_Filters_SoGhe = new TextBox();
             button_Filter_OK = new Button();
             textBox_Filters_MaPK = new TextBox();
             label_Filters = new Label();
             customDataGridView_PC = new Custom.CustomDataGridView();
             panel_Upload = new Panel();
+            pageButton_Upload_Reset = new Button();
             label_Upload_PhanCong = new Label();
             label_Upload_PhongKham = new Label();
             label9 = new Label();
@@ -91,7 +92,6 @@
             label17 = new Label();
             label18 = new Label();
             label19 = new Label();
-            textBox9 = new TextBox();
             textBox_Upload_SoGhe = new TextBox();
             pageButton_Upload_OK = new Button();
             textBox_Upload_MaPK = new TextBox();
@@ -106,6 +106,7 @@
             // 
             // customDataGridView_PK
             // 
+            customDataGridView_PK.AccessibleRole = AccessibleRole.None;
             customDataGridView_PK.AllowUserToAddRows = false;
             customDataGridView_PK.AllowUserToDeleteRows = false;
             customDataGridView_PK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -147,9 +148,11 @@
             customDataGridView_PK.TabIndex = 14;
             customDataGridView_PK.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             customDataGridView_PK.Click += PK_Tab_Activated;
+            customDataGridView_PK.KeyDown += customDataGridView_KeyDown;
             // 
             // panel1
             // 
+            panel1.AccessibleRole = AccessibleRole.None;
             panel1.BackColor = Color.FromArgb(57, 54, 70);
             panel1.Controls.Add(pageButton_PCTab);
             panel1.Controls.Add(pageButton_PKTab);
@@ -177,7 +180,7 @@
             pageButton_PCTab.Location = new Point(320, 12);
             pageButton_PCTab.Name = "pageButton_PCTab";
             pageButton_PCTab.Size = new Size(250, 60);
-            pageButton_PCTab.TabIndex = 10;
+            pageButton_PCTab.TabIndex = 100;
             pageButton_PCTab.TextLocation = new Point(64, 12);
             pageButton_PCTab.UseVisualStyleBackColor = false;
             pageButton_PCTab.Click += PC_Tab_Activated;
@@ -200,13 +203,14 @@
             pageButton_PKTab.Location = new Point(25, 12);
             pageButton_PKTab.Name = "pageButton_PKTab";
             pageButton_PKTab.Size = new Size(250, 60);
-            pageButton_PKTab.TabIndex = 9;
+            pageButton_PKTab.TabIndex = 99;
             pageButton_PKTab.TextLocation = new Point(64, 12);
             pageButton_PKTab.UseVisualStyleBackColor = false;
             pageButton_PKTab.Click += PK_Tab_Activated;
             // 
             // customPanel_Sum
             // 
+            customPanel_Sum.AccessibleRole = AccessibleRole.None;
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
             customPanel_Sum.CornerRadius = 40;
@@ -217,6 +221,7 @@
             // 
             // panel_Toolbar
             // 
+            panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
             panel_Toolbar.Controls.Add(pageButton_Filters);
@@ -244,7 +249,7 @@
             pageButton_Filters.Location = new Point(1094, 13);
             pageButton_Filters.Name = "pageButton_Filters";
             pageButton_Filters.Size = new Size(55, 55);
-            pageButton_Filters.TabIndex = 20;
+            pageButton_Filters.TabIndex = 98;
             pageButton_Filters.TextLocation = new Point(0, 0);
             pageButton_Filters.UseVisualStyleBackColor = false;
             pageButton_Filters.Click += pageButton_Filters_Click;
@@ -265,7 +270,7 @@
             pageButton_Remove.Location = new Point(90, 13);
             pageButton_Remove.Name = "pageButton_Remove";
             pageButton_Remove.Size = new Size(55, 55);
-            pageButton_Remove.TabIndex = 2;
+            pageButton_Remove.TabIndex = 97;
             pageButton_Remove.TextLocation = new Point(0, 0);
             pageButton_Remove.UseVisualStyleBackColor = false;
             pageButton_Remove.Click += pageButton_Remove_Click;
@@ -286,7 +291,7 @@
             pageButton_Upload.Location = new Point(25, 13);
             pageButton_Upload.Name = "pageButton_Upload";
             pageButton_Upload.Size = new Size(55, 55);
-            pageButton_Upload.TabIndex = 1;
+            pageButton_Upload.TabIndex = 96;
             pageButton_Upload.TextLocation = new Point(0, 0);
             pageButton_Upload.UseVisualStyleBackColor = false;
             pageButton_Upload.Click += pageButton_Upload_Click;
@@ -296,6 +301,8 @@
             panel_Filters.Anchor = AnchorStyles.Right;
             panel_Filters.AutoScroll = true;
             panel_Filters.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Filters.Controls.Add(button_Filter_Reset);
+            panel_Filters.Controls.Add(comboBox_Filters_Comparer);
             panel_Filters.Controls.Add(label8);
             panel_Filters.Controls.Add(label6);
             panel_Filters.Controls.Add(label7);
@@ -306,17 +313,15 @@
             panel_Filters.Controls.Add(label4);
             panel_Filters.Controls.Add(textBox_Filters_TGBDGiay);
             panel_Filters.Controls.Add(textBox_Filters_TGBDPhut);
+            panel_Filters.Controls.Add(textBox_Filters_TGBDGio);
             panel_Filters.Controls.Add(comboBox_Filters_TrangThai);
             panel_Filters.Controls.Add(label2);
             panel_Filters.Controls.Add(label3);
-            panel_Filters.Controls.Add(textBox_Filters_ThoiGianKT);
-            panel_Filters.Controls.Add(textBox_Filters_TGBDGio);
             panel_Filters.Controls.Add(textBox_Filters_MaNV);
             panel_Filters.Controls.Add(label1);
             panel_Filters.Controls.Add(label_Filters_Email);
             panel_Filters.Controls.Add(label_Filters_TenBN);
             panel_Filters.Controls.Add(label_Filters_MaPK);
-            panel_Filters.Controls.Add(textBox_GE);
             panel_Filters.Controls.Add(textBox_Filters_SoGhe);
             panel_Filters.Controls.Add(button_Filter_OK);
             panel_Filters.Controls.Add(textBox_Filters_MaPK);
@@ -327,8 +332,36 @@
             panel_Filters.TabIndex = 17;
             panel_Filters.Paint += panel_Filter_Paint;
             // 
+            // button_Filter_Reset
+            // 
+            button_Filter_Reset.FlatStyle = FlatStyle.Flat;
+            button_Filter_Reset.Font = new Font("Segoe UI", 10F);
+            button_Filter_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_Filter_Reset.Location = new Point(297, 710);
+            button_Filter_Reset.Name = "button_Filter_Reset";
+            button_Filter_Reset.Size = new Size(94, 43);
+            button_Filter_Reset.TabIndex = 39;
+            button_Filter_Reset.Text = "RESET";
+            button_Filter_Reset.UseVisualStyleBackColor = true;
+            button_Filter_Reset.Click += button_Filters_Reset_Click;
+            // 
+            // comboBox_Filters_Comparer
+            // 
+            comboBox_Filters_Comparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Filters_Comparer.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Filters_Comparer.FlatStyle = FlatStyle.Flat;
+            comboBox_Filters_Comparer.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_Filters_Comparer.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_Filters_Comparer.FormattingEnabled = true;
+            comboBox_Filters_Comparer.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_Filters_Comparer.Location = new Point(126, 227);
+            comboBox_Filters_Comparer.Name = "comboBox_Filters_Comparer";
+            comboBox_Filters_Comparer.Size = new Size(59, 40);
+            comboBox_Filters_Comparer.TabIndex = 3;
+            // 
             // label8
             // 
+            label8.AccessibleRole = AccessibleRole.None;
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.FlatStyle = FlatStyle.Flat;
@@ -343,6 +376,7 @@
             // 
             // label6
             // 
+            label6.AccessibleRole = AccessibleRole.None;
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.FlatStyle = FlatStyle.Flat;
@@ -357,6 +391,7 @@
             // 
             // label7
             // 
+            label7.AccessibleRole = AccessibleRole.None;
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.FlatStyle = FlatStyle.Flat;
@@ -378,7 +413,7 @@
             textBox_Filters_TGKTGiay.Location = new Point(342, 421);
             textBox_Filters_TGKTGiay.Name = "textBox_Filters_TGKTGiay";
             textBox_Filters_TGKTGiay.Size = new Size(40, 32);
-            textBox_Filters_TGKTGiay.TabIndex = 32;
+            textBox_Filters_TGKTGiay.TabIndex = 12;
             textBox_Filters_TGKTGiay.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGKTGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -391,7 +426,7 @@
             textBox_Filters_TGKTPhut.Location = new Point(286, 421);
             textBox_Filters_TGKTPhut.Name = "textBox_Filters_TGKTPhut";
             textBox_Filters_TGKTPhut.Size = new Size(40, 32);
-            textBox_Filters_TGKTPhut.TabIndex = 31;
+            textBox_Filters_TGKTPhut.TabIndex = 11;
             textBox_Filters_TGKTPhut.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGKTPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -404,12 +439,13 @@
             textBox_Filters_TGKTGio.Location = new Point(230, 421);
             textBox_Filters_TGKTGio.Name = "textBox_Filters_TGKTGio";
             textBox_Filters_TGKTGio.Size = new Size(40, 32);
-            textBox_Filters_TGKTGio.TabIndex = 30;
+            textBox_Filters_TGKTGio.TabIndex = 10;
             textBox_Filters_TGKTGio.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGKTGio.KeyPress += textBox_Hour_KeyPress;
             // 
             // label5
             // 
+            label5.AccessibleRole = AccessibleRole.None;
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.FlatStyle = FlatStyle.Flat;
@@ -424,6 +460,7 @@
             // 
             // label4
             // 
+            label4.AccessibleRole = AccessibleRole.None;
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.FlatStyle = FlatStyle.Flat;
@@ -445,7 +482,7 @@
             textBox_Filters_TGBDGiay.Location = new Point(137, 421);
             textBox_Filters_TGBDGiay.Name = "textBox_Filters_TGBDGiay";
             textBox_Filters_TGBDGiay.Size = new Size(40, 32);
-            textBox_Filters_TGBDGiay.TabIndex = 27;
+            textBox_Filters_TGBDGiay.TabIndex = 9;
             textBox_Filters_TGBDGiay.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGBDGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -458,9 +495,22 @@
             textBox_Filters_TGBDPhut.Location = new Point(81, 421);
             textBox_Filters_TGBDPhut.Name = "textBox_Filters_TGBDPhut";
             textBox_Filters_TGBDPhut.Size = new Size(40, 32);
-            textBox_Filters_TGBDPhut.TabIndex = 26;
+            textBox_Filters_TGBDPhut.TabIndex = 8;
             textBox_Filters_TGBDPhut.TextAlign = HorizontalAlignment.Center;
             textBox_Filters_TGBDPhut.KeyPress += textBox_NoHour_KeyPress;
+            // 
+            // textBox_Filters_TGBDGio
+            // 
+            textBox_Filters_TGBDGio.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_Filters_TGBDGio.BorderStyle = BorderStyle.None;
+            textBox_Filters_TGBDGio.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_Filters_TGBDGio.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_Filters_TGBDGio.Location = new Point(25, 421);
+            textBox_Filters_TGBDGio.Name = "textBox_Filters_TGBDGio";
+            textBox_Filters_TGBDGio.Size = new Size(40, 32);
+            textBox_Filters_TGBDGio.TabIndex = 7;
+            textBox_Filters_TGBDGio.TextAlign = HorizontalAlignment.Center;
+            textBox_Filters_TGBDGio.KeyPress += textBox_Hour_KeyPress;
             // 
             // comboBox_Filters_TrangThai
             // 
@@ -472,10 +522,11 @@
             comboBox_Filters_TrangThai.Location = new Point(230, 227);
             comboBox_Filters_TrangThai.Name = "comboBox_Filters_TrangThai";
             comboBox_Filters_TrangThai.Size = new Size(167, 40);
-            comboBox_Filters_TrangThai.TabIndex = 25;
+            comboBox_Filters_TrangThai.TabIndex = 5;
             // 
             // label2
             // 
+            label2.AccessibleRole = AccessibleRole.None;
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.FlatStyle = FlatStyle.Flat;
@@ -490,6 +541,7 @@
             // 
             // label3
             // 
+            label3.AccessibleRole = AccessibleRole.None;
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.FlatStyle = FlatStyle.Flat;
@@ -502,30 +554,6 @@
             label3.Text = "Thời gian bắt đầu";
             label3.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // textBox_Filters_ThoiGianKT
-            // 
-            textBox_Filters_ThoiGianKT.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_Filters_ThoiGianKT.BorderStyle = BorderStyle.None;
-            textBox_Filters_ThoiGianKT.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_Filters_ThoiGianKT.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Filters_ThoiGianKT.Location = new Point(231, 421);
-            textBox_Filters_ThoiGianKT.Name = "textBox_Filters_ThoiGianKT";
-            textBox_Filters_ThoiGianKT.Size = new Size(105, 32);
-            textBox_Filters_ThoiGianKT.TabIndex = 20;
-            // 
-            // textBox_Filters_TGBDGio
-            // 
-            textBox_Filters_TGBDGio.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_Filters_TGBDGio.BorderStyle = BorderStyle.None;
-            textBox_Filters_TGBDGio.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_Filters_TGBDGio.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Filters_TGBDGio.Location = new Point(25, 421);
-            textBox_Filters_TGBDGio.Name = "textBox_Filters_TGBDGio";
-            textBox_Filters_TGBDGio.Size = new Size(40, 32);
-            textBox_Filters_TGBDGio.TabIndex = 19;
-            textBox_Filters_TGBDGio.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGBDGio.KeyPress += textBox_Hour_KeyPress;
-            // 
             // textBox_Filters_MaNV
             // 
             textBox_Filters_MaNV.BackColor = Color.FromArgb(57, 54, 70);
@@ -535,11 +563,12 @@
             textBox_Filters_MaNV.Location = new Point(25, 326);
             textBox_Filters_MaNV.Name = "textBox_Filters_MaNV";
             textBox_Filters_MaNV.Size = new Size(365, 32);
-            textBox_Filters_MaNV.TabIndex = 18;
+            textBox_Filters_MaNV.TabIndex = 6;
             textBox_Filters_MaNV.KeyPress += textBox_KeyPress_Normal;
             // 
             // label1
             // 
+            label1.AccessibleRole = AccessibleRole.None;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.FlatStyle = FlatStyle.Flat;
@@ -554,6 +583,7 @@
             // 
             // label_Filters_Email
             // 
+            label_Filters_Email.AccessibleRole = AccessibleRole.None;
             label_Filters_Email.AutoSize = true;
             label_Filters_Email.BackColor = Color.Transparent;
             label_Filters_Email.FlatStyle = FlatStyle.Flat;
@@ -568,6 +598,7 @@
             // 
             // label_Filters_TenBN
             // 
+            label_Filters_TenBN.AccessibleRole = AccessibleRole.None;
             label_Filters_TenBN.AutoSize = true;
             label_Filters_TenBN.BackColor = Color.Transparent;
             label_Filters_TenBN.FlatStyle = FlatStyle.Flat;
@@ -582,6 +613,7 @@
             // 
             // label_Filters_MaPK
             // 
+            label_Filters_MaPK.AccessibleRole = AccessibleRole.None;
             label_Filters_MaPK.AutoSize = true;
             label_Filters_MaPK.BackColor = Color.Transparent;
             label_Filters_MaPK.FlatStyle = FlatStyle.Flat;
@@ -594,20 +626,6 @@
             label_Filters_MaPK.Text = "Mã phòng khám";
             label_Filters_MaPK.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // textBox_GE
-            // 
-            textBox_GE.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_GE.BorderStyle = BorderStyle.None;
-            textBox_GE.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_GE.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_GE.Location = new Point(142, 227);
-            textBox_GE.Name = "textBox_GE";
-            textBox_GE.ReadOnly = true;
-            textBox_GE.Size = new Size(39, 32);
-            textBox_GE.TabIndex = 9;
-            textBox_GE.Text = "≥";
-            textBox_GE.TextAlign = HorizontalAlignment.Center;
-            // 
             // textBox_Filters_SoGhe
             // 
             textBox_Filters_SoGhe.BackColor = Color.FromArgb(57, 54, 70);
@@ -616,8 +634,8 @@
             textBox_Filters_SoGhe.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_SoGhe.Location = new Point(25, 227);
             textBox_Filters_SoGhe.Name = "textBox_Filters_SoGhe";
-            textBox_Filters_SoGhe.Size = new Size(110, 32);
-            textBox_Filters_SoGhe.TabIndex = 5;
+            textBox_Filters_SoGhe.Size = new Size(80, 32);
+            textBox_Filters_SoGhe.TabIndex = 2;
             textBox_Filters_SoGhe.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // button_Filter_OK
@@ -628,7 +646,7 @@
             button_Filter_OK.Location = new Point(25, 710);
             button_Filter_OK.Name = "button_Filter_OK";
             button_Filter_OK.Size = new Size(94, 43);
-            button_Filter_OK.TabIndex = 4;
+            button_Filter_OK.TabIndex = 13;
             button_Filter_OK.Text = "OK";
             button_Filter_OK.UseVisualStyleBackColor = true;
             button_Filter_OK.Click += pageButton_Filters_OK_Click;
@@ -642,11 +660,12 @@
             textBox_Filters_MaPK.Location = new Point(25, 128);
             textBox_Filters_MaPK.Name = "textBox_Filters_MaPK";
             textBox_Filters_MaPK.Size = new Size(365, 32);
-            textBox_Filters_MaPK.TabIndex = 3;
+            textBox_Filters_MaPK.TabIndex = 1;
             textBox_Filters_MaPK.KeyPress += textBox_KeyPress_Normal;
             // 
             // label_Filters
             // 
+            label_Filters.AccessibleRole = AccessibleRole.None;
             label_Filters.AutoSize = true;
             label_Filters.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_Filters.ForeColor = Color.White;
@@ -658,6 +677,7 @@
             // 
             // customDataGridView_PC
             // 
+            customDataGridView_PC.AccessibleRole = AccessibleRole.None;
             customDataGridView_PC.AllowUserToAddRows = false;
             customDataGridView_PC.AllowUserToDeleteRows = false;
             customDataGridView_PC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -699,12 +719,14 @@
             customDataGridView_PC.TabIndex = 20;
             customDataGridView_PC.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             customDataGridView_PC.Click += PC_Tab_Activated;
+            customDataGridView_PC.KeyDown += customDataGridView_KeyDown;
             // 
             // panel_Upload
             // 
             panel_Upload.Anchor = AnchorStyles.Right;
             panel_Upload.AutoScroll = true;
             panel_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Upload.Controls.Add(pageButton_Upload_Reset);
             panel_Upload.Controls.Add(label_Upload_PhanCong);
             panel_Upload.Controls.Add(label_Upload_PhongKham);
             panel_Upload.Controls.Add(label9);
@@ -726,7 +748,6 @@
             panel_Upload.Controls.Add(label17);
             panel_Upload.Controls.Add(label18);
             panel_Upload.Controls.Add(label19);
-            panel_Upload.Controls.Add(textBox9);
             panel_Upload.Controls.Add(textBox_Upload_SoGhe);
             panel_Upload.Controls.Add(pageButton_Upload_OK);
             panel_Upload.Controls.Add(textBox_Upload_MaPK);
@@ -737,8 +758,22 @@
             panel_Upload.TabIndex = 36;
             panel_Upload.Paint += panel_Upload_Paint;
             // 
+            // pageButton_Upload_Reset
+            // 
+            pageButton_Upload_Reset.FlatStyle = FlatStyle.Flat;
+            pageButton_Upload_Reset.Font = new Font("Segoe UI", 10F);
+            pageButton_Upload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            pageButton_Upload_Reset.Location = new Point(297, 710);
+            pageButton_Upload_Reset.Name = "pageButton_Upload_Reset";
+            pageButton_Upload_Reset.Size = new Size(94, 43);
+            pageButton_Upload_Reset.TabIndex = 38;
+            pageButton_Upload_Reset.Text = "RESET";
+            pageButton_Upload_Reset.UseVisualStyleBackColor = true;
+            pageButton_Upload_Reset.Click += button_Upload_Reset_Click;
+            // 
             // label_Upload_PhanCong
             // 
+            label_Upload_PhanCong.AccessibleRole = AccessibleRole.None;
             label_Upload_PhanCong.AutoSize = true;
             label_Upload_PhanCong.BackColor = Color.Transparent;
             label_Upload_PhanCong.FlatStyle = FlatStyle.Flat;
@@ -753,6 +788,7 @@
             // 
             // label_Upload_PhongKham
             // 
+            label_Upload_PhongKham.AccessibleRole = AccessibleRole.None;
             label_Upload_PhongKham.AutoSize = true;
             label_Upload_PhongKham.BackColor = Color.Transparent;
             label_Upload_PhongKham.FlatStyle = FlatStyle.Flat;
@@ -767,6 +803,7 @@
             // 
             // label9
             // 
+            label9.AccessibleRole = AccessibleRole.None;
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.FlatStyle = FlatStyle.Flat;
@@ -781,6 +818,7 @@
             // 
             // label10
             // 
+            label10.AccessibleRole = AccessibleRole.None;
             label10.AutoSize = true;
             label10.BackColor = Color.Transparent;
             label10.FlatStyle = FlatStyle.Flat;
@@ -795,6 +833,7 @@
             // 
             // label11
             // 
+            label11.AccessibleRole = AccessibleRole.None;
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.FlatStyle = FlatStyle.Flat;
@@ -816,7 +855,7 @@
             textBox_Upload_TGKTGiay.Location = new Point(342, 533);
             textBox_Upload_TGKTGiay.Name = "textBox_Upload_TGKTGiay";
             textBox_Upload_TGKTGiay.Size = new Size(40, 32);
-            textBox_Upload_TGKTGiay.TabIndex = 32;
+            textBox_Upload_TGKTGiay.TabIndex = 10;
             textBox_Upload_TGKTGiay.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGKTGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -829,7 +868,7 @@
             textBox_Upload_TGKTPhut.Location = new Point(286, 533);
             textBox_Upload_TGKTPhut.Name = "textBox_Upload_TGKTPhut";
             textBox_Upload_TGKTPhut.Size = new Size(40, 32);
-            textBox_Upload_TGKTPhut.TabIndex = 31;
+            textBox_Upload_TGKTPhut.TabIndex = 9;
             textBox_Upload_TGKTPhut.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGKTPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -842,12 +881,13 @@
             textBox_Upload_TGKTGio.Location = new Point(230, 533);
             textBox_Upload_TGKTGio.Name = "textBox_Upload_TGKTGio";
             textBox_Upload_TGKTGio.Size = new Size(40, 32);
-            textBox_Upload_TGKTGio.TabIndex = 30;
+            textBox_Upload_TGKTGio.TabIndex = 8;
             textBox_Upload_TGKTGio.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGKTGio.KeyPress += textBox_Hour_KeyPress;
             // 
             // label12
             // 
+            label12.AccessibleRole = AccessibleRole.None;
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.FlatStyle = FlatStyle.Flat;
@@ -862,6 +902,7 @@
             // 
             // label13
             // 
+            label13.AccessibleRole = AccessibleRole.None;
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
             label13.FlatStyle = FlatStyle.Flat;
@@ -883,7 +924,7 @@
             textBox_Upload_TGBDGiay.Location = new Point(137, 533);
             textBox_Upload_TGBDGiay.Name = "textBox_Upload_TGBDGiay";
             textBox_Upload_TGBDGiay.Size = new Size(40, 32);
-            textBox_Upload_TGBDGiay.TabIndex = 27;
+            textBox_Upload_TGBDGiay.TabIndex = 7;
             textBox_Upload_TGBDGiay.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGBDGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -896,7 +937,7 @@
             textBox_Upload_TGBDPhut.Location = new Point(81, 533);
             textBox_Upload_TGBDPhut.Name = "textBox_Upload_TGBDPhut";
             textBox_Upload_TGBDPhut.Size = new Size(40, 32);
-            textBox_Upload_TGBDPhut.TabIndex = 26;
+            textBox_Upload_TGBDPhut.TabIndex = 6;
             textBox_Upload_TGBDPhut.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGBDPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
@@ -911,10 +952,11 @@
             comboBox_Upload_TrangThai.Location = new Point(25, 271);
             comboBox_Upload_TrangThai.Name = "comboBox_Upload_TrangThai";
             comboBox_Upload_TrangThai.Size = new Size(167, 40);
-            comboBox_Upload_TrangThai.TabIndex = 25;
+            comboBox_Upload_TrangThai.TabIndex = 2;
             // 
             // label14
             // 
+            label14.AccessibleRole = AccessibleRole.None;
             label14.AutoSize = true;
             label14.BackColor = Color.Transparent;
             label14.FlatStyle = FlatStyle.Flat;
@@ -929,6 +971,7 @@
             // 
             // label15
             // 
+            label15.AccessibleRole = AccessibleRole.None;
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.FlatStyle = FlatStyle.Flat;
@@ -950,7 +993,7 @@
             textBox_Upload_TGBDGio.Location = new Point(25, 533);
             textBox_Upload_TGBDGio.Name = "textBox_Upload_TGBDGio";
             textBox_Upload_TGBDGio.Size = new Size(40, 32);
-            textBox_Upload_TGBDGio.TabIndex = 19;
+            textBox_Upload_TGBDGio.TabIndex = 5;
             textBox_Upload_TGBDGio.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_TGBDGio.KeyPress += textBox_Hour_KeyPress;
             // 
@@ -963,12 +1006,13 @@
             textBox_Upload_MaNV.Location = new Point(25, 434);
             textBox_Upload_MaNV.Name = "textBox_Upload_MaNV";
             textBox_Upload_MaNV.Size = new Size(152, 32);
-            textBox_Upload_MaNV.TabIndex = 18;
+            textBox_Upload_MaNV.TabIndex = 4;
             textBox_Upload_MaNV.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_MaNV.KeyPress += textBox_KeyPress_Normal;
             // 
             // label16
             // 
+            label16.AccessibleRole = AccessibleRole.None;
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
             label16.FlatStyle = FlatStyle.Flat;
@@ -983,6 +1027,7 @@
             // 
             // label17
             // 
+            label17.AccessibleRole = AccessibleRole.None;
             label17.AutoSize = true;
             label17.BackColor = Color.Transparent;
             label17.FlatStyle = FlatStyle.Flat;
@@ -997,6 +1042,7 @@
             // 
             // label18
             // 
+            label18.AccessibleRole = AccessibleRole.None;
             label18.AutoSize = true;
             label18.BackColor = Color.Transparent;
             label18.FlatStyle = FlatStyle.Flat;
@@ -1011,6 +1057,7 @@
             // 
             // label19
             // 
+            label19.AccessibleRole = AccessibleRole.None;
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
             label19.FlatStyle = FlatStyle.Flat;
@@ -1023,20 +1070,6 @@
             label19.Text = "Mã phòng khám";
             label19.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // textBox9
-            // 
-            textBox9.BackColor = Color.FromArgb(57, 54, 70);
-            textBox9.BorderStyle = BorderStyle.None;
-            textBox9.Font = new Font("Segoe UI Semilight", 12F);
-            textBox9.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox9.Location = new Point(347, 271);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(39, 32);
-            textBox9.TabIndex = 9;
-            textBox9.Text = "≥";
-            textBox9.TextAlign = HorizontalAlignment.Center;
-            // 
             // textBox_Upload_SoGhe
             // 
             textBox_Upload_SoGhe.BackColor = Color.FromArgb(57, 54, 70);
@@ -1045,8 +1078,8 @@
             textBox_Upload_SoGhe.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_SoGhe.Location = new Point(230, 271);
             textBox_Upload_SoGhe.Name = "textBox_Upload_SoGhe";
-            textBox_Upload_SoGhe.Size = new Size(110, 32);
-            textBox_Upload_SoGhe.TabIndex = 5;
+            textBox_Upload_SoGhe.Size = new Size(160, 32);
+            textBox_Upload_SoGhe.TabIndex = 3;
             textBox_Upload_SoGhe.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_SoGhe.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
@@ -1058,7 +1091,7 @@
             pageButton_Upload_OK.Location = new Point(25, 710);
             pageButton_Upload_OK.Name = "pageButton_Upload_OK";
             pageButton_Upload_OK.Size = new Size(94, 43);
-            pageButton_Upload_OK.TabIndex = 4;
+            pageButton_Upload_OK.TabIndex = 11;
             pageButton_Upload_OK.Text = "OK";
             pageButton_Upload_OK.UseVisualStyleBackColor = true;
             pageButton_Upload_OK.Click += pageButton_Upload_OK_Click;
@@ -1072,12 +1105,13 @@
             textBox_Upload_MaPK.Location = new Point(25, 172);
             textBox_Upload_MaPK.Name = "textBox_Upload_MaPK";
             textBox_Upload_MaPK.Size = new Size(152, 32);
-            textBox_Upload_MaPK.TabIndex = 3;
+            textBox_Upload_MaPK.TabIndex = 1;
             textBox_Upload_MaPK.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_MaPK.KeyPress += textBox_KeyPress_Normal;
             // 
             // label20
             // 
+            label20.AccessibleRole = AccessibleRole.None;
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.White;
@@ -1089,6 +1123,7 @@
             // 
             // PhongKhamControl
             // 
+            AccessibleRole = AccessibleRole.None;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(57, 54, 70);
@@ -1097,8 +1132,8 @@
             Controls.Add(customPanel_Sum);
             Controls.Add(panel_Toolbar);
             Controls.Add(customDataGridView_PK);
-            Controls.Add(panel_Upload);
             Controls.Add(panel_Filters);
+            Controls.Add(panel_Upload);
             Name = "PhongKhamControl";
             Size = new Size(1590, 864);
             Load += PhongKhamControl_Load;
@@ -1132,12 +1167,10 @@
         private TextBox textBox_Filters_MaPK;
         private Label label_Filters;
         private Custom.PageButton pageButton_Filters;
-        private TextBox textBox_GE;
         private Custom.CustomDataGridView customDataGridView_PC;
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox_Filters_ThoiGianKT;
         private TextBox textBox_Filters_TGBDGio;
         private ComboBox comboBox_Filters_TrangThai;
         private TextBox textBox_Filters_MaNV;
@@ -1171,12 +1204,14 @@
         private Label label17;
         private Label label18;
         private Label label19;
-        private TextBox textBox9;
         private TextBox textBox_Upload_SoGhe;
         private Button pageButton_Upload_OK;
         private TextBox textBox_Upload_MaPK;
         private Label label20;
         private Label label_Upload_PhongKham;
         private Label label_Upload_PhanCong;
+        private ComboBox comboBox_Filters_Comparer;
+        private Button pageButton_Upload_Reset;
+        private Button button_Filter_Reset;
     }
 }

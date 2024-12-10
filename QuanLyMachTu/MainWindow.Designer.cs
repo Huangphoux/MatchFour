@@ -45,7 +45,8 @@ namespace QuanLyMachTu
             duocPhamControl = new DuocPhamControl();
             hoaDonControl = new HoaDonControl();
             panel_CustomControl = new Panel();
-            lichKhamControl1 = new LichKhamControl();
+            tongQuanControl = new TongQuanControl();
+            lichKhamControl = new LichKhamControl();
             pageButton_TongQuan = new PageButton();
             pageButton_BenhNhan = new PageButton();
             pageButton_NhanVien = new PageButton();
@@ -57,11 +58,10 @@ namespace QuanLyMachTu
             pageButton_HoaDon = new PageButton();
             pageButton_LichKham = new PageButton();
             panel_Menu = new Panel();
-            tongQuanControl = new TongQuanControl();
-            panel_Menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
             panel_TitleBar.SuspendLayout();
             panel_CustomControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_logo).BeginInit();
+            panel_Menu.SuspendLayout();
             SuspendLayout();
             // 
             // panel_TitleBar
@@ -135,12 +135,14 @@ namespace QuanLyMachTu
             // 
             // benhNhanControl
             // 
+            benhNhanControl.AccessibleRole = AccessibleRole.None;
             resources.ApplyResources(benhNhanControl, "benhNhanControl");
             benhNhanControl.BackColor = Color.FromArgb(57, 54, 70);
             benhNhanControl.Name = "benhNhanControl";
             // 
             // phongKhamControl
             // 
+            phongKhamControl.AccessibleRole = AccessibleRole.None;
             resources.ApplyResources(phongKhamControl, "phongKhamControl");
             phongKhamControl.BackColor = Color.FromArgb(57, 54, 70);
             phongKhamControl.Name = "phongKhamControl";
@@ -172,21 +174,29 @@ namespace QuanLyMachTu
             // panel_CustomControl
             // 
             panel_CustomControl.BackColor = Color.FromArgb(57, 54, 70);
-            panel_CustomControl.Controls.Add(benhNhanControl);
+            panel_CustomControl.Controls.Add(tongQuanControl);
+            panel_CustomControl.Controls.Add(nhanVienControl);
             panel_CustomControl.Controls.Add(phongKhamControl);
             panel_CustomControl.Controls.Add(dichVuControl);
-            panel_CustomControl.Controls.Add(nhanVienControl);
-            panel_CustomControl.Controls.Add(duocPhamControl);
-            panel_CustomControl.Controls.Add(lichKhamControl1);
+            panel_CustomControl.Controls.Add(lichKhamControl);
             panel_CustomControl.Controls.Add(hoaDonControl);
+            panel_CustomControl.Controls.Add(benhNhanControl);
+            panel_CustomControl.Controls.Add(duocPhamControl);
             resources.ApplyResources(panel_CustomControl, "panel_CustomControl");
             panel_CustomControl.Name = "panel_CustomControl";
             // 
-            // lichKhamControl1
+            // tongQuanControl
             // 
-            lichKhamControl1.BackColor = Color.FromArgb(57, 54, 70);
-            resources.ApplyResources(lichKhamControl1, "lichKhamControl1");
-            lichKhamControl1.Name = "lichKhamControl1";
+            tongQuanControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(tongQuanControl, "tongQuanControl");
+            tongQuanControl.Name = "tongQuanControl";
+            // 
+            // lichKhamControl
+            // 
+            lichKhamControl.AccessibleRole = AccessibleRole.None;
+            lichKhamControl.BackColor = Color.FromArgb(57, 54, 70);
+            resources.ApplyResources(lichKhamControl, "lichKhamControl");
+            lichKhamControl.Name = "lichKhamControl";
             // 
             // pageButton_TongQuan
             // 
@@ -361,27 +371,17 @@ namespace QuanLyMachTu
             panel_Menu.Controls.Add(pageButton_TongQuan);
             panel_Menu.Name = "panel_Menu";
             // 
-            // tongQuanControl
-            // 
-            tongQuanControl.BackColor = Color.FromArgb(57, 54, 70);
-            resources.ApplyResources(tongQuanControl, "tongQuanControl");
-            tongQuanControl.Name = "tongQuanControl";
-            // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(tongQuanControl);
-            Controls.Add(duocPhamControl);
-            Controls.Add(dichVuControl);
-            Controls.Add(phongKhamControl);
-            Controls.Add(nhanVienControl);
-            Controls.Add(benhNhanControl);
             Controls.Add(panel_CustomControl);
             Controls.Add(panel_TitleBar);
             Controls.Add(panel_Menu);
+            KeyPreview = true;
             Name = "MainWindow";
+            WindowState = FormWindowState.Maximized;
             Load += MainWindow_Load;
             Resize += MainWindow_Resize;
             panel_TitleBar.ResumeLayout(false);
@@ -400,7 +400,7 @@ namespace QuanLyMachTu
         private PhongKhamControl phongKhamControl;
         private HoaDonControl hoaDonControl;
         private Panel panel_CustomControl;
-        private LichKhamControl lichKhamControl1;
+        private LichKhamControl lichKhamControl;
         private DichVuControl dichVuControl;
         private PageButton pageButton_SignOut;
         private NhanVienControl nhanVienControl;

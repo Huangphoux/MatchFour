@@ -48,7 +48,7 @@ namespace QuanLyMachTu
         int controlPage;
         int HD_controlFunc;
         int DT_controlFunc;
-        int HDDV_controlFunc;        
+        int HDDV_controlFunc;
         DataTable controlDataTable;
         public HoaDonControl()
         {
@@ -63,6 +63,10 @@ namespace QuanLyMachTu
         //Initialize methods
         private void InitializeState()
         {
+            DisablePage(HD_TAB);
+            DisablePage(DT_TAB);
+            DisablePage(HDDV_TAB);
+
             controlPage = HD_TAB;
 
             HD_controlFunc = FIL_FUNC;
@@ -73,6 +77,7 @@ namespace QuanLyMachTu
 
             EnablePage(controlPage);
             openFunctionPanel(HD_controlFunc);
+            customDataGridView.Focus();
         }
         //Activate / Deactivate tab
         private void OpenFiltersPanel(int controlPage)
@@ -278,7 +283,22 @@ namespace QuanLyMachTu
             panel_DTUpload_Paint(sender, e, upload_DT_color);
             panel_HDDVUpload_Paint(sender, e, upload_HDDV_color);
         }
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
 
+            Pen linePen = new Pen(lineColor, 1);
+            int offset = 5;
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
+        }
         private void RepaintPanel(Panel panel)
         {
             panel.Invalidate();
@@ -302,7 +322,7 @@ namespace QuanLyMachTu
             for (int row1 = 0; row1 < rows1.Length; row1++)
             {
                 for (int row2 = 0; row2 < rows2.Length; row2++)
-                {                    
+                {
                     if (CheckRowCondition(rows1[row1], rows2[row2], condition_columns))
                     {
                         result.Add(rows1[row1]);
@@ -383,6 +403,24 @@ namespace QuanLyMachTu
         {
             ColoringTextBox.NormalColor((TextBox)sender);
         }
+        private void customDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                pageButton_Remove_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                pageButton_Filters_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.T)
+            {
+                pageButton_Upload_Click(sender, e);
+                e.Handled = true;
+            }
+        }
 
         //---------------------------------------------------------------Hoa Don tab---------------------------------------------------------------        
         //Activate tab
@@ -397,6 +435,8 @@ namespace QuanLyMachTu
             controlDataTable = datatableHD;
             EnablePage(controlPage);
             openFunctionPanel(HD_controlFunc);
+
+            customDataGridView.Focus();
         }
         //Load data
         private void LoadTabHoaDon()
@@ -409,7 +449,8 @@ namespace QuanLyMachTu
             //Filters
             comboBox_HDFilters_Thang.SelectedIndex = 0;
             comboBox_HDFilters_DateComparer.SelectedIndex = 2;
-            comboBox_HDFilters_SLComparer.SelectedIndex = 2;
+            comboBox_HDFilters_SLComparer.SelectedIndex = 1;
+            comboBox_HDFilters_TongTriGiaComparer.SelectedIndex = 1;
             //Upload
             comboBox_Upload_Thang.SelectedIndex = 2;
             AutoFillUploadTextBox();
@@ -519,8 +560,9 @@ namespace QuanLyMachTu
                 selectCommand_HD += $"AND MaNV = '{textBox_HDFilters_MaNV.Text}' ";
             if (string.IsNullOrEmpty(textBox_HDFilters_MaBN.Text) == false)
                 selectCommand_HD += $"AND MaBN = '{textBox_HDFilters_MaBN.Text}' ";
+            string comparerTongTriGia = GetOperation(comboBox_HDFilters_TongTriGiaComparer);
             if (string.IsNullOrEmpty(textBox_HDFilters_TongTriGia.Text) == false)
-                selectCommand_HD += $"AND TongTien >= {textBox_HDFilters_TongTriGia.Text} ";
+                selectCommand_HD += $"AND TongTien {comparerTongTriGia} {textBox_HDFilters_TongTriGia.Text} ";
 
             string date = GetNgayThangNam(textBox_HDFilters_Ngay, comboBox_HDFilters_Thang, textBox_HDFilters_Nam);
             string comparerDate = GetOperation(comboBox_HDFilters_DateComparer);
@@ -588,38 +630,27 @@ namespace QuanLyMachTu
             int startY = label_Upload_NgayLap.Location.Y, endY = startY + label_Upload_NgayLap.Height;
             graphic.DrawLine(linePen, new Point(x, startY), new Point(x, endY));
         }
-        private void panel_Filter_Paint(object sender, PaintEventArgs e)
+        private void panel_HDFilter_Paint(object sender, PaintEventArgs e)
         {
+            Panel panel = sender as Panel;
             Color lineColor = Color.FromArgb(193, 193, 193);
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
             Pen sectionPen = new Pen(lineColor, 2);
             int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDFilters_MaHD.Location.Y + textBox_HDFilters_MaHD.Height + offset),
-                                      new Point(textBox_HDFilters_MaHD.Location.X + textBox_HDFilters_MaHD.Width + offset, textBox_HDFilters_MaHD.Location.Y + textBox_HDFilters_MaHD.Height + offset)); //MaHD line
-            graphic.DrawLine(linePen, new Point(textBox_HDFilters_MaBN.Location.X - offset, textBox_HDFilters_MaBN.Location.Y + textBox_HDFilters_MaBN.Height + offset),
-                                      new Point(textBox_HDFilters_MaBN.Location.X + textBox_HDFilters_MaBN.Width + offset, textBox_HDFilters_MaBN.Location.Y + textBox_HDFilters_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(textBox_HDFilters_MaNV.Location.X - offset, textBox_HDFilters_MaNV.Location.Y + textBox_HDFilters_MaNV.Height + offset),
-                                      new Point(textBox_HDFilters_MaNV.Location.X + textBox_HDFilters_MaNV.Width + offset, textBox_HDFilters_MaNV.Location.Y + textBox_HDFilters_MaNV.Height + offset)); //MaNV line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDFilters_Ngay.Location.Y + textBox_HDFilters_Ngay.Height + offset),
-                                      new Point(textBox_HDFilters_Ngay.Location.X + textBox_HDFilters_Ngay.Width + offset, textBox_HDFilters_Ngay.Location.Y + textBox_HDFilters_Ngay.Height + offset)); //Ngay line
-            graphic.DrawLine(linePen, new Point(textBox_HDFilters_Nam.Location.X - offset, textBox_HDFilters_Nam.Location.Y + textBox_HDFilters_Nam.Height + offset),
-                                      new Point(textBox_HDFilters_Nam.Location.X + textBox_HDFilters_Nam.Width + offset, textBox_HDFilters_Nam.Location.Y + textBox_HDFilters_Nam.Height + offset)); //Nam line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDFilters_TongTriGia.Location.Y + textBox_HDFilters_TongTriGia.Height + offset),
-                                      new Point(textBox_HDFilters_TongTriGia.Location.X + textBox_HDFilters_TongTriGia.Width + offset, textBox_HDFilters_TongTriGia.Location.Y + textBox_HDFilters_TongTriGia.Height + offset)); //TongTriGia line
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
 
             graphic.DrawLine(sectionPen, new Point(startX - 3 * offset, label_Filters_ThongTinBoSung.Location.Y + label_Filters_ThongTinBoSung.Height / 2 + offset),
                                          new Point(label_Filters_ThongTinBoSung.Location.X, label_Filters_ThongTinBoSung.Location.Y + label_Filters_ThongTinBoSung.Height / 2 + offset)); //label_Filters_ThongTinBoSung line
             graphic.DrawLine(sectionPen, new Point(label_Filters_ThongTinBoSung.Location.X + label_Filters_ThongTinBoSung.Width, label_Filters_ThongTinBoSung.Location.Y + label_Filters_ThongTinBoSung.Height / 2 + offset),
-                                         new Point(endX, label_Filters_ThongTinBoSung.Location.Y + label_Filters_ThongTinBoSung.Height / 2 + offset)); //label_Filters_ThongTinBoSung line
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDFilters_MaDP.Location.Y + textBox_HDFilters_MaDP.Height + offset),
-                                      new Point(textBox_HDFilters_MaDP.Location.X + textBox_HDFilters_MaDP.Width + offset, textBox_HDFilters_MaDP.Location.Y + textBox_HDFilters_MaDP.Height + offset)); //MaDP line
-            graphic.DrawLine(linePen, new Point(textBox_HDFilters_SoLuong.Location.X - offset, textBox_HDFilters_SoLuong.Location.Y + textBox_HDFilters_SoLuong.Height + offset),
-                                      new Point(textBox_HDFilters_SoLuong.Location.X + textBox_HDFilters_SoLuong.Width + offset, textBox_HDFilters_SoLuong.Location.Y + textBox_HDFilters_SoLuong.Height + offset)); //SoLuong line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDFilters_MaDV.Location.Y + textBox_HDFilters_MaDV.Height + offset),
-                                      new Point(textBox_HDFilters_MaDV.Location.X + textBox_HDFilters_MaDV.Width + offset, textBox_HDFilters_MaDV.Location.Y + textBox_HDFilters_MaDV.Height + offset)); //SoLuong line
+                                         new Point(endX, label_Filters_ThongTinBoSung.Location.Y + label_Filters_ThongTinBoSung.Height / 2 + offset)); //label_Filters_ThongTinBoSung line            
 
             int x = label_HDFilters_NgayLap.Location.X - 9;
             int startY = label_HDFilters_NgayLap.Location.Y, endY = startY + label_HDFilters_NgayLap.Height;
@@ -638,6 +669,8 @@ namespace QuanLyMachTu
             controlDataTable = datatableDT;
             EnablePage(controlPage);
             openFunctionPanel(DT_controlFunc);
+
+            customDataGridView.Focus();
         }
         //Load data
         private void LoadTabDonThuoc()
@@ -762,23 +795,6 @@ namespace QuanLyMachTu
             graphic.DrawLine(linePen, new Point(textBox_Upload_SoLuong.Location.X - offset, textBox_Upload_SoLuong.Location.Y + textBox_Upload_SoLuong.Height + offset),
                                       new Point(textBox_Upload_SoLuong.Location.X + textBox_Upload_SoLuong.Width + offset, textBox_Upload_SoLuong.Location.Y + textBox_Upload_SoLuong.Height + offset)); //SoLuong line
         }
-        private void panel_DTFilter_Paint(object sender, PaintEventArgs e)
-        {
-            Color lineColor = Color.FromArgb(193, 193, 193);
-            Graphics graphic = e.Graphics;
-
-            Pen linePen = new Pen(lineColor, 1);
-            Pen sectionPen = new Pen(lineColor, 2);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_DTFilters_MaHD.Location.Y + textBox_DTFilters_MaHD.Height + offset),
-                                      new Point(endX, textBox_DTFilters_MaHD.Location.Y + textBox_DTFilters_MaHD.Height + offset)); //MaHD line
-            graphic.DrawLine(linePen, new Point(startX, textBox_DTFilters_MaDP.Location.Y + textBox_DTFilters_MaDP.Height + offset),
-                                      new Point(endX, textBox_DTFilters_MaDP.Location.Y + textBox_DTFilters_MaDP.Height + offset)); //MaDP line
-            graphic.DrawLine(linePen, new Point(startX, textBox_DTFilters_SoLuong.Location.Y + textBox_DTFilters_SoLuong.Height + offset),
-                                      new Point(textBox_DTFilters_SoLuong.Location.X + textBox_DTFilters_SoLuong.Width + offset, textBox_DTFilters_SoLuong.Location.Y + textBox_DTFilters_SoLuong.Height + offset)); //SoLuong Line
-            graphic.DrawLine(linePen, new Point(startX, textBox_DTFilters_GiaTien.Location.Y + textBox_DTFilters_GiaTien.Height + offset),
-                                      new Point(textBox_DTFilters_GiaTien.Location.X + textBox_DTFilters_GiaTien.Width + offset, textBox_DTFilters_GiaTien.Location.Y + textBox_DTFilters_GiaTien.Height + offset)); //GiaTien line
-        }
 
         //---------------------------------------------------------------Hoa Don Dich Vu tab---------------------------------------------------------------        
         //Activate tab
@@ -792,6 +808,8 @@ namespace QuanLyMachTu
             controlDataTable = datatableHDDV;
             EnablePage(controlPage);
             openFunctionPanel(HDDV_controlFunc);
+
+            customDataGridView.Focus();
         }
         //Load data
         private void LoadTabHoaDonDichVu()
@@ -895,21 +913,6 @@ namespace QuanLyMachTu
             graphic.DrawLine(linePen, new Point(startX, textBox_Upload_MaDV.Location.Y + textBox_Upload_MaDV.Height + offset),
                                       new Point(textBox_Upload_MaDV.Location.X + textBox_Upload_MaDV.Width + offset, textBox_Upload_MaDV.Location.Y + textBox_Upload_MaDV.Height + offset)); //MaDV line            
         }
-        private void panel_HDDVFilter_Paint(object sender, PaintEventArgs e)
-        {
-            Color lineColor = Color.FromArgb(193, 193, 193);
-            Graphics graphic = e.Graphics;
-
-            Pen linePen = new Pen(lineColor, 1);
-            Pen sectionPen = new Pen(lineColor, 2);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDDVFilters_MaHD.Location.Y + textBox_HDDVFilters_MaHD.Height + offset),
-                                      new Point(endX, textBox_HDDVFilters_MaHD.Location.Y + textBox_HDDVFilters_MaHD.Height + offset)); //MaHD line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDDVFilters_MaDV.Location.Y + textBox_HDDVFilters_MaDV.Height + offset),
-                                      new Point(endX, textBox_HDDVFilters_MaDV.Location.Y + textBox_HDDVFilters_MaDV.Height + offset)); //MaDV line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HDDVFilters_ChiPhi.Location.Y + textBox_HDDVFilters_ChiPhi.Height + offset),
-                                      new Point(textBox_HDDVFilters_ChiPhi.Location.X + textBox_HDDVFilters_ChiPhi.Width + offset, textBox_HDDVFilters_ChiPhi.Location.Y + textBox_HDDVFilters_ChiPhi.Height + offset)); //ChiPhi line           
-        }
 
         private void textBox_MaHD_Leave(object sender, EventArgs e)
         {
@@ -1006,6 +1009,44 @@ namespace QuanLyMachTu
                     textBox_HDDVFilters_MaHD.Text = row["MaHD"].ToString();
                     textBox_HDDVFilters_MaDV.Text = row["MaDV"].ToString();
                     textBox_HDDVFilters_ChiPhi.Text = row["GiaTien"].ToString();
+                    break;
+            }
+        }
+
+        private void button_Filter_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+            {
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+                if (control is ComboBox comboBox)
+                    comboBox.SelectedIndex = 2;
+            }
+
+            if (containingPanel == panel_HDFilters)
+                comboBox_HDFilters_Thang.SelectedIndex = 0;
+        }
+
+        private void textBox_Upload_Reset_Click(object sender, EventArgs e)
+        {
+            FillMaHD(textBox_Upload_MaHD);
+
+            switch (controlPage)
+            {
+                case HD_TAB:
+                    textBox_Upload_MaBN.Text = "";
+                    textBox_Upload_MaNV.Text = "";
+                    FillDate(textBox_Upload_Ngay, comboBox_Upload_Thang, textBox_Upload_Nam);
+                    break;
+                case DT_TAB:
+                    textBox_Upload_MaDP.Text = "";
+                    textBox_Upload_SoLuong.Text = "";
+                    break;
+                case HDDV_TAB:
+                    textBox_Upload_MaDV.Text = "";
                     break;
             }
         }

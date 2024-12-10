@@ -74,6 +74,7 @@ namespace QuanLyMachTu
             TK_ControlFunc = FIL_FUNC;
 
             EnablePage(controlPage);
+            customDataGridView.Focus();
         }
         //Activate / Deactivate tab
         private void EnablePage(int controlPage)
@@ -88,12 +89,12 @@ namespace QuanLyMachTu
                 case HSBA_TAB:
                     controlDataTable = datatableHSBA;
                     ColoringButton.EnabledColor(pageButton_HSBATab);
-                    enableFunc_HSBA();                    
+                    enableFunc_HSBA();
                     break;
                 case TK_TAB:
                     controlDataTable = datatableTK;
                     ColoringButton.EnabledColor(pageButton_TKTab);
-                    enableFunc_TK();                    
+                    enableFunc_TK();
                     break;
             }
 
@@ -208,6 +209,23 @@ namespace QuanLyMachTu
 
             UpdateDataGridView(customDataGridView, controlDataTable);
         }
+        //Decorations
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
+
+            Pen linePen = new Pen(lineColor, 1);
+            int offset = 5;
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
+        }
         //Additions
         private string GetGioiTinh(CheckBox checkBox_Nam, CheckBox checkBox_Nu)
         {
@@ -259,6 +277,12 @@ namespace QuanLyMachTu
             if (string.IsNullOrEmpty(textBox.Text))
                 FillMaBN(textBox);
         }
+        private void textBox_Number_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrEmpty(textBox.Text))
+                textBox.Text = "0";
+        }
         //Bottom view
         private long CalculateSumOfDoanhSo(DataGridView dgv)
         {
@@ -281,6 +305,8 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = BN_TAB;
             EnablePage(controlPage);
+
+            customDataGridView.Focus();
         }
         private void enableFunc_BN()
         {
@@ -305,6 +331,9 @@ namespace QuanLyMachTu
             comboBox_BNUpload_Thang.SelectedItem = comboBox_BNUpload_Thang.Items[0];
             FillMaBN(textBox_BNUpload_MaBN);
             FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
+
+            //Filters
+            comboBox_BNFilters_Comparer.SelectedIndex = 2;
         }
         //Check and prevent errors
         private void checkBox_BNUpload_Nam_CheckedChanged(object sender, EventArgs e)
@@ -417,7 +446,7 @@ namespace QuanLyMachTu
             if (string.IsNullOrEmpty(textBox_Filters_SDT.Text) == false)
                 selectCommand += $"AND SDT = '{textBox_Filters_SDT.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_DoanhSo.Text) == false)
-                selectCommand += $"AND DoanhSo >= {textBox_Filters_DoanhSo.Text} ";
+                selectCommand += $"AND DoanhSo {GetOperation(comboBox_BNFilters_Comparer)} {textBox_Filters_DoanhSo.Text} ";
 
             DataRow[] resultRow = datatableBN.Select(selectCommand);
             DataTable resultDatatable = datatableBN.Clone();
@@ -440,42 +469,6 @@ namespace QuanLyMachTu
             if (string.IsNullOrEmpty(textBox.Text))
                 FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
         }
-        //Decorate panel
-        private void panel_BNUpload_Paint(object sender, PaintEventArgs e)
-        {
-            Color lineColor = Color.FromArgb(193, 193, 193);
-            Graphics graphic = e.Graphics;
-
-            Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_BNUpload_MaBN.Location.Y + textBox_BNUpload_MaBN.Height + offset),
-                                      new Point(endX, textBox_BNUpload_MaBN.Location.Y + textBox_BNUpload_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(startX, textBox_BNUpload_TenBN.Location.Y + textBox_BNUpload_TenBN.Height + offset),
-                                      new Point(endX, textBox_BNUpload_TenBN.Location.Y + textBox_BNUpload_TenBN.Height + offset)); //TenBN line
-            graphic.DrawLine(linePen, new Point(startX, textBox_BNUpload_Ngay.Location.Y + textBox_BNUpload_Ngay.Height + offset),
-                                      new Point(textBox_BNUpload_Ngay.Location.X + textBox_BNUpload_Ngay.Width + offset, textBox_BNUpload_Ngay.Location.Y + textBox_BNUpload_Ngay.Height + offset)); //Ngay line
-            graphic.DrawLine(linePen, new Point(textBox_BNUpload_Nam.Location.X - offset, textBox_BNUpload_Nam.Location.Y + textBox_BNUpload_Nam.Height + offset),
-                                      new Point(textBox_BNUpload_Nam.Location.X + textBox_BNUpload_Nam.Width + offset, textBox_BNUpload_Nam.Location.Y + textBox_BNUpload_Nam.Height + offset)); //Nam line
-            graphic.DrawLine(linePen, new Point(startX, textBox_BNUpload_SDT.Location.Y + textBox_BNUpload_SDT.Height + offset),
-                                      new Point(textBox_BNUpload_SDT.Location.X + textBox_BNUpload_SDT.Width + offset, textBox_BNUpload_SDT.Location.Y + textBox_BNUpload_SDT.Height + offset)); //SDL line
-            graphic.DrawLine(linePen, new Point(startX, textBox_BNUpload_Email.Location.Y + textBox_BNUpload_Email.Height + offset),
-                                      new Point(endX, textBox_BNUpload_Email.Location.Y + textBox_BNUpload_Email.Height + offset)); //Email line
-        }
-        private void panel_BNFilter_Paint(object sender, PaintEventArgs e)
-        {
-            Color lineColor = Color.FromArgb(193, 193, 193);
-            Graphics graphic = e.Graphics;
-
-            Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395;
-            graphic.DrawLine(linePen, new Point(startX, 165), new Point(135, 165)); //MaBN line
-            graphic.DrawLine(linePen, new Point(145, 165), new Point(265, 165)); //MaHSBA line
-            graphic.DrawLine(linePen, new Point(275, 165), new Point(endX, 165)); //MaTK line
-            graphic.DrawLine(linePen, new Point(startX, 264), new Point(endX, 264)); //TenBN line
-            graphic.DrawLine(linePen, new Point(startX, 363), new Point(endX, 363)); //Email line
-            graphic.DrawLine(linePen, new Point(startX, 462), new Point(endX, 462)); //SDL line
-            graphic.DrawLine(linePen, new Point(startX, 561), new Point(352, 561)); //DoanhSo line
-        }
 
         //-------------------------------------------------------------Ho So Benh An tab-------------------------------------------------------------        
         //Activate tab
@@ -484,6 +477,8 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = HSBA_TAB;
             EnablePage(controlPage);
+
+            customDataGridView.Focus();
         }
         private void enableFunc_HSBA()
         {
@@ -680,22 +675,19 @@ namespace QuanLyMachTu
         //Decorate panel
         private void panel_HSBAUpload_Paint(object sender, PaintEventArgs e)
         {
+            Panel panel = sender as Panel;
             Color lineColor = Color.FromArgb(193, 193, 193);
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
+            int offset = 5;
 
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAUpload_MaBN.Location.Y + textBox_HSBAUpload_MaBN.Height + offset),
-                                      new Point(textBox_HSBAUpload_MaBN.Location.X + textBox_HSBAUpload_MaBN.Width + offset, textBox_HSBAUpload_MaBN.Location.Y + textBox_HSBAUpload_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(textBox_HSBAUpload_MaHSBA.Location.X - offset, textBox_HSBAUpload_MaHSBA.Location.Y + textBox_HSBAUpload_MaHSBA.Height + offset),
-                                      new Point(endX, textBox_HSBAUpload_MaHSBA.Location.Y + textBox_HSBAUpload_MaHSBA.Height + offset)); //MaHSBA line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAUpload_MaNV.Location.Y + textBox_HSBAUpload_MaNV.Height + offset),
-                                      new Point(endX, textBox_HSBAUpload_MaNV.Location.Y + textBox_HSBAUpload_MaNV.Height + offset)); //MaNV line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAUpload_Ngay.Location.Y + textBox_HSBAUpload_Ngay.Height + offset),
-                                      new Point(textBox_HSBAUpload_Ngay.Location.X + textBox_HSBAUpload_Ngay.Width + offset, textBox_HSBAUpload_Ngay.Location.Y + textBox_HSBAUpload_Ngay.Height + offset)); //Ngay line
-            graphic.DrawLine(linePen, new Point(textBox_HSBAUpload_Nam.Location.X - offset, textBox_HSBAUpload_Nam.Location.Y + textBox_HSBAUpload_Nam.Height + offset),
-                                      new Point(textBox_HSBAUpload_Nam.Location.X + textBox_HSBAUpload_Nam.Width + offset, textBox_HSBAUpload_Nam.Location.Y + textBox_HSBAUpload_Nam.Height + offset)); //Nam line
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox && control != textBox_HSBAUpload_KetQuaTQ)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
 
             int x = label_HSBAUpload_NgayLap.Location.X - 9;
             int startY = label_HSBAUpload_NgayLap.Location.Y, endY = startY + label_HSBAUpload_NgayLap.Height;
@@ -703,24 +695,19 @@ namespace QuanLyMachTu
         }
         private void panel_HSBAFilter_Paint(object sender, PaintEventArgs e)
         {
+            Panel panel = sender as Panel;
             Color lineColor = Color.FromArgb(193, 193, 193);
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
+            int offset = 5;
 
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAFilter_MaBN.Location.Y + textBox_HSBAFilter_MaBN.Height + offset),
-                                     new Point(textBox_HSBAFilter_MaBN.Location.X + textBox_HSBAFilter_MaBN.Width + offset, textBox_HSBAFilter_MaBN.Location.Y + textBox_HSBAFilter_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(textBox_HSBAFilter_MaHSBA.Location.X - offset, textBox_HSBAFilter_MaHSBA.Location.Y + textBox_HSBAFilter_MaHSBA.Height + offset),
-                                      new Point(endX, textBox_HSBAFilter_MaHSBA.Location.Y + textBox_HSBAFilter_MaHSBA.Height + offset)); //MaHSBA line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAFilter_SDT.Location.Y + textBox_HSBAFilter_SDT.Height + offset),
-                                      new Point(endX, textBox_HSBAFilter_SDT.Location.Y + textBox_HSBAFilter_SDT.Height + offset)); //SDT line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAFilter_Email.Location.Y + textBox_HSBAFilter_Email.Height + offset),
-                                      new Point(endX, textBox_HSBAFilter_Email.Location.Y + textBox_HSBAFilter_Email.Height + offset)); //Email line
-            graphic.DrawLine(linePen, new Point(startX, textBox_HSBAFilter_Ngay.Location.Y + textBox_HSBAFilter_Ngay.Height + offset),
-                                      new Point(textBox_HSBAFilter_Ngay.Location.X + textBox_HSBAFilter_Ngay.Width + offset, textBox_HSBAFilter_Ngay.Location.Y + textBox_HSBAFilter_Ngay.Height + offset)); //Ngay line
-            graphic.DrawLine(linePen, new Point(textBox_HSBAFilter_Nam.Location.X - offset, textBox_HSBAFilter_Nam.Location.Y + textBox_HSBAFilter_Nam.Height + offset),
-                                      new Point(textBox_HSBAFilter_Nam.Location.X + textBox_HSBAFilter_Nam.Width + offset, textBox_HSBAFilter_Nam.Location.Y + textBox_HSBAFilter_Nam.Height + offset)); //Nam line
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox && control != textBox_HSBAUpload_KetQuaTQ)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
 
             int x = label_HSBAFilters_NgayLap.Location.X - 9;
             int startY = label_HSBAFilters_NgayLap.Location.Y, endY = startY + label_HSBAFilters_NgayLap.Height;
@@ -734,6 +721,8 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = TK_TAB;
             EnablePage(controlPage);
+
+            customDataGridView.Focus();
         }
         private void enableFunc_TK()
         {
@@ -758,8 +747,8 @@ namespace QuanLyMachTu
             Autofill_MaTK(textBox_TKUpload_MaTK);
 
             //Filters
-            comboBox_TKFilter_Thang.SelectedItem = comboBox_TKFilter_Thang.Items[0];
-            comboBox_TKFilter_Operation.SelectedItem = comboBox_TKFilter_Operation.Items[0];
+            comboBox_TKFilter_Thang.SelectedIndex = 0;
+            comboBox_TKFilter_Operation.SelectedIndex = 2;
         }
         //Check and prevent errors
         private int CheckUploadError_TK()
@@ -892,50 +881,23 @@ namespace QuanLyMachTu
         //Decorate panel
         private void panel_TKFilter_Paint(object sender, PaintEventArgs e)
         {
+            Panel panel = sender as Panel;
             Color lineColor = Color.FromArgb(193, 193, 193);
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKFilter_MaBN.Location.Y + textBox_TKFilter_MaBN.Height + offset),
-                                      new Point(textBox_TKFilter_MaBN.Location.X + textBox_TKFilter_MaBN.Width + offset, textBox_TKFilter_MaBN.Location.Y + textBox_TKFilter_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(textBox_TKFilter_MaTK.Location.X - offset, textBox_TKFilter_MaTK.Location.Y + textBox_TKFilter_MaTK.Height + offset),
-                                      new Point(endX, textBox_TKFilter_MaTK.Location.Y + textBox_TKFilter_MaTK.Height + offset)); //MaTK line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKFilter_TenTK.Location.Y + textBox_TKFilter_TenTK.Height + offset),
-                                      new Point(endX, textBox_TKFilter_TenTK.Location.Y + textBox_TKFilter_TenTK.Height + offset)); //TenTK line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKFilter_SDT.Location.Y + textBox_TKFilter_SDT.Height + offset),
-                                      new Point(endX, textBox_TKFilter_SDT.Location.Y + textBox_TKFilter_SDT.Height + offset)); //SDT line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKFilter_Email.Location.Y + textBox_TKFilter_Email.Height + offset),
-                                      new Point(endX, textBox_TKFilter_Email.Location.Y + textBox_TKFilter_Email.Height + offset)); //Email line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKFilter_Ngay.Location.Y + textBox_TKFilter_Ngay.Height + offset),
-                                      new Point(textBox_TKFilter_Ngay.Location.X + textBox_TKFilter_Ngay.Width + offset, textBox_TKFilter_Ngay.Location.Y + textBox_TKFilter_Ngay.Height + offset)); //Ngay line
-            graphic.DrawLine(linePen, new Point(textBox_TKFilter_Nam.Location.X - offset, textBox_TKFilter_Nam.Location.Y + textBox_TKFilter_Nam.Height + offset),
-                                      new Point(textBox_TKFilter_Nam.Location.X + textBox_TKFilter_Nam.Width + offset, textBox_TKFilter_Nam.Location.Y + textBox_TKFilter_Nam.Height + offset)); //Nam line
+            int offset = 5;
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox && control != textBox_HSBAUpload_KetQuaTQ)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
 
             int x = label_TKFilters_NgayTao.Location.X - 9;
             int startY = label_TKFilters_NgayTao.Location.Y, endY = startY + label_TKFilters_NgayTao.Height;
             graphic.DrawLine(linePen, new Point(x, startY), new Point(x, endY));
-        }
-        private void panel_TKUpload_Paint(object sender, PaintEventArgs e)
-        {
-            Color lineColor = Color.FromArgb(193, 193, 193);
-            Graphics graphic = e.Graphics;
-
-            Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKUpload_MaBN.Location.Y + textBox_TKUpload_MaBN.Height + offset),
-                                      new Point(textBox_TKUpload_MaBN.Location.X + textBox_TKUpload_MaBN.Width + offset, textBox_TKUpload_MaBN.Location.Y + textBox_TKUpload_MaBN.Height + offset)); //MaBN line
-            graphic.DrawLine(linePen, new Point(textBox_TKUpload_MaTK.Location.X - offset, textBox_TKUpload_MaTK.Location.Y + textBox_TKUpload_MaTK.Height + offset),
-                                      new Point(endX, textBox_TKUpload_MaTK.Location.Y + textBox_TKUpload_MaTK.Height + offset)); //MaTK line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKUpload_TenTK.Location.Y + textBox_TKUpload_TenTK.Height + offset),
-                                      new Point(endX, textBox_TKUpload_TenTK.Location.Y + textBox_TKUpload_TenTK.Height + offset)); //TenTK line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKUpload_MatKhau.Location.Y + textBox_TKUpload_MatKhau.Height + offset),
-                                      new Point(endX, textBox_TKUpload_MatKhau.Location.Y + textBox_TKUpload_MatKhau.Height + offset)); //MatKhau line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKUpload_SDT.Location.Y + textBox_TKUpload_SDT.Height + offset),
-                                      new Point(endX, textBox_TKUpload_SDT.Location.Y + textBox_TKUpload_SDT.Height + offset)); //SDL line
-            graphic.DrawLine(linePen, new Point(startX, textBox_TKUpload_Email.Location.Y + textBox_TKUpload_Email.Height + offset),
-                                      new Point(endX, textBox_TKUpload_Email.Location.Y + textBox_TKUpload_Email.Height + offset)); //Email line
         }
 
         private void fillPanel_BN(DataRow row)
@@ -1046,6 +1008,76 @@ namespace QuanLyMachTu
                     fillPanel_TK(row);
                     break;
             }
+        }
+
+        private void customDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                pageButton_Remove_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                pageButton_Filters_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.T)
+            {
+                pageButton_Upload_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void button_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+            {
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+                else if (control is ComboBox comboBox)
+                    comboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void button_TKUpload_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+
+            Autofill_MaTK(textBox_TKUpload_MaTK);
+        }
+
+        private void button_HSBAUpload_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+
+            FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
+        }
+
+        private void button_BNUpload_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+
+            FillMaBN(textBox_BNUpload_MaBN);
+            FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
         }
     }
 }

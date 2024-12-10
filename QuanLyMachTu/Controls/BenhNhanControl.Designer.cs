@@ -41,7 +41,6 @@ namespace QuanLyMachTu
             textBox_Filters_DoanhSo = new TextBox();
             textBox_Filters_Email = new TextBox();
             textBox_Filters_SDT = new TextBox();
-            textBox_GE = new TextBox();
             textBox_Filters_MaHSBA = new TextBox();
             textBox_Filters_MaTK = new TextBox();
             label_Filters_MaBN = new Label();
@@ -52,6 +51,8 @@ namespace QuanLyMachTu
             label_Filters_SDT = new Label();
             label_Filters_DoanhSo = new Label();
             panel_BNFilter = new Panel();
+            button_BNFilter_Reset = new Button();
+            comboBox_BNFilters_Comparer = new ComboBox();
             pageButton_Upload = new PageButton();
             pageButton_Remove = new PageButton();
             pageButton_Filter = new PageButton();
@@ -76,6 +77,7 @@ namespace QuanLyMachTu
             checkBox_BNUpload_Nam = new CheckBox();
             checkBox_BNUpload_Nu = new CheckBox();
             panel_BNUpload = new Panel();
+            button_Upload_Reset = new Button();
             customDataGridView = new CustomDataGridView();
             customPanel_DetailsControl = new CustomPanel();
             panel1 = new Panel();
@@ -83,6 +85,7 @@ namespace QuanLyMachTu
             pageButton_BNTab = new PageButton();
             pageButton_TKTab = new PageButton();
             panel_TKUpload = new Panel();
+            button_TKUpload_Reset = new Button();
             textBox_TKUpload_Email = new TextBox();
             textBox_TKUpload_SDT = new TextBox();
             label = new Label();
@@ -98,6 +101,7 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaBN = new TextBox();
             label17 = new Label();
             panel_HSBAUpload = new Panel();
+            button_HSBAUpload_Reset = new Button();
             textBox_HSBAUpload_KetQuaTQ = new TextBox();
             label12 = new Label();
             label_HSBAUpload_NgayLap = new Label();
@@ -116,6 +120,7 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaBN = new TextBox();
             label24 = new Label();
             panel_HSBAFilter = new Panel();
+            button_HSBAFilter_Reset = new Button();
             label_HSBAFilters_NgayLap = new Label();
             label28 = new Label();
             label32 = new Label();
@@ -135,6 +140,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaBN = new TextBox();
             label31 = new Label();
             panel_TKFilter = new Panel();
+            button_TKFilter_Reset = new Button();
             label_TKFilters_NgayTao = new Label();
             label35 = new Label();
             label36 = new Label();
@@ -168,6 +174,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters
             // 
+            label_Filters.AccessibleRole = AccessibleRole.None;
             label_Filters.AutoSize = true;
             label_Filters.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_Filters.ForeColor = Color.White;
@@ -186,7 +193,7 @@ namespace QuanLyMachTu
             textBox_Filters_MaBN.Location = new Point(25, 128);
             textBox_Filters_MaBN.Name = "textBox_Filters_MaBN";
             textBox_Filters_MaBN.Size = new Size(105, 32);
-            textBox_Filters_MaBN.TabIndex = 3;
+            textBox_Filters_MaBN.TabIndex = 1;
             // 
             // button_BNFilter_OK
             // 
@@ -196,7 +203,7 @@ namespace QuanLyMachTu
             button_BNFilter_OK.Location = new Point(25, 710);
             button_BNFilter_OK.Name = "button_BNFilter_OK";
             button_BNFilter_OK.Size = new Size(94, 43);
-            button_BNFilter_OK.TabIndex = 4;
+            button_BNFilter_OK.TabIndex = 9;
             button_BNFilter_OK.Text = "OK";
             button_BNFilter_OK.UseVisualStyleBackColor = true;
             button_BNFilter_OK.Click += button_BNFilter_OK_Click;
@@ -210,7 +217,7 @@ namespace QuanLyMachTu
             textBox_Filters_TenBN.Location = new Point(25, 227);
             textBox_Filters_TenBN.Name = "textBox_Filters_TenBN";
             textBox_Filters_TenBN.Size = new Size(365, 32);
-            textBox_Filters_TenBN.TabIndex = 5;
+            textBox_Filters_TenBN.TabIndex = 4;
             // 
             // textBox_Filters_DoanhSo
             // 
@@ -220,9 +227,8 @@ namespace QuanLyMachTu
             textBox_Filters_DoanhSo.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Filters_DoanhSo.Location = new Point(25, 524);
             textBox_Filters_DoanhSo.Name = "textBox_Filters_DoanhSo";
-            textBox_Filters_DoanhSo.Size = new Size(327, 32);
-            textBox_Filters_DoanhSo.TabIndex = 6;
-            textBox_Filters_DoanhSo.Text = "0";
+            textBox_Filters_DoanhSo.Size = new Size(285, 32);
+            textBox_Filters_DoanhSo.TabIndex = 7;
             textBox_Filters_DoanhSo.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // textBox_Filters_Email
@@ -234,7 +240,7 @@ namespace QuanLyMachTu
             textBox_Filters_Email.Location = new Point(25, 326);
             textBox_Filters_Email.Name = "textBox_Filters_Email";
             textBox_Filters_Email.Size = new Size(365, 32);
-            textBox_Filters_Email.TabIndex = 7;
+            textBox_Filters_Email.TabIndex = 5;
             // 
             // textBox_Filters_SDT
             // 
@@ -245,22 +251,8 @@ namespace QuanLyMachTu
             textBox_Filters_SDT.Location = new Point(25, 425);
             textBox_Filters_SDT.Name = "textBox_Filters_SDT";
             textBox_Filters_SDT.Size = new Size(365, 32);
-            textBox_Filters_SDT.TabIndex = 8;
+            textBox_Filters_SDT.TabIndex = 6;
             textBox_Filters_SDT.KeyPress += Button_KeyPress_PositiveNumber;
-            // 
-            // textBox_GE
-            // 
-            textBox_GE.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_GE.BorderStyle = BorderStyle.None;
-            textBox_GE.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_GE.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_GE.Location = new Point(351, 524);
-            textBox_GE.Name = "textBox_GE";
-            textBox_GE.ReadOnly = true;
-            textBox_GE.Size = new Size(39, 32);
-            textBox_GE.TabIndex = 9;
-            textBox_GE.Text = "≥";
-            textBox_GE.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox_Filters_MaHSBA
             // 
@@ -271,7 +263,7 @@ namespace QuanLyMachTu
             textBox_Filters_MaHSBA.Location = new Point(155, 128);
             textBox_Filters_MaHSBA.Name = "textBox_Filters_MaHSBA";
             textBox_Filters_MaHSBA.Size = new Size(105, 32);
-            textBox_Filters_MaHSBA.TabIndex = 10;
+            textBox_Filters_MaHSBA.TabIndex = 2;
             // 
             // textBox_Filters_MaTK
             // 
@@ -282,10 +274,11 @@ namespace QuanLyMachTu
             textBox_Filters_MaTK.Location = new Point(285, 128);
             textBox_Filters_MaTK.Name = "textBox_Filters_MaTK";
             textBox_Filters_MaTK.Size = new Size(105, 32);
-            textBox_Filters_MaTK.TabIndex = 11;
+            textBox_Filters_MaTK.TabIndex = 3;
             // 
             // label_Filters_MaBN
             // 
+            label_Filters_MaBN.AccessibleRole = AccessibleRole.None;
             label_Filters_MaBN.AutoSize = true;
             label_Filters_MaBN.BackColor = Color.Transparent;
             label_Filters_MaBN.FlatStyle = FlatStyle.Flat;
@@ -300,6 +293,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_MaHSBA
             // 
+            label_Filters_MaHSBA.AccessibleRole = AccessibleRole.None;
             label_Filters_MaHSBA.AutoSize = true;
             label_Filters_MaHSBA.BackColor = Color.Transparent;
             label_Filters_MaHSBA.FlatStyle = FlatStyle.Flat;
@@ -314,6 +308,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_MaTK
             // 
+            label_Filters_MaTK.AccessibleRole = AccessibleRole.None;
             label_Filters_MaTK.AutoSize = true;
             label_Filters_MaTK.BackColor = Color.Transparent;
             label_Filters_MaTK.FlatStyle = FlatStyle.Flat;
@@ -328,6 +323,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_TenBN
             // 
+            label_Filters_TenBN.AccessibleRole = AccessibleRole.None;
             label_Filters_TenBN.AutoSize = true;
             label_Filters_TenBN.BackColor = Color.Transparent;
             label_Filters_TenBN.FlatStyle = FlatStyle.Flat;
@@ -342,6 +338,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_Email
             // 
+            label_Filters_Email.AccessibleRole = AccessibleRole.None;
             label_Filters_Email.AutoSize = true;
             label_Filters_Email.BackColor = Color.Transparent;
             label_Filters_Email.FlatStyle = FlatStyle.Flat;
@@ -356,6 +353,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_SDT
             // 
+            label_Filters_SDT.AccessibleRole = AccessibleRole.None;
             label_Filters_SDT.AutoSize = true;
             label_Filters_SDT.BackColor = Color.Transparent;
             label_Filters_SDT.FlatStyle = FlatStyle.Flat;
@@ -370,6 +368,7 @@ namespace QuanLyMachTu
             // 
             // label_Filters_DoanhSo
             // 
+            label_Filters_DoanhSo.AccessibleRole = AccessibleRole.None;
             label_Filters_DoanhSo.AutoSize = true;
             label_Filters_DoanhSo.BackColor = Color.Transparent;
             label_Filters_DoanhSo.FlatStyle = FlatStyle.Flat;
@@ -387,6 +386,8 @@ namespace QuanLyMachTu
             panel_BNFilter.Anchor = AnchorStyles.Right;
             panel_BNFilter.AutoScroll = true;
             panel_BNFilter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_BNFilter.Controls.Add(button_BNFilter_Reset);
+            panel_BNFilter.Controls.Add(comboBox_BNFilters_Comparer);
             panel_BNFilter.Controls.Add(label_Filters_DoanhSo);
             panel_BNFilter.Controls.Add(label_Filters_SDT);
             panel_BNFilter.Controls.Add(label_Filters_Email);
@@ -396,7 +397,6 @@ namespace QuanLyMachTu
             panel_BNFilter.Controls.Add(label_Filters_MaBN);
             panel_BNFilter.Controls.Add(textBox_Filters_MaTK);
             panel_BNFilter.Controls.Add(textBox_Filters_MaHSBA);
-            panel_BNFilter.Controls.Add(textBox_GE);
             panel_BNFilter.Controls.Add(textBox_Filters_SDT);
             panel_BNFilter.Controls.Add(textBox_Filters_Email);
             panel_BNFilter.Controls.Add(textBox_Filters_DoanhSo);
@@ -407,8 +407,35 @@ namespace QuanLyMachTu
             panel_BNFilter.Location = new Point(1174, 84);
             panel_BNFilter.Name = "panel_BNFilter";
             panel_BNFilter.Size = new Size(416, 780);
-            panel_BNFilter.TabIndex = 1;
-            panel_BNFilter.Paint += panel_BNFilter_Paint;
+            panel_BNFilter.TabIndex = 0;
+            panel_BNFilter.Paint += panel_Paint;
+            // 
+            // button_BNFilter_Reset
+            // 
+            button_BNFilter_Reset.FlatStyle = FlatStyle.Flat;
+            button_BNFilter_Reset.Font = new Font("Segoe UI", 10F);
+            button_BNFilter_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_BNFilter_Reset.Location = new Point(297, 710);
+            button_BNFilter_Reset.Name = "button_BNFilter_Reset";
+            button_BNFilter_Reset.Size = new Size(94, 43);
+            button_BNFilter_Reset.TabIndex = 19;
+            button_BNFilter_Reset.Text = "RESET";
+            button_BNFilter_Reset.UseVisualStyleBackColor = true;
+            button_BNFilter_Reset.Click += button_Reset_Click;
+            // 
+            // comboBox_BNFilters_Comparer
+            // 
+            comboBox_BNFilters_Comparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_BNFilters_Comparer.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_BNFilters_Comparer.FlatStyle = FlatStyle.Flat;
+            comboBox_BNFilters_Comparer.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_BNFilters_Comparer.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_BNFilters_Comparer.FormattingEnabled = true;
+            comboBox_BNFilters_Comparer.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_BNFilters_Comparer.Location = new Point(331, 524);
+            comboBox_BNFilters_Comparer.Name = "comboBox_BNFilters_Comparer";
+            comboBox_BNFilters_Comparer.Size = new Size(59, 40);
+            comboBox_BNFilters_Comparer.TabIndex = 8;
             // 
             // pageButton_Upload
             // 
@@ -426,7 +453,7 @@ namespace QuanLyMachTu
             pageButton_Upload.Location = new Point(25, 13);
             pageButton_Upload.Name = "pageButton_Upload";
             pageButton_Upload.Size = new Size(55, 55);
-            pageButton_Upload.TabIndex = 1;
+            pageButton_Upload.TabIndex = 95;
             pageButton_Upload.TextLocation = new Point(0, 0);
             pageButton_Upload.UseVisualStyleBackColor = false;
             pageButton_Upload.Click += pageButton_Upload_Click;
@@ -447,7 +474,7 @@ namespace QuanLyMachTu
             pageButton_Remove.Location = new Point(90, 13);
             pageButton_Remove.Name = "pageButton_Remove";
             pageButton_Remove.Size = new Size(55, 55);
-            pageButton_Remove.TabIndex = 2;
+            pageButton_Remove.TabIndex = 96;
             pageButton_Remove.TextLocation = new Point(0, 0);
             pageButton_Remove.UseVisualStyleBackColor = false;
             pageButton_Remove.Click += pageButton_Remove_Click;
@@ -469,13 +496,14 @@ namespace QuanLyMachTu
             pageButton_Filter.Location = new Point(1094, 13);
             pageButton_Filter.Name = "pageButton_Filter";
             pageButton_Filter.Size = new Size(55, 55);
-            pageButton_Filter.TabIndex = 3;
+            pageButton_Filter.TabIndex = 97;
             pageButton_Filter.TextLocation = new Point(0, 0);
             pageButton_Filter.UseVisualStyleBackColor = false;
             pageButton_Filter.Click += pageButton_Filters_Click;
             // 
             // panel_Toolbar
             // 
+            panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
             panel_Toolbar.Controls.Add(pageButton_Filter);
@@ -488,6 +516,7 @@ namespace QuanLyMachTu
             // 
             // label_BNUpload
             // 
+            label_BNUpload.AccessibleRole = AccessibleRole.None;
             label_BNUpload.AutoSize = true;
             label_BNUpload.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_BNUpload.ForeColor = Color.White;
@@ -506,7 +535,7 @@ namespace QuanLyMachTu
             textBox_BNUpload_MaBN.Location = new Point(25, 128);
             textBox_BNUpload_MaBN.Name = "textBox_BNUpload_MaBN";
             textBox_BNUpload_MaBN.Size = new Size(365, 32);
-            textBox_BNUpload_MaBN.TabIndex = 3;
+            textBox_BNUpload_MaBN.TabIndex = 1;
             textBox_BNUpload_MaBN.KeyPress += button_KeyPress_Normal;
             textBox_BNUpload_MaBN.Leave += textBox_MaBN_Leave;
             // 
@@ -518,7 +547,7 @@ namespace QuanLyMachTu
             button_Upload_OK.Location = new Point(25, 710);
             button_Upload_OK.Name = "button_Upload_OK";
             button_Upload_OK.Size = new Size(94, 43);
-            button_Upload_OK.TabIndex = 4;
+            button_Upload_OK.TabIndex = 10;
             button_Upload_OK.Text = "OK";
             button_Upload_OK.UseVisualStyleBackColor = true;
             button_Upload_OK.Click += button_BNUpload_OK_Click;
@@ -532,7 +561,7 @@ namespace QuanLyMachTu
             textBox_BNUpload_TenBN.Location = new Point(25, 227);
             textBox_BNUpload_TenBN.Name = "textBox_BNUpload_TenBN";
             textBox_BNUpload_TenBN.Size = new Size(365, 32);
-            textBox_BNUpload_TenBN.TabIndex = 5;
+            textBox_BNUpload_TenBN.TabIndex = 2;
             textBox_BNUpload_TenBN.KeyPress += button_KeyPress_Normal;
             // 
             // textBox_BNUpload_SDT
@@ -556,11 +585,12 @@ namespace QuanLyMachTu
             textBox_BNUpload_Email.Location = new Point(25, 524);
             textBox_BNUpload_Email.Name = "textBox_BNUpload_Email";
             textBox_BNUpload_Email.Size = new Size(365, 32);
-            textBox_BNUpload_Email.TabIndex = 7;
+            textBox_BNUpload_Email.TabIndex = 9;
             textBox_BNUpload_Email.KeyPress += button_KeyPress_Normal;
             // 
             // label2
             // 
+            label2.AccessibleRole = AccessibleRole.None;
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -575,6 +605,7 @@ namespace QuanLyMachTu
             // 
             // label3
             // 
+            label3.AccessibleRole = AccessibleRole.None;
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -589,6 +620,7 @@ namespace QuanLyMachTu
             // 
             // label4
             // 
+            label4.AccessibleRole = AccessibleRole.None;
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -610,13 +642,14 @@ namespace QuanLyMachTu
             textBox_BNUpload_Ngay.Location = new Point(25, 326);
             textBox_BNUpload_Ngay.Name = "textBox_BNUpload_Ngay";
             textBox_BNUpload_Ngay.Size = new Size(60, 32);
-            textBox_BNUpload_Ngay.TabIndex = 12;
+            textBox_BNUpload_Ngay.TabIndex = 3;
             textBox_BNUpload_Ngay.TextAlign = HorizontalAlignment.Center;
             textBox_BNUpload_Ngay.KeyPress += Button_KeyPress_PositiveNumber;
             textBox_BNUpload_Ngay.Leave += textBox_BNDate_Leave;
             // 
             // label5
             // 
+            label5.AccessibleRole = AccessibleRole.None;
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -631,6 +664,7 @@ namespace QuanLyMachTu
             // 
             // label6
             // 
+            label6.AccessibleRole = AccessibleRole.None;
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -646,6 +680,7 @@ namespace QuanLyMachTu
             // comboBox_BNUpload_Thang
             // 
             comboBox_BNUpload_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_BNUpload_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_BNUpload_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_BNUpload_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_BNUpload_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -654,10 +689,11 @@ namespace QuanLyMachTu
             comboBox_BNUpload_Thang.Location = new Point(146, 318);
             comboBox_BNUpload_Thang.Name = "comboBox_BNUpload_Thang";
             comboBox_BNUpload_Thang.Size = new Size(85, 40);
-            comboBox_BNUpload_Thang.TabIndex = 16;
+            comboBox_BNUpload_Thang.TabIndex = 4;
             // 
             // label7
             // 
+            label7.AccessibleRole = AccessibleRole.None;
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -679,13 +715,14 @@ namespace QuanLyMachTu
             textBox_BNUpload_Nam.Location = new Point(291, 326);
             textBox_BNUpload_Nam.Name = "textBox_BNUpload_Nam";
             textBox_BNUpload_Nam.Size = new Size(60, 32);
-            textBox_BNUpload_Nam.TabIndex = 18;
+            textBox_BNUpload_Nam.TabIndex = 5;
             textBox_BNUpload_Nam.TextAlign = HorizontalAlignment.Center;
             textBox_BNUpload_Nam.KeyPress += Button_KeyPress_PositiveNumber;
             textBox_BNUpload_Nam.Leave += textBox_BNDate_Leave;
             // 
             // label8
             // 
+            label8.AccessibleRole = AccessibleRole.None;
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -700,6 +737,7 @@ namespace QuanLyMachTu
             // 
             // label9
             // 
+            label9.AccessibleRole = AccessibleRole.None;
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -723,7 +761,7 @@ namespace QuanLyMachTu
             checkBox_BNUpload_Nam.Location = new Point(233, 425);
             checkBox_BNUpload_Nam.Name = "checkBox_BNUpload_Nam";
             checkBox_BNUpload_Nam.Size = new Size(75, 32);
-            checkBox_BNUpload_Nam.TabIndex = 21;
+            checkBox_BNUpload_Nam.TabIndex = 7;
             checkBox_BNUpload_Nam.Text = "Nam";
             checkBox_BNUpload_Nam.UseVisualStyleBackColor = true;
             checkBox_BNUpload_Nam.CheckedChanged += checkBox_BNUpload_Nam_CheckedChanged;
@@ -737,7 +775,7 @@ namespace QuanLyMachTu
             checkBox_BNUpload_Nu.Location = new Point(324, 425);
             checkBox_BNUpload_Nu.Name = "checkBox_BNUpload_Nu";
             checkBox_BNUpload_Nu.Size = new Size(60, 32);
-            checkBox_BNUpload_Nu.TabIndex = 22;
+            checkBox_BNUpload_Nu.TabIndex = 8;
             checkBox_BNUpload_Nu.Text = "Nữ";
             checkBox_BNUpload_Nu.UseVisualStyleBackColor = true;
             checkBox_BNUpload_Nu.CheckedChanged += checkBox_BNUpload_Nu_CheckedChanged;
@@ -748,6 +786,7 @@ namespace QuanLyMachTu
             panel_BNUpload.AutoScroll = true;
             panel_BNUpload.AutoSize = true;
             panel_BNUpload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_BNUpload.Controls.Add(button_Upload_Reset);
             panel_BNUpload.Controls.Add(checkBox_BNUpload_Nu);
             panel_BNUpload.Controls.Add(checkBox_BNUpload_Nam);
             panel_BNUpload.Controls.Add(label9);
@@ -770,11 +809,25 @@ namespace QuanLyMachTu
             panel_BNUpload.Location = new Point(1174, 84);
             panel_BNUpload.Name = "panel_BNUpload";
             panel_BNUpload.Size = new Size(416, 780);
-            panel_BNUpload.TabIndex = 10;
-            panel_BNUpload.Paint += panel_BNUpload_Paint;
+            panel_BNUpload.TabIndex = 0;
+            panel_BNUpload.Paint += panel_Paint;
+            // 
+            // button_Upload_Reset
+            // 
+            button_Upload_Reset.FlatStyle = FlatStyle.Flat;
+            button_Upload_Reset.Font = new Font("Segoe UI", 10F);
+            button_Upload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_Upload_Reset.Location = new Point(297, 710);
+            button_Upload_Reset.Name = "button_Upload_Reset";
+            button_Upload_Reset.Size = new Size(94, 43);
+            button_Upload_Reset.TabIndex = 30;
+            button_Upload_Reset.Text = "RESET";
+            button_Upload_Reset.UseVisualStyleBackColor = true;
+            button_Upload_Reset.Click += button_BNUpload_Reset_Click;
             // 
             // customDataGridView
             // 
+            customDataGridView.AccessibleRole = AccessibleRole.None;
             customDataGridView.AllowUserToAddRows = false;
             customDataGridView.AllowUserToDeleteRows = false;
             customDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -815,9 +868,11 @@ namespace QuanLyMachTu
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 13;
             customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
+            customDataGridView.KeyDown += customDataGridView_KeyDown;
             // 
             // customPanel_DetailsControl
             // 
+            customPanel_DetailsControl.AccessibleRole = AccessibleRole.None;
             customPanel_DetailsControl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_DetailsControl.BackColor = Color.FromArgb(79, 69, 87);
             customPanel_DetailsControl.CornerRadius = 40;
@@ -828,6 +883,7 @@ namespace QuanLyMachTu
             // 
             // panel1
             // 
+            panel1.AccessibleRole = AccessibleRole.None;
             panel1.BackColor = Color.FromArgb(57, 54, 70);
             panel1.Controls.Add(pageButton_HSBATab);
             panel1.Controls.Add(pageButton_BNTab);
@@ -856,7 +912,7 @@ namespace QuanLyMachTu
             pageButton_HSBATab.Location = new Point(320, 12);
             pageButton_HSBATab.Name = "pageButton_HSBATab";
             pageButton_HSBATab.Size = new Size(250, 60);
-            pageButton_HSBATab.TabIndex = 10;
+            pageButton_HSBATab.TabIndex = 99;
             pageButton_HSBATab.TextLocation = new Point(64, 12);
             pageButton_HSBATab.UseVisualStyleBackColor = false;
             pageButton_HSBATab.Click += pageButton_HSBATab_Click;
@@ -879,7 +935,7 @@ namespace QuanLyMachTu
             pageButton_BNTab.Location = new Point(25, 12);
             pageButton_BNTab.Name = "pageButton_BNTab";
             pageButton_BNTab.Size = new Size(250, 60);
-            pageButton_BNTab.TabIndex = 9;
+            pageButton_BNTab.TabIndex = 98;
             pageButton_BNTab.TextLocation = new Point(64, 12);
             pageButton_BNTab.UseVisualStyleBackColor = false;
             pageButton_BNTab.Click += pageButton_BNTab_Click;
@@ -902,7 +958,7 @@ namespace QuanLyMachTu
             pageButton_TKTab.Location = new Point(650, 12);
             pageButton_TKTab.Name = "pageButton_TKTab";
             pageButton_TKTab.Size = new Size(250, 60);
-            pageButton_TKTab.TabIndex = 7;
+            pageButton_TKTab.TabIndex = 100;
             pageButton_TKTab.TextLocation = new Point(64, 12);
             pageButton_TKTab.UseVisualStyleBackColor = false;
             pageButton_TKTab.Click += pageButton_TKTab_Click;
@@ -913,6 +969,7 @@ namespace QuanLyMachTu
             panel_TKUpload.AutoScroll = true;
             panel_TKUpload.AutoSize = true;
             panel_TKUpload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_TKUpload.Controls.Add(button_TKUpload_Reset);
             panel_TKUpload.Controls.Add(textBox_TKUpload_Email);
             panel_TKUpload.Controls.Add(textBox_TKUpload_SDT);
             panel_TKUpload.Controls.Add(label);
@@ -930,8 +987,21 @@ namespace QuanLyMachTu
             panel_TKUpload.Location = new Point(1174, 84);
             panel_TKUpload.Name = "panel_TKUpload";
             panel_TKUpload.Size = new Size(416, 780);
-            panel_TKUpload.TabIndex = 16;
-            panel_TKUpload.Paint += panel_TKUpload_Paint;
+            panel_TKUpload.TabIndex = 0;
+            panel_TKUpload.Paint += panel_Paint;
+            // 
+            // button_TKUpload_Reset
+            // 
+            button_TKUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_TKUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_TKUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_TKUpload_Reset.Location = new Point(297, 710);
+            button_TKUpload_Reset.Name = "button_TKUpload_Reset";
+            button_TKUpload_Reset.Size = new Size(94, 43);
+            button_TKUpload_Reset.TabIndex = 29;
+            button_TKUpload_Reset.Text = "RESET";
+            button_TKUpload_Reset.UseVisualStyleBackColor = true;
+            button_TKUpload_Reset.Click += button_TKUpload_Reset_Click;
             // 
             // textBox_TKUpload_Email
             // 
@@ -942,7 +1012,7 @@ namespace QuanLyMachTu
             textBox_TKUpload_Email.Location = new Point(25, 524);
             textBox_TKUpload_Email.Name = "textBox_TKUpload_Email";
             textBox_TKUpload_Email.Size = new Size(366, 32);
-            textBox_TKUpload_Email.TabIndex = 30;
+            textBox_TKUpload_Email.TabIndex = 6;
             // 
             // textBox_TKUpload_SDT
             // 
@@ -953,11 +1023,12 @@ namespace QuanLyMachTu
             textBox_TKUpload_SDT.Location = new Point(25, 425);
             textBox_TKUpload_SDT.Name = "textBox_TKUpload_SDT";
             textBox_TKUpload_SDT.Size = new Size(366, 32);
-            textBox_TKUpload_SDT.TabIndex = 29;
+            textBox_TKUpload_SDT.TabIndex = 5;
             textBox_TKUpload_SDT.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label
             // 
+            label.AccessibleRole = AccessibleRole.None;
             label.AutoSize = true;
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -972,6 +1043,7 @@ namespace QuanLyMachTu
             // 
             // label11
             // 
+            label11.AccessibleRole = AccessibleRole.None;
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -993,11 +1065,12 @@ namespace QuanLyMachTu
             textBox_TKUpload_MatKhau.Location = new Point(25, 326);
             textBox_TKUpload_MatKhau.Name = "textBox_TKUpload_MatKhau";
             textBox_TKUpload_MatKhau.Size = new Size(366, 32);
-            textBox_TKUpload_MatKhau.TabIndex = 26;
+            textBox_TKUpload_MatKhau.TabIndex = 4;
             textBox_TKUpload_MatKhau.KeyPress += button_KeyPress_Normal;
             // 
             // label1
             // 
+            label1.AccessibleRole = AccessibleRole.None;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1019,13 +1092,14 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaTK.Location = new Point(230, 128);
             textBox_TKUpload_MaTK.Name = "textBox_TKUpload_MaTK";
             textBox_TKUpload_MaTK.Size = new Size(160, 32);
-            textBox_TKUpload_MaTK.TabIndex = 24;
+            textBox_TKUpload_MaTK.TabIndex = 2;
             textBox_TKUpload_MaTK.TextChanged += textBox_Autofind_MaBNfromMaTK_TextChanged;
-            textBox_TKUpload_MaTK.KeyPress += Button_KeyPress_PositiveNumber;
+            textBox_TKUpload_MaTK.KeyPress += button_KeyPress_Normal;
             textBox_TKUpload_MaTK.Leave += textBox_MaTK_Leave;
             // 
             // label18
             // 
+            label18.AccessibleRole = AccessibleRole.None;
             label18.AutoSize = true;
             label18.BackColor = Color.Transparent;
             label18.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1040,6 +1114,7 @@ namespace QuanLyMachTu
             // 
             // label15
             // 
+            label15.AccessibleRole = AccessibleRole.None;
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1054,6 +1129,7 @@ namespace QuanLyMachTu
             // 
             // label16
             // 
+            label16.AccessibleRole = AccessibleRole.None;
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
             label16.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1075,7 +1151,7 @@ namespace QuanLyMachTu
             textBox_TKUpload_TenTK.Location = new Point(25, 227);
             textBox_TKUpload_TenTK.Name = "textBox_TKUpload_TenTK";
             textBox_TKUpload_TenTK.Size = new Size(366, 32);
-            textBox_TKUpload_TenTK.TabIndex = 5;
+            textBox_TKUpload_TenTK.TabIndex = 3;
             textBox_TKUpload_TenTK.KeyPress += button_KeyPress_Normal;
             // 
             // button_TKUpload_OK
@@ -1086,7 +1162,7 @@ namespace QuanLyMachTu
             button_TKUpload_OK.Location = new Point(25, 710);
             button_TKUpload_OK.Name = "button_TKUpload_OK";
             button_TKUpload_OK.Size = new Size(94, 43);
-            button_TKUpload_OK.TabIndex = 4;
+            button_TKUpload_OK.TabIndex = 7;
             button_TKUpload_OK.Text = "OK";
             button_TKUpload_OK.UseVisualStyleBackColor = true;
             button_TKUpload_OK.Click += button_TKUpload_OK_Click;
@@ -1100,11 +1176,12 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaBN.Location = new Point(25, 128);
             textBox_TKUpload_MaBN.Name = "textBox_TKUpload_MaBN";
             textBox_TKUpload_MaBN.Size = new Size(160, 32);
-            textBox_TKUpload_MaBN.TabIndex = 3;
+            textBox_TKUpload_MaBN.TabIndex = 1;
             textBox_TKUpload_MaBN.TextChanged += textBox_Autofind_MaTKfromMaBN_TextChanged;
             // 
             // label17
             // 
+            label17.AccessibleRole = AccessibleRole.None;
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.White;
@@ -1120,6 +1197,7 @@ namespace QuanLyMachTu
             panel_HSBAUpload.AutoScroll = true;
             panel_HSBAUpload.AutoSize = true;
             panel_HSBAUpload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_HSBAUpload.Controls.Add(button_HSBAUpload_Reset);
             panel_HSBAUpload.Controls.Add(textBox_HSBAUpload_KetQuaTQ);
             panel_HSBAUpload.Controls.Add(label12);
             panel_HSBAUpload.Controls.Add(label_HSBAUpload_NgayLap);
@@ -1140,8 +1218,21 @@ namespace QuanLyMachTu
             panel_HSBAUpload.Location = new Point(1174, 84);
             panel_HSBAUpload.Name = "panel_HSBAUpload";
             panel_HSBAUpload.Size = new Size(416, 780);
-            panel_HSBAUpload.TabIndex = 26;
+            panel_HSBAUpload.TabIndex = 0;
             panel_HSBAUpload.Paint += panel_HSBAUpload_Paint;
+            // 
+            // button_HSBAUpload_Reset
+            // 
+            button_HSBAUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_HSBAUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_HSBAUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_HSBAUpload_Reset.Location = new Point(297, 710);
+            button_HSBAUpload_Reset.Name = "button_HSBAUpload_Reset";
+            button_HSBAUpload_Reset.Size = new Size(94, 43);
+            button_HSBAUpload_Reset.TabIndex = 30;
+            button_HSBAUpload_Reset.Text = "RESET";
+            button_HSBAUpload_Reset.UseVisualStyleBackColor = true;
+            button_HSBAUpload_Reset.Click += button_HSBAUpload_Reset_Click;
             // 
             // textBox_HSBAUpload_KetQuaTQ
             // 
@@ -1152,10 +1243,11 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_KetQuaTQ.Multiline = true;
             textBox_HSBAUpload_KetQuaTQ.Name = "textBox_HSBAUpload_KetQuaTQ";
             textBox_HSBAUpload_KetQuaTQ.Size = new Size(375, 239);
-            textBox_HSBAUpload_KetQuaTQ.TabIndex = 27;
+            textBox_HSBAUpload_KetQuaTQ.TabIndex = 7;
             // 
             // label12
             // 
+            label12.AccessibleRole = AccessibleRole.None;
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1170,6 +1262,7 @@ namespace QuanLyMachTu
             // 
             // label_HSBAUpload_NgayLap
             // 
+            label_HSBAUpload_NgayLap.AccessibleRole = AccessibleRole.None;
             label_HSBAUpload_NgayLap.AutoSize = true;
             label_HSBAUpload_NgayLap.BackColor = Color.Transparent;
             label_HSBAUpload_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1191,11 +1284,12 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaHSBA.Location = new Point(230, 128);
             textBox_HSBAUpload_MaHSBA.Name = "textBox_HSBAUpload_MaHSBA";
             textBox_HSBAUpload_MaHSBA.Size = new Size(160, 32);
-            textBox_HSBAUpload_MaHSBA.TabIndex = 24;
+            textBox_HSBAUpload_MaHSBA.TabIndex = 2;
             textBox_HSBAUpload_MaHSBA.TextChanged += textBox_Autofind_MaBNfromMaHSBA_TextChanged;
             // 
             // label13
             // 
+            label13.AccessibleRole = AccessibleRole.None;
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1217,12 +1311,13 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_Nam.Location = new Point(225, 326);
             textBox_HSBAUpload_Nam.Name = "textBox_HSBAUpload_Nam";
             textBox_HSBAUpload_Nam.Size = new Size(60, 32);
-            textBox_HSBAUpload_Nam.TabIndex = 18;
+            textBox_HSBAUpload_Nam.TabIndex = 6;
             textBox_HSBAUpload_Nam.TextAlign = HorizontalAlignment.Center;
             textBox_HSBAUpload_Nam.Leave += textBox_HSBADate_Leave;
             // 
             // label19
             // 
+            label19.AccessibleRole = AccessibleRole.None;
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1238,6 +1333,7 @@ namespace QuanLyMachTu
             // comboBox_HSBAUpload_Thang
             // 
             comboBox_HSBAUpload_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HSBAUpload_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HSBAUpload_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_HSBAUpload_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HSBAUpload_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1246,10 +1342,11 @@ namespace QuanLyMachTu
             comboBox_HSBAUpload_Thang.Location = new Point(115, 318);
             comboBox_HSBAUpload_Thang.Name = "comboBox_HSBAUpload_Thang";
             comboBox_HSBAUpload_Thang.Size = new Size(85, 40);
-            comboBox_HSBAUpload_Thang.TabIndex = 16;
+            comboBox_HSBAUpload_Thang.TabIndex = 5;
             // 
             // label20
             // 
+            label20.AccessibleRole = AccessibleRole.None;
             label20.AutoSize = true;
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1271,12 +1368,13 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_Ngay.Location = new Point(25, 326);
             textBox_HSBAUpload_Ngay.Name = "textBox_HSBAUpload_Ngay";
             textBox_HSBAUpload_Ngay.Size = new Size(55, 32);
-            textBox_HSBAUpload_Ngay.TabIndex = 12;
+            textBox_HSBAUpload_Ngay.TabIndex = 4;
             textBox_HSBAUpload_Ngay.TextAlign = HorizontalAlignment.Center;
             textBox_HSBAUpload_Ngay.Leave += textBox_HSBADate_Leave;
             // 
             // label21
             // 
+            label21.AccessibleRole = AccessibleRole.None;
             label21.AutoSize = true;
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1291,6 +1389,7 @@ namespace QuanLyMachTu
             // 
             // label22
             // 
+            label22.AccessibleRole = AccessibleRole.None;
             label22.AutoSize = true;
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1305,6 +1404,7 @@ namespace QuanLyMachTu
             // 
             // label23
             // 
+            label23.AccessibleRole = AccessibleRole.None;
             label23.AutoSize = true;
             label23.BackColor = Color.Transparent;
             label23.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1326,7 +1426,7 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaNV.Location = new Point(25, 227);
             textBox_HSBAUpload_MaNV.Name = "textBox_HSBAUpload_MaNV";
             textBox_HSBAUpload_MaNV.Size = new Size(365, 32);
-            textBox_HSBAUpload_MaNV.TabIndex = 5;
+            textBox_HSBAUpload_MaNV.TabIndex = 3;
             // 
             // button_HSBAUpload_OK
             // 
@@ -1336,7 +1436,7 @@ namespace QuanLyMachTu
             button_HSBAUpload_OK.Location = new Point(25, 710);
             button_HSBAUpload_OK.Name = "button_HSBAUpload_OK";
             button_HSBAUpload_OK.Size = new Size(94, 43);
-            button_HSBAUpload_OK.TabIndex = 4;
+            button_HSBAUpload_OK.TabIndex = 8;
             button_HSBAUpload_OK.Text = "OK";
             button_HSBAUpload_OK.UseVisualStyleBackColor = true;
             button_HSBAUpload_OK.Click += button_HSBAUpload_OK_Click;
@@ -1350,12 +1450,13 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaBN.Location = new Point(25, 128);
             textBox_HSBAUpload_MaBN.Name = "textBox_HSBAUpload_MaBN";
             textBox_HSBAUpload_MaBN.Size = new Size(160, 32);
-            textBox_HSBAUpload_MaBN.TabIndex = 3;
+            textBox_HSBAUpload_MaBN.TabIndex = 1;
             textBox_HSBAUpload_MaBN.TextChanged += textBox_Autofind_MaHSBA_TextChanged;
             textBox_HSBAUpload_MaBN.KeyPress += button_KeyPress_Normal;
             // 
             // label24
             // 
+            label24.AccessibleRole = AccessibleRole.None;
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.White;
@@ -1370,6 +1471,7 @@ namespace QuanLyMachTu
             panel_HSBAFilter.Anchor = AnchorStyles.Right;
             panel_HSBAFilter.AutoScroll = true;
             panel_HSBAFilter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_HSBAFilter.Controls.Add(button_HSBAFilter_Reset);
             panel_HSBAFilter.Controls.Add(label_HSBAFilters_NgayLap);
             panel_HSBAFilter.Controls.Add(label28);
             panel_HSBAFilter.Controls.Add(label32);
@@ -1391,11 +1493,25 @@ namespace QuanLyMachTu
             panel_HSBAFilter.Location = new Point(1174, 84);
             panel_HSBAFilter.Name = "panel_HSBAFilter";
             panel_HSBAFilter.Size = new Size(416, 780);
-            panel_HSBAFilter.TabIndex = 27;
+            panel_HSBAFilter.TabIndex = 0;
             panel_HSBAFilter.Paint += panel_HSBAFilter_Paint;
+            // 
+            // button_HSBAFilter_Reset
+            // 
+            button_HSBAFilter_Reset.FlatStyle = FlatStyle.Flat;
+            button_HSBAFilter_Reset.Font = new Font("Segoe UI", 10F);
+            button_HSBAFilter_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_HSBAFilter_Reset.Location = new Point(297, 710);
+            button_HSBAFilter_Reset.Name = "button_HSBAFilter_Reset";
+            button_HSBAFilter_Reset.Size = new Size(94, 43);
+            button_HSBAFilter_Reset.TabIndex = 34;
+            button_HSBAFilter_Reset.Text = "RESET";
+            button_HSBAFilter_Reset.UseVisualStyleBackColor = true;
+            button_HSBAFilter_Reset.Click += button_Reset_Click;
             // 
             // label_HSBAFilters_NgayLap
             // 
+            label_HSBAFilters_NgayLap.AccessibleRole = AccessibleRole.None;
             label_HSBAFilters_NgayLap.AutoSize = true;
             label_HSBAFilters_NgayLap.BackColor = Color.Transparent;
             label_HSBAFilters_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1410,6 +1526,7 @@ namespace QuanLyMachTu
             // 
             // label28
             // 
+            label28.AccessibleRole = AccessibleRole.None;
             label28.AutoSize = true;
             label28.BackColor = Color.Transparent;
             label28.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1424,6 +1541,7 @@ namespace QuanLyMachTu
             // 
             // label32
             // 
+            label32.AccessibleRole = AccessibleRole.None;
             label32.AutoSize = true;
             label32.BackColor = Color.Transparent;
             label32.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1438,6 +1556,7 @@ namespace QuanLyMachTu
             // 
             // label33
             // 
+            label33.AccessibleRole = AccessibleRole.None;
             label33.AutoSize = true;
             label33.BackColor = Color.Transparent;
             label33.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1459,11 +1578,12 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_Nam.Location = new Point(225, 425);
             textBox_HSBAFilter_Nam.Name = "textBox_HSBAFilter_Nam";
             textBox_HSBAFilter_Nam.Size = new Size(60, 32);
-            textBox_HSBAFilter_Nam.TabIndex = 28;
+            textBox_HSBAFilter_Nam.TabIndex = 7;
             // 
             // comboBox_HSBAFilter_Thang
             // 
             comboBox_HSBAFilter_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HSBAFilter_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HSBAFilter_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_HSBAFilter_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HSBAFilter_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1472,7 +1592,7 @@ namespace QuanLyMachTu
             comboBox_HSBAFilter_Thang.Location = new Point(115, 425);
             comboBox_HSBAFilter_Thang.Name = "comboBox_HSBAFilter_Thang";
             comboBox_HSBAFilter_Thang.Size = new Size(85, 40);
-            comboBox_HSBAFilter_Thang.TabIndex = 28;
+            comboBox_HSBAFilter_Thang.TabIndex = 6;
             // 
             // textBox_HSBAFilter_Ngay
             // 
@@ -1483,11 +1603,12 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_Ngay.Location = new Point(25, 425);
             textBox_HSBAFilter_Ngay.Name = "textBox_HSBAFilter_Ngay";
             textBox_HSBAFilter_Ngay.Size = new Size(55, 32);
-            textBox_HSBAFilter_Ngay.TabIndex = 22;
+            textBox_HSBAFilter_Ngay.TabIndex = 5;
             // 
             // comboBox_HSBAFilter_Operation
             // 
             comboBox_HSBAFilter_Operation.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HSBAFilter_Operation.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HSBAFilter_Operation.FlatStyle = FlatStyle.Flat;
             comboBox_HSBAFilter_Operation.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HSBAFilter_Operation.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1496,10 +1617,11 @@ namespace QuanLyMachTu
             comboBox_HSBAFilter_Operation.Location = new Point(315, 425);
             comboBox_HSBAFilter_Operation.Name = "comboBox_HSBAFilter_Operation";
             comboBox_HSBAFilter_Operation.Size = new Size(59, 40);
-            comboBox_HSBAFilter_Operation.TabIndex = 21;
+            comboBox_HSBAFilter_Operation.TabIndex = 8;
             // 
             // label25
             // 
+            label25.AccessibleRole = AccessibleRole.None;
             label25.AutoSize = true;
             label25.BackColor = Color.Transparent;
             label25.FlatStyle = FlatStyle.Flat;
@@ -1514,6 +1636,7 @@ namespace QuanLyMachTu
             // 
             // label26
             // 
+            label26.AccessibleRole = AccessibleRole.None;
             label26.AutoSize = true;
             label26.BackColor = Color.Transparent;
             label26.FlatStyle = FlatStyle.Flat;
@@ -1528,6 +1651,7 @@ namespace QuanLyMachTu
             // 
             // label29
             // 
+            label29.AccessibleRole = AccessibleRole.None;
             label29.AutoSize = true;
             label29.BackColor = Color.Transparent;
             label29.FlatStyle = FlatStyle.Flat;
@@ -1542,6 +1666,7 @@ namespace QuanLyMachTu
             // 
             // label30
             // 
+            label30.AccessibleRole = AccessibleRole.None;
             label30.AutoSize = true;
             label30.BackColor = Color.Transparent;
             label30.FlatStyle = FlatStyle.Flat;
@@ -1563,7 +1688,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaHSBA.Location = new Point(230, 128);
             textBox_HSBAFilter_MaHSBA.Name = "textBox_HSBAFilter_MaHSBA";
             textBox_HSBAFilter_MaHSBA.Size = new Size(160, 32);
-            textBox_HSBAFilter_MaHSBA.TabIndex = 10;
+            textBox_HSBAFilter_MaHSBA.TabIndex = 2;
             // 
             // textBox_HSBAFilter_SDT
             // 
@@ -1574,7 +1699,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_SDT.Location = new Point(25, 326);
             textBox_HSBAFilter_SDT.Name = "textBox_HSBAFilter_SDT";
             textBox_HSBAFilter_SDT.Size = new Size(365, 32);
-            textBox_HSBAFilter_SDT.TabIndex = 8;
+            textBox_HSBAFilter_SDT.TabIndex = 4;
             // 
             // textBox_HSBAFilter_Email
             // 
@@ -1585,7 +1710,7 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_Email.Location = new Point(25, 227);
             textBox_HSBAFilter_Email.Name = "textBox_HSBAFilter_Email";
             textBox_HSBAFilter_Email.Size = new Size(365, 32);
-            textBox_HSBAFilter_Email.TabIndex = 7;
+            textBox_HSBAFilter_Email.TabIndex = 3;
             // 
             // button_HSBAFilter_OK
             // 
@@ -1595,7 +1720,7 @@ namespace QuanLyMachTu
             button_HSBAFilter_OK.Location = new Point(25, 710);
             button_HSBAFilter_OK.Name = "button_HSBAFilter_OK";
             button_HSBAFilter_OK.Size = new Size(94, 43);
-            button_HSBAFilter_OK.TabIndex = 4;
+            button_HSBAFilter_OK.TabIndex = 9;
             button_HSBAFilter_OK.Text = "OK";
             button_HSBAFilter_OK.UseVisualStyleBackColor = true;
             button_HSBAFilter_OK.Click += button_HSBAFilter_OK_Click;
@@ -1609,10 +1734,11 @@ namespace QuanLyMachTu
             textBox_HSBAFilter_MaBN.Location = new Point(25, 128);
             textBox_HSBAFilter_MaBN.Name = "textBox_HSBAFilter_MaBN";
             textBox_HSBAFilter_MaBN.Size = new Size(160, 32);
-            textBox_HSBAFilter_MaBN.TabIndex = 3;
+            textBox_HSBAFilter_MaBN.TabIndex = 1;
             // 
             // label31
             // 
+            label31.AccessibleRole = AccessibleRole.None;
             label31.AutoSize = true;
             label31.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label31.ForeColor = Color.White;
@@ -1627,6 +1753,7 @@ namespace QuanLyMachTu
             panel_TKFilter.Anchor = AnchorStyles.Right;
             panel_TKFilter.AutoScroll = true;
             panel_TKFilter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_TKFilter.Controls.Add(button_TKFilter_Reset);
             panel_TKFilter.Controls.Add(label_TKFilters_NgayTao);
             panel_TKFilter.Controls.Add(label35);
             panel_TKFilter.Controls.Add(label36);
@@ -1650,11 +1777,25 @@ namespace QuanLyMachTu
             panel_TKFilter.Location = new Point(1174, 84);
             panel_TKFilter.Name = "panel_TKFilter";
             panel_TKFilter.Size = new Size(416, 780);
-            panel_TKFilter.TabIndex = 33;
+            panel_TKFilter.TabIndex = 0;
             panel_TKFilter.Paint += panel_TKFilter_Paint;
+            // 
+            // button_TKFilter_Reset
+            // 
+            button_TKFilter_Reset.FlatStyle = FlatStyle.Flat;
+            button_TKFilter_Reset.Font = new Font("Segoe UI", 10F);
+            button_TKFilter_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_TKFilter_Reset.Location = new Point(297, 710);
+            button_TKFilter_Reset.Name = "button_TKFilter_Reset";
+            button_TKFilter_Reset.Size = new Size(94, 43);
+            button_TKFilter_Reset.TabIndex = 33;
+            button_TKFilter_Reset.Text = "RESET";
+            button_TKFilter_Reset.UseVisualStyleBackColor = true;
+            button_TKFilter_Reset.Click += button_Reset_Click;
             // 
             // label_TKFilters_NgayTao
             // 
+            label_TKFilters_NgayTao.AccessibleRole = AccessibleRole.None;
             label_TKFilters_NgayTao.AutoSize = true;
             label_TKFilters_NgayTao.BackColor = Color.Transparent;
             label_TKFilters_NgayTao.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1669,6 +1810,7 @@ namespace QuanLyMachTu
             // 
             // label35
             // 
+            label35.AccessibleRole = AccessibleRole.None;
             label35.AutoSize = true;
             label35.BackColor = Color.Transparent;
             label35.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1683,6 +1825,7 @@ namespace QuanLyMachTu
             // 
             // label36
             // 
+            label36.AccessibleRole = AccessibleRole.None;
             label36.AutoSize = true;
             label36.BackColor = Color.Transparent;
             label36.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1697,6 +1840,7 @@ namespace QuanLyMachTu
             // 
             // label37
             // 
+            label37.AccessibleRole = AccessibleRole.None;
             label37.AutoSize = true;
             label37.BackColor = Color.Transparent;
             label37.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1718,11 +1862,12 @@ namespace QuanLyMachTu
             textBox_TKFilter_Nam.Location = new Point(225, 524);
             textBox_TKFilter_Nam.Name = "textBox_TKFilter_Nam";
             textBox_TKFilter_Nam.Size = new Size(60, 32);
-            textBox_TKFilter_Nam.TabIndex = 28;
+            textBox_TKFilter_Nam.TabIndex = 8;
             // 
             // comboBox_TKFilter_Thang
             // 
             comboBox_TKFilter_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TKFilter_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_TKFilter_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_TKFilter_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_TKFilter_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1731,7 +1876,7 @@ namespace QuanLyMachTu
             comboBox_TKFilter_Thang.Location = new Point(115, 524);
             comboBox_TKFilter_Thang.Name = "comboBox_TKFilter_Thang";
             comboBox_TKFilter_Thang.Size = new Size(85, 40);
-            comboBox_TKFilter_Thang.TabIndex = 28;
+            comboBox_TKFilter_Thang.TabIndex = 7;
             // 
             // textBox_TKFilter_Ngay
             // 
@@ -1742,11 +1887,12 @@ namespace QuanLyMachTu
             textBox_TKFilter_Ngay.Location = new Point(25, 524);
             textBox_TKFilter_Ngay.Name = "textBox_TKFilter_Ngay";
             textBox_TKFilter_Ngay.Size = new Size(55, 32);
-            textBox_TKFilter_Ngay.TabIndex = 22;
+            textBox_TKFilter_Ngay.TabIndex = 6;
             // 
             // comboBox_TKFilter_Operation
             // 
             comboBox_TKFilter_Operation.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TKFilter_Operation.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_TKFilter_Operation.FlatStyle = FlatStyle.Flat;
             comboBox_TKFilter_Operation.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_TKFilter_Operation.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1755,10 +1901,11 @@ namespace QuanLyMachTu
             comboBox_TKFilter_Operation.Location = new Point(315, 524);
             comboBox_TKFilter_Operation.Name = "comboBox_TKFilter_Operation";
             comboBox_TKFilter_Operation.Size = new Size(59, 40);
-            comboBox_TKFilter_Operation.TabIndex = 21;
+            comboBox_TKFilter_Operation.TabIndex = 9;
             // 
             // label38
             // 
+            label38.AccessibleRole = AccessibleRole.None;
             label38.AutoSize = true;
             label38.BackColor = Color.Transparent;
             label38.FlatStyle = FlatStyle.Flat;
@@ -1773,6 +1920,7 @@ namespace QuanLyMachTu
             // 
             // label39
             // 
+            label39.AccessibleRole = AccessibleRole.None;
             label39.AutoSize = true;
             label39.BackColor = Color.Transparent;
             label39.FlatStyle = FlatStyle.Flat;
@@ -1787,6 +1935,7 @@ namespace QuanLyMachTu
             // 
             // label40
             // 
+            label40.AccessibleRole = AccessibleRole.None;
             label40.AutoSize = true;
             label40.BackColor = Color.Transparent;
             label40.FlatStyle = FlatStyle.Flat;
@@ -1801,6 +1950,7 @@ namespace QuanLyMachTu
             // 
             // label41
             // 
+            label41.AccessibleRole = AccessibleRole.None;
             label41.AutoSize = true;
             label41.BackColor = Color.Transparent;
             label41.FlatStyle = FlatStyle.Flat;
@@ -1815,6 +1965,7 @@ namespace QuanLyMachTu
             // 
             // label42
             // 
+            label42.AccessibleRole = AccessibleRole.None;
             label42.AutoSize = true;
             label42.BackColor = Color.Transparent;
             label42.FlatStyle = FlatStyle.Flat;
@@ -1836,7 +1987,7 @@ namespace QuanLyMachTu
             textBox_TKFilter_MaTK.Location = new Point(230, 128);
             textBox_TKFilter_MaTK.Name = "textBox_TKFilter_MaTK";
             textBox_TKFilter_MaTK.Size = new Size(160, 32);
-            textBox_TKFilter_MaTK.TabIndex = 10;
+            textBox_TKFilter_MaTK.TabIndex = 2;
             // 
             // textBox_TKFilter_SDT
             // 
@@ -1847,7 +1998,7 @@ namespace QuanLyMachTu
             textBox_TKFilter_SDT.Location = new Point(25, 425);
             textBox_TKFilter_SDT.Name = "textBox_TKFilter_SDT";
             textBox_TKFilter_SDT.Size = new Size(365, 32);
-            textBox_TKFilter_SDT.TabIndex = 8;
+            textBox_TKFilter_SDT.TabIndex = 5;
             // 
             // textBox_TKFilter_Email
             // 
@@ -1858,7 +2009,7 @@ namespace QuanLyMachTu
             textBox_TKFilter_Email.Location = new Point(25, 326);
             textBox_TKFilter_Email.Name = "textBox_TKFilter_Email";
             textBox_TKFilter_Email.Size = new Size(365, 32);
-            textBox_TKFilter_Email.TabIndex = 7;
+            textBox_TKFilter_Email.TabIndex = 4;
             // 
             // textBox_TKFilter_TenTK
             // 
@@ -1869,7 +2020,7 @@ namespace QuanLyMachTu
             textBox_TKFilter_TenTK.Location = new Point(25, 227);
             textBox_TKFilter_TenTK.Name = "textBox_TKFilter_TenTK";
             textBox_TKFilter_TenTK.Size = new Size(365, 32);
-            textBox_TKFilter_TenTK.TabIndex = 5;
+            textBox_TKFilter_TenTK.TabIndex = 3;
             // 
             // button_TKFilter_OK
             // 
@@ -1879,7 +2030,7 @@ namespace QuanLyMachTu
             button_TKFilter_OK.Location = new Point(25, 710);
             button_TKFilter_OK.Name = "button_TKFilter_OK";
             button_TKFilter_OK.Size = new Size(94, 43);
-            button_TKFilter_OK.TabIndex = 4;
+            button_TKFilter_OK.TabIndex = 10;
             button_TKFilter_OK.Text = "OK";
             button_TKFilter_OK.UseVisualStyleBackColor = true;
             button_TKFilter_OK.Click += button_TKFilter_OK_Click;
@@ -1893,10 +2044,11 @@ namespace QuanLyMachTu
             textBox_TKFilter_MaBN.Location = new Point(25, 128);
             textBox_TKFilter_MaBN.Name = "textBox_TKFilter_MaBN";
             textBox_TKFilter_MaBN.Size = new Size(160, 32);
-            textBox_TKFilter_MaBN.TabIndex = 3;
+            textBox_TKFilter_MaBN.TabIndex = 1;
             // 
             // label43
             // 
+            label43.AccessibleRole = AccessibleRole.None;
             label43.AutoSize = true;
             label43.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label43.ForeColor = Color.White;
@@ -1908,6 +2060,7 @@ namespace QuanLyMachTu
             // 
             // BenhNhanControl
             // 
+            AccessibleRole = AccessibleRole.None;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
@@ -1916,12 +2069,12 @@ namespace QuanLyMachTu
             Controls.Add(customPanel_DetailsControl);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Toolbar);
-            Controls.Add(panel_TKFilter);
-            Controls.Add(panel_HSBAFilter);
-            Controls.Add(panel_BNFilter);
             Controls.Add(panel_TKUpload);
             Controls.Add(panel_HSBAUpload);
             Controls.Add(panel_BNUpload);
+            Controls.Add(panel_TKFilter);
+            Controls.Add(panel_HSBAFilter);
+            Controls.Add(panel_BNFilter);
             Name = "BenhNhanControl";
             Size = new Size(1590, 864);
             Load += BenhNhanControl_Load;
@@ -1953,7 +2106,6 @@ namespace QuanLyMachTu
         private TextBox textBox_Filters_DoanhSo;
         private TextBox textBox_Filters_Email;
         private TextBox textBox_Filters_SDT;
-        private TextBox textBox_GE;
         private TextBox textBox_Filters_MaHSBA;
         private TextBox textBox_Filters_MaTK;
         private Label label_Filters_MaBN;
@@ -2068,5 +2220,12 @@ namespace QuanLyMachTu
         private TextBox textBox_HSBAFilter_MaHSBA;
         private TextBox textBox_HSBAFilter_SDT;
         private TextBox textBox_HSBAFilter_Email;
+        private ComboBox comboBox_BNFilters_Comparer;
+        private Button button_BNFilter_Reset;
+        private Button button_Upload_Reset;
+        private Button button_TKUpload_Reset;
+        private Button button_HSBAUpload_Reset;
+        private Button button_HSBAFilter_Reset;
+        private Button button_TKFilter_Reset;
     }
 }

@@ -54,6 +54,7 @@ namespace QuanLyMachTu
             controlDataGridView = customDataGridView;
             controlPage = DV_TAB;
             EnablePage(controlPage);
+            panel_DV_Filter.BringToFront();
         }
 
         private void EnablePage(int controlPage)
@@ -169,6 +170,23 @@ namespace QuanLyMachTu
             }
 
             UpdateDataGridView(customDataGridView, controlDataTable);
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
+
+            Pen linePen = new Pen(lineColor, 1);
+            int offset = 5;
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox && control != textBox_DV_MoTa)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
         }
 
         #region DichVu Tab
