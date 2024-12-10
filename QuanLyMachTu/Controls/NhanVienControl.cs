@@ -50,6 +50,7 @@ namespace QuanLyMachTu.Controls
             controlDataGridView = customDataGridView;
             controlPage = NV_TAB;
             EnablePage(controlPage);
+            panel_NV_Filter.BringToFront();
         }
         private void EnablePage(int controlPage)
         {
@@ -298,8 +299,6 @@ namespace QuanLyMachTu.Controls
                 targetRow["Email"] = textBox_NV_Upload_Email.Text;
                 targetRow["Luong"] = textBox_NV_Upload_Luong.Text;
                 targetRow["KinhNghiem"] = textBox_NV_Upload_NamKN.Text;
-                targetRow["DanhGia"] = textBox_NV_Upload_DanhGia.Text;
-
                 datatable_NV.Rows.Add(targetRow);
             }
             else //Update
@@ -313,7 +312,6 @@ namespace QuanLyMachTu.Controls
                 targetRow["Email"] = textBox_NV_Upload_Email.Text;
                 targetRow["Luong"] = textBox_NV_Upload_Luong.Text;
                 targetRow["KinhNghiem"] = textBox_NV_Upload_NamKN.Text;
-                targetRow["DanhGia"] = textBox_NV_Upload_DanhGia.Text;
             }
 
             UpdateDataGridView(customDataGridView, datatable_NV);
@@ -374,8 +372,8 @@ namespace QuanLyMachTu.Controls
         private void LoadTabKhoa()
         {
             LoadDataToDataSet("SELECT * FROM KHOA", "KHOA");
-            datatable_NV = dataset.Tables["KHOA"];
-            datatable_NV.PrimaryKey = new DataColumn[] { datatable_NV.Columns["MaKhoa"] };
+            datatable_Khoa = dataset.Tables["KHOA"];
+            datatable_Khoa.PrimaryKey = new DataColumn[] { datatable_Khoa.Columns["MaKhoa"] };
 
             comboBox_Khoa_Operation.SelectedItem = comboBox_Khoa_Operation.Items[0];
         }
@@ -456,11 +454,11 @@ namespace QuanLyMachTu.Controls
 
             if (string.IsNullOrEmpty(textBox_Khoa_TenKhoa_Filter.Text) == false)
                 selectCommand += $"AND TenKhoa = '{textBox_Khoa_TenKhoa_Filter.Text}' ";
-            
+
             string operation = GetOperation(comboBox_Khoa_Operation);
             if (string.IsNullOrEmpty(textBox_Khoa_SoLuong_Filter.Text) == false)
                 selectCommand += $"AND SoLuong {operation} '{textBox_Khoa_SoLuong_Filter.Text}' ";
-            
+
             if (string.IsNullOrEmpty(textBox_Khoa_MaNVQuanLy_Filter.Text) == false)
                 selectCommand += $"AND MaNV_QuanLy = '{textBox_Khoa_MaNVQuanLy_Filter.Text}' ";
 
@@ -479,5 +477,22 @@ namespace QuanLyMachTu.Controls
         }
 
         #endregion
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
+
+            Pen linePen = new Pen(lineColor, 1);
+            int offset = 5;
+
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
+        }
     }
 }
