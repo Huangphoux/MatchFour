@@ -12,11 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-//using System.Windows.Controls;
-using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.AxHost;
-
 namespace QuanLyMachTu
 {
     public partial class PhongKhamControl : UserControl
@@ -72,6 +67,7 @@ namespace QuanLyMachTu
             SwitchMode(controlPage);
             EnablePage(controlPage);
             panel_Filters.BringToFront();
+            customDataGridView_PK.Focus();
         }
         //Activate / Deactivate tab
         private void EnablePage(int controlPage)
@@ -231,7 +227,7 @@ namespace QuanLyMachTu
             switch (controlPage)
             {
                 case PK_TAB:
-                    panel_PK_color = activatedColor;                    
+                    panel_PK_color = activatedColor;
                     break;
                 case PC_TAB:
                     panel_PC_color = activatedColor;
@@ -247,32 +243,20 @@ namespace QuanLyMachTu
         }
         private void panel_Filter_Paint(object sender, PaintEventArgs e)
         {
+            Panel panel = sender as Panel;
+
             Color lineColor = Color.FromArgb(193, 193, 193);
             Graphics graphic = e.Graphics;
 
             Pen linePen = new Pen(lineColor, 1);
-            int startX = 20, endX = 395, offset = 5;
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_MaPK.Location.Y + textBox_Filters_MaPK.Height + offset),
-                                      new Point(textBox_Filters_MaPK.Location.X + textBox_Filters_MaPK.Width + offset, textBox_Filters_MaPK.Location.Y + textBox_Filters_MaPK.Height + offset)); //MaPK line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_SoGhe.Location.X - offset, textBox_Filters_SoGhe.Location.Y + textBox_Filters_SoGhe.Height + offset),
-                                      new Point(textBox_Filters_SoGhe.Location.X + textBox_Filters_SoGhe.Width + offset, textBox_Filters_SoGhe.Location.Y + textBox_Filters_SoGhe.Height + offset)); //SoGhe line            
+            int offset = 5;
 
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_MaNV.Location.Y + textBox_Filters_MaNV.Height + offset),
-                                      new Point(textBox_Filters_MaNV.Location.X + textBox_Filters_MaNV.Width + offset, textBox_Filters_MaNV.Location.Y + textBox_Filters_MaNV.Height + offset)); //MaNV line
-
-            graphic.DrawLine(linePen, new Point(startX, textBox_Filters_TGBDGio.Location.Y + textBox_Filters_TGBDGio.Height + offset),
-                                      new Point(textBox_Filters_TGBDGio.Location.X + textBox_Filters_TGBDGio.Width + offset, textBox_Filters_TGBDGio.Location.Y + textBox_Filters_TGBDGio.Height + offset)); //TGBD Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGBDPhut.Location.X - offset, textBox_Filters_TGBDPhut.Location.Y + textBox_Filters_TGBDPhut.Height + offset),
-                                      new Point(textBox_Filters_TGBDPhut.Location.X + textBox_Filters_TGBDPhut.Width + offset, textBox_Filters_TGBDPhut.Location.Y + textBox_Filters_TGBDPhut.Height + offset)); //TGBD Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGBDGiay.Location.X - offset, textBox_Filters_TGBDGiay.Location.Y + textBox_Filters_TGBDGiay.Height + offset),
-                                      new Point(textBox_Filters_TGBDGiay.Location.X + textBox_Filters_TGBDGiay.Width + offset, textBox_Filters_TGBDGiay.Location.Y + textBox_Filters_TGBDGiay.Height + offset)); //TGBD Giay line
-
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTGio.Location.X - offset, textBox_Filters_TGKTGio.Location.Y + textBox_Filters_TGKTGio.Height + offset),
-                                      new Point(textBox_Filters_TGKTGio.Location.X + textBox_Filters_TGKTGio.Width + offset, textBox_Filters_TGKTGio.Location.Y + textBox_Filters_TGKTGio.Height + offset)); //TGKT Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTPhut.Location.X - offset, textBox_Filters_TGKTPhut.Location.Y + textBox_Filters_TGKTPhut.Height + offset),
-                                      new Point(textBox_Filters_TGKTPhut.Location.X + textBox_Filters_TGKTPhut.Width + offset, textBox_Filters_TGKTPhut.Location.Y + textBox_Filters_TGKTPhut.Height + offset)); //TGKT Phut line
-            graphic.DrawLine(linePen, new Point(textBox_Filters_TGKTGiay.Location.X - offset, textBox_Filters_TGKTGiay.Location.Y + textBox_Filters_TGKTGiay.Height + offset),
-                                      new Point(textBox_Filters_TGKTGiay.Location.X + textBox_Filters_TGKTGiay.Width + offset, textBox_Filters_TGKTGiay.Location.Y + textBox_Filters_TGKTGiay.Height + offset)); //TGKT Giay line
+            foreach (Control control in panel.Controls)
+            {
+                if (control is TextBox)
+                    graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
+                                              new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
+            }
         }
         //Additions        
         private void WarningComboBox(ComboBox cb)
@@ -391,11 +375,28 @@ namespace QuanLyMachTu
                 return;
             }
         }
-
         private void textBox_EnabledChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             textBox.BackColor = Color.FromArgb(57, 54, 70);
+        }
+        private void customDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                pageButton_Remove_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                pageButton_Filters_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.T)
+            {
+                pageButton_Upload_Click(sender, e);
+                e.Handled = true;
+            }
         }
 
         //---------------------------------------------------------------Phong Kham tab---------------------------------------------------------------        
@@ -409,6 +410,8 @@ namespace QuanLyMachTu
             controlPage = PK_TAB;
             SwitchMode(controlPage);
             EnablePage(controlPage);
+
+            customDataGridView_PK.Focus();
         }
         //Initial State
         private void InitializeState_PK()
@@ -428,6 +431,9 @@ namespace QuanLyMachTu
             datatablePK.PrimaryKey = new DataColumn[] { datatablePK.Columns["MaPK"] };
 
             UpdateDataGridView(customDataGridView_PK, datatablePK);
+
+            //Filters
+            comboBox_Filters_Comparer.SelectedIndex = 2;
         }
         //Check and prevent errors
         private int CheckUploadError_PK()
@@ -502,8 +508,9 @@ namespace QuanLyMachTu
             //Search for Phong Kham with its information            
             if (string.IsNullOrEmpty(textBox_Filters_MaPK.Text) == false)
                 selectCommandPK += $"AND MaPK = '{textBox_Filters_MaPK.Text}' ";
+            string comparer = GetOperation(comboBox_Filters_Comparer);
             if (string.IsNullOrEmpty(textBox_Filters_SoGhe.Text) == false)
-                selectCommandPK += $"AND SoGhe = '{textBox_Filters_SoGhe.Text}' ";
+                selectCommandPK += $"AND SoGhe {comparer} {textBox_Filters_SoGhe.Text} ";
             string trangThai = GetTrangThai(comboBox_Filters_TrangThai);
             if (string.IsNullOrEmpty(trangThai) == false)
                 selectCommandPK += $"AND TrangThai = '{trangThai}' ";
@@ -566,6 +573,20 @@ namespace QuanLyMachTu
             graphic.DrawLine(linePen, new Point(textBox_Upload_SoGhe.Location.X - offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset),
                                       new Point(textBox_Upload_SoGhe.Location.X + textBox_Upload_SoGhe.Width + offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset)); //SoGhe line
         }
+        //Addition
+        private string GetOperation(ComboBox operations)
+        {
+            string selected = operations.SelectedItem as string;
+            switch (selected)
+            {
+                case "≥":
+                    return ">=";
+                case "≤":
+                    return "<=";
+                default:
+                    return selected;
+            }
+        }
 
         //---------------------------------------------------------------Phan Cong tab---------------------------------------------------------------        
         //Activate tab
@@ -578,6 +599,8 @@ namespace QuanLyMachTu
             controlPage = PC_TAB;
             SwitchMode(controlPage);
             EnablePage(controlPage);
+
+            customDataGridView_PC.Focus();
         }
         //Initial state
         private void InitializeState_PC()
@@ -763,7 +786,7 @@ namespace QuanLyMachTu
 
             graphic.DrawLine(linePen, new Point(startX, textBox_Upload_TGBDGio.Location.Y + textBox_Upload_TGBDGio.Height + offset),
                                       new Point(textBox_Upload_TGBDGio.Location.X + textBox_Upload_TGBDGio.Width + offset, textBox_Upload_TGBDGio.Location.Y + textBox_Upload_TGBDGio.Height + offset)); //TGBD Gio line       
-            graphic.DrawLine(linePen, new Point(textBox_Upload_TGBDPhut.Location.X - offset, textBox_Upload_TGBDPhut.Location.Y + textBox_Upload_TGBDPhut.Height + offset), 
+            graphic.DrawLine(linePen, new Point(textBox_Upload_TGBDPhut.Location.X - offset, textBox_Upload_TGBDPhut.Location.Y + textBox_Upload_TGBDPhut.Height + offset),
                                       new Point(textBox_Upload_TGBDPhut.Location.X + textBox_Upload_TGBDPhut.Width + offset, textBox_Upload_TGBDPhut.Location.Y + textBox_Upload_TGBDPhut.Height + offset)); //TGBD Phut line
             graphic.DrawLine(linePen, new Point(textBox_Upload_TGBDGiay.Location.X - offset, textBox_Upload_TGBDGiay.Location.Y + textBox_Upload_TGBDGiay.Height + offset),
                                       new Point(textBox_Upload_TGBDGiay.Location.X + textBox_Upload_TGBDGiay.Width + offset, textBox_Upload_TGBDGiay.Location.Y + textBox_Upload_TGBDGiay.Height + offset)); //TGBD Giay line
@@ -806,7 +829,7 @@ namespace QuanLyMachTu
 
             switch (controlFunc)
             {
-                case INS_FUNC:                    
+                case INS_FUNC:
                     textBox_Upload_MaPK.Text = row["MaPK"].ToString();
                     comboBox_Upload_TrangThai.Text = row_PK["TrangThai"].ToString();
                     textBox_Upload_SoGhe.Text = row_PK["SoGhe"].ToString();
@@ -824,7 +847,7 @@ namespace QuanLyMachTu
                     textBox_Upload_TGKTPhut.Text = finishTime.Minutes.ToString("D2");
                     textBox_Upload_TGKTGiay.Text = finishTime.Seconds.ToString("D2");
 
-                    break;                    
+                    break;
                 case FIL_FUNC:
                     textBox_Filters_MaPK.Text = row["MaPK"].ToString();
                     comboBox_Filters_TrangThai.Text = row_PK["TrangThai"].ToString();
@@ -861,6 +884,47 @@ namespace QuanLyMachTu
                     textBox_Filters_SoGhe.Text = row["SoGhe"].ToString();
                     break;
             }
+        }
+
+        private void button_Upload_Reset_Click(object sender, EventArgs e)
+        {
+            textBox_Upload_MaPK.Text = "";
+
+            if (controlPage == PK_TAB)
+            {
+                textBox_Upload_SoGhe.Text = "";
+                comboBox_Upload_TrangThai.SelectedIndex = 0;
+            }
+            else if (controlPage == PC_TAB)
+            {
+                textBox_Upload_MaNV.Text = "";
+                textBox_Upload_TGBDGio.Text = "00";
+                textBox_Upload_TGBDPhut.Text = "00";
+                textBox_Upload_TGBDGiay.Text = "00";
+                textBox_Upload_TGKTGio.Text = "23";
+                textBox_Upload_TGKTPhut.Text = "59";
+                textBox_Upload_TGKTGiay.Text = "59";
+            }
+        }
+
+        private void button_Filters_Reset_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Panel containingPanel = clickedButton.Parent as Panel;
+
+            foreach (Control control in containingPanel.Controls)
+                if (control is TextBox textBox)
+                    textBox.Text = "";
+
+            comboBox_Filters_Comparer.SelectedIndex = 2;
+            comboBox_Filters_TrangThai.Text = "";
+
+            textBox_Filters_TGBDGio.Text = "00";
+            textBox_Filters_TGBDPhut.Text = "00";
+            textBox_Filters_TGBDGiay.Text = "00";
+            textBox_Filters_TGKTGio.Text = "23";
+            textBox_Filters_TGKTPhut.Text = "59";
+            textBox_Filters_TGKTGiay.Text = "59";
         }
     }
 }

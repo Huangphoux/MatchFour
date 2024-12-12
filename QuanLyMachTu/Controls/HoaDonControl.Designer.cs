@@ -33,6 +33,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pageButton_Filter = new Custom.PageButton();
             panel_HDFilters = new Panel();
+            button_HDFilters_Reset = new Button();
+            comboBox_HDFilters_TongTriGiaComparer = new ComboBox();
             textBox_HDFilters_MaDV = new TextBox();
             label13 = new Label();
             comboBox_HDFilters_SLComparer = new ComboBox();
@@ -55,7 +57,6 @@
             label_Filters_MaBN = new Label();
             textBox_HDFilters_MaNV = new TextBox();
             textBox_HDFilters_MaBN = new TextBox();
-            textBox_GE = new TextBox();
             textBox_HDFilters_TongTriGia = new TextBox();
             button_HDFilters_OK = new Button();
             textBox_HDFilters_MaHD = new TextBox();
@@ -70,6 +71,7 @@
             customPanel_Sum = new Custom.CustomPanel();
             customDataGridView = new Custom.CustomDataGridView();
             panel_Upload = new Panel();
+            button_Upload_Reset = new Button();
             textBox_Upload_MaDV = new TextBox();
             label22 = new Label();
             label_Upload_DichVu = new Label();
@@ -95,6 +97,7 @@
             button_Upload_OK = new Button();
             label_BNUpload = new Label();
             panel_DTFilters = new Panel();
+            button_DTFilters_Reset = new Button();
             comboBox_DTFilters_ComparerSoLuong = new ComboBox();
             comboBox_DTFilters_ComparerGiaTien = new ComboBox();
             textBox_DTFilters_GiaTien = new TextBox();
@@ -108,6 +111,7 @@
             textBox_DTFilters_MaHD = new TextBox();
             label33 = new Label();
             panel_HDDVFilters = new Panel();
+            button_HDDVFilters_Reset = new Button();
             comboBox_HDDVFilters_Comparer = new ComboBox();
             textBox_HDDVFilters_ChiPhi = new TextBox();
             label6 = new Label();
@@ -143,7 +147,7 @@
             pageButton_Filter.Location = new Point(1094, 13);
             pageButton_Filter.Name = "pageButton_Filter";
             pageButton_Filter.Size = new Size(55, 55);
-            pageButton_Filter.TabIndex = 3;
+            pageButton_Filter.TabIndex = 97;
             pageButton_Filter.TextLocation = new Point(0, 0);
             pageButton_Filter.UseVisualStyleBackColor = false;
             pageButton_Filter.Click += pageButton_Filters_Click;
@@ -153,6 +157,8 @@
             panel_HDFilters.Anchor = AnchorStyles.Right;
             panel_HDFilters.AutoScroll = true;
             panel_HDFilters.BackColor = Color.FromArgb(57, 54, 70);
+            panel_HDFilters.Controls.Add(button_HDFilters_Reset);
+            panel_HDFilters.Controls.Add(comboBox_HDFilters_TongTriGiaComparer);
             panel_HDFilters.Controls.Add(textBox_HDFilters_MaDV);
             panel_HDFilters.Controls.Add(label13);
             panel_HDFilters.Controls.Add(comboBox_HDFilters_SLComparer);
@@ -175,7 +181,6 @@
             panel_HDFilters.Controls.Add(label_Filters_MaBN);
             panel_HDFilters.Controls.Add(textBox_HDFilters_MaNV);
             panel_HDFilters.Controls.Add(textBox_HDFilters_MaBN);
-            panel_HDFilters.Controls.Add(textBox_GE);
             panel_HDFilters.Controls.Add(textBox_HDFilters_TongTriGia);
             panel_HDFilters.Controls.Add(button_HDFilters_OK);
             panel_HDFilters.Controls.Add(textBox_HDFilters_MaHD);
@@ -183,8 +188,35 @@
             panel_HDFilters.Location = new Point(1174, 84);
             panel_HDFilters.Name = "panel_HDFilters";
             panel_HDFilters.Size = new Size(416, 780);
-            panel_HDFilters.TabIndex = 35;
-            panel_HDFilters.Paint += panel_Filter_Paint;
+            panel_HDFilters.TabIndex = 0;
+            panel_HDFilters.Paint += panel_HDFilter_Paint;
+            // 
+            // button_HDFilters_Reset
+            // 
+            button_HDFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_HDFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_HDFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_HDFilters_Reset.Location = new Point(297, 710);
+            button_HDFilters_Reset.Name = "button_HDFilters_Reset";
+            button_HDFilters_Reset.Size = new Size(94, 43);
+            button_HDFilters_Reset.TabIndex = 41;
+            button_HDFilters_Reset.Text = "RESET";
+            button_HDFilters_Reset.UseVisualStyleBackColor = true;
+            button_HDFilters_Reset.Click += button_Filter_Reset_Click;
+            // 
+            // comboBox_HDFilters_TongTriGiaComparer
+            // 
+            comboBox_HDFilters_TongTriGiaComparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HDFilters_TongTriGiaComparer.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_HDFilters_TongTriGiaComparer.FlatStyle = FlatStyle.Flat;
+            comboBox_HDFilters_TongTriGiaComparer.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_HDFilters_TongTriGiaComparer.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_HDFilters_TongTriGiaComparer.FormattingEnabled = true;
+            comboBox_HDFilters_TongTriGiaComparer.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_HDFilters_TongTriGiaComparer.Location = new Point(331, 227);
+            comboBox_HDFilters_TongTriGiaComparer.Name = "comboBox_HDFilters_TongTriGiaComparer";
+            comboBox_HDFilters_TongTriGiaComparer.Size = new Size(59, 40);
+            comboBox_HDFilters_TongTriGiaComparer.TabIndex = 5;
             // 
             // textBox_HDFilters_MaDV
             // 
@@ -195,10 +227,11 @@
             textBox_HDFilters_MaDV.Location = new Point(25, 602);
             textBox_HDFilters_MaDV.Name = "textBox_HDFilters_MaDV";
             textBox_HDFilters_MaDV.Size = new Size(145, 32);
-            textBox_HDFilters_MaDV.TabIndex = 41;
+            textBox_HDFilters_MaDV.TabIndex = 13;
             // 
             // label13
             // 
+            label13.AccessibleRole = AccessibleRole.None;
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
             label13.FlatStyle = FlatStyle.Flat;
@@ -214,6 +247,7 @@
             // comboBox_HDFilters_SLComparer
             // 
             comboBox_HDFilters_SLComparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HDFilters_SLComparer.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HDFilters_SLComparer.FlatStyle = FlatStyle.Flat;
             comboBox_HDFilters_SLComparer.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HDFilters_SLComparer.ForeColor = Color.FromArgb(244, 238, 224);
@@ -222,11 +256,12 @@
             comboBox_HDFilters_SLComparer.Location = new Point(331, 508);
             comboBox_HDFilters_SLComparer.Name = "comboBox_HDFilters_SLComparer";
             comboBox_HDFilters_SLComparer.Size = new Size(59, 40);
-            comboBox_HDFilters_SLComparer.TabIndex = 39;
+            comboBox_HDFilters_SLComparer.TabIndex = 12;
             // 
             // comboBox_HDFilters_DateComparer
             // 
             comboBox_HDFilters_DateComparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HDFilters_DateComparer.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HDFilters_DateComparer.FlatStyle = FlatStyle.Flat;
             comboBox_HDFilters_DateComparer.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HDFilters_DateComparer.ForeColor = Color.FromArgb(244, 238, 224);
@@ -235,7 +270,7 @@
             comboBox_HDFilters_DateComparer.Location = new Point(315, 318);
             comboBox_HDFilters_DateComparer.Name = "comboBox_HDFilters_DateComparer";
             comboBox_HDFilters_DateComparer.Size = new Size(59, 40);
-            comboBox_HDFilters_DateComparer.TabIndex = 38;
+            comboBox_HDFilters_DateComparer.TabIndex = 9;
             // 
             // textBox_HDFilters_SoLuong
             // 
@@ -245,8 +280,8 @@
             textBox_HDFilters_SoLuong.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_HDFilters_SoLuong.Location = new Point(245, 508);
             textBox_HDFilters_SoLuong.Name = "textBox_HDFilters_SoLuong";
-            textBox_HDFilters_SoLuong.Size = new Size(70, 32);
-            textBox_HDFilters_SoLuong.TabIndex = 37;
+            textBox_HDFilters_SoLuong.Size = new Size(65, 32);
+            textBox_HDFilters_SoLuong.TabIndex = 11;
             textBox_HDFilters_SoLuong.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // textBox_HDFilters_MaDP
@@ -258,10 +293,11 @@
             textBox_HDFilters_MaDP.Location = new Point(25, 508);
             textBox_HDFilters_MaDP.Name = "textBox_HDFilters_MaDP";
             textBox_HDFilters_MaDP.Size = new Size(145, 32);
-            textBox_HDFilters_MaDP.TabIndex = 36;
+            textBox_HDFilters_MaDP.TabIndex = 10;
             // 
             // label12
             // 
+            label12.AccessibleRole = AccessibleRole.None;
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.FlatStyle = FlatStyle.Flat;
@@ -276,6 +312,7 @@
             // 
             // label11
             // 
+            label11.AccessibleRole = AccessibleRole.None;
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.FlatStyle = FlatStyle.Flat;
@@ -290,6 +327,7 @@
             // 
             // label_Filters_ThongTinBoSung
             // 
+            label_Filters_ThongTinBoSung.AccessibleRole = AccessibleRole.None;
             label_Filters_ThongTinBoSung.AutoSize = true;
             label_Filters_ThongTinBoSung.BackColor = Color.Transparent;
             label_Filters_ThongTinBoSung.FlatStyle = FlatStyle.Flat;
@@ -304,6 +342,7 @@
             // 
             // label_HDFilters_NgayLap
             // 
+            label_HDFilters_NgayLap.AccessibleRole = AccessibleRole.None;
             label_HDFilters_NgayLap.AutoSize = true;
             label_HDFilters_NgayLap.BackColor = Color.Transparent;
             label_HDFilters_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -325,12 +364,13 @@
             textBox_HDFilters_Nam.Location = new Point(225, 326);
             textBox_HDFilters_Nam.Name = "textBox_HDFilters_Nam";
             textBox_HDFilters_Nam.Size = new Size(60, 32);
-            textBox_HDFilters_Nam.TabIndex = 31;
+            textBox_HDFilters_Nam.TabIndex = 8;
             textBox_HDFilters_Nam.TextAlign = HorizontalAlignment.Center;
             textBox_HDFilters_Nam.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label19
             // 
+            label19.AccessibleRole = AccessibleRole.None;
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -346,6 +386,7 @@
             // comboBox_HDFilters_Thang
             // 
             comboBox_HDFilters_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HDFilters_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HDFilters_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_HDFilters_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HDFilters_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -354,10 +395,11 @@
             comboBox_HDFilters_Thang.Location = new Point(115, 318);
             comboBox_HDFilters_Thang.Name = "comboBox_HDFilters_Thang";
             comboBox_HDFilters_Thang.Size = new Size(85, 40);
-            comboBox_HDFilters_Thang.TabIndex = 29;
+            comboBox_HDFilters_Thang.TabIndex = 7;
             // 
             // label20
             // 
+            label20.AccessibleRole = AccessibleRole.None;
             label20.AutoSize = true;
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -379,12 +421,13 @@
             textBox_HDFilters_Ngay.Location = new Point(25, 326);
             textBox_HDFilters_Ngay.Name = "textBox_HDFilters_Ngay";
             textBox_HDFilters_Ngay.Size = new Size(55, 32);
-            textBox_HDFilters_Ngay.TabIndex = 27;
+            textBox_HDFilters_Ngay.TabIndex = 6;
             textBox_HDFilters_Ngay.TextAlign = HorizontalAlignment.Center;
             textBox_HDFilters_Ngay.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label21
             // 
+            label21.AccessibleRole = AccessibleRole.None;
             label21.AutoSize = true;
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -399,6 +442,7 @@
             // 
             // label_Filters_DoanhSo
             // 
+            label_Filters_DoanhSo.AccessibleRole = AccessibleRole.None;
             label_Filters_DoanhSo.AutoSize = true;
             label_Filters_DoanhSo.BackColor = Color.Transparent;
             label_Filters_DoanhSo.FlatStyle = FlatStyle.Flat;
@@ -413,6 +457,7 @@
             // 
             // label_Filters_MaTK
             // 
+            label_Filters_MaTK.AccessibleRole = AccessibleRole.None;
             label_Filters_MaTK.AutoSize = true;
             label_Filters_MaTK.BackColor = Color.Transparent;
             label_Filters_MaTK.FlatStyle = FlatStyle.Flat;
@@ -427,6 +472,7 @@
             // 
             // label_Filters_MaHSBA
             // 
+            label_Filters_MaHSBA.AccessibleRole = AccessibleRole.None;
             label_Filters_MaHSBA.AutoSize = true;
             label_Filters_MaHSBA.BackColor = Color.Transparent;
             label_Filters_MaHSBA.FlatStyle = FlatStyle.Flat;
@@ -441,6 +487,7 @@
             // 
             // label_Filters_MaBN
             // 
+            label_Filters_MaBN.AccessibleRole = AccessibleRole.None;
             label_Filters_MaBN.AutoSize = true;
             label_Filters_MaBN.BackColor = Color.Transparent;
             label_Filters_MaBN.FlatStyle = FlatStyle.Flat;
@@ -462,7 +509,7 @@
             textBox_HDFilters_MaNV.Location = new Point(285, 128);
             textBox_HDFilters_MaNV.Name = "textBox_HDFilters_MaNV";
             textBox_HDFilters_MaNV.Size = new Size(105, 32);
-            textBox_HDFilters_MaNV.TabIndex = 11;
+            textBox_HDFilters_MaNV.TabIndex = 3;
             textBox_HDFilters_MaNV.KeyPress += button_KeyPress_Normal;
             // 
             // textBox_HDFilters_MaBN
@@ -474,22 +521,8 @@
             textBox_HDFilters_MaBN.Location = new Point(155, 128);
             textBox_HDFilters_MaBN.Name = "textBox_HDFilters_MaBN";
             textBox_HDFilters_MaBN.Size = new Size(105, 32);
-            textBox_HDFilters_MaBN.TabIndex = 10;
+            textBox_HDFilters_MaBN.TabIndex = 2;
             textBox_HDFilters_MaBN.KeyPress += button_KeyPress_Normal;
-            // 
-            // textBox_GE
-            // 
-            textBox_GE.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_GE.BorderStyle = BorderStyle.None;
-            textBox_GE.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_GE.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_GE.Location = new Point(351, 227);
-            textBox_GE.Name = "textBox_GE";
-            textBox_GE.ReadOnly = true;
-            textBox_GE.Size = new Size(39, 32);
-            textBox_GE.TabIndex = 9;
-            textBox_GE.Text = "≥";
-            textBox_GE.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox_HDFilters_TongTriGia
             // 
@@ -499,9 +532,8 @@
             textBox_HDFilters_TongTriGia.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_HDFilters_TongTriGia.Location = new Point(25, 227);
             textBox_HDFilters_TongTriGia.Name = "textBox_HDFilters_TongTriGia";
-            textBox_HDFilters_TongTriGia.Size = new Size(321, 32);
-            textBox_HDFilters_TongTriGia.TabIndex = 6;
-            textBox_HDFilters_TongTriGia.Text = "0";
+            textBox_HDFilters_TongTriGia.Size = new Size(285, 32);
+            textBox_HDFilters_TongTriGia.TabIndex = 4;
             textBox_HDFilters_TongTriGia.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // button_HDFilters_OK
@@ -512,7 +544,7 @@
             button_HDFilters_OK.Location = new Point(25, 710);
             button_HDFilters_OK.Name = "button_HDFilters_OK";
             button_HDFilters_OK.Size = new Size(94, 43);
-            button_HDFilters_OK.TabIndex = 4;
+            button_HDFilters_OK.TabIndex = 14;
             button_HDFilters_OK.Text = "OK";
             button_HDFilters_OK.UseVisualStyleBackColor = true;
             button_HDFilters_OK.Click += button_HDFilter_OK_Click;
@@ -526,10 +558,11 @@
             textBox_HDFilters_MaHD.Location = new Point(25, 128);
             textBox_HDFilters_MaHD.Name = "textBox_HDFilters_MaHD";
             textBox_HDFilters_MaHD.Size = new Size(105, 32);
-            textBox_HDFilters_MaHD.TabIndex = 3;
+            textBox_HDFilters_MaHD.TabIndex = 1;
             // 
             // label_Filters
             // 
+            label_Filters.AccessibleRole = AccessibleRole.None;
             label_Filters.AutoSize = true;
             label_Filters.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_Filters.ForeColor = Color.White;
@@ -555,7 +588,7 @@
             pageButton_Remove.Location = new Point(90, 13);
             pageButton_Remove.Name = "pageButton_Remove";
             pageButton_Remove.Size = new Size(55, 55);
-            pageButton_Remove.TabIndex = 2;
+            pageButton_Remove.TabIndex = 96;
             pageButton_Remove.TextLocation = new Point(0, 0);
             pageButton_Remove.UseVisualStyleBackColor = false;
             pageButton_Remove.Click += pageButton_Remove_Click;
@@ -576,13 +609,14 @@
             pageButton_Upload.Location = new Point(25, 13);
             pageButton_Upload.Name = "pageButton_Upload";
             pageButton_Upload.Size = new Size(55, 55);
-            pageButton_Upload.TabIndex = 1;
+            pageButton_Upload.TabIndex = 95;
             pageButton_Upload.TextLocation = new Point(0, 0);
             pageButton_Upload.UseVisualStyleBackColor = false;
             pageButton_Upload.Click += pageButton_Upload_Click;
             // 
             // panel_Toolbar
             // 
+            panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
             panel_Toolbar.Controls.Add(pageButton_Filter);
@@ -595,6 +629,7 @@
             // 
             // panel1
             // 
+            panel1.AccessibleRole = AccessibleRole.None;
             panel1.BackColor = Color.FromArgb(57, 54, 70);
             panel1.Controls.Add(pageButton_DTTab);
             panel1.Controls.Add(pageButton_HDTab);
@@ -623,7 +658,7 @@
             pageButton_DTTab.Location = new Point(320, 12);
             pageButton_DTTab.Name = "pageButton_DTTab";
             pageButton_DTTab.Size = new Size(250, 60);
-            pageButton_DTTab.TabIndex = 10;
+            pageButton_DTTab.TabIndex = 99;
             pageButton_DTTab.TextLocation = new Point(64, 12);
             pageButton_DTTab.UseVisualStyleBackColor = false;
             pageButton_DTTab.Click += pageButton_DTTab_Click;
@@ -646,7 +681,7 @@
             pageButton_HDTab.Location = new Point(25, 12);
             pageButton_HDTab.Name = "pageButton_HDTab";
             pageButton_HDTab.Size = new Size(250, 60);
-            pageButton_HDTab.TabIndex = 9;
+            pageButton_HDTab.TabIndex = 98;
             pageButton_HDTab.TextLocation = new Point(64, 12);
             pageButton_HDTab.UseVisualStyleBackColor = false;
             pageButton_HDTab.Click += pageButton_HDTab_Click;
@@ -669,13 +704,14 @@
             pageButton_HDDVTab.Location = new Point(650, 12);
             pageButton_HDDVTab.Name = "pageButton_HDDVTab";
             pageButton_HDDVTab.Size = new Size(250, 60);
-            pageButton_HDDVTab.TabIndex = 7;
+            pageButton_HDDVTab.TabIndex = 100;
             pageButton_HDDVTab.TextLocation = new Point(64, 12);
             pageButton_HDDVTab.UseVisualStyleBackColor = false;
             pageButton_HDDVTab.Click += pageButton_HDDVTab_Click;
             // 
             // customPanel_Sum
             // 
+            customPanel_Sum.AccessibleRole = AccessibleRole.None;
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
             customPanel_Sum.CornerRadius = 40;
@@ -686,6 +722,7 @@
             // 
             // customDataGridView
             // 
+            customDataGridView.AccessibleRole = AccessibleRole.None;
             customDataGridView.AllowUserToAddRows = false;
             customDataGridView.AllowUserToDeleteRows = false;
             customDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -726,6 +763,7 @@
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 37;
             customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
+            customDataGridView.KeyDown += customDataGridView_KeyDown;
             // 
             // panel_Upload
             // 
@@ -733,6 +771,7 @@
             panel_Upload.AutoScroll = true;
             panel_Upload.AutoSize = true;
             panel_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Upload.Controls.Add(button_Upload_Reset);
             panel_Upload.Controls.Add(textBox_Upload_MaDV);
             panel_Upload.Controls.Add(label22);
             panel_Upload.Controls.Add(label_Upload_DichVu);
@@ -760,8 +799,21 @@
             panel_Upload.Location = new Point(1174, 84);
             panel_Upload.Name = "panel_Upload";
             panel_Upload.Size = new Size(416, 780);
-            panel_Upload.TabIndex = 36;
+            panel_Upload.TabIndex = 0;
             panel_Upload.Paint += panel_Upload_Paint;
+            // 
+            // button_Upload_Reset
+            // 
+            button_Upload_Reset.FlatStyle = FlatStyle.Flat;
+            button_Upload_Reset.Font = new Font("Segoe UI", 10F);
+            button_Upload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_Upload_Reset.Location = new Point(297, 710);
+            button_Upload_Reset.Name = "button_Upload_Reset";
+            button_Upload_Reset.Size = new Size(94, 43);
+            button_Upload_Reset.TabIndex = 57;
+            button_Upload_Reset.Text = "RESET";
+            button_Upload_Reset.UseVisualStyleBackColor = true;
+            button_Upload_Reset.Click += textBox_Upload_Reset_Click;
             // 
             // textBox_Upload_MaDV
             // 
@@ -772,10 +824,11 @@
             textBox_Upload_MaDV.Location = new Point(29, 597);
             textBox_Upload_MaDV.Name = "textBox_Upload_MaDV";
             textBox_Upload_MaDV.Size = new Size(150, 32);
-            textBox_Upload_MaDV.TabIndex = 57;
+            textBox_Upload_MaDV.TabIndex = 9;
             // 
             // label22
             // 
+            label22.AccessibleRole = AccessibleRole.None;
             label22.AutoSize = true;
             label22.BackColor = Color.Transparent;
             label22.FlatStyle = FlatStyle.Flat;
@@ -790,6 +843,7 @@
             // 
             // label_Upload_DichVu
             // 
+            label_Upload_DichVu.AccessibleRole = AccessibleRole.None;
             label_Upload_DichVu.AutoSize = true;
             label_Upload_DichVu.BackColor = Color.Transparent;
             label_Upload_DichVu.FlatStyle = FlatStyle.Flat;
@@ -811,11 +865,12 @@
             textBox_Upload_SoLuong.Location = new Point(240, 444);
             textBox_Upload_SoLuong.Name = "textBox_Upload_SoLuong";
             textBox_Upload_SoLuong.Size = new Size(150, 32);
-            textBox_Upload_SoLuong.TabIndex = 54;
+            textBox_Upload_SoLuong.TabIndex = 8;
             textBox_Upload_SoLuong.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label17
             // 
+            label17.AccessibleRole = AccessibleRole.None;
             label17.AutoSize = true;
             label17.BackColor = Color.Transparent;
             label17.FlatStyle = FlatStyle.Flat;
@@ -837,10 +892,11 @@
             textBox_Upload_MaDP.Location = new Point(25, 444);
             textBox_Upload_MaDP.Name = "textBox_Upload_MaDP";
             textBox_Upload_MaDP.Size = new Size(150, 32);
-            textBox_Upload_MaDP.TabIndex = 52;
+            textBox_Upload_MaDP.TabIndex = 7;
             // 
             // label16
             // 
+            label16.AccessibleRole = AccessibleRole.None;
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
             label16.FlatStyle = FlatStyle.Flat;
@@ -855,6 +911,7 @@
             // 
             // label_Upload_DonThuoc
             // 
+            label_Upload_DonThuoc.AccessibleRole = AccessibleRole.None;
             label_Upload_DonThuoc.AutoSize = true;
             label_Upload_DonThuoc.BackColor = Color.Transparent;
             label_Upload_DonThuoc.FlatStyle = FlatStyle.Flat;
@@ -869,6 +926,7 @@
             // 
             // label_Upload_HoaDon
             // 
+            label_Upload_HoaDon.AccessibleRole = AccessibleRole.None;
             label_Upload_HoaDon.AutoSize = true;
             label_Upload_HoaDon.BackColor = Color.Transparent;
             label_Upload_HoaDon.FlatStyle = FlatStyle.Flat;
@@ -883,6 +941,7 @@
             // 
             // label_Upload_NgayLap
             // 
+            label_Upload_NgayLap.AccessibleRole = AccessibleRole.None;
             label_Upload_NgayLap.AutoSize = true;
             label_Upload_NgayLap.BackColor = Color.Transparent;
             label_Upload_NgayLap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -904,12 +963,13 @@
             textBox_Upload_Nam.Location = new Point(225, 281);
             textBox_Upload_Nam.Name = "textBox_Upload_Nam";
             textBox_Upload_Nam.Size = new Size(60, 32);
-            textBox_Upload_Nam.TabIndex = 47;
+            textBox_Upload_Nam.TabIndex = 6;
             textBox_Upload_Nam.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_Nam.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label3
             // 
+            label3.AccessibleRole = AccessibleRole.None;
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -925,6 +985,7 @@
             // comboBox_Upload_Thang
             // 
             comboBox_Upload_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Upload_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_Upload_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_Upload_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_Upload_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -933,10 +994,11 @@
             comboBox_Upload_Thang.Location = new Point(115, 273);
             comboBox_Upload_Thang.Name = "comboBox_Upload_Thang";
             comboBox_Upload_Thang.Size = new Size(85, 40);
-            comboBox_Upload_Thang.TabIndex = 45;
+            comboBox_Upload_Thang.TabIndex = 5;
             // 
             // label4
             // 
+            label4.AccessibleRole = AccessibleRole.None;
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -958,12 +1020,13 @@
             textBox_Upload_Ngay.Location = new Point(25, 281);
             textBox_Upload_Ngay.Name = "textBox_Upload_Ngay";
             textBox_Upload_Ngay.Size = new Size(55, 32);
-            textBox_Upload_Ngay.TabIndex = 43;
+            textBox_Upload_Ngay.TabIndex = 4;
             textBox_Upload_Ngay.TextAlign = HorizontalAlignment.Center;
             textBox_Upload_Ngay.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label5
             // 
+            label5.AccessibleRole = AccessibleRole.None;
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -978,6 +1041,7 @@
             // 
             // label7
             // 
+            label7.AccessibleRole = AccessibleRole.None;
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.FlatStyle = FlatStyle.Flat;
@@ -992,6 +1056,7 @@
             // 
             // label8
             // 
+            label8.AccessibleRole = AccessibleRole.None;
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.FlatStyle = FlatStyle.Flat;
@@ -1006,6 +1071,7 @@
             // 
             // label9
             // 
+            label9.AccessibleRole = AccessibleRole.None;
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.FlatStyle = FlatStyle.Flat;
@@ -1027,7 +1093,7 @@
             textBox_Upload_MaNV.Location = new Point(285, 172);
             textBox_Upload_MaNV.Name = "textBox_Upload_MaNV";
             textBox_Upload_MaNV.Size = new Size(105, 32);
-            textBox_Upload_MaNV.TabIndex = 37;
+            textBox_Upload_MaNV.TabIndex = 3;
             textBox_Upload_MaNV.KeyPress += button_KeyPress_Normal;
             // 
             // textBox_Upload_MaBN
@@ -1039,7 +1105,7 @@
             textBox_Upload_MaBN.Location = new Point(155, 172);
             textBox_Upload_MaBN.Name = "textBox_Upload_MaBN";
             textBox_Upload_MaBN.Size = new Size(105, 32);
-            textBox_Upload_MaBN.TabIndex = 36;
+            textBox_Upload_MaBN.TabIndex = 2;
             textBox_Upload_MaBN.KeyPress += button_KeyPress_Normal;
             // 
             // textBox_Upload_MaHD
@@ -1051,7 +1117,7 @@
             textBox_Upload_MaHD.Location = new Point(25, 172);
             textBox_Upload_MaHD.Name = "textBox_Upload_MaHD";
             textBox_Upload_MaHD.Size = new Size(105, 32);
-            textBox_Upload_MaHD.TabIndex = 33;
+            textBox_Upload_MaHD.TabIndex = 1;
             textBox_Upload_MaHD.Leave += textBox_MaHD_Leave;
             // 
             // button_Upload_OK
@@ -1062,13 +1128,14 @@
             button_Upload_OK.Location = new Point(25, 710);
             button_Upload_OK.Name = "button_Upload_OK";
             button_Upload_OK.Size = new Size(94, 43);
-            button_Upload_OK.TabIndex = 4;
+            button_Upload_OK.TabIndex = 10;
             button_Upload_OK.Text = "OK";
             button_Upload_OK.UseVisualStyleBackColor = true;
             button_Upload_OK.Click += button_Upload_OK_Click;
             // 
             // label_BNUpload
             // 
+            label_BNUpload.AccessibleRole = AccessibleRole.None;
             label_BNUpload.AutoSize = true;
             label_BNUpload.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_BNUpload.ForeColor = Color.White;
@@ -1083,6 +1150,7 @@
             panel_DTFilters.Anchor = AnchorStyles.Right;
             panel_DTFilters.AutoScroll = true;
             panel_DTFilters.BackColor = Color.FromArgb(57, 54, 70);
+            panel_DTFilters.Controls.Add(button_DTFilters_Reset);
             panel_DTFilters.Controls.Add(comboBox_DTFilters_ComparerSoLuong);
             panel_DTFilters.Controls.Add(comboBox_DTFilters_ComparerGiaTien);
             panel_DTFilters.Controls.Add(textBox_DTFilters_GiaTien);
@@ -1098,12 +1166,26 @@
             panel_DTFilters.Location = new Point(1174, 84);
             panel_DTFilters.Name = "panel_DTFilters";
             panel_DTFilters.Size = new Size(416, 780);
-            panel_DTFilters.TabIndex = 42;
-            panel_DTFilters.Paint += panel_DTFilter_Paint;
+            panel_DTFilters.TabIndex = 0;
+            panel_DTFilters.Paint += panel_Paint;
+            // 
+            // button_DTFilters_Reset
+            // 
+            button_DTFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_DTFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_DTFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_DTFilters_Reset.Location = new Point(297, 710);
+            button_DTFilters_Reset.Name = "button_DTFilters_Reset";
+            button_DTFilters_Reset.Size = new Size(94, 43);
+            button_DTFilters_Reset.TabIndex = 35;
+            button_DTFilters_Reset.Text = "RESET";
+            button_DTFilters_Reset.UseVisualStyleBackColor = true;
+            button_DTFilters_Reset.Click += button_Filter_Reset_Click;
             // 
             // comboBox_DTFilters_ComparerSoLuong
             // 
             comboBox_DTFilters_ComparerSoLuong.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_DTFilters_ComparerSoLuong.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_DTFilters_ComparerSoLuong.FlatStyle = FlatStyle.Flat;
             comboBox_DTFilters_ComparerSoLuong.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_DTFilters_ComparerSoLuong.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1112,11 +1194,12 @@
             comboBox_DTFilters_ComparerSoLuong.Location = new Point(331, 326);
             comboBox_DTFilters_ComparerSoLuong.Name = "comboBox_DTFilters_ComparerSoLuong";
             comboBox_DTFilters_ComparerSoLuong.Size = new Size(59, 40);
-            comboBox_DTFilters_ComparerSoLuong.TabIndex = 41;
+            comboBox_DTFilters_ComparerSoLuong.TabIndex = 4;
             // 
             // comboBox_DTFilters_ComparerGiaTien
             // 
             comboBox_DTFilters_ComparerGiaTien.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_DTFilters_ComparerGiaTien.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_DTFilters_ComparerGiaTien.FlatStyle = FlatStyle.Flat;
             comboBox_DTFilters_ComparerGiaTien.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_DTFilters_ComparerGiaTien.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1125,7 +1208,7 @@
             comboBox_DTFilters_ComparerGiaTien.Location = new Point(331, 425);
             comboBox_DTFilters_ComparerGiaTien.Name = "comboBox_DTFilters_ComparerGiaTien";
             comboBox_DTFilters_ComparerGiaTien.Size = new Size(59, 40);
-            comboBox_DTFilters_ComparerGiaTien.TabIndex = 40;
+            comboBox_DTFilters_ComparerGiaTien.TabIndex = 6;
             // 
             // textBox_DTFilters_GiaTien
             // 
@@ -1136,11 +1219,12 @@
             textBox_DTFilters_GiaTien.Location = new Point(25, 425);
             textBox_DTFilters_GiaTien.Name = "textBox_DTFilters_GiaTien";
             textBox_DTFilters_GiaTien.Size = new Size(285, 32);
-            textBox_DTFilters_GiaTien.TabIndex = 36;
+            textBox_DTFilters_GiaTien.TabIndex = 5;
             textBox_DTFilters_GiaTien.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label23
             // 
+            label23.AccessibleRole = AccessibleRole.None;
             label23.AutoSize = true;
             label23.BackColor = Color.Transparent;
             label23.FlatStyle = FlatStyle.Flat;
@@ -1162,11 +1246,12 @@
             textBox_DTFilters_SoLuong.Location = new Point(25, 326);
             textBox_DTFilters_SoLuong.Name = "textBox_DTFilters_SoLuong";
             textBox_DTFilters_SoLuong.Size = new Size(285, 32);
-            textBox_DTFilters_SoLuong.TabIndex = 27;
+            textBox_DTFilters_SoLuong.TabIndex = 3;
             textBox_DTFilters_SoLuong.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label28
             // 
+            label28.AccessibleRole = AccessibleRole.None;
             label28.AutoSize = true;
             label28.BackColor = Color.Transparent;
             label28.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1181,6 +1266,7 @@
             // 
             // label29
             // 
+            label29.AccessibleRole = AccessibleRole.None;
             label29.AutoSize = true;
             label29.BackColor = Color.Transparent;
             label29.FlatStyle = FlatStyle.Flat;
@@ -1195,6 +1281,7 @@
             // 
             // label32
             // 
+            label32.AccessibleRole = AccessibleRole.None;
             label32.AutoSize = true;
             label32.BackColor = Color.Transparent;
             label32.FlatStyle = FlatStyle.Flat;
@@ -1216,7 +1303,7 @@
             textBox_DTFilters_MaDP.Location = new Point(25, 227);
             textBox_DTFilters_MaDP.Name = "textBox_DTFilters_MaDP";
             textBox_DTFilters_MaDP.Size = new Size(365, 32);
-            textBox_DTFilters_MaDP.TabIndex = 6;
+            textBox_DTFilters_MaDP.TabIndex = 2;
             // 
             // button_DTFilters_OK
             // 
@@ -1226,7 +1313,7 @@
             button_DTFilters_OK.Location = new Point(25, 710);
             button_DTFilters_OK.Name = "button_DTFilters_OK";
             button_DTFilters_OK.Size = new Size(94, 43);
-            button_DTFilters_OK.TabIndex = 4;
+            button_DTFilters_OK.TabIndex = 7;
             button_DTFilters_OK.Text = "OK";
             button_DTFilters_OK.UseVisualStyleBackColor = true;
             button_DTFilters_OK.Click += button_DTFilter_OK_Click;
@@ -1240,10 +1327,11 @@
             textBox_DTFilters_MaHD.Location = new Point(25, 128);
             textBox_DTFilters_MaHD.Name = "textBox_DTFilters_MaHD";
             textBox_DTFilters_MaHD.Size = new Size(365, 32);
-            textBox_DTFilters_MaHD.TabIndex = 3;
+            textBox_DTFilters_MaHD.TabIndex = 1;
             // 
             // label33
             // 
+            label33.AccessibleRole = AccessibleRole.None;
             label33.AutoSize = true;
             label33.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label33.ForeColor = Color.White;
@@ -1258,6 +1346,7 @@
             panel_HDDVFilters.Anchor = AnchorStyles.Right;
             panel_HDDVFilters.AutoScroll = true;
             panel_HDDVFilters.BackColor = Color.FromArgb(57, 54, 70);
+            panel_HDDVFilters.Controls.Add(button_HDDVFilters_Reset);
             panel_HDDVFilters.Controls.Add(comboBox_HDDVFilters_Comparer);
             panel_HDDVFilters.Controls.Add(textBox_HDDVFilters_ChiPhi);
             panel_HDDVFilters.Controls.Add(label6);
@@ -1270,12 +1359,26 @@
             panel_HDDVFilters.Location = new Point(1174, 84);
             panel_HDDVFilters.Name = "panel_HDDVFilters";
             panel_HDDVFilters.Size = new Size(416, 780);
-            panel_HDDVFilters.TabIndex = 43;
-            panel_HDDVFilters.Paint += panel_HDDVFilter_Paint;
+            panel_HDDVFilters.TabIndex = 0;
+            panel_HDDVFilters.Paint += panel_Paint;
+            // 
+            // button_HDDVFilters_Reset
+            // 
+            button_HDDVFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_HDDVFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_HDDVFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_HDDVFilters_Reset.Location = new Point(297, 710);
+            button_HDDVFilters_Reset.Name = "button_HDDVFilters_Reset";
+            button_HDDVFilters_Reset.Size = new Size(94, 43);
+            button_HDDVFilters_Reset.TabIndex = 36;
+            button_HDDVFilters_Reset.Text = "RESET";
+            button_HDDVFilters_Reset.UseVisualStyleBackColor = true;
+            button_HDDVFilters_Reset.Click += button_Filter_Reset_Click;
             // 
             // comboBox_HDDVFilters_Comparer
             // 
             comboBox_HDDVFilters_Comparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_HDDVFilters_Comparer.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HDDVFilters_Comparer.FlatStyle = FlatStyle.Flat;
             comboBox_HDDVFilters_Comparer.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_HDDVFilters_Comparer.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1284,7 +1387,7 @@
             comboBox_HDDVFilters_Comparer.Location = new Point(331, 326);
             comboBox_HDDVFilters_Comparer.Name = "comboBox_HDDVFilters_Comparer";
             comboBox_HDDVFilters_Comparer.Size = new Size(59, 40);
-            comboBox_HDDVFilters_Comparer.TabIndex = 41;
+            comboBox_HDDVFilters_Comparer.TabIndex = 4;
             // 
             // textBox_HDDVFilters_ChiPhi
             // 
@@ -1295,11 +1398,12 @@
             textBox_HDDVFilters_ChiPhi.Location = new Point(25, 326);
             textBox_HDDVFilters_ChiPhi.Name = "textBox_HDDVFilters_ChiPhi";
             textBox_HDDVFilters_ChiPhi.Size = new Size(285, 32);
-            textBox_HDDVFilters_ChiPhi.TabIndex = 27;
+            textBox_HDDVFilters_ChiPhi.TabIndex = 3;
             textBox_HDDVFilters_ChiPhi.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label6
             // 
+            label6.AccessibleRole = AccessibleRole.None;
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1314,6 +1418,7 @@
             // 
             // label14
             // 
+            label14.AccessibleRole = AccessibleRole.None;
             label14.AutoSize = true;
             label14.BackColor = Color.Transparent;
             label14.FlatStyle = FlatStyle.Flat;
@@ -1328,6 +1433,7 @@
             // 
             // label15
             // 
+            label15.AccessibleRole = AccessibleRole.None;
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.FlatStyle = FlatStyle.Flat;
@@ -1349,7 +1455,7 @@
             textBox_HDDVFilters_MaDV.Location = new Point(25, 227);
             textBox_HDDVFilters_MaDV.Name = "textBox_HDDVFilters_MaDV";
             textBox_HDDVFilters_MaDV.Size = new Size(365, 32);
-            textBox_HDDVFilters_MaDV.TabIndex = 6;
+            textBox_HDDVFilters_MaDV.TabIndex = 2;
             // 
             // button_HDDVFilters_OK
             // 
@@ -1359,7 +1465,7 @@
             button_HDDVFilters_OK.Location = new Point(25, 710);
             button_HDDVFilters_OK.Name = "button_HDDVFilters_OK";
             button_HDDVFilters_OK.Size = new Size(94, 43);
-            button_HDDVFilters_OK.TabIndex = 4;
+            button_HDDVFilters_OK.TabIndex = 5;
             button_HDDVFilters_OK.Text = "OK";
             button_HDDVFilters_OK.UseVisualStyleBackColor = true;
             button_HDDVFilters_OK.Click += button_HDDVFilter_OK_Click;
@@ -1373,10 +1479,11 @@
             textBox_HDDVFilters_MaHD.Location = new Point(25, 128);
             textBox_HDDVFilters_MaHD.Name = "textBox_HDDVFilters_MaHD";
             textBox_HDDVFilters_MaHD.Size = new Size(365, 32);
-            textBox_HDDVFilters_MaHD.TabIndex = 3;
+            textBox_HDDVFilters_MaHD.TabIndex = 1;
             // 
             // label24
             // 
+            label24.AccessibleRole = AccessibleRole.None;
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.White;
@@ -1426,7 +1533,6 @@
         private Label label_Filters_MaBN;
         private TextBox textBox_HDFilters_MaNV;
         private TextBox textBox_HDFilters_MaBN;
-        private TextBox textBox_GE;
         private TextBox textBox_HDFilters_TongTriGia;
         private Button button_HDFilters_OK;
         private TextBox textBox_HDFilters_MaHD;
@@ -1504,5 +1610,10 @@
         private Button button_HDDVFilters_OK;
         private TextBox textBox_HDDVFilters_MaHD;
         private Label label24;
+        private ComboBox comboBox_HDFilters_TongTriGiaComparer;
+        private Button button_DTFilters_Reset;
+        private Button button_HDFilters_Reset;
+        private Button button_Upload_Reset;
+        private Button button_HDDVFilters_Reset;
     }
 }

@@ -35,8 +35,8 @@ namespace QuanLyMachTu
             formCaiDat = new Form_CaiDat(this);
             formThongTin = new();
 
-            loginWindow = new();
-            _ = loginWindow.ShowDialog();
+            //loginWindow = new();
+            //_ = loginWindow.ShowDialog();
 
             isApplicationRunning = false;
 
@@ -91,22 +91,26 @@ namespace QuanLyMachTu
         private void pageButton_LichKham_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
-            lichKhamControl1.BringToFront();
+            lichKhamControl.BringToFront();
+            lichKhamControl.Focus();
         }
         private void pageButton_BenhNhan_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
             benhNhanControl.BringToFront();
+            benhNhanControl.Focus();
         }
         private void pageButton_PhongKham_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
             phongKhamControl.BringToFront();
+            phongKhamControl.Focus();
         }
         private void pageButton_HoaDon_Click(object sender, EventArgs e)
         {
             ActivateButton((PageButton)sender);
             hoaDonControl.BringToFront();
+            hoaDonControl.Focus();
         }
 
         private void iconButton_CaiDat_Click(object sender, EventArgs e)
