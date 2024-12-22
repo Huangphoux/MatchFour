@@ -7,11 +7,14 @@ using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using NUnit.Framework.Constraints;
 using QuanLyMachTu.Helper;
+using static System.Windows.Forms.AxHost;
 
 namespace QuanLyMachTu
 {
@@ -27,16 +30,16 @@ namespace QuanLyMachTu
         //Constant property
         const int MAX_HEIGHT = 300;
 
-        //Database fields
-        private SqlConnection connection;
-        private SqlDataAdapter adapter;
-        private DataSet dataset;
-        private DataTable datatableBN;
-        private DataTable datatableHSBA;
-        private DataTable datatableTK;
-        //Database connection
-        private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-
+        //Select command
+        string BN_SelectCommand = "SELECT MaBN, HoTenBN, GioiTinh, NgaySinh, DoanhSo, Email, SDT " +
+                                  "FROM BENHNHAN " +
+                                  "WHERE IsDeleted = 0";
+        string HSBA_SelectCommand = "SELECT MaHSBA, NgayLap, KetQuaTongQuat, MaBN, MaNV " +
+                                    "FROM HOSOBENHAN " +
+                                    "WHERE IsDeleted = 0";
+        string TK_SelectCommand = "SELECT * FROM TAIKHOAN";
+        string selectLastID_BN = "SELECT TOP 1 MaBN FROM BENHNHAN ORDER BY MaBN DESC";
+        string selectLastID_TK = "SELECT TOP 1 MaTK FROM TAIKHOAN ORDER BY MaTK DESC";
         //Control variables
         //tab index
         const int BN_TAB = 0;
@@ -45,12 +48,16 @@ namespace QuanLyMachTu
         //function index
         const int INS_FUNC = 1;
         const int FIL_FUNC = 2;
+        //control primary key
+        string next_BN_PrimaryKey, next_TK_PrimaryKey;
         //controllers
+        string controlCommand;
         int controlPage;
+        bool BN_ControlDetails;
+        bool HSBA_ControlDetails;
         int BN_ControlFunc;
         int HSBA_ControlFunc;
         int TK_ControlFunc;
-        DataTable controlDataTable;
 
         //System methods
         public BenhNhanControl()
@@ -59,7 +66,7 @@ namespace QuanLyMachTu
         }
         private void BenhNhanControl_Load(object sender, EventArgs e)
         {
-            LoadData();
+            Prefetch();
             InitializeState();
         }
         //General methods
@@ -67,14 +74,13 @@ namespace QuanLyMachTu
         private void InitializeState()
         {
             controlPage = BN_TAB;
-            controlDataTable = datatableBN;
 
             BN_ControlFunc = FIL_FUNC;
             HSBA_ControlFunc = FIL_FUNC;
             TK_ControlFunc = FIL_FUNC;
 
             EnablePage(controlPage);
-            customDataGridView.Focus();
+            LoadPage(controlPage);
         }
         //Activate / Deactivate tab
         private void EnablePage(int controlPage)
@@ -82,30 +88,41 @@ namespace QuanLyMachTu
             switch (controlPage)
             {
                 case BN_TAB:
-                    controlDataTable = datatableBN;
                     ColoringButton.EnabledColor(pageButton_BNTab);
                     enableFunc_BN();
                     break;
                 case HSBA_TAB:
-                    controlDataTable = datatableHSBA;
                     ColoringButton.EnabledColor(pageButton_HSBATab);
                     enableFunc_HSBA();
                     break;
                 case TK_TAB:
-                    controlDataTable = datatableTK;
                     ColoringButton.EnabledColor(pageButton_TKTab);
                     enableFunc_TK();
                     break;
             }
-
-            UpdateDataGridView(customDataGridView, controlDataTable);
+        }
+        private void LoadPage(int controlPage)
+        {
+            switch (controlPage)
+            {
+                case BN_TAB:
+                    controlCommand = BN_SelectCommand;
+                    break;
+                case HSBA_TAB:
+                    controlCommand = HSBA_SelectCommand;
+                    break;
+                case TK_TAB:
+                    controlCommand = TK_SelectCommand;
+                    break;
+            }
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         private void DisablePage(int controlPage)
         {
             switch (controlPage)
             {
                 case BN_TAB:
-                    ColoringButton.DisabledColor(pageButton_BNTab);
+                    ColoringButton.DisabledColor(pageButton_BNTab);                    
                     break;
                 case HSBA_TAB:
                     ColoringButton.DisabledColor(pageButton_HSBATab);
@@ -116,22 +133,17 @@ namespace QuanLyMachTu
             }
         }
         //Load methods
-        private void LoadData()
+        private void Prefetch()
         {
-            connection = new SqlConnection(connectionStr);
-            connection.Open();
+            next_BN_PrimaryKey = (string)DatabaseConnection.ExecuteScalar(selectLastID_BN, null);
+            next_BN_PrimaryKey = StringMath.Increment(next_BN_PrimaryKey);
 
-            dataset = new DataSet();
+            next_TK_PrimaryKey = (string)DatabaseConnection.ExecuteScalar(selectLastID_TK, null);
+            next_TK_PrimaryKey = StringMath.Increment(next_TK_PrimaryKey);
+
             LoadTabBenhNhan();
             LoadTabHoSoBenhAn();
             LoadTabTaiKhoan();
-
-            connection.Close();
-        }
-        private void LoadDataToDataSet(string commandStr, string tableName)
-        {
-            adapter = new SqlDataAdapter(commandStr, connection);
-            adapter.Fill(dataset, tableName);
         }
         //Reload data
         private void UpdateDataGridView(DataGridView dgv, DataTable datatable)
@@ -183,31 +195,18 @@ namespace QuanLyMachTu
         //Remove button
         private void pageButton_Remove_Click(object sender, EventArgs e)
         {
-            DataColumn[] primaryKeyColumn = controlDataTable.PrimaryKey;
-            string[] primaryKeyName = new string[primaryKeyColumn.Length];
-            string[] primaryKey = new string[primaryKeyColumn.Length];
-            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
-
-            //get primary key name
-            for (int col = 0; col < primaryKeyName.Length; col++)
-                primaryKeyName[col] = primaryKeyColumn[col].ColumnName;
-
-            //get all rows of selected cells
-            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
-                selectedRows.Add(cell.OwningRow);
-
-            //remove row with primary key
-            foreach (DataGridViewRow row in selectedRows)
+            switch (controlPage)
             {
-                //get primary key value
-                for (int col = 0; col < primaryKeyName.Length; col++)
-                    primaryKey[col] = row.Cells[primaryKeyName[col]].Value.ToString();
-                //remove row
-                DataRow? deleteRow = controlDataTable.Rows.Find(primaryKey);
-                controlDataTable.Rows.Remove(deleteRow);
+                case BN_TAB:
+                    pageButton_BNRemove_Click(sender, e);
+                    break;
+                case HSBA_TAB:
+                    pageButton_HSBARemove_Click(sender, e);
+                    break;
+                case TK_TAB:
+                    pageButton_TKRemove_Click(sender, e);
+                    break;
             }
-
-            UpdateDataGridView(customDataGridView, controlDataTable);
         }
         //Decorations
         private void panel_Paint(object sender, PaintEventArgs e)
@@ -227,48 +226,13 @@ namespace QuanLyMachTu
             }
         }
         //Additions
-        private string GetGioiTinh(CheckBox checkBox_Nam, CheckBox checkBox_Nu)
-        {
-            if (checkBox_Nam.Checked)
-                return "Nam";
-            else
-                return "Nữ";
-        }
-        private string GetNgayThangNam(TextBox textBox_Ngay, ComboBox comboBox_Thang, TextBox textBox_Nam)
-        {
-            if (string.IsNullOrEmpty(textBox_Ngay.Text))
-                return null;
-            else if (string.IsNullOrEmpty(textBox_Nam.Text))
-                return null;
-
-            return $"{comboBox_Thang.SelectedIndex + 1}/{textBox_Ngay.Text}/{textBox_Nam.Text}";
-        }
-        private string GetOperation(ComboBox operations)
-        {
-            string selected = operations.SelectedItem as string;
-            switch (selected)
-            {
-                case "≥":
-                    return ">=";
-                case "≤":
-                    return "<=";
-                default:
-                    return selected;
-            }
-        }
         private void Button_KeyPress_PositiveNumber(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-                ColoringTextBox.NormalColor((TextBox)sender);
-            }
-            else
-                e.Handled = true;
+            GeneralMethods.textBox_KeyPress_PositiveNumber(sender, e);
         }
         private void button_KeyPress_Normal(object sender, KeyPressEventArgs e)
         {
-            ColoringTextBox.NormalColor((TextBox)sender);
+            GeneralMethods.textBox_KeyPress_Normal(sender, e);
         }
         private void textBox_MaBN_Leave(object sender, EventArgs e)
         {
@@ -276,12 +240,6 @@ namespace QuanLyMachTu
 
             if (string.IsNullOrEmpty(textBox.Text))
                 FillMaBN(textBox);
-        }
-        private void textBox_Number_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (string.IsNullOrEmpty(textBox.Text))
-                textBox.Text = "0";
         }
         //Bottom view
         private long CalculateSumOfDoanhSo(DataGridView dgv)
@@ -305,11 +263,12 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = BN_TAB;
             EnablePage(controlPage);
-
-            customDataGridView.Focus();
+            LoadPage(controlPage);
         }
         private void enableFunc_BN()
         {
+            pageButton_Details_BN.Enabled = true;
+
             switch (BN_ControlFunc)
             {
                 case INS_FUNC:
@@ -323,17 +282,17 @@ namespace QuanLyMachTu
         //Load data
         private void LoadTabBenhNhan()
         {
-            LoadDataToDataSet("SELECT * FROM BENHNHAN", "BENHNHAN");
-            datatableBN = dataset.Tables["BENHNHAN"];
-            datatableBN.PrimaryKey = new DataColumn[] { datatableBN.Columns["MaBN"] };
-
             //Upload
             comboBox_BNUpload_Thang.SelectedItem = comboBox_BNUpload_Thang.Items[0];
             FillMaBN(textBox_BNUpload_MaBN);
-            FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
+            GeneralMethods.FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
 
             //Filters
             comboBox_BNFilters_Comparer.SelectedIndex = 2;
+
+            //Details
+            BN_ControlDetails = false;
+            panel_BNDetails.SendToBack();
         }
         //Check and prevent errors
         private void checkBox_BNUpload_Nam_CheckedChanged(object sender, EventArgs e)
@@ -367,17 +326,9 @@ namespace QuanLyMachTu
         //Autofill
         private void FillMaBN(TextBox maBN)
         {
-            string mabn = datatableBN.Rows[datatableBN.Rows.Count - 1]["MaBN"].ToString();
-            mabn = StringMath.Increment(mabn);
-            maBN.Text = mabn;
+            maBN.Text = next_BN_PrimaryKey;
         }
-        private void FillDate(TextBox ngay, ComboBox thang, TextBox nam)
-        {
-            DateTime currentDate = DateTime.Now;
-            ngay.Text = currentDate.Day.ToString("D2");
-            thang.SelectedIndex = currentDate.Month - 1;
-            nam.Text = currentDate.Year.ToString("D2");
-        }
+
         //Upload method
         private void button_BNUpload_OK_Click(object sender, EventArgs e)
         {
@@ -389,77 +340,117 @@ namespace QuanLyMachTu
             }
 
             string primaryKey = textBox_BNUpload_MaBN.Text;
-            DataRow targetRow = datatableBN.Rows.Find(primaryKey);
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM BENHNHAN WHERE MaBN = @MaBN) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaBN", primaryKey } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatableBN.NewRow();
-                targetRow["MaBN"] = primaryKey;
-                targetRow["HoTenBN"] = textBox_BNUpload_TenBN.Text;
-                targetRow["GioiTinh"] = GetGioiTinh(checkBox_BNUpload_Nam, checkBox_BNUpload_Nu);
-                targetRow["NgaySinh"] = GetNgayThangNam(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
-                targetRow["Email"] = textBox_BNUpload_Email.Text;
-                targetRow["SDT"] = textBox_BNUpload_SDT.Text;
-                datatableBN.Rows.Add(targetRow);
+                string insertQuery = "INSERT INTO BENHNHAN " +
+                                        "(MaBN, HoTenBN, GioiTinh, NgaySinh, Email, SDT) " +
+                                        "VALUES(@MaBN, @HoTenBN, @GioiTinh, @NgaySinh, @Email, @SDT)";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaBN", primaryKey},
+                    {"@HoTenBN", textBox_BNUpload_TenBN.Text },
+                    {"@GioiTinh", GeneralMethods.GetGioiTinh(checkBox_BNUpload_Nam, checkBox_BNUpload_Nu) },
+                    {"@NgaySinh", GeneralMethods.GetNgayThangNam(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam) },
+                    {"@Email", textBox_BNUpload_Email.Text },
+                    {"@SDT", textBox_BNUpload_SDT.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
+
+                next_BN_PrimaryKey = StringMath.Increment(next_BN_PrimaryKey);
             }
-            else //Update
+            else
             {
-                targetRow["MaBN"] = primaryKey;
-                targetRow["HoTenBN"] = textBox_BNUpload_TenBN.Text;
-                targetRow["GioiTinh"] = GetGioiTinh(checkBox_BNUpload_Nam, checkBox_BNUpload_Nu);
-                targetRow["NgaySinh"] = GetNgayThangNam(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
-                targetRow["Email"] = textBox_BNUpload_Email.Text;
-                targetRow["SDT"] = textBox_BNUpload_SDT.Text;
+                string updateQuery = "UPDATE BENHNHAN " +
+                                        "SET HoTenBN = @HoTenBN, " +
+                                            "GioiTinh = @GioiTinh, " +
+                                            "NgaySinh = @NgaySinh, " +
+                                            "Email = @Email, " +
+                                            "SDT = @SDT " +
+                                        "WHERE MaBN = @MaBN";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaBN", primaryKey},
+                    {"@HoTenBN", textBox_BNUpload_TenBN.Text },
+                    {"@GioiTinh", GeneralMethods.GetGioiTinh(checkBox_BNUpload_Nam, checkBox_BNUpload_Nu) },
+                    {"@NgaySinh", GeneralMethods.GetNgayThangNam(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam) },
+                    {"@Email", textBox_BNUpload_Email.Text },
+                    {"@SDT", textBox_BNUpload_SDT.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatableBN);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Filter method
         private void button_BNFilter_OK_Click(object sender, EventArgs e)
         {
-            string selectCommand = "1 = 1 ";
-
+            string selectCommand = "SELECT DISTINCT BN.MaBN, HoTenBN, GioiTinh, NgaySinh, DoanhSo, BN.Email, BN.SDT " +
+                                   "FROM BENHNHAN BN " +
+                                   "INNER JOIN HOSOBENHAN HS ON HS.MaBN = BN.MaBN " +
+                                   "INNER JOIN TAIKHOAN TK ON TK.MaBN = BN.MaBN " +
+                                   "WHERE BN.IsDeleted = 0 AND HS.IsDeleted = 0 ";
             //Find exact row
             if (string.IsNullOrEmpty(textBox_Filters_MaBN.Text) == false)
-                selectCommand += $"AND MaBN = '{textBox_Filters_MaBN.Text}' ";
+                selectCommand += $"AND BN.MaBN = '{textBox_Filters_MaBN.Text}' ";
             else if (string.IsNullOrEmpty(textBox_Filters_MaHSBA.Text) == false)
-            {
-                DataRow[] foundRows = datatableHSBA.Select($"MaHSBA = '{textBox_Filters_MaHSBA.Text}'");
-
-                if (foundRows.Length == 0)
-                    selectCommand += $"AND MaBN = NULL ";
-                else
-                    selectCommand += $"AND MaBN = '{foundRows[0]["MaBN"]}' ";
-            }
+                selectCommand += $"AND MaHSBA = '{textBox_Filters_MaHSBA.Text}' ";
             else if (string.IsNullOrEmpty(textBox_Filters_MaTK.Text) == false)
-            {
-                DataRow? foundRow = datatableTK.Rows.Find(textBox_Filters_MaTK.Text);
-
-                selectCommand += $"AND MaBN = '{foundRow["MaBN"]}' ";
-            }
+                selectCommand += $"AND MaTK = '{textBox_Filters_MaTK.Text}' ";
 
             //Another informations
             if (string.IsNullOrEmpty(textBox_Filters_TenBN.Text) == false)
-                selectCommand += $"AND HoTenBN = '{textBox_Filters_TenBN.Text}' ";
+                selectCommand += $"AND HoTenBN = N'{textBox_Filters_TenBN.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_Email.Text) == false)
-                selectCommand += $"AND Email = '{textBox_Filters_Email.Text}' ";
+                selectCommand += $"AND BN.Email = '{textBox_Filters_Email.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_SDT.Text) == false)
-                selectCommand += $"AND SDT = '{textBox_Filters_SDT.Text}' ";
+                selectCommand += $"AND BN.SDT = '{textBox_Filters_SDT.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_DoanhSo.Text) == false)
-                selectCommand += $"AND DoanhSo {GetOperation(comboBox_BNFilters_Comparer)} {textBox_Filters_DoanhSo.Text} ";
+                selectCommand += $"AND DoanhSo {GeneralMethods.GetOperation(comboBox_BNFilters_Comparer)} {textBox_Filters_DoanhSo.Text} ";
 
-            DataRow[] resultRow = datatableBN.Select(selectCommand);
-            DataTable resultDatatable = datatableBN.Clone();
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+        //Remove
+        private void pageButton_BNRemove_Click(object sender, EventArgs e)
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
-            foreach (DataRow row in resultRow)
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter;
+            int parameterIndex = 0;
+
+            string inDeletedList = "(NULL";
+            foreach (DataGridViewRow row in selectedRows)
             {
-                if (resultDatatable.Rows.Contains(row["MaBN"]))
-                    continue;
-
-                resultDatatable.ImportRow(row);
+                parameter = $"@MaBN{parameterIndex}";
+                parameters.Add(parameter, row.Cells["MaBN"].Value.ToString());
+                inDeletedList += $", {parameter}";
+                parameterIndex++;
             }
+            inDeletedList += ")";
 
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            //remove
+            string deleteCommand = "UPDATE BENHNHAN " +
+                                   "SET IsDeleted = 1 " +
+                                   "WHERE MaBN IN " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Additional
         private void textBox_BNDate_Leave(object sender, EventArgs e)
@@ -467,7 +458,7 @@ namespace QuanLyMachTu
             TextBox textBox = sender as TextBox;
 
             if (string.IsNullOrEmpty(textBox.Text))
-                FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
+                GeneralMethods.FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
         }
 
         //-------------------------------------------------------------Ho So Benh An tab-------------------------------------------------------------        
@@ -477,8 +468,7 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = HSBA_TAB;
             EnablePage(controlPage);
-
-            customDataGridView.Focus();
+            LoadPage(controlPage);
         }
         private void enableFunc_HSBA()
         {
@@ -495,12 +485,11 @@ namespace QuanLyMachTu
         //Load data
         private void LoadTabHoSoBenhAn()
         {
-            LoadDataToDataSet("SELECT * FROM HOSOBENHAN", "HOSOBENHAN");
-            datatableHSBA = dataset.Tables["HOSOBENHAN"];
-            datatableHSBA.PrimaryKey = new DataColumn[] { datatableHSBA.Columns["MaHSBA"], datatableHSBA.Columns["NgayLap"] };
-
+            //Details
+            HSBA_ControlDetails = false;
+            panel_HSBADetails.SendToBack();
             //Upload
-            FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
+            GeneralMethods.FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
 
             //Filters
             comboBox_HSBAFilter_Thang.SelectedItem = comboBox_BNUpload_Thang.Items[0];
@@ -535,113 +524,114 @@ namespace QuanLyMachTu
             }
 
             //handle event
-            string primaryKey1 = textBox_HSBAUpload_MaHSBA.Text;
-            string primaryKey2 = GetNgayThangNam(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
-            DataRow targetRow = datatableHSBA.Rows.Find(new string[] { primaryKey1, primaryKey2 });
+            string[] primaryKey = { textBox_HSBAUpload_MaHSBA.Text, GeneralMethods.GetNgayThangNam(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam) };
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM HOSOBENHAN WHERE MaHSBA = @MaHSBA AND NgayLap = @NgayLap) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaHSBA", primaryKey[0] }, { "@NgayLap", primaryKey[1] } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                //auto fill
-                if (string.IsNullOrEmpty(primaryKey1)) //auto fill MaHSBA
-                {
-                    string maBN = textBox_HSBAUpload_MaBN.Text;
-                    DataRow row = datatableBN.Rows.Find(maBN);
-                    if (row == null) //find patient HSBA
-                    {
-                        return;
-                    }
-                    DataRow[] rows = datatableHSBA.Select($"MaBN = '{maBN}'");
-                    if (rows.Length > 0)
-                    {
-                        row = rows[0];
-                        primaryKey1 = row["MaHSBA"].ToString();
-                        textBox_HSBAUpload_MaHSBA.Text = primaryKey1;
-                    }
-                    else
-                    {
-                        row = datatableHSBA.Rows[datatableHSBA.Rows.Count - 1];
-                        string maHSBA = row["MaHSBA"].ToString();
-                        maHSBA = StringMath.Increment(maHSBA);
-                        primaryKey1 = maHSBA;
-                        textBox_HSBAUpload_MaHSBA.Text = primaryKey1;
-                    }
-                }
+                string insertQuery = "INSERT INTO HOSOBENHAN " +
+                                        "(MaHSBA, NgayLap, KetQuaTongQuat, MaBN, MaNV) " +
+                                        "VALUES(@MaHSBA, @NgayLap, @KetQuaTongQuat, @MaBN, @MaNV)";
 
-                if (string.IsNullOrEmpty(primaryKey2)) //auto fill NgayLap
+                Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    primaryKey2 = DateTime.Today.ToString();
-                }
+                    {"@MaHSBA", primaryKey[0]},
+                    {"@NgayLap", primaryKey[1]},
+                    {"@KetQuaTongQuat", textBox_HSBAUpload_KetQuaTQ.Text },
+                    {"@MaBN", textBox_HSBAUpload_MaBN.Text },
+                    {"@MaNV", textBox_HSBAUpload_MaNV.Text }
+                };
 
-                targetRow = datatableHSBA.NewRow();
-                targetRow["MaHSBA"] = primaryKey1;
-                targetRow["NgayLap"] = primaryKey2;
-                targetRow["KetQuaTongQuat"] = textBox_HSBAUpload_KetQuaTQ.Text;
-                targetRow["MaBN"] = textBox_HSBAUpload_MaBN.Text;
-                targetRow["MaNV"] = textBox_HSBAUpload_MaNV.Text;
-                datatableHSBA.Rows.Add(targetRow);
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
             }
-            else //Update
+            else
             {
-                targetRow["MaHSBA"] = primaryKey1;
-                targetRow["NgayLap"] = primaryKey2;
-                targetRow["KetQuaTongQuat"] = textBox_HSBAUpload_KetQuaTQ.Text;
-                targetRow["MaBN"] = textBox_HSBAUpload_MaBN.Text;
-                targetRow["MaNV"] = textBox_HSBAUpload_MaNV.Text;
+                string updateQuery = "UPDATE HOSOBENHAN " +
+                                        "SET KetQuaTongQuat = @KetQuaTongQuat, " +
+                                            "MaBN = @MaBN, " +
+                                            "MaNV = @MaNV " +
+                                        "WHERE MaHSBA = @MaHSBA AND NgayLap = @NgayLap";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaHSBA", primaryKey[0]},
+                    {"@NgayLap", primaryKey[1]},
+                    {"@KetQuaTongQuat", textBox_HSBAUpload_KetQuaTQ.Text },
+                    {"@MaBN", textBox_HSBAUpload_MaBN.Text },
+                    {"@MaNV", textBox_HSBAUpload_MaNV.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatableHSBA);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Filter method
         private void button_HSBAFilter_OK_Click(object sender, EventArgs e)
         {
-            string selectCommand_HSBA = "1 = 1 ";
-            string selectCommand_BN = "1 = 1 ";
+            string selectCommand = "SELECT MaHSBA, NgayLap, KetQuaTongQuat, HS.MaBN, MaNV " +
+                                   "FROM HOSOBENHAN HS " +
+                                   "INNER JOIN BENHNHAN BN ON BN.MaBN = HS.MaBN " +
+                                   "WHERE BN.IsDeleted = 0 AND HS.IsDeleted = 0 ";
 
             //make a select command
             if (string.IsNullOrEmpty(textBox_HSBAFilter_MaBN.Text) == false)
-                selectCommand_HSBA += $"AND MaBN = '{textBox_HSBAFilter_MaBN.Text}' ";
+                selectCommand += $"AND HS.MaBN = '{textBox_HSBAFilter_MaBN.Text}' ";
             if (string.IsNullOrEmpty(textBox_HSBAFilter_MaHSBA.Text) == false)
-                selectCommand_HSBA += $"AND MaHSBA = '{textBox_HSBAFilter_MaHSBA.Text}' ";
-            string ngayLap = GetNgayThangNam(textBox_HSBAFilter_Ngay, comboBox_HSBAFilter_Thang, textBox_HSBAFilter_Nam);
-            string operation = GetOperation(comboBox_HSBAFilter_Operation);
+                selectCommand += $"AND MaHSBA = '{textBox_HSBAFilter_MaHSBA.Text}' ";
+            string ngayLap = GeneralMethods.GetNgayThangNam(textBox_HSBAFilter_Ngay, comboBox_HSBAFilter_Thang, textBox_HSBAFilter_Nam);
+            string operation = GeneralMethods.GetOperation(comboBox_HSBAFilter_Operation);
             if (string.IsNullOrEmpty(ngayLap) == false)
-                selectCommand_HSBA += $"AND NgayLap {operation} '{ngayLap}' ";
+                selectCommand += $"AND NgayLap {operation} '{ngayLap}' ";
 
             if (string.IsNullOrEmpty(textBox_HSBAFilter_Email.Text) == false)
-                selectCommand_BN += $"AND Email = '{textBox_HSBAFilter_Email.Text}' ";
+                selectCommand += $"AND Email = '{textBox_HSBAFilter_Email.Text}' ";
             if (string.IsNullOrEmpty(textBox_HSBAFilter_SDT.Text) == false)
-                selectCommand_BN += $"AND SDT = '{textBox_HSBAFilter_SDT.Text}' ";
+                selectCommand += $"AND SDT = '{textBox_HSBAFilter_SDT.Text}' ";
 
-            DataRow[] resultRow_HSBA = datatableHSBA.Select(selectCommand_HSBA);
-            DataRow[] resultRow_BN = datatableBN.Select(selectCommand_BN);
-            List<DataRow> result = new List<DataRow>();
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+        //Remove
+        private void pageButton_HSBARemove_Click(object sender, EventArgs e)
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
-            foreach (DataRow row_HSBA in resultRow_HSBA)
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter1, parameter2;
+            int parameterIndex = 0;
+
+            string maHSBA, ngayLap;
+
+            string inDeletedList = "1 != 1 ";
+            foreach (DataGridViewRow row in selectedRows)
             {
-                foreach (DataRow row_BN in resultRow_BN)
-                {
-                    if (row_HSBA["MaBN"].ToString() == row_BN["MaBN"].ToString())
-                    {
-                        result.Add(row_HSBA);
-                        break;
-                    }
-                }
+                parameter1 = $"@MaHSBA{parameterIndex}";
+                parameter2 = $"@NgayLap{parameterIndex}";
+                maHSBA = row.Cells["MaHSBA"].Value.ToString();
+                ngayLap = row.Cells["NgayLap"].Value.ToString();
+                parameters.Add(parameter1, maHSBA);
+                parameters.Add(parameter2, ngayLap);
+                inDeletedList += $"OR (MaHSBA = {parameter1} AND NgayLap = {parameter2}) ";
+                parameterIndex++;
             }
 
-            string[] primaryKey = new string[2];
-            DataTable resultDatatable = datatableHSBA.Clone();
+            //remove
+            string deleteCommand = "UPDATE HOSOBENHAN " +
+                                   "SET IsDeleted = 1" +
+                                   "WHERE " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
 
-            foreach (DataRow row in result)
-            {
-                primaryKey[0] = row["MaHSBA"].ToString();
-                primaryKey[1] = row["NgayLap"].ToString();
-                if (resultDatatable.Rows.Contains(primaryKey))
-                    continue;
-
-                resultDatatable.ImportRow(row);
-            }
-
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            //renew
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Additional
         private void textBox_HSBADate_Leave(object sender, EventArgs e)
@@ -649,28 +639,7 @@ namespace QuanLyMachTu
             TextBox textBox = sender as TextBox;
 
             if (string.IsNullOrEmpty(textBox.Text))
-                FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
-        }
-        private void textBox_Autofind_MaHSBA_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            string findingInformation = textBox.Text;
-            string command = $"MaBN = '{findingInformation}'";
-            DataRow[] result = datatableHSBA.Select(command);
-
-            if (result.Length > 0)
-                textBox_HSBAUpload_MaHSBA.Text = result[0]["MaHSBA"].ToString();
-        }
-
-        private void textBox_Autofind_MaBNfromMaHSBA_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            string findingInformation = textBox.Text;
-            string command = $"MaHSBA = '{findingInformation}'";
-            DataRow[] result = datatableHSBA.Select(command);
-
-            if (result.Length > 0)
-                textBox_HSBAUpload_MaBN.Text = result[0]["MaBN"].ToString();
+                GeneralMethods.FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
         }
         //Decorate panel
         private void panel_HSBAUpload_Paint(object sender, PaintEventArgs e)
@@ -721,8 +690,7 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = TK_TAB;
             EnablePage(controlPage);
-
-            customDataGridView.Focus();
+            LoadPage(controlPage);
         }
         private void enableFunc_TK()
         {
@@ -739,10 +707,6 @@ namespace QuanLyMachTu
         //Load data
         private void LoadTabTaiKhoan()
         {
-            LoadDataToDataSet("SELECT * FROM TAIKHOAN", "TAIKHOAN");
-            datatableTK = dataset.Tables["TAIKHOAN"];
-            datatableTK.PrimaryKey = new DataColumn[] { datatableTK.Columns["MaTK"] };
-
             //Upload
             Autofill_MaTK(textBox_TKUpload_MaTK);
 
@@ -770,9 +734,7 @@ namespace QuanLyMachTu
         //Autofill
         private void Autofill_MaTK(TextBox textBox)
         {
-            string matk = datatableTK.Rows[datatableTK.Rows.Count - 1]["MaTK"].ToString();
-            matk = StringMath.Increment(matk);
-            textBox.Text = matk;
+            textBox.Text = next_TK_PrimaryKey;
         }
         //Upload method
         private void button_TKUpload_OK_Click(object sender, EventArgs e)
@@ -787,35 +749,62 @@ namespace QuanLyMachTu
 
             //handle event
             string primaryKey = textBox_TKUpload_MaTK.Text;
-            DataRow targetRow = datatableTK.Rows.Find(primaryKey);
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM TAIKHOAN WHERE MaTK = @MaTK) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaTK", primaryKey } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatableTK.NewRow();
-                targetRow["MaTK"] = primaryKey;
-                targetRow["TenTK"] = textBox_TKUpload_TenTK.Text;
-                targetRow["MatKhau"] = textBox_TKUpload_MatKhau.Text;
-                targetRow["SDT"] = textBox_TKUpload_SDT.Text;
-                targetRow["Email"] = textBox_TKUpload_Email.Text;
-                targetRow["MaBN"] = textBox_TKUpload_MaBN.Text;
-                targetRow["NgayLap"] = DateTime.Now.ToString("MM/dd/yyyy");
-                datatableTK.Rows.Add(targetRow);
+                string insertQuery = "INSERT INTO TAIKHOAN " +
+                                        "VALUES(@MaTK, @TenTK, @MatKhau, @SDT, @Email, @MaBN)";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaTK", primaryKey},
+                    {"@TenTK", textBox_TKUpload_TenTK.Text },
+                    {"@MatKhau", textBox_TKUpload_MatKhau.Text },
+                    {"@SDT", textBox_TKUpload_SDT.Text },
+                    {"@Email", textBox_TKUpload_Email.Text },
+                    {"@MaBN", textBox_TKUpload_MaBN.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
+
+                next_BN_PrimaryKey = StringMath.Increment(next_BN_PrimaryKey);
             }
-            else //Update
+            else
             {
-                targetRow["TenTK"] = textBox_TKUpload_TenTK.Text;
-                targetRow["MatKhau"] = textBox_TKUpload_MatKhau.Text;
-                targetRow["SDT"] = textBox_TKUpload_SDT.Text;
-                targetRow["Email"] = textBox_TKUpload_Email.Text;
-                targetRow["MaBN"] = textBox_TKUpload_MaBN.Text;
+                string updateQuery = "UPDATE TAIKHOAN " +
+                                        "SET TenTK = @TenTK, " +
+                                            "MatKhau = @MatKhau, " +
+                                            "SDT = @SDT, " +
+                                            "Email = @Email, " +
+                                            "MaBN = @MaBN " +
+                                        "WHERE MaTK = @MaTK";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaTK", primaryKey},
+                    {"@TenTK", textBox_TKUpload_TenTK.Text },
+                    {"@MatKhau", textBox_TKUpload_MatKhau.Text },
+                    {"@SDT", textBox_TKUpload_SDT.Text },
+                    {"@Email", textBox_TKUpload_Email.Text },
+                    {"@MaBN", textBox_TKUpload_MaBN.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatableTK);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Filter method
         private void button_TKFilter_OK_Click(object sender, EventArgs e)
         {
-            string selectCommand = "1 = 1 ";
+            string selectCommand = "SELECT * " +
+                                   "FROM TAIKHOAN " +
+                                   "WHERE 1 = 1 ";
 
             //make a select command
             if (string.IsNullOrEmpty(textBox_TKFilter_MaBN.Text) == false)
@@ -828,26 +817,44 @@ namespace QuanLyMachTu
                 selectCommand += $"AND Email = '{textBox_TKFilter_Email.Text}' ";
             if (string.IsNullOrEmpty(textBox_TKFilter_SDT.Text) == false)
                 selectCommand += $"AND SDT = '{textBox_TKFilter_SDT.Text}' ";
-            string ngayLap = GetNgayThangNam(textBox_TKFilter_Ngay, comboBox_TKFilter_Thang, textBox_TKFilter_Nam);
-            string operation = GetOperation(comboBox_TKFilter_Operation);
+            string ngayLap = GeneralMethods.GetNgayThangNam(textBox_TKFilter_Ngay, comboBox_TKFilter_Thang, textBox_TKFilter_Nam);
+            string operation = GeneralMethods.GetOperation(comboBox_TKFilter_Operation);
             if (string.IsNullOrEmpty(ngayLap) == false)
                 selectCommand += $"AND NgayLap {operation} '{ngayLap}' ";
 
-            DataRow[] resultRow = datatableTK.Select(selectCommand);
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+        //Remove
+        private void pageButton_TKRemove_Click(object sender, EventArgs e)
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
-            string primaryKey;
-            DataTable resultDatatable = datatableTK.Clone();
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter;
+            int parameterIndex = 0;
 
-            foreach (DataRow row in resultRow)
+            string inDeletedList = "(NULL";
+            foreach (DataGridViewRow row in selectedRows)
             {
-                primaryKey = row["MaTK"].ToString();
-                if (resultDatatable.Rows.Contains(primaryKey))
-                    continue;
-
-                resultDatatable.ImportRow(row);
+                parameter = $"@MaTK{parameterIndex}";
+                parameters.Add(parameter, row.Cells["MaTK"].Value.ToString());
+                inDeletedList += $", {parameter}";
+                parameterIndex++;
             }
+            inDeletedList += ")";
 
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            //remove
+            string deleteCommand = "DELETE FROM TAIKHOAN " +
+                                   "WHERE MaTK IN " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         //Additional
         private void textBox_MaTK_Leave(object sender, EventArgs e)
@@ -855,28 +862,6 @@ namespace QuanLyMachTu
             TextBox textBox = sender as TextBox;
             if (string.IsNullOrEmpty(textBox.Text))
                 Autofill_MaTK(textBox);
-        }
-
-        private void textBox_Autofind_MaBNfromMaTK_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            string findingInformation = textBox.Text;
-            string command = $"MaTK = '{findingInformation}'";
-            DataRow[] result = datatableTK.Select(command);
-
-            if (result.Length > 0)
-                textBox_TKUpload_MaBN.Text = result[0]["MaBN"].ToString();
-        }
-
-        private void textBox_Autofind_MaTKfromMaBN_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            string findingInformation = textBox.Text;
-            string command = $"MaBN = '{findingInformation}'";
-            DataRow[] result = datatableTK.Select(command);
-
-            if (result.Length > 0)
-                textBox_TKUpload_MaTK.Text = result[0]["MaTK"].ToString();
         }
         //Decorate panel
         private void panel_TKFilter_Paint(object sender, PaintEventArgs e)
@@ -1041,6 +1026,7 @@ namespace QuanLyMachTu
                 else if (control is ComboBox comboBox)
                     comboBox.SelectedIndex = 0;
             }
+            LoadPage(controlPage);
         }
 
         private void button_TKUpload_Reset_Click(object sender, EventArgs e)
@@ -1053,6 +1039,7 @@ namespace QuanLyMachTu
                     textBox.Text = "";
 
             Autofill_MaTK(textBox_TKUpload_MaTK);
+            LoadPage(controlPage);
         }
 
         private void button_HSBAUpload_Reset_Click(object sender, EventArgs e)
@@ -1064,7 +1051,8 @@ namespace QuanLyMachTu
                 if (control is TextBox textBox)
                     textBox.Text = "";
 
-            FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
+            GeneralMethods.FillDate(textBox_HSBAUpload_Ngay, comboBox_HSBAUpload_Thang, textBox_HSBAUpload_Nam);
+            LoadPage(controlPage);
         }
 
         private void button_BNUpload_Reset_Click(object sender, EventArgs e)
@@ -1077,7 +1065,151 @@ namespace QuanLyMachTu
                     textBox.Text = "";
 
             FillMaBN(textBox_BNUpload_MaBN);
-            FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
+            GeneralMethods.FillDate(textBox_BNUpload_Ngay, comboBox_BNUpload_Thang, textBox_BNUpload_Nam);
+            LoadPage(controlPage);
+        }
+
+        private void pageButton_Details_BN_Click(object sender, EventArgs e)
+        {
+            switch (controlPage)
+            {
+                case BN_TAB:
+                    toggle_BNDetails_panel();
+                    break;
+                case HSBA_TAB:
+                    toggle_HSBADetails_panel();
+                    break;
+            }
+        }
+        private void ShowDetails_BN()
+        {
+            if (customDataGridView.SelectedCells.Count > 0)
+            {
+                DataGridViewRow row = customDataGridView.SelectedCells[0].OwningRow;
+                string primaryKey = row.Cells["MaBN"].Value.ToString();
+                //display BENHNHAN information
+                textBox_BNDetails_MaBN.Text = primaryKey;
+                textBox_BNDetails_HoTen.Text = row.Cells["HoTenBN"].Value.ToString();
+                textBox_BNDetails_Email.Text = row.Cells["Email"].Value.ToString();
+                textBox_BNDetails_SDT.Text = row.Cells["SDT"].Value.ToString();
+                textBox_BNDetails_NgaySinh.Text = row.Cells["NgaySinh"].Value.ToString();
+                textBox_BNDetails_GioiTinh.Text = row.Cells["GioiTinh"].Value.ToString();
+                textBox_BNDetails_DoanhSo.Text = row.Cells["DoanhSo"].Value.ToString();
+
+                //display LichSuKham
+                string selectCommand = "SELECT MaHSBA, MaLK, ThoiDiem, TinhTrang, KetQuaTongQuat, MaPK, MaNV " +
+                                       "FROM HOSOBENHAN HS " +
+                                       "INNER JOIN LICHKHAM LK ON LK.MaBN = HS.MaBN AND CAST(LK.ThoiDiem AS DATE) = HS.NgayLap " +
+                                       "WHERE HS.IsDeleted = 0 AND " +
+                                      $"HS.MaBN = '{primaryKey}'";
+                UpdateDataGridView(customDataGridView_LichSuKham, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
+
+                //display LichSuKetQuaKham
+                selectCommand = "SELECT HSBA.MaHSBA, HSBA.NgayLap, MaDV, KetQuaChuanDoan, NoiDung " +
+                                "FROM KetQua KQ " +
+                                "INNER JOIN HOSOBENHAN HSBA ON HSBA.MaHSBA = KQ.MaHSBA AND HSBA.NgayLap = KQ.NgayLap " +
+                                "WHERE IsDeleted = 0 AND " +
+                               $"MaBN = '{primaryKey}'";
+                UpdateDataGridView(customDataGridView_LichSuKetQuaKham, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
+
+                //display LichSuThanhToan
+                selectCommand = "SELECT MaHD, NgayThanhToan, TongTien, MaNV " +
+                                "FROM HOADON " +
+                                "WHERE IsDeleted = 0 AND " +
+                               $"MaBN = '{primaryKey}'";
+                UpdateDataGridView(customDataGridView_LichSuThanhToan, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
+            }
+        }
+        private void ShowDetails_HSBA()
+        {
+            if (customDataGridView.SelectedCells.Count > 0)
+            {
+                DataGridViewRow row = customDataGridView.SelectedCells[0].OwningRow;
+                string[] primaryKey = { row.Cells["MaHSBA"].Value.ToString(), row.Cells["NgayLap"].Value.ToString() };
+                //display BENHNHAN information
+                string selectBNInfo = "SELECT BN.MaBN, HoTenBN, Email, SDT, NgaySinh, GioiTinh, DoanhSo, KetQuaTongQuat " +
+                                      "FROM BENHNHAN BN " +
+                                      "INNER JOIN HOSOBENHAN HSBA ON HSBA.MaBN = BN.MaBN " +
+                                     $"WHERE BN.IsDeleted = 0 AND MaHSBA = '{primaryKey[0]}'";
+                DataTable BN_info = DatabaseConnection.LoadDataIntoDataTable(selectBNInfo);
+                if (BN_info.Rows.Count == 0)
+                    return;
+
+                DataRow BN_row = BN_info.Rows[0];
+                textBox_HSBADetails_MaBN.Text = BN_row["MaBN"].ToString();
+                textBox_HSBADetails_HoTen.Text = BN_row["HoTenBN"].ToString();
+                textBox_HSBADetails_Email.Text = BN_row["Email"].ToString();
+                textBox_HSBADetails_SDT.Text = BN_row["SDT"].ToString();
+                textBox_HSBADetails_NgaySinh.Text = BN_row["NgaySinh"].ToString();
+                textBox_HSBADetails_GioiTinh.Text = BN_row["GioiTinh"].ToString();
+                textBox_HSBADetails_DoanhSo.Text = BN_row["DoanhSo"].ToString();
+
+                //display KetQuaKham
+                string selectCommand = "SELECT * " +
+                                       "FROM KetQua " +
+                                      $"WHERE MaHSBA = '{primaryKey[0]}' AND NgayLap = '{primaryKey[1]}'";
+                UpdateDataGridView(customDataGridView_KetQuaKham, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
+            }
+        }
+        private void toggle_BNDetails_panel()
+        {
+            if (BN_ControlDetails)
+            {
+                panel_BNDetails.SendToBack();
+                ColoringButton.DisabledColor(pageButton_Details_BN);
+                BN_ControlDetails = false;
+            }
+            else
+            {
+                panel_BNDetails.BringToFront();
+                ColoringButton.EnabledColor(pageButton_Details_BN);
+                BN_ControlDetails = true;
+                ShowDetails_BN();
+            }
+        }
+        private void toggle_HSBADetails_panel()
+        {
+            if (HSBA_ControlDetails)
+            {
+                panel_HSBADetails.SendToBack();
+                ColoringButton.DisabledColor(pageButton_Details_BN);
+                HSBA_ControlDetails = false;
+            }
+            else
+            {
+                panel_HSBADetails.BringToFront();
+                ColoringButton.EnabledColor(pageButton_Details_BN);
+                HSBA_ControlDetails = true;
+                ShowDetails_HSBA();
+            }
+        }
+        private void panel_Details_Leave(object sender, EventArgs e)
+        {
+            toggle_BNDetails_panel();
+        }
+
+        private void panel_Details_Paint(object sender, PaintEventArgs e)
+        {
+            Color lineColor = Color.FromArgb(193, 193, 193);
+            Graphics graphic = e.Graphics;
+
+            Pen sectionPen = new Pen(lineColor, 2);
+            int startX = 20, endX = 1104, offset = 5;
+
+            graphic.DrawLine(sectionPen, new Point(startX - 3 * offset, label_BNDetails_LichSuKham.Location.Y + label_BNDetails_LichSuKham.Height / 2 + offset),
+                                         new Point(label_BNDetails_LichSuKham.Location.X, label_BNDetails_LichSuKham.Location.Y + label_BNDetails_LichSuKham.Height / 2 + offset)); //label_BNDetails_LichSuKham line
+            graphic.DrawLine(sectionPen, new Point(label_BNDetails_LichSuKham.Location.X + label_BNDetails_LichSuKham.Width, label_BNDetails_LichSuKham.Location.Y + label_BNDetails_LichSuKham.Height / 2 + offset),
+                                         new Point(endX + offset, label_BNDetails_LichSuKham.Location.Y + label_BNDetails_LichSuKham.Height / 2 + offset)); //label_BNDetails_LichSuKham line
+
+            graphic.DrawLine(sectionPen, new Point(startX - 3 * offset, label_BNDetails_LichSuThanhToan.Location.Y + label_BNDetails_LichSuThanhToan.Height / 2 + offset),
+                                         new Point(label_BNDetails_LichSuThanhToan.Location.X, label_BNDetails_LichSuThanhToan.Location.Y + label_BNDetails_LichSuThanhToan.Height / 2 + offset)); //label_BNDetails_LichSuThanhToan line
+            graphic.DrawLine(sectionPen, new Point(label_BNDetails_LichSuThanhToan.Location.X + label_BNDetails_LichSuThanhToan.Width, label_BNDetails_LichSuThanhToan.Location.Y + label_BNDetails_LichSuThanhToan.Height / 2 + offset),
+                                         new Point(endX + offset, label_BNDetails_LichSuThanhToan.Location.Y + label_BNDetails_LichSuThanhToan.Height / 2 + offset)); //label_BNDetails_LichSuThanhToan line
+        }
+
+        private void panel_HSBADetails_Leave(object sender, EventArgs e)
+        {
+            toggle_HSBADetails_panel();
         }
     }
 }

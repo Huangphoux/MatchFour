@@ -9,24 +9,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace QuanLyMachTu
 {
     public partial class DichVuControl : UserControl
     {
-        #region SQL stuffs
-        //Database fields
-        private SqlConnection connection;
-        private SqlDataAdapter adapter;
-        private DataSet dataset;
-        private DataTable datatable_DV;
-        private DataTable datatable_TT;
-        //Database connection
-        private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-        //private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-
-        #endregion
+        private string DV_SelectCommand = "SELECT MaDV, TenDV, ChiPhi, MoTa " +
+                                          "FROM DICHVU " +
+                                          "WHERE IsDeleted = 0 ";
+        private string PKDV_SelectCommand = "SELECT * " +
+                                            "FROM PhongKham_DichVu ";
+        private string selectLastID = "SELECT TOP 1 MaDV FROM DICHVU ORDER BY MaDV DESC";
 
         const int INS_FUNC = 1;
         const int FIL_FUNC = 2;
@@ -34,9 +29,11 @@ namespace QuanLyMachTu
         const int DV_TAB = 0;
         const int TT_TAB = 10;
 
+        string next_DV_PrimaryKey;
+        int DV_controlFunc;
+        int TT_controlFunc;
         int controlPage;
-        DataTable controlDataTable;
-        CustomDataGridView controlDataGridView;
+        string controlCommand;
 
         public DichVuControl()
         {
@@ -45,16 +42,17 @@ namespace QuanLyMachTu
 
         private void DichVuControl_Load(object sender, EventArgs e)
         {
-            LoadData();
             InitializeState();
         }
 
         private void InitializeState()
         {
-            controlDataGridView = customDataGridView;
+            InitializeState_DV();
+            InitializeState_TT();
+
             controlPage = DV_TAB;
             EnablePage(controlPage);
-            panel_DV_Filter.BringToFront();
+            LoadPage(controlPage);
         }
 
         private void EnablePage(int controlPage)
@@ -62,18 +60,28 @@ namespace QuanLyMachTu
             switch (controlPage)
             {
                 case DV_TAB:
-                    controlDataTable = datatable_DV;
                     ColoringButton.EnabledColor(pageButton_DV);
-                    panel_DV_Upload.BringToFront();
+                    OpenFunctionPanel(DV_controlFunc);
                     break;
                 case TT_TAB:
-                    controlDataTable = datatable_TT;
                     ColoringButton.EnabledColor(pageButton_TinhTrang);
-                    panel_TinhTrang_Upload.BringToFront();
+                    OpenFunctionPanel(TT_controlFunc);
+                    break;
+            }
+        }
+        private void LoadPage(int controlPage)
+        {
+            switch (controlPage)
+            {
+                case DV_TAB:
+                    controlCommand = DV_SelectCommand;
+                    break;
+                case TT_TAB:
+                    controlCommand = PKDV_SelectCommand;
                     break;
             }
 
-            UpdateDataGridView(customDataGridView, controlDataTable);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
         private void DisablePage(int controlPage)
         {
@@ -87,26 +95,46 @@ namespace QuanLyMachTu
                     break;
             }
         }
-
-        private void LoadData()
+        private void OpenFiltersPanel(int controlPage)
         {
-            connection = new SqlConnection(connectionStr);
-            connection.Open();
-
-            dataset = new DataSet();
-
-            LoadTabDichVu();
-            LoadTabTinhTrang();
-
-            connection.Close();
+            switch (controlPage)
+            {
+                case DV_TAB:
+                    DV_controlFunc = FIL_FUNC;
+                    panel_DV_Filter.BringToFront();
+                    break;
+                case TT_TAB:
+                    TT_controlFunc = FIL_FUNC;
+                    panel_TinhTrang_Filter.BringToFront();
+                    break;
+            }
         }
-
-        private void LoadDataToDataSet(string commandStr, string tableName)
+        private void OpenUploadPanel(int controlPage)
         {
-            adapter = new SqlDataAdapter(commandStr, connection);
-            adapter.Fill(dataset, tableName);
+            switch (controlPage)
+            {
+                case DV_TAB:
+                    DV_controlFunc = INS_FUNC;
+                    panel_DV_Upload.BringToFront();
+                    break;
+                case TT_TAB:
+                    TT_controlFunc = INS_FUNC;
+                    panel_TinhTrang_Upload.BringToFront();
+                    break;
+            }
         }
-
+        private void OpenFunctionPanel(int controlFunc)
+        {
+            switch (controlFunc)
+            {
+                case INS_FUNC:
+                    OpenUploadPanel(controlPage);
+                    break;
+                case FIL_FUNC:
+                    OpenFiltersPanel(controlPage);
+                    break;
+            }
+        }
         private void UpdateDataGridView(DataGridView dgv, DataTable datatable)
         {
             //Load data to data grid view
@@ -119,57 +147,25 @@ namespace QuanLyMachTu
 
         private void pageButton_Upload_Click(object sender, EventArgs e)
         {
-            switch (controlPage)
-            {
-                case DV_TAB:
-                    panel_DV_Upload.BringToFront();
-                    break;
-                case TT_TAB:
-                    panel_TinhTrang_Upload.BringToFront();
-                    break;
-            }
+            OpenUploadPanel(controlPage);
         }
 
         private void pageButton_Filter_Click(object sender, EventArgs e)
         {
-            switch (controlPage)
-            {
-                case DV_TAB:
-                    panel_DV_Filter.BringToFront();
-                    break;
-                case TT_TAB:
-                    panel_TinhTrang_Filter.BringToFront();
-                    break;
-            }
+            OpenFiltersPanel(controlPage);
         }
 
         private void pageButton_Remove_Click(object sender, EventArgs e)
         {
-            DataColumn[] primaryKeyColumn = controlDataTable.PrimaryKey;
-            string[] primaryKeyName = new string[primaryKeyColumn.Length];
-            string[] primaryKey = new string[primaryKeyColumn.Length];
-            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
-
-            //get primary key name
-            for (int col = 0; col < primaryKeyName.Length; col++)
-                primaryKeyName[col] = primaryKeyColumn[col].ColumnName;
-
-            //get all rows of selected cells
-            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
-                selectedRows.Add(cell.OwningRow);
-
-            //remove row with primary key
-            foreach (DataGridViewRow row in selectedRows)
+            switch (controlPage)
             {
-                //get primary key value
-                for (int col = 0; col < primaryKeyName.Length; col++)
-                    primaryKey[col] = row.Cells[primaryKeyName[col]].Value.ToString();
-                //remove row
-                DataRow? deleteRow = controlDataTable.Rows.Find(primaryKey);
-                controlDataTable.Rows.Remove(deleteRow);
+                case DV_TAB:
+                    DV_Remove();
+                    break;
+                case TT_TAB:
+                    TT_Remove();
+                    break;
             }
-
-            UpdateDataGridView(customDataGridView, controlDataTable);
         }
 
         private void panel_Paint(object sender, PaintEventArgs e)
@@ -195,15 +191,20 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = DV_TAB;
             EnablePage(controlPage);
+            LoadPage(controlPage);
         }
 
-        private void LoadTabDichVu()
+        private void InitializeState_DV()
         {
-            LoadDataToDataSet("SELECT * FROM DICHVU", "DICHVU");
-            datatable_DV = dataset.Tables["DICHVU"];
-            datatable_DV.PrimaryKey = new DataColumn[] { datatable_DV.Columns["MaDV"] };
-
+            //prefetch
+            next_DV_PrimaryKey = (string)DatabaseConnection.ExecuteScalar(selectLastID, null);
+            next_DV_PrimaryKey = StringMath.Increment(next_DV_PrimaryKey);
+            //Control
+            DV_controlFunc = FIL_FUNC;
+            //Filters
             comboBox_DV_Filter_Operation.SelectedItem = comboBox_DV_Filter_Operation.Items[0];
+            //Upload
+            FillMaDV(textBox_DV_MaDV);
         }
 
         #region Error bits
@@ -250,72 +251,100 @@ namespace QuanLyMachTu
             }
 
             string primaryKey = textBox_DV_MaDV.Text;
-            DataRow targetRow = datatable_DV.Rows.Find(primaryKey);
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM DICHVU WHERE MaDV = @MaDV) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaDV", primaryKey } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatable_DV.NewRow();
+                string insertQuery = "INSERT INTO DICHVU " +
+                                        "(MaDV, TenDV, ChiPhi, MoTa) " +
+                                        "VALUES(@MaDV, @TenDV, @ChiPhi, @MoTa)";
 
-                targetRow["MaDV"] = primaryKey;
-                targetRow["TenDV"] = textBox_DV_TenDV.Text;
-                targetRow["ChiPhi"] = textBox_DV_ChiPhi.Text;
-                targetRow["MoTa"] = textBox_DV_MoTa.Text;
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDV", primaryKey},
+                    {"@TenDV", textBox_DV_TenDV.Text },
+                    {"@ChiPhi", textBox_DV_ChiPhi.Text },
+                    {"@MoTa", textBox_DV_MoTa.Text }
+                };
 
-                datatable_DV.Rows.Add(targetRow);
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
+
+                next_DV_PrimaryKey = StringMath.Increment(next_DV_PrimaryKey);
             }
-            else //Update
+            else
             {
-                targetRow["MaDV"] = primaryKey;
-                targetRow["TenDV"] = textBox_DV_TenDV.Text;
-                targetRow["ChiPhi"] = textBox_DV_ChiPhi.Text;
-                targetRow["MoTa"] = textBox_DV_MoTa.Text;
+                string updateQuery = "UPDATE DICHVU " +
+                                        "SET TenDV = @TenDV, " +
+                                            "ChiPhi = @ChiPhi, " +
+                                            "MoTa = @MoTa " +
+                                        "WHERE MaDV = @MaDV";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDV", primaryKey},
+                    {"@TenDV", textBox_DV_TenDV.Text },
+                    {"@ChiPhi", textBox_DV_ChiPhi.Text },
+                    {"@MoTa", textBox_DV_MoTa.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatable_DV);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
-
-        private string GetOperation(ComboBox operations)
-        {
-            string selected = operations.SelectedItem as string;
-            switch (selected)
-            {
-                case "≥":
-                    return ">=";
-                case "≤":
-                    return "<=";
-                default:
-                    return selected;
-            }
-        }
-
         private void button_DV_OK_Filter_Click(object sender, EventArgs e)
         {
-            string selectCommand = "1 = 1 ";
+            string selectCommand = DV_SelectCommand;
 
             if (string.IsNullOrEmpty(textBox_DV_MaDV_Filter.Text) == false)
                 selectCommand += $"AND MaDV = '{textBox_DV_MaDV_Filter.Text}' ";
 
             if (string.IsNullOrEmpty(textBox_DV_TenDV_Filter.Text) == false)
-                selectCommand += $"AND TenDV = '{textBox_DV_TenDV_Filter.Text}' ";
+                selectCommand += $"AND TenDV = N'{textBox_DV_TenDV_Filter.Text}' ";
 
-            string operation = GetOperation(comboBox_DV_Filter_Operation);
+            string operation = GeneralMethods.GetOperation(comboBox_DV_Filter_Operation);
             if (string.IsNullOrEmpty(textBox_DV_ChiPhi_Filter.Text) == false)
                 selectCommand += $"AND ChiPhi {operation} '{textBox_DV_ChiPhi_Filter.Text}' ";
 
-            DataRow[] resultRow = datatable_DV.Select(selectCommand);
-            DataTable resultDatatable = datatable_DV.Clone();
-
-            foreach (DataRow row in resultRow)
-            {
-                if (resultDatatable.Rows.Contains(row["MaDV"]))
-                    continue;
-
-                resultDatatable.ImportRow(row);
-            }
-
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
+        //Remove
+        private void DV_Remove()
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter;
+            int parameterIndex = 0;
+
+            string inDeletedList = "(NULL";
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                parameter = $"@MaDV{parameterIndex}";
+                parameters.Add(parameter, row.Cells["MaDV"].Value.ToString());
+                inDeletedList += $", {parameter}";
+                parameterIndex++;
+            }
+            inDeletedList += ")";
+
+            //remove
+            string deleteCommand = "UPDATE DICHVU " +
+                                   "SET IsDeleted = 1 " +
+                                   "WHERE MaDV IN " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
         #endregion
 
         #region TinhTrang Tab
@@ -325,15 +354,16 @@ namespace QuanLyMachTu
             DisablePage(controlPage);
             controlPage = TT_TAB;
             EnablePage(controlPage);
+            LoadPage(controlPage);
         }
 
-        private void LoadTabTinhTrang()
+        private void InitializeState_TT()
         {
-            LoadDataToDataSet("SELECT * FROM PhongKham_DichVu", "PhongKham_DichVu");
-            datatable_TT = dataset.Tables["PhongKham_DichVu"];
-            datatable_TT.PrimaryKey = new DataColumn[] { datatable_TT.Columns["MaDV"], datatable_TT.Columns["MaPK"] };
-
+            //Control
+            TT_controlFunc = FIL_FUNC;
+            //Upload
             comboBox_TinhTrang_Upload.SelectedItem = comboBox_TinhTrang_Upload.Items[0];
+            //Filters
             comboBox_TinhTrang_Filter.SelectedItem = comboBox_TinhTrang_Filter.Items[0];
         }
 
@@ -371,77 +401,205 @@ namespace QuanLyMachTu
                 textBox_TT_MaPK_Upload.Text
             };
 
-            DataRow targetRow = datatable_TT.Rows.Find(primaryKey);
+            string checkQuery = "IF EXISTS (SELECT 1 FROM PhongKham_DichVu WHERE MaDV = @MaDV AND MaPK = @MaPK) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaDV", primaryKey[0] }, { "@MaPK", primaryKey[1] } };
 
-            if (targetRow == null) // Insert
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatable_TT.NewRow();
+                string insertQuery = "INSERT INTO PhongKham_DichVu " +
+                                     "VALUES(@MaDV, @MaPK, @TinhTrang)";
 
-                targetRow["MADV"] = primaryKey[0];
-                targetRow["MAPK"] = primaryKey[1];
-                targetRow["TinhTrang"] = comboBox_TinhTrang_Upload.SelectedItem;
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDV", primaryKey[0] },
+                    {"@MaPK",  primaryKey[1] },
+                    {"@TinhTrang", comboBox_TinhTrang_Upload.SelectedItem }
+                };
 
-                datatable_TT.Rows.Add(targetRow);
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
             }
-            else //Update
+            else
             {
-                targetRow["MADV"] = primaryKey[0];
-                targetRow["MAPK"] = primaryKey[1];
-                targetRow["TinhTrang"] = comboBox_TinhTrang_Upload.SelectedItem;
+                string updateQuery = "UPDATE PhongKham_DichVu " +
+                                        "SET TinhTrang = @TinhTrang " +
+                                        "WHERE MaDV = @MaDV AND MaPK = @MaPK";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDV", primaryKey[0]},
+                    {"@MaPK",  primaryKey[1] },
+                    {"@TinhTrang", comboBox_TinhTrang_Upload.SelectedItem }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatable_TT);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
 
         private void button_TT_OK_Click(object sender, EventArgs e)
         {
-            string selectCommand_TT = "1 = 1 ";
-            string selectCommand_DV = "1 = 1 ";
+            string selectCommand = "SELECT DV.MaDV, MaPK, TinhTrang " +
+                                   "FROM PhongKham_DichVu PKDV " +
+                                   "INNER JOIN DICHVU DV ON DV.MaDV = PKDV.MaDV " +
+                                   "WHERE DV.IsDeleted = 0 ";
 
-            if (string.IsNullOrEmpty(textBox_TT_MaDV_Upload.Text) == false)
-                selectCommand_TT += $"AND MaDV = '{textBox_TT_MaDV_Upload.Text}' ";
+            if (string.IsNullOrEmpty(textBox_TT_MaDV_Filter.Text) == false)
+                selectCommand += $"AND PKDV.MaDV = '{textBox_TT_MaDV_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_TT_MaPK_Filter.Text) == false)
-                selectCommand_TT += $"AND MaPK = '{textBox_TT_MaPK_Filter.Text}' ";
-
-            selectCommand_TT += $"AND TinhTrang = '{comboBox_TinhTrang_Filter}' ";
-
+                selectCommand += $"AND MaPK = '{textBox_TT_MaPK_Filter.Text}' ";
+            if (string.IsNullOrEmpty(comboBox_TinhTrang_Filter.Text) == false)
+                selectCommand += $"AND TinhTrang = '{comboBox_TinhTrang_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_TT_TenDV_Filter.Text) == false)
-                selectCommand_DV += $"AND TenDV = '{textBox_TT_TenDV_Filter.Text}' ";
-            if (string.IsNullOrEmpty(textBox_TT_TenPK_Filter.Text) == false)
-                selectCommand_DV += $"AND TenPK = '{textBox_TT_TenPK_Filter.Text}' ";
+                selectCommand += $"AND TenDV = N'{textBox_TT_TenDV_Filter.Text}' ";
 
-            DataRow[] resultRow_TT = datatable_TT.Select(selectCommand_TT);
-            DataRow[] resultRow_DV = datatable_DV.Select(selectCommand_DV);
-            List<DataRow> result = new List<DataRow>();
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+        //Remove
+        private void TT_Remove()
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
-            foreach (DataRow row_TT in resultRow_TT)
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter1, parameter2;
+            int parameterIndex = 0;
+
+            string maPK, maDV;
+
+            string inDeletedList = "1 != 1 ";
+            foreach (DataGridViewRow row in selectedRows)
             {
-                foreach (DataRow row_DV in resultRow_DV)
-                {
-                    if (row_DV["MaDV"].ToString() == row_TT["MaDV"].ToString())
-                    {
-                        result.Add(row_DV);
-                        break;
-                    }
-                }
+                parameter1 = $"@MaPK{parameterIndex}";
+                parameter2 = $"@MaDV{parameterIndex}";
+                maPK = row.Cells["MaPK"].Value.ToString();
+                maDV = row.Cells["MaDV"].Value.ToString();
+                parameters.Add(parameter1, maPK);
+                parameters.Add(parameter2, maDV);
+                inDeletedList += $"OR (MaPK = {parameter1} AND MaDV = {parameter2}) ";
+                parameterIndex++;
             }
 
-            string[] primaryKey = new string[2];
-            DataTable resultDatatable = datatable_TT.Clone();
+            //remove
+            string deleteCommand = "DELETE FROM PhongKham_DichVu " +
+                                   "WHERE " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
 
-            foreach (DataRow row in result)
-            {
-                primaryKey[0] = row["MaDV"].ToString();
-                primaryKey[1] = row["MaPK"].ToString();
-                if (resultDatatable.Rows.Contains(primaryKey))
-                    continue;
-
-                resultDatatable.ImportRow(row);
-            }
-
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            //renew            
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
 
         #endregion
+
+        private void button_Filters_Reset_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Panel panel = button.Parent as Panel;
+
+            GeneralMethods.ClearPanel(panel);
+
+            LoadPage(controlPage);
+        }
+
+        private void button_TTUpload_Reset_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Panel panel = button.Parent as Panel;
+
+            GeneralMethods.ClearPanel(panel);
+            GeneralMethods.CleanColorPanel(panel);
+            GeneralMethods.SetUpPanel(panel, 0);
+
+            LoadPage(controlPage);
+        }
+        private void button_DVUpload_Reset_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Panel panel = button.Parent as Panel;
+
+            GeneralMethods.ClearPanel(panel);
+            GeneralMethods.CleanColorPanel(panel);
+
+            FillMaDV(textBox_DV_MaDV);
+
+            LoadPage(controlPage);
+        }
+        private void FillMaDV(TextBox textBox)
+        {
+            textBox.Text = next_DV_PrimaryKey;
+        }
+
+        private void textBox_DV_MaDV_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrEmpty(textBox.Text))
+                FillMaDV(textBox);
+        }
+
+        private void customDataGridView_CellMouseDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            DataGridView dgv = sender as DataGridView;
+            DataRowView drv = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            DataRow row = drv.Row;
+
+            switch (controlPage)
+            {
+                case DV_TAB:
+                    fillPanel_DV(row);
+                    break;
+                case TT_TAB:
+                    fillPanel_TT(row);
+                    break;
+            }
+        }
+
+        private void fillPanel_TT(DataRow row)
+        {
+            switch (TT_controlFunc)
+            {
+                case INS_FUNC:
+                    textBox_TT_MaDV_Upload.Text = row["MaDV"].ToString();
+                    textBox_TT_MaPK_Upload.Text = row["MaPK"].ToString();
+                    comboBox_TinhTrang_Upload.Text = row["TinhTrang"].ToString();
+                    GeneralMethods.CleanColorPanel(panel_TinhTrang_Upload);
+                    break;
+                case FIL_FUNC:
+                    textBox_TT_MaDV_Filter.Text = row["MaDV"].ToString();
+                    textBox_TT_MaPK_Filter.Text = row["MaPK"].ToString();
+                    comboBox_TinhTrang_Filter.Text = row["TinhTrang"].ToString();
+                    break;
+            }
+        }
+
+        private void fillPanel_DV(DataRow row)
+        {
+            switch (DV_controlFunc)
+            {
+                case INS_FUNC:
+                    textBox_DV_MaDV.Text = row["MaDV"].ToString();
+                    textBox_DV_ChiPhi.Text = row["ChiPhi"].ToString();
+                    textBox_DV_TenDV.Text = row["TenDV"].ToString();
+                    textBox_DV_MoTa.Text = row["MoTa"].ToString();
+                    GeneralMethods.CleanColorPanel(panel_DV_Upload);
+                    break;
+                case FIL_FUNC:
+                    textBox_DV_MaDV_Filter.Text = row["MaDV"].ToString();
+                    textBox_DV_TenDV_Filter.Text = row["TenDV"].ToString();
+                    textBox_DV_ChiPhi_Filter.Text = row["ChiPhi"].ToString();
+                    comboBox_DV_Filter_Operation.SelectedIndex = 2;
+                    break;
+            }
+        }
     }
 }

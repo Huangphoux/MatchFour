@@ -34,6 +34,14 @@ namespace QuanLyMachTu
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BenhNhanControl));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             label_Filters = new Label();
             textBox_Filters_MaBN = new TextBox();
             button_BNFilter_OK = new Button();
@@ -57,6 +65,7 @@ namespace QuanLyMachTu
             pageButton_Remove = new PageButton();
             pageButton_Filter = new PageButton();
             panel_Toolbar = new Panel();
+            pageButton_Details_BN = new PageButton();
             label_BNUpload = new Label();
             textBox_BNUpload_MaBN = new TextBox();
             button_Upload_OK = new Button();
@@ -161,6 +170,46 @@ namespace QuanLyMachTu
             button_TKFilter_OK = new Button();
             textBox_TKFilter_MaBN = new TextBox();
             label43 = new Label();
+            panel_BNDetails = new CustomPanel();
+            customDataGridView_LichSuKetQuaKham = new CustomDataGridView();
+            label47 = new Label();
+            customDataGridView_LichSuThanhToan = new CustomDataGridView();
+            label_BNDetails_LichSuThanhToan = new Label();
+            customDataGridView_LichSuKham = new CustomDataGridView();
+            label_BNDetails_LichSuKham = new Label();
+            label48 = new Label();
+            textBox_BNDetails_DoanhSo = new TextBox();
+            label46 = new Label();
+            textBox_BNDetails_GioiTinh = new TextBox();
+            label45 = new Label();
+            textBox_BNDetails_NgaySinh = new TextBox();
+            label44 = new Label();
+            textBox_BNDetails_SDT = new TextBox();
+            label34 = new Label();
+            textBox_BNDetails_Email = new TextBox();
+            label27 = new Label();
+            textBox_BNDetails_HoTen = new TextBox();
+            label14 = new Label();
+            textBox_BNDetails_MaBN = new TextBox();
+            label10 = new Label();
+            panel_HSBADetails = new CustomPanel();
+            customDataGridView_KetQuaKham = new CustomDataGridView();
+            label51 = new Label();
+            label52 = new Label();
+            textBox_HSBADetails_DoanhSo = new TextBox();
+            label53 = new Label();
+            textBox_HSBADetails_GioiTinh = new TextBox();
+            label54 = new Label();
+            textBox_HSBADetails_NgaySinh = new TextBox();
+            label55 = new Label();
+            textBox_HSBADetails_SDT = new TextBox();
+            label56 = new Label();
+            textBox_HSBADetails_Email = new TextBox();
+            label57 = new Label();
+            textBox_HSBADetails_HoTen = new TextBox();
+            label58 = new Label();
+            textBox_HSBADetails_MaBN = new TextBox();
+            label59 = new Label();
             panel_BNFilter.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             panel_BNUpload.SuspendLayout();
@@ -170,6 +219,12 @@ namespace QuanLyMachTu
             panel_HSBAUpload.SuspendLayout();
             panel_HSBAFilter.SuspendLayout();
             panel_TKFilter.SuspendLayout();
+            panel_BNDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKetQuaKham).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuThanhToan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKham).BeginInit();
+            panel_HSBADetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_KetQuaKham).BeginInit();
             SuspendLayout();
             // 
             // label_Filters
@@ -506,6 +561,7 @@ namespace QuanLyMachTu
             panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Toolbar.Controls.Add(pageButton_Details_BN);
             panel_Toolbar.Controls.Add(pageButton_Filter);
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
@@ -513,6 +569,28 @@ namespace QuanLyMachTu
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(1174, 80);
             panel_Toolbar.TabIndex = 0;
+            // 
+            // pageButton_Details_BN
+            // 
+            pageButton_Details_BN.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_Details_BN.BorderColor = Color.PaleVioletRed;
+            pageButton_Details_BN.BorderRadius = 20;
+            pageButton_Details_BN.BorderSize = 0;
+            pageButton_Details_BN.CustomText = "Thông tin chi tiết";
+            pageButton_Details_BN.FlatAppearance.BorderSize = 0;
+            pageButton_Details_BN.FlatStyle = FlatStyle.Flat;
+            pageButton_Details_BN.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            pageButton_Details_BN.ForeColor = Color.FromArgb(193, 193, 193);
+            pageButton_Details_BN.Icon = (Image)resources.GetObject("pageButton_Details_BN.Icon");
+            pageButton_Details_BN.IconLocation = new Point(11, 14);
+            pageButton_Details_BN.IconSize = new Size(30, 30);
+            pageButton_Details_BN.Location = new Point(155, 13);
+            pageButton_Details_BN.Name = "pageButton_Details_BN";
+            pageButton_Details_BN.Size = new Size(260, 55);
+            pageButton_Details_BN.TabIndex = 98;
+            pageButton_Details_BN.TextLocation = new Point(52, 12);
+            pageButton_Details_BN.UseVisualStyleBackColor = false;
+            pageButton_Details_BN.Click += pageButton_Details_BN_Click;
             // 
             // label_BNUpload
             // 
@@ -1093,7 +1171,6 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaTK.Name = "textBox_TKUpload_MaTK";
             textBox_TKUpload_MaTK.Size = new Size(160, 32);
             textBox_TKUpload_MaTK.TabIndex = 2;
-            textBox_TKUpload_MaTK.TextChanged += textBox_Autofind_MaBNfromMaTK_TextChanged;
             textBox_TKUpload_MaTK.KeyPress += button_KeyPress_Normal;
             textBox_TKUpload_MaTK.Leave += textBox_MaTK_Leave;
             // 
@@ -1177,7 +1254,6 @@ namespace QuanLyMachTu
             textBox_TKUpload_MaBN.Name = "textBox_TKUpload_MaBN";
             textBox_TKUpload_MaBN.Size = new Size(160, 32);
             textBox_TKUpload_MaBN.TabIndex = 1;
-            textBox_TKUpload_MaBN.TextChanged += textBox_Autofind_MaTKfromMaBN_TextChanged;
             // 
             // label17
             // 
@@ -1285,7 +1361,6 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaHSBA.Name = "textBox_HSBAUpload_MaHSBA";
             textBox_HSBAUpload_MaHSBA.Size = new Size(160, 32);
             textBox_HSBAUpload_MaHSBA.TabIndex = 2;
-            textBox_HSBAUpload_MaHSBA.TextChanged += textBox_Autofind_MaBNfromMaHSBA_TextChanged;
             // 
             // label13
             // 
@@ -1451,7 +1526,6 @@ namespace QuanLyMachTu
             textBox_HSBAUpload_MaBN.Name = "textBox_HSBAUpload_MaBN";
             textBox_HSBAUpload_MaBN.Size = new Size(160, 32);
             textBox_HSBAUpload_MaBN.TabIndex = 1;
-            textBox_HSBAUpload_MaBN.TextChanged += textBox_Autofind_MaHSBA_TextChanged;
             textBox_HSBAUpload_MaBN.KeyPress += button_KeyPress_Normal;
             // 
             // label24
@@ -2058,6 +2132,707 @@ namespace QuanLyMachTu
             label43.TabIndex = 2;
             label43.Text = "Filters";
             // 
+            // panel_BNDetails
+            // 
+            panel_BNDetails.AccessibleRole = AccessibleRole.None;
+            panel_BNDetails.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_BNDetails.AutoScroll = true;
+            panel_BNDetails.AutoScrollMargin = new Size(0, 25);
+            panel_BNDetails.BackColor = Color.FromArgb(57, 54, 70);
+            panel_BNDetails.Controls.Add(customDataGridView_LichSuKetQuaKham);
+            panel_BNDetails.Controls.Add(label47);
+            panel_BNDetails.Controls.Add(customDataGridView_LichSuThanhToan);
+            panel_BNDetails.Controls.Add(label_BNDetails_LichSuThanhToan);
+            panel_BNDetails.Controls.Add(customDataGridView_LichSuKham);
+            panel_BNDetails.Controls.Add(label_BNDetails_LichSuKham);
+            panel_BNDetails.Controls.Add(label48);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_DoanhSo);
+            panel_BNDetails.Controls.Add(label46);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_GioiTinh);
+            panel_BNDetails.Controls.Add(label45);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_NgaySinh);
+            panel_BNDetails.Controls.Add(label44);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_SDT);
+            panel_BNDetails.Controls.Add(label34);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_Email);
+            panel_BNDetails.Controls.Add(label27);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_HoTen);
+            panel_BNDetails.Controls.Add(label14);
+            panel_BNDetails.Controls.Add(textBox_BNDetails_MaBN);
+            panel_BNDetails.Controls.Add(label10);
+            panel_BNDetails.CornerRadius = 60;
+            panel_BNDetails.Location = new Point(25, 468);
+            panel_BNDetails.Name = "panel_BNDetails";
+            panel_BNDetails.Size = new Size(1124, 300);
+            panel_BNDetails.TabIndex = 16;
+            panel_BNDetails.Paint += panel_Details_Paint;
+            panel_BNDetails.Leave += panel_Details_Leave;
+            // 
+            // customDataGridView_LichSuKetQuaKham
+            // 
+            customDataGridView_LichSuKetQuaKham.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichSuKetQuaKham.AllowUserToAddRows = false;
+            customDataGridView_LichSuKetQuaKham.AllowUserToDeleteRows = false;
+            customDataGridView_LichSuKetQuaKham.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichSuKetQuaKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichSuKetQuaKham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichSuKetQuaKham.BackgroundColor = Color.White;
+            customDataGridView_LichSuKetQuaKham.BorderStyle = BorderStyle.None;
+            customDataGridView_LichSuKetQuaKham.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichSuKetQuaKham.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKetQuaKham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            customDataGridView_LichSuKetQuaKham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichSuKetQuaKham.CornerRadius = 60;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKetQuaKham.DefaultCellStyle = dataGridViewCellStyle4;
+            customDataGridView_LichSuKetQuaKham.EnableHeadersVisualStyles = false;
+            customDataGridView_LichSuKetQuaKham.GridColor = Color.White;
+            customDataGridView_LichSuKetQuaKham.Location = new Point(25, 500);
+            customDataGridView_LichSuKetQuaKham.Name = "customDataGridView_LichSuKetQuaKham";
+            customDataGridView_LichSuKetQuaKham.ReadOnly = true;
+            customDataGridView_LichSuKetQuaKham.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichSuKetQuaKham.RowHeadersVisible = false;
+            customDataGridView_LichSuKetQuaKham.RowHeadersWidth = 62;
+            customDataGridView_LichSuKetQuaKham.Size = new Size(1048, 125);
+            customDataGridView_LichSuKetQuaKham.TabIndex = 40;
+            // 
+            // label47
+            // 
+            label47.AccessibleRole = AccessibleRole.None;
+            label47.AutoSize = true;
+            label47.BackColor = Color.Transparent;
+            label47.FlatStyle = FlatStyle.Flat;
+            label47.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label47.ForeColor = Color.FromArgb(193, 193, 193);
+            label47.Location = new Point(25, 456);
+            label47.Name = "label47";
+            label47.Size = new Size(207, 28);
+            label47.TabIndex = 41;
+            label47.Text = "Lịch sử kết quả khám";
+            label47.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // customDataGridView_LichSuThanhToan
+            // 
+            customDataGridView_LichSuThanhToan.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichSuThanhToan.AllowUserToAddRows = false;
+            customDataGridView_LichSuThanhToan.AllowUserToDeleteRows = false;
+            customDataGridView_LichSuThanhToan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichSuThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichSuThanhToan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichSuThanhToan.BackgroundColor = Color.White;
+            customDataGridView_LichSuThanhToan.BorderStyle = BorderStyle.None;
+            customDataGridView_LichSuThanhToan.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichSuThanhToan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            customDataGridView_LichSuThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichSuThanhToan.CornerRadius = 60;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuThanhToan.DefaultCellStyle = dataGridViewCellStyle6;
+            customDataGridView_LichSuThanhToan.EnableHeadersVisualStyles = false;
+            customDataGridView_LichSuThanhToan.GridColor = Color.White;
+            customDataGridView_LichSuThanhToan.Location = new Point(25, 692);
+            customDataGridView_LichSuThanhToan.Name = "customDataGridView_LichSuThanhToan";
+            customDataGridView_LichSuThanhToan.ReadOnly = true;
+            customDataGridView_LichSuThanhToan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichSuThanhToan.RowHeadersVisible = false;
+            customDataGridView_LichSuThanhToan.RowHeadersWidth = 62;
+            customDataGridView_LichSuThanhToan.Size = new Size(1048, 125);
+            customDataGridView_LichSuThanhToan.TabIndex = 39;
+            // 
+            // label_BNDetails_LichSuThanhToan
+            // 
+            label_BNDetails_LichSuThanhToan.AccessibleRole = AccessibleRole.None;
+            label_BNDetails_LichSuThanhToan.AutoSize = true;
+            label_BNDetails_LichSuThanhToan.BackColor = Color.Transparent;
+            label_BNDetails_LichSuThanhToan.FlatStyle = FlatStyle.Flat;
+            label_BNDetails_LichSuThanhToan.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_BNDetails_LichSuThanhToan.ForeColor = Color.FromArgb(193, 193, 193);
+            label_BNDetails_LichSuThanhToan.Location = new Point(26, 648);
+            label_BNDetails_LichSuThanhToan.Name = "label_BNDetails_LichSuThanhToan";
+            label_BNDetails_LichSuThanhToan.Size = new Size(181, 28);
+            label_BNDetails_LichSuThanhToan.TabIndex = 38;
+            label_BNDetails_LichSuThanhToan.Text = "Lịch sử thanh toán";
+            label_BNDetails_LichSuThanhToan.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // customDataGridView_LichSuKham
+            // 
+            customDataGridView_LichSuKham.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichSuKham.AllowUserToAddRows = false;
+            customDataGridView_LichSuKham.AllowUserToDeleteRows = false;
+            customDataGridView_LichSuKham.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichSuKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichSuKham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichSuKham.BackgroundColor = Color.White;
+            customDataGridView_LichSuKham.BorderStyle = BorderStyle.None;
+            customDataGridView_LichSuKham.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichSuKham.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle7.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            customDataGridView_LichSuKham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichSuKham.CornerRadius = 60;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle8.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKham.DefaultCellStyle = dataGridViewCellStyle8;
+            customDataGridView_LichSuKham.EnableHeadersVisualStyles = false;
+            customDataGridView_LichSuKham.GridColor = Color.White;
+            customDataGridView_LichSuKham.Location = new Point(25, 308);
+            customDataGridView_LichSuKham.Name = "customDataGridView_LichSuKham";
+            customDataGridView_LichSuKham.ReadOnly = true;
+            customDataGridView_LichSuKham.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichSuKham.RowHeadersVisible = false;
+            customDataGridView_LichSuKham.RowHeadersWidth = 62;
+            customDataGridView_LichSuKham.Size = new Size(1048, 125);
+            customDataGridView_LichSuKham.TabIndex = 17;
+            // 
+            // label_BNDetails_LichSuKham
+            // 
+            label_BNDetails_LichSuKham.AccessibleRole = AccessibleRole.None;
+            label_BNDetails_LichSuKham.AutoSize = true;
+            label_BNDetails_LichSuKham.BackColor = Color.Transparent;
+            label_BNDetails_LichSuKham.FlatStyle = FlatStyle.Flat;
+            label_BNDetails_LichSuKham.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_BNDetails_LichSuKham.ForeColor = Color.FromArgb(193, 193, 193);
+            label_BNDetails_LichSuKham.Location = new Point(25, 264);
+            label_BNDetails_LichSuKham.Name = "label_BNDetails_LichSuKham";
+            label_BNDetails_LichSuKham.Size = new Size(132, 28);
+            label_BNDetails_LichSuKham.TabIndex = 37;
+            label_BNDetails_LichSuKham.Text = "Lịch sử khám";
+            label_BNDetails_LichSuKham.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label48
+            // 
+            label48.AccessibleRole = AccessibleRole.None;
+            label48.AutoSize = true;
+            label48.BackColor = Color.Transparent;
+            label48.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label48.ForeColor = Color.FromArgb(193, 193, 193);
+            label48.ImageAlign = ContentAlignment.BottomCenter;
+            label48.Location = new Point(535, 165);
+            label48.Name = "label48";
+            label48.Size = new Size(95, 28);
+            label48.TabIndex = 25;
+            label48.Text = "Doanh số";
+            label48.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_DoanhSo
+            // 
+            textBox_BNDetails_DoanhSo.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_DoanhSo.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_DoanhSo.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_DoanhSo.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_DoanhSo.Location = new Point(535, 209);
+            textBox_BNDetails_DoanhSo.Name = "textBox_BNDetails_DoanhSo";
+            textBox_BNDetails_DoanhSo.ReadOnly = true;
+            textBox_BNDetails_DoanhSo.Size = new Size(160, 32);
+            textBox_BNDetails_DoanhSo.TabIndex = 24;
+            // 
+            // label46
+            // 
+            label46.AccessibleRole = AccessibleRole.None;
+            label46.AutoSize = true;
+            label46.BackColor = Color.Transparent;
+            label46.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label46.ForeColor = Color.FromArgb(193, 193, 193);
+            label46.ImageAlign = ContentAlignment.BottomCenter;
+            label46.Location = new Point(230, 165);
+            label46.Name = "label46";
+            label46.Size = new Size(87, 28);
+            label46.TabIndex = 21;
+            label46.Text = "Giới tính";
+            label46.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_GioiTinh
+            // 
+            textBox_BNDetails_GioiTinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_GioiTinh.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_GioiTinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_GioiTinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_GioiTinh.Location = new Point(230, 209);
+            textBox_BNDetails_GioiTinh.Name = "textBox_BNDetails_GioiTinh";
+            textBox_BNDetails_GioiTinh.ReadOnly = true;
+            textBox_BNDetails_GioiTinh.Size = new Size(160, 32);
+            textBox_BNDetails_GioiTinh.TabIndex = 20;
+            // 
+            // label45
+            // 
+            label45.AccessibleRole = AccessibleRole.None;
+            label45.AutoSize = true;
+            label45.BackColor = Color.Transparent;
+            label45.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label45.ForeColor = Color.FromArgb(193, 193, 193);
+            label45.ImageAlign = ContentAlignment.BottomCenter;
+            label45.Location = new Point(25, 165);
+            label45.Name = "label45";
+            label45.Size = new Size(99, 28);
+            label45.TabIndex = 19;
+            label45.Text = "Ngày sinh";
+            label45.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_NgaySinh
+            // 
+            textBox_BNDetails_NgaySinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_NgaySinh.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_NgaySinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_NgaySinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_NgaySinh.Location = new Point(25, 209);
+            textBox_BNDetails_NgaySinh.Name = "textBox_BNDetails_NgaySinh";
+            textBox_BNDetails_NgaySinh.ReadOnly = true;
+            textBox_BNDetails_NgaySinh.Size = new Size(160, 32);
+            textBox_BNDetails_NgaySinh.TabIndex = 18;
+            // 
+            // label44
+            // 
+            label44.AccessibleRole = AccessibleRole.None;
+            label44.AutoSize = true;
+            label44.BackColor = Color.Transparent;
+            label44.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label44.ForeColor = Color.FromArgb(193, 193, 193);
+            label44.ImageAlign = ContentAlignment.BottomCenter;
+            label44.Location = new Point(840, 66);
+            label44.Name = "label44";
+            label44.Size = new Size(128, 28);
+            label44.TabIndex = 17;
+            label44.Text = "Số điện thoại";
+            label44.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_SDT
+            // 
+            textBox_BNDetails_SDT.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_SDT.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_SDT.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_SDT.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_SDT.Location = new Point(840, 110);
+            textBox_BNDetails_SDT.Name = "textBox_BNDetails_SDT";
+            textBox_BNDetails_SDT.ReadOnly = true;
+            textBox_BNDetails_SDT.Size = new Size(160, 32);
+            textBox_BNDetails_SDT.TabIndex = 16;
+            // 
+            // label34
+            // 
+            label34.AccessibleRole = AccessibleRole.None;
+            label34.AutoSize = true;
+            label34.BackColor = Color.Transparent;
+            label34.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label34.ForeColor = Color.FromArgb(193, 193, 193);
+            label34.ImageAlign = ContentAlignment.BottomCenter;
+            label34.Location = new Point(535, 66);
+            label34.Name = "label34";
+            label34.Size = new Size(59, 28);
+            label34.TabIndex = 15;
+            label34.Text = "Email";
+            label34.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_Email
+            // 
+            textBox_BNDetails_Email.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_Email.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_Email.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_Email.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_Email.Location = new Point(535, 110);
+            textBox_BNDetails_Email.Name = "textBox_BNDetails_Email";
+            textBox_BNDetails_Email.ReadOnly = true;
+            textBox_BNDetails_Email.Size = new Size(260, 32);
+            textBox_BNDetails_Email.TabIndex = 14;
+            // 
+            // label27
+            // 
+            label27.AccessibleRole = AccessibleRole.None;
+            label27.AutoSize = true;
+            label27.BackColor = Color.Transparent;
+            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label27.ForeColor = Color.FromArgb(193, 193, 193);
+            label27.ImageAlign = ContentAlignment.BottomCenter;
+            label27.Location = new Point(230, 66);
+            label27.Name = "label27";
+            label27.Size = new Size(71, 28);
+            label27.TabIndex = 13;
+            label27.Text = "Họ tên";
+            label27.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_HoTen
+            // 
+            textBox_BNDetails_HoTen.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_HoTen.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_HoTen.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_HoTen.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_HoTen.Location = new Point(230, 110);
+            textBox_BNDetails_HoTen.Name = "textBox_BNDetails_HoTen";
+            textBox_BNDetails_HoTen.ReadOnly = true;
+            textBox_BNDetails_HoTen.Size = new Size(260, 32);
+            textBox_BNDetails_HoTen.TabIndex = 12;
+            // 
+            // label14
+            // 
+            label14.AccessibleRole = AccessibleRole.None;
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.FromArgb(193, 193, 193);
+            label14.ImageAlign = ContentAlignment.BottomCenter;
+            label14.Location = new Point(25, 66);
+            label14.Name = "label14";
+            label14.Size = new Size(137, 28);
+            label14.TabIndex = 11;
+            label14.Text = "Mã bệnh nhân";
+            label14.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_BNDetails_MaBN
+            // 
+            textBox_BNDetails_MaBN.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_BNDetails_MaBN.BorderStyle = BorderStyle.None;
+            textBox_BNDetails_MaBN.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_BNDetails_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_BNDetails_MaBN.Location = new Point(25, 110);
+            textBox_BNDetails_MaBN.Name = "textBox_BNDetails_MaBN";
+            textBox_BNDetails_MaBN.ReadOnly = true;
+            textBox_BNDetails_MaBN.Size = new Size(160, 32);
+            textBox_BNDetails_MaBN.TabIndex = 10;
+            // 
+            // label10
+            // 
+            label10.AccessibleRole = AccessibleRole.None;
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(25, 10);
+            label10.Name = "label10";
+            label10.Size = new Size(103, 38);
+            label10.TabIndex = 3;
+            label10.Text = "Details";
+            // 
+            // panel_HSBADetails
+            // 
+            panel_HSBADetails.AccessibleRole = AccessibleRole.None;
+            panel_HSBADetails.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_HSBADetails.AutoScroll = true;
+            panel_HSBADetails.AutoScrollMargin = new Size(0, 25);
+            panel_HSBADetails.BackColor = Color.FromArgb(57, 54, 70);
+            panel_HSBADetails.Controls.Add(customDataGridView_KetQuaKham);
+            panel_HSBADetails.Controls.Add(label51);
+            panel_HSBADetails.Controls.Add(label52);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_DoanhSo);
+            panel_HSBADetails.Controls.Add(label53);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_GioiTinh);
+            panel_HSBADetails.Controls.Add(label54);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_NgaySinh);
+            panel_HSBADetails.Controls.Add(label55);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_SDT);
+            panel_HSBADetails.Controls.Add(label56);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_Email);
+            panel_HSBADetails.Controls.Add(label57);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_HoTen);
+            panel_HSBADetails.Controls.Add(label58);
+            panel_HSBADetails.Controls.Add(textBox_HSBADetails_MaBN);
+            panel_HSBADetails.Controls.Add(label59);
+            panel_HSBADetails.CornerRadius = 60;
+            panel_HSBADetails.Location = new Point(25, 468);
+            panel_HSBADetails.Name = "panel_HSBADetails";
+            panel_HSBADetails.Size = new Size(1124, 300);
+            panel_HSBADetails.TabIndex = 17;
+            panel_HSBADetails.Leave += panel_HSBADetails_Leave;
+            // 
+            // customDataGridView_KetQuaKham
+            // 
+            customDataGridView_KetQuaKham.AccessibleRole = AccessibleRole.None;
+            customDataGridView_KetQuaKham.AllowUserToAddRows = false;
+            customDataGridView_KetQuaKham.AllowUserToDeleteRows = false;
+            customDataGridView_KetQuaKham.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_KetQuaKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_KetQuaKham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_KetQuaKham.BackgroundColor = Color.White;
+            customDataGridView_KetQuaKham.BorderStyle = BorderStyle.None;
+            customDataGridView_KetQuaKham.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_KetQuaKham.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dataGridViewCellStyle9.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle9.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            customDataGridView_KetQuaKham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            customDataGridView_KetQuaKham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_KetQuaKham.CornerRadius = 60;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle10.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            customDataGridView_KetQuaKham.DefaultCellStyle = dataGridViewCellStyle10;
+            customDataGridView_KetQuaKham.EnableHeadersVisualStyles = false;
+            customDataGridView_KetQuaKham.GridColor = Color.White;
+            customDataGridView_KetQuaKham.Location = new Point(25, 308);
+            customDataGridView_KetQuaKham.Name = "customDataGridView_KetQuaKham";
+            customDataGridView_KetQuaKham.ReadOnly = true;
+            customDataGridView_KetQuaKham.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_KetQuaKham.RowHeadersVisible = false;
+            customDataGridView_KetQuaKham.RowHeadersWidth = 62;
+            customDataGridView_KetQuaKham.Size = new Size(1048, 125);
+            customDataGridView_KetQuaKham.TabIndex = 17;
+            // 
+            // label51
+            // 
+            label51.AccessibleRole = AccessibleRole.None;
+            label51.AutoSize = true;
+            label51.BackColor = Color.Transparent;
+            label51.FlatStyle = FlatStyle.Flat;
+            label51.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label51.ForeColor = Color.FromArgb(193, 193, 193);
+            label51.Location = new Point(25, 264);
+            label51.Name = "label51";
+            label51.Size = new Size(139, 28);
+            label51.TabIndex = 37;
+            label51.Text = "Kết quả khám";
+            label51.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label52
+            // 
+            label52.AccessibleRole = AccessibleRole.None;
+            label52.AutoSize = true;
+            label52.BackColor = Color.Transparent;
+            label52.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label52.ForeColor = Color.FromArgb(193, 193, 193);
+            label52.ImageAlign = ContentAlignment.BottomCenter;
+            label52.Location = new Point(535, 165);
+            label52.Name = "label52";
+            label52.Size = new Size(95, 28);
+            label52.TabIndex = 25;
+            label52.Text = "Doanh số";
+            label52.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_DoanhSo
+            // 
+            textBox_HSBADetails_DoanhSo.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_DoanhSo.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_DoanhSo.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_DoanhSo.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_DoanhSo.Location = new Point(535, 209);
+            textBox_HSBADetails_DoanhSo.Name = "textBox_HSBADetails_DoanhSo";
+            textBox_HSBADetails_DoanhSo.ReadOnly = true;
+            textBox_HSBADetails_DoanhSo.Size = new Size(160, 32);
+            textBox_HSBADetails_DoanhSo.TabIndex = 24;
+            // 
+            // label53
+            // 
+            label53.AccessibleRole = AccessibleRole.None;
+            label53.AutoSize = true;
+            label53.BackColor = Color.Transparent;
+            label53.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label53.ForeColor = Color.FromArgb(193, 193, 193);
+            label53.ImageAlign = ContentAlignment.BottomCenter;
+            label53.Location = new Point(230, 165);
+            label53.Name = "label53";
+            label53.Size = new Size(87, 28);
+            label53.TabIndex = 21;
+            label53.Text = "Giới tính";
+            label53.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_GioiTinh
+            // 
+            textBox_HSBADetails_GioiTinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_GioiTinh.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_GioiTinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_GioiTinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_GioiTinh.Location = new Point(230, 209);
+            textBox_HSBADetails_GioiTinh.Name = "textBox_HSBADetails_GioiTinh";
+            textBox_HSBADetails_GioiTinh.ReadOnly = true;
+            textBox_HSBADetails_GioiTinh.Size = new Size(160, 32);
+            textBox_HSBADetails_GioiTinh.TabIndex = 20;
+            // 
+            // label54
+            // 
+            label54.AccessibleRole = AccessibleRole.None;
+            label54.AutoSize = true;
+            label54.BackColor = Color.Transparent;
+            label54.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label54.ForeColor = Color.FromArgb(193, 193, 193);
+            label54.ImageAlign = ContentAlignment.BottomCenter;
+            label54.Location = new Point(25, 165);
+            label54.Name = "label54";
+            label54.Size = new Size(99, 28);
+            label54.TabIndex = 19;
+            label54.Text = "Ngày sinh";
+            label54.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_NgaySinh
+            // 
+            textBox_HSBADetails_NgaySinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_NgaySinh.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_NgaySinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_NgaySinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_NgaySinh.Location = new Point(25, 209);
+            textBox_HSBADetails_NgaySinh.Name = "textBox_HSBADetails_NgaySinh";
+            textBox_HSBADetails_NgaySinh.ReadOnly = true;
+            textBox_HSBADetails_NgaySinh.Size = new Size(160, 32);
+            textBox_HSBADetails_NgaySinh.TabIndex = 18;
+            // 
+            // label55
+            // 
+            label55.AccessibleRole = AccessibleRole.None;
+            label55.AutoSize = true;
+            label55.BackColor = Color.Transparent;
+            label55.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label55.ForeColor = Color.FromArgb(193, 193, 193);
+            label55.ImageAlign = ContentAlignment.BottomCenter;
+            label55.Location = new Point(840, 66);
+            label55.Name = "label55";
+            label55.Size = new Size(128, 28);
+            label55.TabIndex = 17;
+            label55.Text = "Số điện thoại";
+            label55.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_SDT
+            // 
+            textBox_HSBADetails_SDT.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_SDT.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_SDT.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_SDT.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_SDT.Location = new Point(840, 110);
+            textBox_HSBADetails_SDT.Name = "textBox_HSBADetails_SDT";
+            textBox_HSBADetails_SDT.ReadOnly = true;
+            textBox_HSBADetails_SDT.Size = new Size(160, 32);
+            textBox_HSBADetails_SDT.TabIndex = 16;
+            // 
+            // label56
+            // 
+            label56.AccessibleRole = AccessibleRole.None;
+            label56.AutoSize = true;
+            label56.BackColor = Color.Transparent;
+            label56.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label56.ForeColor = Color.FromArgb(193, 193, 193);
+            label56.ImageAlign = ContentAlignment.BottomCenter;
+            label56.Location = new Point(535, 66);
+            label56.Name = "label56";
+            label56.Size = new Size(59, 28);
+            label56.TabIndex = 15;
+            label56.Text = "Email";
+            label56.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_Email
+            // 
+            textBox_HSBADetails_Email.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_Email.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_Email.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_Email.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_Email.Location = new Point(535, 110);
+            textBox_HSBADetails_Email.Name = "textBox_HSBADetails_Email";
+            textBox_HSBADetails_Email.ReadOnly = true;
+            textBox_HSBADetails_Email.Size = new Size(260, 32);
+            textBox_HSBADetails_Email.TabIndex = 14;
+            // 
+            // label57
+            // 
+            label57.AccessibleRole = AccessibleRole.None;
+            label57.AutoSize = true;
+            label57.BackColor = Color.Transparent;
+            label57.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label57.ForeColor = Color.FromArgb(193, 193, 193);
+            label57.ImageAlign = ContentAlignment.BottomCenter;
+            label57.Location = new Point(230, 66);
+            label57.Name = "label57";
+            label57.Size = new Size(71, 28);
+            label57.TabIndex = 13;
+            label57.Text = "Họ tên";
+            label57.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_HoTen
+            // 
+            textBox_HSBADetails_HoTen.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_HoTen.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_HoTen.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_HoTen.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_HoTen.Location = new Point(230, 110);
+            textBox_HSBADetails_HoTen.Name = "textBox_HSBADetails_HoTen";
+            textBox_HSBADetails_HoTen.ReadOnly = true;
+            textBox_HSBADetails_HoTen.Size = new Size(260, 32);
+            textBox_HSBADetails_HoTen.TabIndex = 12;
+            // 
+            // label58
+            // 
+            label58.AccessibleRole = AccessibleRole.None;
+            label58.AutoSize = true;
+            label58.BackColor = Color.Transparent;
+            label58.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label58.ForeColor = Color.FromArgb(193, 193, 193);
+            label58.ImageAlign = ContentAlignment.BottomCenter;
+            label58.Location = new Point(25, 66);
+            label58.Name = "label58";
+            label58.Size = new Size(137, 28);
+            label58.TabIndex = 11;
+            label58.Text = "Mã bệnh nhân";
+            label58.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_HSBADetails_MaBN
+            // 
+            textBox_HSBADetails_MaBN.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_HSBADetails_MaBN.BorderStyle = BorderStyle.None;
+            textBox_HSBADetails_MaBN.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_HSBADetails_MaBN.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_HSBADetails_MaBN.Location = new Point(25, 110);
+            textBox_HSBADetails_MaBN.Name = "textBox_HSBADetails_MaBN";
+            textBox_HSBADetails_MaBN.ReadOnly = true;
+            textBox_HSBADetails_MaBN.Size = new Size(160, 32);
+            textBox_HSBADetails_MaBN.TabIndex = 10;
+            // 
+            // label59
+            // 
+            label59.AccessibleRole = AccessibleRole.None;
+            label59.AutoSize = true;
+            label59.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label59.ForeColor = Color.White;
+            label59.Location = new Point(25, 10);
+            label59.Name = "label59";
+            label59.Size = new Size(103, 38);
+            label59.TabIndex = 3;
+            label59.Text = "Details";
+            // 
             // BenhNhanControl
             // 
             AccessibleRole = AccessibleRole.None;
@@ -2065,6 +2840,7 @@ namespace QuanLyMachTu
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_BNDetails);
             Controls.Add(panel1);
             Controls.Add(customPanel_DetailsControl);
             Controls.Add(customDataGridView);
@@ -2075,6 +2851,7 @@ namespace QuanLyMachTu
             Controls.Add(panel_TKFilter);
             Controls.Add(panel_HSBAFilter);
             Controls.Add(panel_BNFilter);
+            Controls.Add(panel_HSBADetails);
             Name = "BenhNhanControl";
             Size = new Size(1590, 864);
             Load += BenhNhanControl_Load;
@@ -2093,6 +2870,14 @@ namespace QuanLyMachTu
             panel_HSBAFilter.PerformLayout();
             panel_TKFilter.ResumeLayout(false);
             panel_TKFilter.PerformLayout();
+            panel_BNDetails.ResumeLayout(false);
+            panel_BNDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKetQuaKham).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuThanhToan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKham).EndInit();
+            panel_HSBADetails.ResumeLayout(false);
+            panel_HSBADetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_KetQuaKham).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2227,5 +3012,46 @@ namespace QuanLyMachTu
         private Button button_HSBAUpload_Reset;
         private Button button_HSBAFilter_Reset;
         private Button button_TKFilter_Reset;
+        private PageButton pageButton_Details_BN;
+        private CustomPanel panel_BNDetails;
+        private Label label10;
+        private Label label45;
+        private TextBox textBox_BNDetails_NgaySinh;
+        private Label label44;
+        private TextBox textBox_BNDetails_SDT;
+        private Label label34;
+        private TextBox textBox_BNDetails_Email;
+        private Label label27;
+        private TextBox textBox_BNDetails_HoTen;
+        private Label label14;
+        private TextBox textBox_BNDetails_MaBN;
+        private Label label48;
+        private TextBox textBox_BNDetails_DoanhSo;
+        private Label label46;
+        private TextBox textBox_BNDetails_GioiTinh;
+        private Label label_BNDetails_LichSuKham;
+        private CustomDataGridView customDataGridView_LichSuKham;
+        private Label label_BNDetails_LichSuThanhToan;
+        private CustomDataGridView customDataGridView_LichSuThanhToan;
+        private CustomDataGridView customDataGridView_LichSuKetQuaKham;
+        private Label label47;
+        private CustomPanel panel_HSBADetails;
+        private CustomDataGridView customDataGridView_KetQuaKham;
+        private Label label51;
+        private Label label53;
+        private TextBox textBox_HSBADetails_GioiTinh;
+        private Label label54;
+        private TextBox textBox_HSBADetails_NgaySinh;
+        private Label label59;
+        private Label label52;
+        private TextBox textBox_HSBADetails_DoanhSo;
+        private Label label55;
+        private TextBox textBox_HSBADetails_SDT;
+        private Label label56;
+        private TextBox textBox_HSBADetails_Email;
+        private Label label57;
+        private TextBox textBox_HSBADetails_HoTen;
+        private Label label58;
+        private TextBox textBox_HSBADetails_MaBN;
     }
 }

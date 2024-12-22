@@ -10,13 +10,13 @@ namespace QuanLyMachTu.Helper
     {
         public static void ActivateDGV(DataGridView dgv)
         {
-            dgv.DefaultCellStyle.BackColor = Color.White;
-            dgv.BackgroundColor = Color.White;
+            dgv.DefaultCellStyle.BackColor = ColorUsed.originalGrid;
+            dgv.BackgroundColor = ColorUsed.originalGrid;
         }
         public static void DeactivateDGV(DataGridView dgv)
         {
-            dgv.DefaultCellStyle.BackColor = Color.FromArgb(193, 193, 193);
-            dgv.BackgroundColor = Color.FromArgb(193, 193, 193);
+            dgv.DefaultCellStyle.BackColor = ColorUsed.deactivated;
+            dgv.BackgroundColor = ColorUsed.deactivated;
         }
     }
 }

@@ -16,12 +16,12 @@ namespace QuanLyMachTu
 
         //Methods
         public MainWindow()
-        {
+        {            
             InitializeComponent();
             DoubleBuffered = true;
         }
         private void MainWindow_Load(object sender, EventArgs e)
-        {
+        {            
             currentButton = pageButton_TongQuan;
             ActivateButton(currentButton);
             DisableButton(pageButton_BenhNhan);
@@ -168,6 +168,11 @@ namespace QuanLyMachTu
             {
                 pageButton_SignOut.Visible = false;
             }
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DatabaseConnection.CloseConnection();
         }
     }
 }

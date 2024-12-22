@@ -18,18 +18,15 @@ namespace QuanLyMachTu.Controls
 {
     public partial class DuocPhamControl : UserControl
     {
-        #region SQL stuffs
-        //Database fields
-        private SqlConnection connection;
-        private SqlDataAdapter adapter;
-        private DataSet dataset;
-        private DataTable datatable;
-        //Database connection
-        private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-        //private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-
+        private string DP_SelectCommand = "SELECT MaDP, TenDP, SoLuong, MoTa, GiaNhap, GiaBan, XuatXu, DonVi, NgayNhap, HSD, TinhTrang, SoLuongMoiDonVi " +
+                                          "FROM DUOCPHAM " +
+                                          "WHERE IsDeleted = 0 ";
+        private string selectLastID = "SELECT TOP 1 MaDP FROM DUOCPHAM ORDER BY MaDP DESC ";
+        private string controlCommand;
         //Control variables
-
+        string next_DP_PrimaryKey;
+        List<string> SoLuongThieu_highlightList = new List<string>();
+        int controlFunc;
         //function index
         const int INS_FUNC = 1;
         const int FIL_FUNC = 2;
@@ -49,9 +46,8 @@ namespace QuanLyMachTu.Controls
         private TextBox textBox11;
         private TextBox textBox_TKUpload_SDT;
         private Label textBox_TKUpload_Email;
-        private Label label11;
+        private Label label_SoLuongTot;
         private TextBox textBox_TKUpload_MatKhau;
-        private Label label1;
         private TextBox textBox_TKUpload_MaTK;
         private Label label18;
         private Label label_Upload;
@@ -114,6 +110,22 @@ namespace QuanLyMachTu.Controls
         private Label label_MoTa;
         private Panel panel_TopPanel;
         private Button button_Upload_OK;
+        private Label label9;
+        private TextBox textBox_SoLuongMoiDonVi;
+        private TextBox textBox1;
+        private Label label12;
+        private Label label13;
+        private TextBox textBox_SoLuongMoiDonVi_Filter;
+        private ComboBox comboBox_TinhTrang_Filter;
+        private Label label10;
+        private CheckBox checkBox_SoLuongThieu_Conditions;
+        private CheckBox checkBox_SapHetHan_Conditions;
+        private Button button_Filter_Reset;
+        private Button button_Upload_Reset;
+        private Label label_NgayNhap;
+        private Label label16;
+        private Label label_SoLuongDuocPham;
+        private Label label14;
         CustomDataGridView controlDataGridView;
         #endregion
         public DuocPhamControl()
@@ -127,10 +139,16 @@ namespace QuanLyMachTu.Controls
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_Toolbar = new Panel();
+            checkBox_SoLuongThieu_Conditions = new CheckBox();
+            checkBox_SapHetHan_Conditions = new CheckBox();
             pageButton_Filter = new PageButton();
             pageButton_Remove = new PageButton();
             pageButton_Upload = new PageButton();
             panel_Upload = new Panel();
+            label_NgayNhap = new Label();
+            button_Upload_Reset = new Button();
+            label9 = new Label();
+            textBox_SoLuongMoiDonVi = new TextBox();
             button_Upload_OK = new Button();
             textBox_SoLuong = new TextBox();
             textBox_HSD = new TextBox();
@@ -159,6 +177,12 @@ namespace QuanLyMachTu.Controls
             label_Upload = new Label();
             customDataGridView = new CustomDataGridView();
             panel_Filter = new Panel();
+            button_Filter_Reset = new Button();
+            comboBox_TinhTrang_Filter = new ComboBox();
+            label10 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            textBox_SoLuongMoiDonVi_Filter = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -189,17 +213,24 @@ namespace QuanLyMachTu.Controls
             button_OK_Filter = new Button();
             label15 = new Label();
             customPanel_DetailsControl = new CustomPanel();
+            label_SoLuongTot = new Label();
+            label16 = new Label();
+            label_SoLuongDuocPham = new Label();
+            label14 = new Label();
             panel_TopPanel = new Panel();
             panel_Toolbar.SuspendLayout();
             panel_Upload.SuspendLayout();
             ((ISupportInitialize)customDataGridView).BeginInit();
             panel_Filter.SuspendLayout();
+            customPanel_DetailsControl.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Toolbar
             // 
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Toolbar.Controls.Add(checkBox_SoLuongThieu_Conditions);
+            panel_Toolbar.Controls.Add(checkBox_SapHetHan_Conditions);
             panel_Toolbar.Controls.Add(pageButton_Filter);
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
@@ -208,6 +239,42 @@ namespace QuanLyMachTu.Controls
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(1174, 80);
             panel_Toolbar.TabIndex = 1;
+            // 
+            // checkBox_SoLuongThieu_Conditions
+            // 
+            checkBox_SoLuongThieu_Conditions.Anchor = AnchorStyles.Right;
+            checkBox_SoLuongThieu_Conditions.AutoSize = true;
+            checkBox_SoLuongThieu_Conditions.Checked = true;
+            checkBox_SoLuongThieu_Conditions.CheckState = CheckState.Checked;
+            checkBox_SoLuongThieu_Conditions.FlatStyle = FlatStyle.Flat;
+            checkBox_SoLuongThieu_Conditions.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            checkBox_SoLuongThieu_Conditions.ForeColor = Color.White;
+            checkBox_SoLuongThieu_Conditions.Location = new Point(712, 22);
+            checkBox_SoLuongThieu_Conditions.Margin = new Padding(2);
+            checkBox_SoLuongThieu_Conditions.Name = "checkBox_SoLuongThieu_Conditions";
+            checkBox_SoLuongThieu_Conditions.Size = new Size(182, 34);
+            checkBox_SoLuongThieu_Conditions.TabIndex = 102;
+            checkBox_SoLuongThieu_Conditions.Text = "Số lượng thiếu";
+            checkBox_SoLuongThieu_Conditions.UseVisualStyleBackColor = true;
+            checkBox_SoLuongThieu_Conditions.CheckedChanged += checkBox_CheckedChanged;
+            // 
+            // checkBox_SapHetHan_Conditions
+            // 
+            checkBox_SapHetHan_Conditions.Anchor = AnchorStyles.Right;
+            checkBox_SapHetHan_Conditions.AutoSize = true;
+            checkBox_SapHetHan_Conditions.Checked = true;
+            checkBox_SapHetHan_Conditions.CheckState = CheckState.Checked;
+            checkBox_SapHetHan_Conditions.FlatStyle = FlatStyle.Flat;
+            checkBox_SapHetHan_Conditions.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            checkBox_SapHetHan_Conditions.ForeColor = Color.White;
+            checkBox_SapHetHan_Conditions.Location = new Point(929, 22);
+            checkBox_SapHetHan_Conditions.Margin = new Padding(2);
+            checkBox_SapHetHan_Conditions.Name = "checkBox_SapHetHan_Conditions";
+            checkBox_SapHetHan_Conditions.Size = new Size(152, 34);
+            checkBox_SapHetHan_Conditions.TabIndex = 101;
+            checkBox_SapHetHan_Conditions.Text = "Sắp hết hạn";
+            checkBox_SapHetHan_Conditions.UseVisualStyleBackColor = true;
+            checkBox_SapHetHan_Conditions.CheckedChanged += checkBox_CheckedChanged;
             // 
             // pageButton_Filter
             // 
@@ -280,8 +347,12 @@ namespace QuanLyMachTu.Controls
             // 
             panel_Upload.Anchor = AnchorStyles.Right;
             panel_Upload.AutoScroll = true;
-            panel_Upload.AutoScrollMinSize = new Size(-416, 1077);
+            panel_Upload.AutoScrollMinSize = new Size(0, 1175);
             panel_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Upload.Controls.Add(label_NgayNhap);
+            panel_Upload.Controls.Add(button_Upload_Reset);
+            panel_Upload.Controls.Add(label9);
+            panel_Upload.Controls.Add(textBox_SoLuongMoiDonVi);
             panel_Upload.Controls.Add(button_Upload_OK);
             panel_Upload.Controls.Add(textBox_SoLuong);
             panel_Upload.Controls.Add(textBox_HSD);
@@ -315,12 +386,68 @@ namespace QuanLyMachTu.Controls
             panel_Upload.TabIndex = 21;
             panel_Upload.Paint += panel_Paint;
             // 
+            // label_NgayNhap
+            // 
+            label_NgayNhap.AccessibleRole = AccessibleRole.None;
+            label_NgayNhap.AutoSize = true;
+            label_NgayNhap.BackColor = Color.Transparent;
+            label_NgayNhap.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_NgayNhap.ForeColor = Color.FromArgb(193, 193, 193);
+            label_NgayNhap.ImageAlign = ContentAlignment.BottomCenter;
+            label_NgayNhap.Location = new Point(300, 282);
+            label_NgayNhap.Name = "label_NgayNhap";
+            label_NgayNhap.Size = new Size(108, 28);
+            label_NgayNhap.TabIndex = 55;
+            label_NgayNhap.Text = "Ngày nhập";
+            label_NgayNhap.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // button_Upload_Reset
+            // 
+            button_Upload_Reset.FlatStyle = FlatStyle.Flat;
+            button_Upload_Reset.Font = new Font("Segoe UI", 10F);
+            button_Upload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_Upload_Reset.Location = new Point(297, 1106);
+            button_Upload_Reset.Name = "button_Upload_Reset";
+            button_Upload_Reset.Size = new Size(94, 43);
+            button_Upload_Reset.TabIndex = 54;
+            button_Upload_Reset.Text = "RESET";
+            button_Upload_Reset.UseVisualStyleBackColor = true;
+            button_Upload_Reset.Click += button_Upload_Reset_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(193, 193, 193);
+            label9.ImageAlign = ContentAlignment.BottomCenter;
+            label9.Location = new Point(25, 678);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(152, 28);
+            label9.TabIndex = 50;
+            label9.Text = "Số lượng đơn vị";
+            label9.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_SoLuongMoiDonVi
+            // 
+            textBox_SoLuongMoiDonVi.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_SoLuongMoiDonVi.BorderStyle = BorderStyle.None;
+            textBox_SoLuongMoiDonVi.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_SoLuongMoiDonVi.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_SoLuongMoiDonVi.Location = new Point(25, 722);
+            textBox_SoLuongMoiDonVi.Margin = new Padding(2);
+            textBox_SoLuongMoiDonVi.Name = "textBox_SoLuongMoiDonVi";
+            textBox_SoLuongMoiDonVi.Size = new Size(160, 32);
+            textBox_SoLuongMoiDonVi.TabIndex = 49;
+            textBox_SoLuongMoiDonVi.KeyPress += Button_KeyPress_PositiveNumber;
+            // 
             // button_Upload_OK
             // 
             button_Upload_OK.FlatStyle = FlatStyle.Flat;
             button_Upload_OK.Font = new Font("Segoe UI", 10F);
             button_Upload_OK.ForeColor = Color.FromArgb(148, 255, 216);
-            button_Upload_OK.Location = new Point(20, 1007);
+            button_Upload_OK.Location = new Point(20, 1106);
             button_Upload_OK.Margin = new Padding(2);
             button_Upload_OK.Name = "button_Upload_OK";
             button_Upload_OK.Size = new Size(94, 43);
@@ -340,6 +467,7 @@ namespace QuanLyMachTu.Controls
             textBox_SoLuong.Name = "textBox_SoLuong";
             textBox_SoLuong.Size = new Size(160, 32);
             textBox_SoLuong.TabIndex = 48;
+            textBox_SoLuong.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // textBox_HSD
             // 
@@ -352,6 +480,7 @@ namespace QuanLyMachTu.Controls
             textBox_HSD.Name = "textBox_HSD";
             textBox_HSD.Size = new Size(160, 32);
             textBox_HSD.TabIndex = 47;
+            textBox_HSD.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label_HSD
             // 
@@ -379,6 +508,8 @@ namespace QuanLyMachTu.Controls
             textBox_Nam.Name = "textBox_Nam";
             textBox_Nam.Size = new Size(60, 32);
             textBox_Nam.TabIndex = 45;
+            textBox_Nam.TextAlign = HorizontalAlignment.Center;
+            textBox_Nam.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label_Nam
             // 
@@ -435,6 +566,8 @@ namespace QuanLyMachTu.Controls
             textBox_Ngay.Name = "textBox_Ngay";
             textBox_Ngay.Size = new Size(55, 32);
             textBox_Ngay.TabIndex = 41;
+            textBox_Ngay.TextAlign = HorizontalAlignment.Center;
+            textBox_Ngay.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label_Ngay
             // 
@@ -461,9 +594,9 @@ namespace QuanLyMachTu.Controls
             label_SoLuong.Location = new Point(25, 480);
             label_SoLuong.Margin = new Padding(2, 0, 2, 0);
             label_SoLuong.Name = "label_SoLuong";
-            label_SoLuong.Size = new Size(92, 28);
+            label_SoLuong.Size = new Size(141, 28);
             label_SoLuong.TabIndex = 39;
-            label_SoLuong.Text = "Số lượng";
+            label_SoLuong.Text = "Số lượng nhập";
             label_SoLuong.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label_DonVi
@@ -492,6 +625,7 @@ namespace QuanLyMachTu.Controls
             textBox_DonVi.Name = "textBox_DonVi";
             textBox_DonVi.Size = new Size(160, 32);
             textBox_DonVi.TabIndex = 36;
+            textBox_DonVi.KeyPress += button_KeyPress_Normal;
             // 
             // label_XuatXu
             // 
@@ -519,6 +653,7 @@ namespace QuanLyMachTu.Controls
             textBox_XuatXu.Name = "textBox_XuatXu";
             textBox_XuatXu.Size = new Size(160, 32);
             textBox_XuatXu.TabIndex = 34;
+            textBox_XuatXu.KeyPress += button_KeyPress_Normal;
             // 
             // label_GiaBan
             // 
@@ -546,6 +681,7 @@ namespace QuanLyMachTu.Controls
             textBox_GiaBan.Name = "textBox_GiaBan";
             textBox_GiaBan.Size = new Size(160, 32);
             textBox_GiaBan.TabIndex = 32;
+            textBox_GiaBan.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // label_GiaNhap
             // 
@@ -573,18 +709,20 @@ namespace QuanLyMachTu.Controls
             textBox_GiaNhap.Name = "textBox_GiaNhap";
             textBox_GiaNhap.Size = new Size(160, 32);
             textBox_GiaNhap.TabIndex = 30;
+            textBox_GiaNhap.KeyPress += Button_KeyPress_PositiveNumber;
             // 
             // textBox_MoTa
             // 
             textBox_MoTa.BackColor = Color.FromArgb(57, 54, 70);
             textBox_MoTa.Font = new Font("Segoe UI Semilight", 12F);
             textBox_MoTa.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_MoTa.Location = new Point(20, 722);
+            textBox_MoTa.Location = new Point(20, 821);
             textBox_MoTa.Margin = new Padding(2);
             textBox_MoTa.Multiline = true;
             textBox_MoTa.Name = "textBox_MoTa";
             textBox_MoTa.Size = new Size(375, 239);
             textBox_MoTa.TabIndex = 29;
+            textBox_MoTa.KeyPress += button_KeyPress_Normal;
             // 
             // label_MoTa
             // 
@@ -593,7 +731,7 @@ namespace QuanLyMachTu.Controls
             label_MoTa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_MoTa.ForeColor = Color.FromArgb(193, 193, 193);
             label_MoTa.ImageAlign = ContentAlignment.BottomCenter;
-            label_MoTa.Location = new Point(25, 678);
+            label_MoTa.Location = new Point(25, 777);
             label_MoTa.Margin = new Padding(2, 0, 2, 0);
             label_MoTa.Name = "label_MoTa";
             label_MoTa.Size = new Size(64, 28);
@@ -642,6 +780,7 @@ namespace QuanLyMachTu.Controls
             textBox_TenDP.Name = "textBox_TenDP";
             textBox_TenDP.Size = new Size(365, 32);
             textBox_TenDP.TabIndex = 12;
+            textBox_TenDP.KeyPress += button_KeyPress_Normal;
             // 
             // textBox_MaDP
             // 
@@ -654,6 +793,8 @@ namespace QuanLyMachTu.Controls
             textBox_MaDP.Name = "textBox_MaDP";
             textBox_MaDP.Size = new Size(365, 32);
             textBox_MaDP.TabIndex = 11;
+            textBox_MaDP.KeyPress += button_KeyPress_Normal;
+            textBox_MaDP.Leave += textBox_MaTK_Leave;
             // 
             // label_Upload
             // 
@@ -709,6 +850,8 @@ namespace QuanLyMachTu.Controls
             customDataGridView.RowHeadersWidth = 62;
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 22;
+            customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
+            customDataGridView.RowPrePaint += customDataGridView_RowPrePaint;
             // 
             // panel_Filter
             // 
@@ -716,6 +859,12 @@ namespace QuanLyMachTu.Controls
             panel_Filter.AutoScroll = true;
             panel_Filter.AutoSize = true;
             panel_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Filter.Controls.Add(button_Filter_Reset);
+            panel_Filter.Controls.Add(comboBox_TinhTrang_Filter);
+            panel_Filter.Controls.Add(label10);
+            panel_Filter.Controls.Add(label12);
+            panel_Filter.Controls.Add(label13);
+            panel_Filter.Controls.Add(textBox_SoLuongMoiDonVi_Filter);
             panel_Filter.Controls.Add(label8);
             panel_Filter.Controls.Add(label7);
             panel_Filter.Controls.Add(label6);
@@ -752,6 +901,90 @@ namespace QuanLyMachTu.Controls
             panel_Filter.TabIndex = 49;
             panel_Filter.Paint += panel_Paint;
             // 
+            // button_Filter_Reset
+            // 
+            button_Filter_Reset.FlatStyle = FlatStyle.Flat;
+            button_Filter_Reset.Font = new Font("Segoe UI", 10F);
+            button_Filter_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_Filter_Reset.Location = new Point(297, 710);
+            button_Filter_Reset.Name = "button_Filter_Reset";
+            button_Filter_Reset.Size = new Size(94, 43);
+            button_Filter_Reset.TabIndex = 61;
+            button_Filter_Reset.Text = "RESET";
+            button_Filter_Reset.UseVisualStyleBackColor = true;
+            button_Filter_Reset.Click += button_Filter_Reset_Click;
+            // 
+            // comboBox_TinhTrang_Filter
+            // 
+            comboBox_TinhTrang_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TinhTrang_Filter.FlatStyle = FlatStyle.Flat;
+            comboBox_TinhTrang_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_TinhTrang_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_TinhTrang_Filter.FormattingEnabled = true;
+            comboBox_TinhTrang_Filter.Items.AddRange(new object[] { "Mới", "Quá hạn", "Hết", "Đã ngưng" });
+            comboBox_TinhTrang_Filter.Location = new Point(230, 623);
+            comboBox_TinhTrang_Filter.Margin = new Padding(2);
+            comboBox_TinhTrang_Filter.Name = "comboBox_TinhTrang_Filter";
+            comboBox_TinhTrang_Filter.Size = new Size(160, 40);
+            comboBox_TinhTrang_Filter.TabIndex = 60;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(193, 193, 193);
+            label10.ImageAlign = ContentAlignment.BottomCenter;
+            label10.Location = new Point(159, 623);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(26, 28);
+            label10.TabIndex = 59;
+            label10.Text = "≥";
+            label10.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(193, 193, 193);
+            label12.ImageAlign = ContentAlignment.BottomCenter;
+            label12.Location = new Point(231, 579);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(101, 28);
+            label12.TabIndex = 57;
+            label12.Text = "Tình trạng";
+            label12.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(193, 193, 193);
+            label13.ImageAlign = ContentAlignment.BottomCenter;
+            label13.Location = new Point(26, 579);
+            label13.Margin = new Padding(2, 0, 2, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(152, 28);
+            label13.TabIndex = 56;
+            label13.Text = "Số lượng đơn vị";
+            label13.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_SoLuongMoiDonVi_Filter
+            // 
+            textBox_SoLuongMoiDonVi_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_SoLuongMoiDonVi_Filter.BorderStyle = BorderStyle.None;
+            textBox_SoLuongMoiDonVi_Filter.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_SoLuongMoiDonVi_Filter.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_SoLuongMoiDonVi_Filter.Location = new Point(26, 623);
+            textBox_SoLuongMoiDonVi_Filter.Margin = new Padding(2);
+            textBox_SoLuongMoiDonVi_Filter.Name = "textBox_SoLuongMoiDonVi_Filter";
+            textBox_SoLuongMoiDonVi_Filter.Size = new Size(124, 32);
+            textBox_SoLuongMoiDonVi_Filter.TabIndex = 55;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -759,7 +992,7 @@ namespace QuanLyMachTu.Controls
             label8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(193, 193, 193);
             label8.ImageAlign = ContentAlignment.BottomCenter;
-            label8.Location = new Point(159, 524);
+            label8.Location = new Point(159, 425);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(26, 28);
@@ -774,7 +1007,7 @@ namespace QuanLyMachTu.Controls
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(193, 193, 193);
             label7.ImageAlign = ContentAlignment.BottomCenter;
-            label7.Location = new Point(364, 425);
+            label7.Location = new Point(364, 326);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(26, 28);
@@ -789,7 +1022,7 @@ namespace QuanLyMachTu.Controls
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(193, 193, 193);
             label6.ImageAlign = ContentAlignment.BottomCenter;
-            label6.Location = new Point(159, 425);
+            label6.Location = new Point(159, 326);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
             label6.Size = new Size(26, 28);
@@ -804,7 +1037,7 @@ namespace QuanLyMachTu.Controls
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(193, 193, 193);
             label3.ImageAlign = ContentAlignment.BottomCenter;
-            label3.Location = new Point(315, 326);
+            label3.Location = new Point(315, 227);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(26, 28);
@@ -819,7 +1052,7 @@ namespace QuanLyMachTu.Controls
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(193, 193, 193);
             label2.ImageAlign = ContentAlignment.BottomCenter;
-            label2.Location = new Point(364, 623);
+            label2.Location = new Point(364, 524);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(26, 28);
@@ -833,7 +1066,7 @@ namespace QuanLyMachTu.Controls
             textBox_SoLuong_Filter.BorderStyle = BorderStyle.None;
             textBox_SoLuong_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_SoLuong_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_SoLuong_Filter.Location = new Point(25, 524);
+            textBox_SoLuong_Filter.Location = new Point(25, 425);
             textBox_SoLuong_Filter.Margin = new Padding(2);
             textBox_SoLuong_Filter.Name = "textBox_SoLuong_Filter";
             textBox_SoLuong_Filter.Size = new Size(124, 32);
@@ -845,7 +1078,7 @@ namespace QuanLyMachTu.Controls
             textBox_HSD_Filter.BorderStyle = BorderStyle.None;
             textBox_HSD_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_HSD_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_HSD_Filter.Location = new Point(230, 623);
+            textBox_HSD_Filter.Location = new Point(230, 524);
             textBox_HSD_Filter.Margin = new Padding(2);
             textBox_HSD_Filter.Name = "textBox_HSD_Filter";
             textBox_HSD_Filter.Size = new Size(124, 32);
@@ -858,7 +1091,7 @@ namespace QuanLyMachTu.Controls
             label_HSD_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_HSD_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_HSD_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_HSD_Filter.Location = new Point(230, 579);
+            label_HSD_Filter.Location = new Point(230, 480);
             label_HSD_Filter.Margin = new Padding(2, 0, 2, 0);
             label_HSD_Filter.Name = "label_HSD_Filter";
             label_HSD_Filter.Size = new Size(123, 28);
@@ -872,7 +1105,7 @@ namespace QuanLyMachTu.Controls
             textBox_Nam_Filter.BorderStyle = BorderStyle.None;
             textBox_Nam_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Nam_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Nam_Filter.Location = new Point(230, 326);
+            textBox_Nam_Filter.Location = new Point(230, 227);
             textBox_Nam_Filter.Margin = new Padding(2);
             textBox_Nam_Filter.Name = "textBox_Nam_Filter";
             textBox_Nam_Filter.Size = new Size(60, 32);
@@ -885,7 +1118,7 @@ namespace QuanLyMachTu.Controls
             label_Nam_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_Nam_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_Nam_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_Nam_Filter.Location = new Point(230, 282);
+            label_Nam_Filter.Location = new Point(230, 183);
             label_Nam_Filter.Margin = new Padding(2, 0, 2, 0);
             label_Nam_Filter.Name = "label_Nam_Filter";
             label_Nam_Filter.Size = new Size(54, 28);
@@ -901,7 +1134,7 @@ namespace QuanLyMachTu.Controls
             comboBox_Thang_Filter.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_Thang_Filter.FormattingEnabled = true;
             comboBox_Thang_Filter.Items.AddRange(new object[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" });
-            comboBox_Thang_Filter.Location = new Point(125, 326);
+            comboBox_Thang_Filter.Location = new Point(125, 227);
             comboBox_Thang_Filter.Margin = new Padding(2);
             comboBox_Thang_Filter.Name = "comboBox_Thang_Filter";
             comboBox_Thang_Filter.Size = new Size(85, 40);
@@ -914,7 +1147,7 @@ namespace QuanLyMachTu.Controls
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(193, 193, 193);
             label4.ImageAlign = ContentAlignment.BottomCenter;
-            label4.Location = new Point(125, 282);
+            label4.Location = new Point(125, 183);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(66, 28);
@@ -928,7 +1161,7 @@ namespace QuanLyMachTu.Controls
             textBox_Ngay_Filter.BorderStyle = BorderStyle.None;
             textBox_Ngay_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Ngay_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Ngay_Filter.Location = new Point(25, 326);
+            textBox_Ngay_Filter.Location = new Point(25, 227);
             textBox_Ngay_Filter.Margin = new Padding(2);
             textBox_Ngay_Filter.Name = "textBox_Ngay_Filter";
             textBox_Ngay_Filter.Size = new Size(55, 32);
@@ -941,7 +1174,7 @@ namespace QuanLyMachTu.Controls
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(193, 193, 193);
             label5.ImageAlign = ContentAlignment.BottomCenter;
-            label5.Location = new Point(25, 282);
+            label5.Location = new Point(25, 183);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(59, 28);
@@ -956,12 +1189,12 @@ namespace QuanLyMachTu.Controls
             label_SoLuong_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_SoLuong_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_SoLuong_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_SoLuong_Filter.Location = new Point(25, 480);
+            label_SoLuong_Filter.Location = new Point(25, 381);
             label_SoLuong_Filter.Margin = new Padding(2, 0, 2, 0);
             label_SoLuong_Filter.Name = "label_SoLuong_Filter";
-            label_SoLuong_Filter.Size = new Size(92, 28);
+            label_SoLuong_Filter.Size = new Size(141, 28);
             label_SoLuong_Filter.TabIndex = 39;
-            label_SoLuong_Filter.Text = "Số lượng";
+            label_SoLuong_Filter.Text = "Số lượng nhập";
             label_SoLuong_Filter.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label_DonVi_Filter
@@ -971,7 +1204,7 @@ namespace QuanLyMachTu.Controls
             label_DonVi_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_DonVi_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_DonVi_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_DonVi_Filter.Location = new Point(230, 480);
+            label_DonVi_Filter.Location = new Point(230, 381);
             label_DonVi_Filter.Margin = new Padding(2, 0, 2, 0);
             label_DonVi_Filter.Name = "label_DonVi_Filter";
             label_DonVi_Filter.Size = new Size(69, 28);
@@ -985,7 +1218,7 @@ namespace QuanLyMachTu.Controls
             textBox_DonVi_Filter.BorderStyle = BorderStyle.None;
             textBox_DonVi_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_DonVi_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_DonVi_Filter.Location = new Point(230, 524);
+            textBox_DonVi_Filter.Location = new Point(230, 425);
             textBox_DonVi_Filter.Margin = new Padding(2);
             textBox_DonVi_Filter.Name = "textBox_DonVi_Filter";
             textBox_DonVi_Filter.Size = new Size(160, 32);
@@ -998,7 +1231,7 @@ namespace QuanLyMachTu.Controls
             label_XuatXu_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_XuatXu_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_XuatXu_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_XuatXu_Filter.Location = new Point(25, 579);
+            label_XuatXu_Filter.Location = new Point(25, 480);
             label_XuatXu_Filter.Margin = new Padding(2, 0, 2, 0);
             label_XuatXu_Filter.Name = "label_XuatXu_Filter";
             label_XuatXu_Filter.Size = new Size(78, 28);
@@ -1012,7 +1245,7 @@ namespace QuanLyMachTu.Controls
             textBox_XuatXu_Filter.BorderStyle = BorderStyle.None;
             textBox_XuatXu_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_XuatXu_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_XuatXu_Filter.Location = new Point(25, 623);
+            textBox_XuatXu_Filter.Location = new Point(25, 524);
             textBox_XuatXu_Filter.Margin = new Padding(2);
             textBox_XuatXu_Filter.Name = "textBox_XuatXu_Filter";
             textBox_XuatXu_Filter.Size = new Size(160, 32);
@@ -1025,7 +1258,7 @@ namespace QuanLyMachTu.Controls
             label_GiaBan_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_GiaBan_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_GiaBan_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_GiaBan_Filter.Location = new Point(230, 381);
+            label_GiaBan_Filter.Location = new Point(230, 282);
             label_GiaBan_Filter.Margin = new Padding(2, 0, 2, 0);
             label_GiaBan_Filter.Name = "label_GiaBan_Filter";
             label_GiaBan_Filter.Size = new Size(79, 28);
@@ -1039,7 +1272,7 @@ namespace QuanLyMachTu.Controls
             textBox_GiaBan_Filter.BorderStyle = BorderStyle.None;
             textBox_GiaBan_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_GiaBan_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_GiaBan_Filter.Location = new Point(230, 425);
+            textBox_GiaBan_Filter.Location = new Point(230, 326);
             textBox_GiaBan_Filter.Margin = new Padding(2);
             textBox_GiaBan_Filter.Name = "textBox_GiaBan_Filter";
             textBox_GiaBan_Filter.Size = new Size(124, 32);
@@ -1052,7 +1285,7 @@ namespace QuanLyMachTu.Controls
             label_GiaNhap_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_GiaNhap_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_GiaNhap_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_GiaNhap_Filter.Location = new Point(25, 381);
+            label_GiaNhap_Filter.Location = new Point(25, 282);
             label_GiaNhap_Filter.Margin = new Padding(2, 0, 2, 0);
             label_GiaNhap_Filter.Name = "label_GiaNhap_Filter";
             label_GiaNhap_Filter.Size = new Size(90, 28);
@@ -1066,7 +1299,7 @@ namespace QuanLyMachTu.Controls
             textBox_GiaNhap_Filter.BorderStyle = BorderStyle.None;
             textBox_GiaNhap_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_GiaNhap_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_GiaNhap_Filter.Location = new Point(25, 425);
+            textBox_GiaNhap_Filter.Location = new Point(25, 326);
             textBox_GiaNhap_Filter.Margin = new Padding(2);
             textBox_GiaNhap_Filter.Name = "textBox_GiaNhap_Filter";
             textBox_GiaNhap_Filter.Size = new Size(124, 32);
@@ -1079,7 +1312,7 @@ namespace QuanLyMachTu.Controls
             label_TenDP_Filter.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_TenDP_Filter.ForeColor = Color.FromArgb(193, 193, 193);
             label_TenDP_Filter.ImageAlign = ContentAlignment.BottomCenter;
-            label_TenDP_Filter.Location = new Point(25, 183);
+            label_TenDP_Filter.Location = new Point(230, 84);
             label_TenDP_Filter.Margin = new Padding(2, 0, 2, 0);
             label_TenDP_Filter.Name = "label_TenDP_Filter";
             label_TenDP_Filter.Size = new Size(146, 28);
@@ -1108,10 +1341,10 @@ namespace QuanLyMachTu.Controls
             textBox_TenDP_Filter.BorderStyle = BorderStyle.None;
             textBox_TenDP_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_TenDP_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TenDP_Filter.Location = new Point(25, 227);
+            textBox_TenDP_Filter.Location = new Point(230, 128);
             textBox_TenDP_Filter.Margin = new Padding(2);
             textBox_TenDP_Filter.Name = "textBox_TenDP_Filter";
-            textBox_TenDP_Filter.Size = new Size(365, 32);
+            textBox_TenDP_Filter.Size = new Size(160, 32);
             textBox_TenDP_Filter.TabIndex = 12;
             // 
             // textBox_MaDP_Filter
@@ -1123,7 +1356,7 @@ namespace QuanLyMachTu.Controls
             textBox_MaDP_Filter.Location = new Point(25, 128);
             textBox_MaDP_Filter.Margin = new Padding(2);
             textBox_MaDP_Filter.Name = "textBox_MaDP_Filter";
-            textBox_MaDP_Filter.Size = new Size(365, 32);
+            textBox_MaDP_Filter.Size = new Size(160, 32);
             textBox_MaDP_Filter.TabIndex = 11;
             // 
             // button_OK_Filter
@@ -1156,11 +1389,75 @@ namespace QuanLyMachTu.Controls
             // 
             customPanel_DetailsControl.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_DetailsControl.BackColor = Color.FromArgb(79, 69, 87);
+            customPanel_DetailsControl.Controls.Add(label_SoLuongTot);
+            customPanel_DetailsControl.Controls.Add(label16);
+            customPanel_DetailsControl.Controls.Add(label_SoLuongDuocPham);
+            customPanel_DetailsControl.Controls.Add(label14);
             customPanel_DetailsControl.CornerRadius = 40;
             customPanel_DetailsControl.Location = new Point(25, 787);
             customPanel_DetailsControl.Name = "customPanel_DetailsControl";
             customPanel_DetailsControl.Size = new Size(1124, 60);
             customPanel_DetailsControl.TabIndex = 15;
+            // 
+            // label_SoLuongTot
+            // 
+            label_SoLuongTot.AutoSize = true;
+            label_SoLuongTot.BackColor = Color.Transparent;
+            label_SoLuongTot.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_SoLuongTot.ForeColor = Color.White;
+            label_SoLuongTot.ImageAlign = ContentAlignment.BottomCenter;
+            label_SoLuongTot.Location = new Point(853, 15);
+            label_SoLuongTot.Margin = new Padding(2, 0, 2, 0);
+            label_SoLuongTot.Name = "label_SoLuongTot";
+            label_SoLuongTot.Size = new Size(84, 28);
+            label_SoLuongTot.TabIndex = 43;
+            label_SoLuongTot.Text = "Number";
+            label_SoLuongTot.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.Transparent;
+            label16.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.White;
+            label16.ImageAlign = ContentAlignment.BottomCenter;
+            label16.Location = new Point(562, 15);
+            label16.Margin = new Padding(2, 0, 2, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(266, 28);
+            label16.TabIndex = 42;
+            label16.Text = "Số dược phẩm tình trạng tốt:";
+            label16.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label_SoLuongDuocPham
+            // 
+            label_SoLuongDuocPham.AutoSize = true;
+            label_SoLuongDuocPham.BackColor = Color.Transparent;
+            label_SoLuongDuocPham.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_SoLuongDuocPham.ForeColor = Color.White;
+            label_SoLuongDuocPham.ImageAlign = ContentAlignment.BottomCenter;
+            label_SoLuongDuocPham.Location = new Point(251, 15);
+            label_SoLuongDuocPham.Margin = new Padding(2, 0, 2, 0);
+            label_SoLuongDuocPham.Name = "label_SoLuongDuocPham";
+            label_SoLuongDuocPham.Size = new Size(84, 28);
+            label_SoLuongDuocPham.TabIndex = 41;
+            label_SoLuongDuocPham.Text = "Number";
+            label_SoLuongDuocPham.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.ImageAlign = ContentAlignment.BottomCenter;
+            label14.Location = new Point(25, 15);
+            label14.Margin = new Padding(2, 0, 2, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(201, 28);
+            label14.TabIndex = 40;
+            label14.Text = "Số lượng dược phẩm:";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel_TopPanel
             // 
@@ -1186,73 +1483,59 @@ namespace QuanLyMachTu.Controls
             Size = new Size(1590, 864);
             Load += DuocPhamControl_Load;
             panel_Toolbar.ResumeLayout(false);
+            panel_Toolbar.PerformLayout();
             panel_Upload.ResumeLayout(false);
             panel_Upload.PerformLayout();
             ((ISupportInitialize)customDataGridView).EndInit();
             panel_Filter.ResumeLayout(false);
             panel_Filter.PerformLayout();
+            customPanel_DetailsControl.ResumeLayout(false);
+            customPanel_DetailsControl.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
-        #endregion
+
         private void DuocPhamControl_Load(object sender, EventArgs e)
         {
-            LoadData();
             InitializeState();
         }
-
         private void InitializeState()
         {
-            controlDataGridView = customDataGridView;
+            //prefetch
+            next_DP_PrimaryKey = (string)DatabaseConnection.ExecuteScalar(selectLastID, null);
+            next_DP_PrimaryKey = StringMath.Increment(next_DP_PrimaryKey);
+            //State
+            controlFunc = FIL_FUNC;
+            controlCommand = DP_SelectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
             panel_Filter.BringToFront();
-
-
-            //controlDataGridView = customDataGridView_PC;
-            //controlPage = PK_TAB;
-            //SwitchMode(controlPage);
-            //panel_Filters.BringToFront();
-
-
-            //controlPage = BN_TAB;
-            //controlDataTable = datatableBN;
-            //EnablePage(controlPage);
-        }
-
-        private void LoadData()
-        {
-            connection = new SqlConnection(connectionStr);
-            connection.Open();
-
-            dataset = new DataSet();
-
-            LoadDataToDataSet("SELECT * FROM DUOCPHAM", "DUOCPHAM");
-            datatable = dataset.Tables["DUOCPHAM"];
-            datatable.PrimaryKey = new DataColumn[] { datatable.Columns["MaDP"] };
-
+            //Upload
             comboBox_Thang.SelectedItem = comboBox_Thang.Items[0];
-
-            connection.Close();
-
-            UpdateDataGridView(customDataGridView, datatable);
-        }
-
-        private void LoadDataToDataSet(string commandStr, string tableName)
-        {
-            adapter = new SqlDataAdapter(commandStr, connection);
-            adapter.Fill(dataset, tableName);
+            FillMaDP(textBox_MaDP);
+            GeneralMethods.FillDate(textBox_Ngay, comboBox_Thang, textBox_Nam);
         }
         private void UpdateDataGridView(DataGridView dgv, DataTable datatable)
         {
             //Load data to data grid view
             dgv.DataSource = datatable;
+            SoLuongThieu_highlightList = GetDPSapHet();
 
-            //Display statitic number
-            //label_HienThiDTTong.Text = CalculateSumOfDoanhSo(dgv).ToString();
-            //label_HienThiSoBN.Text = dgv.Rows.Count.ToString();
+            UpdateStatics(dgv);
         }
+        private void UpdateStatics(DataGridView dgv)
+        {
+            int soluongDP = dgv.Rows.Count;
+            int soluongTot = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+                if (row.Cells["TinhTrang"].Value.ToString() == "Mới")
+                    soluongTot++;
 
+            label_SoLuongDuocPham.Text = soluongDP.ToString();
+            label_SoLuongTot.Text = soluongTot.ToString();
+        }
         private void pageButton_Upload_Click(object sender, EventArgs e)
         {
+            controlFunc = INS_FUNC;
             panel_Upload.BringToFront();
         }
 
@@ -1266,112 +1549,131 @@ namespace QuanLyMachTu.Controls
             }
 
             string primaryKey = textBox_MaDP.Text;
-            DataRow targetRow = datatable.Rows.Find(primaryKey);
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM DUOCPHAM WHERE MaDP = @MaDP) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaDP", primaryKey } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatable.NewRow();
+                string insertQuery = "INSERT INTO DUOCPHAM " +
+                                        "(MaDP, TenDP, SoLuong, MoTa, GiaNhap, GiaBan, XuatXu, DonVi, NgayNhap, HSD, SoLuongMoiDonVi) " +
+                                        "VALUES(@MaDP, @TenDP, @SoLuong, @MoTa, @GiaNhap, @GiaBan, @XuatXu, @DonVi, @NgayNhap, @HSD, @SoLuongMoiDonVi)";
 
-                targetRow["MaDP"] = primaryKey;
-                targetRow["TenDP"] = textBox_TenDP.Text;
-                targetRow["GiaNhap"] = textBox_GiaNhap.Text;
-                targetRow["GiaBan"] = textBox_GiaBan.Text;
-                targetRow["XuatXu"] = textBox_XuatXu.Text;
-                targetRow["DonVi"] = textBox_DonVi.Text;
-                targetRow["SoLuong"] = textBox_SoLuong.Text;
-                targetRow["NgayNhap"] = GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam);
-                targetRow["HSD"] = textBox_HSD.Text;
-                targetRow["MoTa"] = textBox_MoTa.Text;
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDP", primaryKey},
+                    {"@TenDP", textBox_TenDP.Text },
+                    {"@SoLuong", textBox_SoLuong.Text },
+                    {"@MoTa", textBox_MoTa.Text },
+                    {"@GiaNhap", textBox_GiaNhap.Text },
+                    {"@GiaBan", textBox_GiaBan.Text },
+                    {"@XuatXu", textBox_XuatXu.Text },
+                    {"@DonVi", textBox_DonVi.Text },
+                    {"@NgayNhap", GeneralMethods.GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam) },
+                    {"@HSD", textBox_HSD.Text },
+                    {"@SoLuongMoiDonVi", textBox_SoLuongMoiDonVi.Text }
+                };
 
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
 
-                datatable.Rows.Add(targetRow);
+                next_DP_PrimaryKey = StringMath.Increment(next_DP_PrimaryKey);
             }
-            else //Update
+            else
             {
-                targetRow["MaDP"] = primaryKey;
-                targetRow["TenDP"] = textBox_TenDP.Text;
-                targetRow["GiaNhap"] = textBox_GiaNhap.Text;
-                targetRow["GiaBan"] = textBox_GiaBan.Text;
-                targetRow["XuatXu"] = textBox_XuatXu.Text;
-                targetRow["DonVi"] = textBox_DonVi.Text;
-                targetRow["SoLuong"] = textBox_SoLuong.Text;
-                targetRow["NgayNhap"] = GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam);
-                targetRow["HSD"] = textBox_HSD.Text;
-                targetRow["MoTa"] = textBox_MoTa.Text;
+                string updateQuery = "UPDATE DUOCPHAM " +
+                                        "SET TenDP = @TenDP, " +
+                                            "SoLuong = @SoLuong, " +
+                                            "MoTa = @MoTa, " +
+                                            "GiaNhap = @GiaNhap, " +
+                                            "GiaBan = @GiaBan, " +
+                                            "XuatXu = @XuatXu, " +
+                                            "DonVi = @DonVi, " +
+                                            "NgayNhap = @NgayNhap, " +
+                                            "HSD = @HSD, " +                                            
+                                            "SoLuongMoiDonVi = @SoLuongMoiDonVi " +
+                                        "WHERE MaDP = @MaDP";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaDP", primaryKey},
+                    {"@TenDP", textBox_TenDP.Text },
+                    {"@SoLuong", textBox_SoLuong.Text },
+                    {"@MoTa", textBox_MoTa.Text },
+                    {"@GiaNhap", textBox_GiaNhap.Text },
+                    {"@GiaBan", textBox_GiaBan.Text },
+                    {"@XuatXu", textBox_XuatXu.Text },
+                    {"@DonVi", textBox_DonVi.Text },
+                    {"@NgayNhap", GeneralMethods.GetNgayThangNam(textBox_Ngay, comboBox_Thang, textBox_Nam) },
+                    {"@HSD", textBox_HSD.Text },
+                    {"@SoLuongMoiDonVi", textBox_SoLuongMoiDonVi.Text }
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView, datatable);
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
 
         private void pageButton_Filter_Click(object sender, EventArgs e)
         {
+            controlFunc = FIL_FUNC;
             panel_Filter.BringToFront();
         }
 
         private void pageButton_Remove_Click(object sender, EventArgs e)
         {
-            DataColumn[] primaryKeyColumn = controlDataTable.PrimaryKey;
-            string[] primaryKeyName = new string[primaryKeyColumn.Length];
-            string[] primaryKey = new string[primaryKeyColumn.Length];
-            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
-
-            //get primary key name
-            for (int col = 0; col < primaryKeyName.Length; col++)
-                primaryKeyName[col] = primaryKeyColumn[col].ColumnName;
-
             //get all rows of selected cells
-            foreach (DataGridViewCell cell in controlDataGridView.SelectedCells)
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView.SelectedCells)
                 selectedRows.Add(cell.OwningRow);
 
-            //remove row with primary key
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter;
+            int parameterIndex = 0;
+
+            string inDeletedList = "(NULL";
             foreach (DataGridViewRow row in selectedRows)
             {
-                //get primary key value
-                for (int col = 0; col < primaryKeyName.Length; col++)
-                    primaryKey[col] = row.Cells[primaryKeyName[col]].Value.ToString();
-                //remove row
-                DataRow? deleteRow = controlDataTable.Rows.Find(primaryKey);
-                controlDataTable.Rows.Remove(deleteRow);
+                parameter = $"@MaDP{parameterIndex}";
+                parameters.Add(parameter, row.Cells["MaDP"].Value.ToString());
+                inDeletedList += $", {parameter}";
+                parameterIndex++;
             }
+            inDeletedList += ")";
 
-            UpdateDataGridView(controlDataGridView, controlDataTable);
+            //remove
+            string deleteCommand = "UPDATE DUOCPHAM " +
+                                   "SET IsDeleted = 1 " +
+                                   "WHERE MaDP IN " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew            
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
-
-        private string GetNgayThangNam(TextBox textBox_Ngay, ComboBox comboBox_Thang, TextBox textBox_Nam)
-        {
-            if (string.IsNullOrEmpty(textBox_Ngay.Text))
-                return null;
-            else if (string.IsNullOrEmpty(textBox_Nam.Text))
-                return null;
-
-            return $"{comboBox_Thang.SelectedIndex + 1}/{textBox_Ngay.Text}/{textBox_Nam.Text}";
-        }
-
         private int CheckUploadTextBox()
         {
             int error = 0;
             if (string.IsNullOrEmpty(textBox_MaDP.Text))
-                error |= 1;
+                error |= MADP_ERR;
             if (string.IsNullOrEmpty(textBox_TenDP.Text))
-                error |= 2;
+                error |= TENDP_ERR;
             if (string.IsNullOrEmpty(textBox_GiaNhap.Text))
-                error |= 4;
+                error |= GIANHAP_ERR;
             if (string.IsNullOrEmpty(textBox_GiaBan.Text))
-                error |= 8;
+                error |= GIABAN_ERR;
             if (string.IsNullOrEmpty(textBox_XuatXu.Text))
-                error |= 16;
+                error |= XUATXU_ERR;
             if (string.IsNullOrEmpty(textBox_DonVi.Text))
-                error |= 32;
+                error |= DONVI_ERR;
             if (string.IsNullOrEmpty(textBox_SoLuong.Text))
-                error |= 64;
-            if (string.IsNullOrEmpty(textBox_Ngay.Text))
-                error |= 128;
-            if (string.IsNullOrEmpty(textBox_Nam.Text))
-                error |= 256;
+                error |= SOLUONG_ERR;
             if (string.IsNullOrEmpty(textBox_HSD.Text))
-                error |= 512;
-            if (string.IsNullOrEmpty(textBox_MoTa.Text))
-                error |= 1024;
+                error |= HSD_ERR;
+            if (string.IsNullOrEmpty(textBox_SoLuongMoiDonVi.Text))
+                error |= SLDV_ERR;
 
             return error;
         }
@@ -1384,10 +1686,8 @@ namespace QuanLyMachTu.Controls
         const int XUATXU_ERR = 16;
         const int DONVI_ERR = 32;
         const int SOLUONG_ERR = 64;
-        const int NGAY_ERR = 128;
-        const int NAM_ERR = 256;
-        const int HSD_ERR = 512;
-        const int MOTA_ERR = 1024;
+        const int HSD_ERR = 128;
+        const int SLDV_ERR = 256;
         #endregion
 
         private void WarningUploadTextBoxError(int error)
@@ -1406,57 +1706,53 @@ namespace QuanLyMachTu.Controls
                 ColoringTextBox.WarningColor(textBox_DonVi);
             if ((error & SOLUONG_ERR) == SOLUONG_ERR)
                 ColoringTextBox.WarningColor(textBox_SoLuong);
-            if ((error & NGAY_ERR) == NGAY_ERR)
-                ColoringTextBox.WarningColor(textBox_Ngay);
-            if ((error & NAM_ERR) == NAM_ERR)
-                ColoringTextBox.WarningColor(textBox_Nam);
             if ((error & HSD_ERR) == HSD_ERR)
                 ColoringTextBox.WarningColor(textBox_HSD);
-            if ((error & MOTA_ERR) == MOTA_ERR)
-                ColoringTextBox.WarningColor(textBox_MoTa);
+            if ((error & SLDV_ERR) == SLDV_ERR)
+                ColoringTextBox.WarningColor(textBox_SoLuongMoiDonVi);
         }
 
         private void button_OK_Filter_Click(object sender, EventArgs e)
         {
-            string selectCommand = "1 = 1 ";
+            string selectCommand = DP_SelectCommand;
 
             if (string.IsNullOrEmpty(textBox_MaDP_Filter.Text) == false)
                 selectCommand += $"AND MaDP = '{textBox_MaDP_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_TenDP_Filter.Text) == false)
-                selectCommand += $"AND TenDP = '{textBox_TenDP_Filter.Text}' ";
+                selectCommand += $"AND TenDP = N'{textBox_TenDP_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_GiaNhap_Filter.Text) == false)
                 selectCommand += $"AND GiaNhap >= {textBox_GiaNhap_Filter.Text} ";
             if (string.IsNullOrEmpty(textBox_GiaBan_Filter.Text) == false)
                 selectCommand += $"AND GiaBan >= {textBox_GiaBan_Filter.Text} ";
             if (string.IsNullOrEmpty(textBox_XuatXu_Filter.Text) == false)
-                selectCommand += $"AND XuatXu = '{textBox_XuatXu_Filter.Text}' ";
+                selectCommand += $"AND XuatXu = N'{textBox_XuatXu_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_DonVi_Filter.Text) == false)
-                selectCommand += $"AND DonVi >= {textBox_DonVi_Filter.Text} ";
+                selectCommand += $"AND DonVi = N'{textBox_DonVi_Filter.Text}' ";
             if (string.IsNullOrEmpty(textBox_SoLuong_Filter.Text) == false)
                 selectCommand += $"AND SoLuong >= {textBox_SoLuong_Filter.Text} ";
             if (string.IsNullOrEmpty(textBox_HSD_Filter.Text) == false)
                 selectCommand += $"AND HSD >= {textBox_HSD_Filter.Text} ";
+            if (string.IsNullOrEmpty(textBox_SoLuongMoiDonVi_Filter.Text) == false)
+                selectCommand += $"AND SoLuongMoiDonVi >= {textBox_SoLuongMoiDonVi_Filter.Text} ";
+            if (string.IsNullOrEmpty(comboBox_TinhTrang_Filter.Text) == false)
+                selectCommand += $"AND TinhTrang = N'{comboBox_TinhTrang_Filter.Text}' ";
 
-
-            string ngayLap = GetNgayThangNam(textBox_Ngay_Filter, comboBox_Thang_Filter, textBox_Nam_Filter);
+            string ngayLap = GeneralMethods.GetNgayThangNam(textBox_Ngay_Filter, comboBox_Thang_Filter, textBox_Nam_Filter);
 
             if (string.IsNullOrEmpty(ngayLap) == false)
                 selectCommand += $"AND NgayNhap >= '{ngayLap}' ";
 
-            DataRow[] resultRow = datatable.Select(selectCommand);
-            DataTable resultDatatable = datatable.Clone();
-
-            foreach (DataRow row in resultRow)
-            {
-                if (resultDatatable.Rows.Contains(row["MaDP"]))
-                    continue;
-
-                resultDatatable.ImportRow(row);
-            }
-
-            UpdateDataGridView(customDataGridView, resultDatatable);
+            controlCommand = selectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
         }
-
+        private void Button_KeyPress_PositiveNumber(object sender, KeyPressEventArgs e)
+        {
+            GeneralMethods.textBox_KeyPress_PositiveNumber(sender, e);
+        }
+        private void button_KeyPress_Normal(object sender, KeyPressEventArgs e)
+        {
+            GeneralMethods.textBox_KeyPress_Normal(sender, e);
+        }
         private void panel_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -1472,6 +1768,151 @@ namespace QuanLyMachTu.Controls
                     graphic.DrawLine(linePen, new Point(control.Location.X - offset, control.Location.Y + control.Height + offset),
                                               new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
             }
+
+            if (panel == panel_Upload)
+            {
+                int x = label_NgayNhap.Location.X - 9;
+                int startY = label_NgayNhap.Location.Y, endY = startY + label_NgayNhap.Height;
+                graphic.DrawLine(linePen, new Point(x, startY), new Point(x, endY));
+            }
+        }
+        private List<string> GetDPSapHet()
+        {
+            string DP_SapHetSelectCommand = "SELECT MaDP " +
+                                                 "FROM DUOCPHAM DP " +
+                                                 "WHERE SoLuong * SoLuongMoiDonVi - 20 <= (SELECT SUM(SoLuong) " +
+                                                                                          "FROM CTHD_DuocPham CTDP " +
+                                                                                          "WHERE CTDP.MaDP = DP.MaDP) ";
+            //SqlDataReader reader = DatabaseConnection.ExecuteReaderNotification(NV_chuaPhanCongCommand, OnTableChange);
+            SqlDataReader reader = DatabaseConnection.ExecuteReader(DP_SapHetSelectCommand);
+            List<string> NV_chuaPhanCongList = new List<string>();
+            while (reader.Read())
+            {
+                NV_chuaPhanCongList.Add(reader["MaDP"].ToString());
+            }
+            reader.Close();
+
+            return NV_chuaPhanCongList;
+        }
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            customDataGridView.Refresh();
+        }
+        private void customDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+
+            DateTime ngayNhap = (DateTime)row.Cells["NgayNhap"].Value;
+            Int16 HSD = (Int16)row.Cells["HSD"].Value;
+            int earlyMonths = 2;
+
+            DateTime ngayHetHan = ngayNhap.AddMonths(HSD);
+            DateTime thoiDiemThongBao = DateTime.Today.AddMonths(earlyMonths);
+
+            if (checkBox_SoLuongThieu_Conditions.Checked && SoLuongThieu_highlightList.Contains(row.Cells["MaDP"].Value.ToString()))
+            {
+                row.DefaultCellStyle.BackColor = ColorUsed.highlightTop;
+            }
+            else if (checkBox_SapHetHan_Conditions.Checked && DateTime.Today < ngayHetHan && ngayHetHan <= thoiDiemThongBao)
+            {
+                row.DefaultCellStyle.BackColor = ColorUsed.highlightMedium;
+            }
+            else
+            {
+                row.DefaultCellStyle.BackColor = ColorUsed.originalGrid;
+            }
+        }
+
+        private void customDataGridView_CellMouseDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            DataGridView dgv = sender as DataGridView;
+            DataRowView drv = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            DataRow row = drv.Row;
+
+            fillPanel_DP(row);
+        }
+
+        private void fillPanel_DP(DataRow row)
+        {
+            switch (controlFunc)
+            {
+                case INS_FUNC:
+                    textBox_MaDP.Text = row["MaDP"].ToString();
+                    textBox_TenDP.Text = row["TenDP"].ToString();
+                    textBox_Ngay.Text = row.Field<DateTime>("NgayNhap").Day.ToString();
+                    comboBox_Thang.SelectedIndex = row.Field<DateTime>("NgayNhap").Month - 1;
+                    textBox_Nam.Text = row.Field<DateTime>("NgayNhap").Year.ToString();
+                    textBox_GiaNhap.Text = row["GiaNhap"].ToString();
+                    textBox_GiaBan.Text = row["GiaBan"].ToString();
+                    textBox_SoLuong.Text = row["SoLuong"].ToString();
+                    textBox_DonVi.Text = row["DonVi"].ToString();
+                    textBox_XuatXu.Text = row["XuatXu"].ToString();
+                    textBox_HSD.Text = row["HSD"].ToString();
+                    textBox_SoLuongMoiDonVi.Text = row["SoLuongMoiDonVi"].ToString();
+                    textBox_MoTa.Text = row["MoTa"].ToString();
+                    GeneralMethods.CleanColorPanel(panel_Upload);
+                    break;
+                case FIL_FUNC:
+                    textBox_MaDP_Filter.Text = row["MaDP"].ToString();
+                    textBox_TenDP_Filter.Text = row["TenDP"].ToString();
+                    textBox_Ngay_Filter.Text = row.Field<DateTime>("NgayNhap").Day.ToString();
+                    comboBox_Thang_Filter.SelectedIndex = row.Field<DateTime>("NgayNhap").Month - 1;
+                    textBox_Nam_Filter.Text = row.Field<DateTime>("NgayNhap").Year.ToString();
+                    textBox_GiaNhap_Filter.Text = row["GiaNhap"].ToString();
+                    textBox_GiaBan_Filter.Text = row["GiaBan"].ToString();
+                    textBox_SoLuong_Filter.Text = row["SoLuong"].ToString();
+                    textBox_DonVi_Filter.Text = row["DonVi"].ToString();
+                    textBox_XuatXu_Filter.Text = row["XuatXu"].ToString();
+                    textBox_HSD_Filter.Text = row["HSD"].ToString();
+                    textBox_SoLuongMoiDonVi_Filter.Text = row["SoLuongMoiDonVi"].ToString();
+                    comboBox_TinhTrang_Filter.Text = row["TinhTrang"].ToString();
+                    break;
+            }
+        }
+        private void button_Upload_Reset_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Panel panel = button.Parent as Panel;
+
+            GeneralMethods.ClearPanel(panel);
+            GeneralMethods.CleanColorPanel(panel);
+            GeneralMethods.SetUpPanel(panel, 0);
+
+            FillMaDP(textBox_MaDP);
+            GeneralMethods.FillDate(textBox_Ngay, comboBox_Thang, textBox_Nam);
+
+            controlCommand = DP_SelectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+
+        private void button_Filter_Reset_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Panel panel = button.Parent as Panel;
+
+            GeneralMethods.ClearPanel(panel);
+
+            controlCommand = DP_SelectCommand;
+            UpdateDataGridView(customDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand));
+        }
+
+        private void FillMaDP(TextBox textBox)
+        {
+            textBox.Text = next_DP_PrimaryKey;
+        }
+
+        private void textBox_MaTK_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (string.IsNullOrEmpty(textBox.Text))
+                FillMaDP(textBox);
         }
     }
 }

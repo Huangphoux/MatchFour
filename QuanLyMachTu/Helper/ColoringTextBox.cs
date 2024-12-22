@@ -10,11 +10,11 @@ namespace QuanLyMachTu.Helper
     {
         public static void WarningColor(TextBox textBox)
         {
-            textBox.BackColor = Color.FromArgb(255, 140, 158);
+            textBox.BackColor = ColorUsed.highlightTop;
         }
         public static void NormalColor(TextBox textBox)
         {
-            textBox.BackColor = Color.FromArgb(57, 54, 70);
+            textBox.BackColor = ColorUsed.backgroud;
         }
     }
 }

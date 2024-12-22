@@ -23,17 +23,16 @@ namespace QuanLyMachTu
         const int SOGHE_ERR = 4;
         const int TRANGTHAI_ERR = 8;
 
-        //Database fields
-        private SqlConnection connection;
-        private SqlDataAdapter adapter;
-        private DataSet dataset;
-        private DataTable datatablePK;
-        private DataTable datatablePC;
-        //Database connection
-        private string connectionStr = @"Server=LAPTOP-6GL1AF15\STUDENT;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
-        //private string connectionStr = @"Server=HOANGPHUC2023;Database=QUANLYPHONGMACHTU;User Id=project1;Password=letmein;";
+        //SQL Command
+        string PK_SelectCommand = "SELECT MaPK, SoGhe, TrangThai " +
+                                  "FROM PHONGKHAM " +
+                                  "WHERE IsDeleted = 0 ";
+        string PC_SelectCommand = "SELECT * FROM LamViec ";
 
         //Control variables
+        //highlight
+        List<string> highlightList = new List<string>();
+        Color oldColor;
         //tab index
         const int PK_TAB = 0;
         const int PC_TAB = 10;
@@ -41,9 +40,10 @@ namespace QuanLyMachTu
         const int INS_FUNC = 1;
         const int FIL_FUNC = 2;
         //controllers
+        string controlCommand_PK;
+        string controlCommand_PC;
         int controlPage;
         int controlFunc;
-        DataTable controlDataTable;
         CustomDataGridView controlDataGridView;
         public PhongKhamControl()
         {
@@ -51,7 +51,6 @@ namespace QuanLyMachTu
         }
         private void PhongKhamControl_Load(object sender, EventArgs e)
         {
-            LoadData();
             InitializeState();
         }
         //General methods
@@ -61,13 +60,11 @@ namespace QuanLyMachTu
             InitializeState_PK();
             InitializeState_PC();
 
-            controlDataGridView = customDataGridView_PK;
             controlPage = PK_TAB;
             controlFunc = FIL_FUNC;
             SwitchMode(controlPage);
             EnablePage(controlPage);
             panel_Filters.BringToFront();
-            customDataGridView_PK.Focus();
         }
         //Activate / Deactivate tab
         private void EnablePage(int controlPage)
@@ -83,6 +80,20 @@ namespace QuanLyMachTu
                     ColoringButton.EnabledColor(pageButton_PCTab);
                     ColoringDataGridView.ActivateDGV(controlDataGridView);
                     EnableUploadComponents_PC();
+                    break;
+            }
+        }
+        private void LoadPage(int controlPage)
+        {
+            switch (controlPage)
+            {
+                case PK_TAB:
+                    controlCommand_PK = PK_SelectCommand;
+                    UpdateDataGridView(controlDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PK));
+                    break;
+                case PC_TAB:
+                    controlCommand_PC = PC_SelectCommand;
+                    UpdateDataGridView(controlDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PC));
                     break;
             }
         }
@@ -107,33 +118,14 @@ namespace QuanLyMachTu
             switch (controlPage)
             {
                 case PK_TAB:
-                    controlDataTable = datatablePK;
                     controlDataGridView = customDataGridView_PK;
                     break;
                 case PC_TAB:
-                    controlDataTable = datatablePC;
                     controlDataGridView = customDataGridView_PC;
                     break;
             }
 
             RepaintPanel(panel_Upload);
-        }
-        //Load methods
-        private void LoadData()
-        {
-            connection = new SqlConnection(connectionStr);
-            connection.Open();
-
-            dataset = new DataSet();
-            LoadTabPhongKham();
-            LoadTabPhanCong();
-
-            connection.Close();
-        }
-        private void LoadDataToDataSet(string commandStr, string tableName)
-        {
-            adapter = new SqlDataAdapter(commandStr, connection);
-            adapter.Fill(dataset, tableName);
         }
         //Reload data
         private void UpdateDataGridView(DataGridView dgv, DataTable datatable)
@@ -167,44 +159,39 @@ namespace QuanLyMachTu
         }
         private void pageButton_Filters_OK_Click(object sender, EventArgs e)
         {
+            string selectCommand;
             switch (controlPage)
             {
                 case PK_TAB:
-                    button_PKFilter_OK_Click();
+                    selectCommand = "SELECT DISTINCT PK.MaPK, SoGhe, TrangThai " +
+                                    "FROM PHONGKHAM PK " +
+                                    "LEFT JOIN LamViec LV ON LV.MaPK = PK.MaPK " +
+                                    "WHERE IsDeleted = 0 ";
+                    ApplyFilter(ref selectCommand);
+                    UpdateDataGridView(customDataGridView_PK, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
                     break;
                 case PC_TAB:
-                    button_PCFilter_OK_Click();
+                    selectCommand = "SELECT MaNV, PK.MaPK, ThoiGianBD, ThoiGianKT " +
+                                    "FROM LamViec LV " +
+                                    "INNER JOIN PHONGKHAM PK ON LV.MaPK = PK.MaPK " +
+                                    "WHERE IsDeleted = 0 ";
+                    ApplyFilter(ref selectCommand);
+                    UpdateDataGridView(customDataGridView_PC, DatabaseConnection.LoadDataIntoDataTable(selectCommand));
                     break;
             }
         }
         //Remove button
         private void pageButton_Remove_Click(object sender, EventArgs e)
         {
-            DataColumn[] primaryKeyColumn = controlDataTable.PrimaryKey;
-            string[] primaryKeyName = new string[primaryKeyColumn.Length];
-            string[] primaryKey = new string[primaryKeyColumn.Length];
-            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
-
-            //get primary key name
-            for (int col = 0; col < primaryKeyName.Length; col++)
-                primaryKeyName[col] = primaryKeyColumn[col].ColumnName;
-
-            //get all rows of selected cells
-            foreach (DataGridViewCell cell in controlDataGridView.SelectedCells)
-                selectedRows.Add(cell.OwningRow);
-
-            //remove row with primary key
-            foreach (DataGridViewRow row in selectedRows)
+            switch (controlPage)
             {
-                //get primary key value
-                for (int col = 0; col < primaryKeyName.Length; col++)
-                    primaryKey[col] = row.Cells[primaryKeyName[col]].Value.ToString();
-                //remove row
-                DataRow? deleteRow = controlDataTable.Rows.Find(primaryKey);
-                controlDataTable.Rows.Remove(deleteRow);
+                case PK_TAB:
+                    PK_Remove();
+                    break;
+                case PC_TAB:
+                    PC_Remove();
+                    break;
             }
-
-            UpdateDataGridView(controlDataGridView, controlDataTable);
         }
         //Paint
         private void panel_Upload_Paint(object sender, PaintEventArgs e)
@@ -258,127 +245,22 @@ namespace QuanLyMachTu
                                               new Point(control.Location.X + control.Width + offset, control.Location.Y + control.Height + offset));
             }
         }
-        //Additions        
-        private void WarningComboBox(ComboBox cb)
-        {
-            cb.BackColor = Color.FromArgb(255, 140, 158);
-        }
-        private string GetTrangThai(ComboBox trangThai)
-        {
-            return (string)trangThai.SelectedItem;
-        }
-        private TimeSpan GetTime(TextBox textBox_Gio, TextBox textBox_Phut, TextBox textBox_Giay)
-        {
-            int hour = int.Parse(textBox_Gio.Text);
-            int minute = int.Parse(textBox_Phut.Text);
-            int second = int.Parse(textBox_Giay.Text);
-            return new TimeSpan(hour, minute, second);
-        }
+        //Additions
         private void textBox_KeyPress_PositiveNumber(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-                ColoringTextBox.NormalColor((TextBox)sender);
-            }
-            else
-                e.Handled = true;
+            GeneralMethods.textBox_KeyPress_PositiveNumber(sender, e);
         }
         private void textBox_KeyPress_Normal(object sender, KeyPressEventArgs e)
         {
-            ColoringTextBox.NormalColor((TextBox)sender);
+            GeneralMethods.textBox_KeyPress_Normal(sender, e);
         }
         private void textBox_NoHour_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            int caretPos = textBox.SelectionStart;
-            int convertedNumber;
-
-            if (Char.IsControl(e.KeyChar))
-            {
-                switch (e.KeyChar)
-                {
-                    case (char)Keys.Back:
-                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
-                        break;
-                    default:
-                        return;
-                }
-
-                if (int.TryParse(textBox.Text, out convertedNumber) == false)
-                    convertedNumber = 0;
-
-                convertedNumber = Math.Min(convertedNumber, 59);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else if (Char.IsDigit(e.KeyChar))
-            {
-                string number = textBox.Text + e.KeyChar;
-                convertedNumber = int.Parse(number);
-
-                convertedNumber = Math.Min(convertedNumber, 59);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = true;
-                return;
-            }
+            GeneralMethods.textBox_NoHour_KeyPress(sender, e);
         }
-
         private void textBox_Hour_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            int caretPos = textBox.SelectionStart;
-            int convertedNumber;
-
-            if (Char.IsControl(e.KeyChar))
-            {
-                switch (e.KeyChar)
-                {
-                    case (char)Keys.Back:
-                        textBox.Text = textBox.Text.Remove(Math.Max(0, caretPos - 1), 1);
-                        break;
-                    default:
-                        return;
-                }
-
-                if (int.TryParse(textBox.Text, out convertedNumber) == false)
-                    convertedNumber = 0;
-
-                convertedNumber = Math.Min(convertedNumber, 23);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else if (Char.IsDigit(e.KeyChar))
-            {
-                string number = textBox.Text + e.KeyChar;
-                convertedNumber = int.Parse(number);
-
-                convertedNumber = Math.Min(convertedNumber, 23);
-                textBox.Text = convertedNumber.ToString("D2");
-                textBox.SelectionStart = caretPos;
-
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = true;
-                return;
-            }
-        }
-        private void textBox_EnabledChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            textBox.BackColor = Color.FromArgb(57, 54, 70);
+            GeneralMethods.textBox_Hour_KeyPress(sender, e);
         }
         private void customDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -410,30 +292,20 @@ namespace QuanLyMachTu
             controlPage = PK_TAB;
             SwitchMode(controlPage);
             EnablePage(controlPage);
-
-            customDataGridView_PK.Focus();
         }
         //Initial State
         private void InitializeState_PK()
         {
-            //Components
+            //Upload
             comboBox_Upload_TrangThai.SelectedItem = comboBox_Upload_TrangThai.Items[0];
-
-            //Page status
-            controlDataGridView = customDataGridView_PK;
-            DisablePage(PK_TAB);
-        }
-        //Load data
-        private void LoadTabPhongKham()
-        {
-            LoadDataToDataSet("SELECT * FROM PHONGKHAM", "PHONGKHAM");
-            datatablePK = dataset.Tables["PHONGKHAM"];
-            datatablePK.PrimaryKey = new DataColumn[] { datatablePK.Columns["MaPK"] };
-
-            UpdateDataGridView(customDataGridView_PK, datatablePK);
-
             //Filters
             comboBox_Filters_Comparer.SelectedIndex = 2;
+
+            //Page status
+            controlCommand_PK = PK_SelectCommand;
+            controlDataGridView = customDataGridView_PK;
+            UpdateDataGridView(controlDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PK));
+            DisablePage(PK_TAB);
         }
         //Check and prevent errors
         private int CheckUploadError_PK()
@@ -443,7 +315,7 @@ namespace QuanLyMachTu
                 error |= MAPK_ERR;
             if (string.IsNullOrEmpty(textBox_Upload_SoGhe.Text))
                 error |= SOGHE_ERR;
-            if (string.IsNullOrEmpty(GetTrangThai(comboBox_Upload_TrangThai)))
+            if (string.IsNullOrEmpty(GeneralMethods.GetTrangThai(comboBox_Upload_TrangThai)))
                 error |= TRANGTHAI_ERR;
 
             return error;
@@ -454,8 +326,6 @@ namespace QuanLyMachTu
                 ColoringTextBox.WarningColor(textBox_Upload_MaPK);
             if ((error & SOGHE_ERR) == SOGHE_ERR)
                 ColoringTextBox.WarningColor(textBox_Upload_SoGhe);
-            if ((error & TRANGTHAI_ERR) == TRANGTHAI_ERR)
-                WarningComboBox(comboBox_Upload_TrangThai);
 
         }
         //Upload method
@@ -480,82 +350,102 @@ namespace QuanLyMachTu
             }
 
             string primaryKey = textBox_Upload_MaPK.Text;
-            DataRow targetRow = datatablePK.Rows.Find(primaryKey);
 
-            if (targetRow == null) // Insert
+            string checkQuery = "IF EXISTS (SELECT 1 FROM PHONGKHAM WHERE AND MaPK = @MaPK) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaPK", primaryKey } };
+
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
+
+            if (recordExists == 0)
             {
-                targetRow = datatablePK.NewRow();
-                targetRow["MaPK"] = primaryKey;
-                targetRow["SoGhe"] = textBox_Upload_SoGhe.Text;
-                targetRow["TrangThai"] = GetTrangThai(comboBox_Upload_TrangThai);
-                datatablePK.Rows.Add(targetRow);
+                string insertQuery = "INSERT INTO PHONGKHAM " +
+                                     "(MaPK, SoGhe, TrangThai) " +
+                                     "VALUES(@MaPK, @SoGhe, @TrangThai)";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaPK", primaryKey},
+                    {"@SoGhe", textBox_Upload_SoGhe.Text },
+                    {"@TrangThai", GeneralMethods.GetTrangThai(comboBox_Upload_TrangThai) },
+                };
+
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
             }
-            else //Update
+            else
             {
-                targetRow["MaPK"] = primaryKey;
-                targetRow["SoGhe"] = textBox_Upload_SoGhe.Text;
-                targetRow["TrangThai"] = GetTrangThai(comboBox_Upload_TrangThai);
+                string updateQuery = "UPDATE PHONGKHAM " +
+                                        "SET SoGhe = @SoGhe, " +
+                                            "TrangThai = @TrangThai, " +
+                                            "IsDeleted = 0 " +
+                                        "WHERE MaPK = @MaPK";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@MaPK", primaryKey},
+                    {"@SoGhe", textBox_Upload_SoGhe.Text },
+                    {"@TrangThai", GeneralMethods.GetTrangThai(comboBox_Upload_TrangThai) },
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView_PK, datatablePK);
+            UpdateDataGridView(customDataGridView_PK, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PK));
         }
         //Filter method
-        private void button_PKFilter_OK_Click()
+        private string ApplyFilter(ref string selectCommand)
         {
-            string selectCommandPK = "1 = 1 ";
-            string selectCommandPC = "1 = 1 ";
-
-            //Search for Phong Kham with its information            
             if (string.IsNullOrEmpty(textBox_Filters_MaPK.Text) == false)
-                selectCommandPK += $"AND MaPK = '{textBox_Filters_MaPK.Text}' ";
-            string comparer = GetOperation(comboBox_Filters_Comparer);
+                selectCommand += $"AND PK.MaPK = '{textBox_Filters_MaPK.Text}' ";
             if (string.IsNullOrEmpty(textBox_Filters_SoGhe.Text) == false)
-                selectCommandPK += $"AND SoGhe {comparer} {textBox_Filters_SoGhe.Text} ";
-            string trangThai = GetTrangThai(comboBox_Filters_TrangThai);
+            {
+                string comparer = GeneralMethods.GetOperation(comboBox_Filters_Comparer);
+                selectCommand += $"AND SoGhe {comparer} {textBox_Filters_SoGhe.Text} ";
+            }
+            string trangThai = GeneralMethods.GetTrangThai(comboBox_Filters_TrangThai);
             if (string.IsNullOrEmpty(trangThai) == false)
-                selectCommandPK += $"AND TrangThai = '{trangThai}' ";
-
-            //Search for Phong Kham with additional information
+                selectCommand += $"AND TrangThai = '{trangThai}' ";
             if (string.IsNullOrEmpty(textBox_Filters_MaNV.Text) == false)
-                selectCommandPC += $"AND MaNV = '{textBox_Filters_MaNV.Text}' ";
+                selectCommand += $"AND MaNV = '{textBox_Filters_MaNV.Text}' ";
+            string time = GeneralMethods.GetTime(textBox_Upload_TGBDGio, textBox_Upload_TGBDPhut, textBox_Upload_TGBDGiay);
+            if (time != null)
+                selectCommand += $"AND ThoiGianBD >= '{time}' ";
+            time = GeneralMethods.GetTime(textBox_Upload_TGKTGio, textBox_Upload_TGKTPhut, textBox_Upload_TGKTGiay);
+            if (time != null)
+                selectCommand += $"AND ThoiGianKT <= '{time}' ";
 
+            return selectCommand;
+        }
+        //Remove method
+        private void PK_Remove()
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView_PK.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
 
-            DataRow[] resultRowPK = datatablePK.Select(selectCommandPK);
-            DataRow[] resultRowPC = datatablePC.Select(selectCommandPC);
-            DataTable resultDatatable = datatablePK.Clone();
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter;
+            int parameterIndex = 0;
 
-            //Search with time
-            TimeSpan thoiGianBD = GetTime(textBox_Filters_TGBDGio, textBox_Filters_TGBDPhut, textBox_Filters_TGBDGiay);
-            TimeSpan thoiGianKT = GetTime(textBox_Filters_TGKTGio, textBox_Filters_TGKTPhut, textBox_Filters_TGKTGiay);
-            resultRowPC = resultRowPC.AsEnumerable()
-            .Where(row =>
-                row.Field<TimeSpan>("ThoiGianBD") >= thoiGianBD &&
-                row.Field<TimeSpan>("ThoiGianKT") <= thoiGianKT)
-            .ToArray();
-
-            if (resultRowPC.Length != datatablePC.Rows.Count) //if filter does some changes in datatablePC to filter datatablePK, do join
+            string inDeletedList = "(NULL";
+            foreach (DataGridViewRow row in selectedRows)
             {
-                foreach (DataRow row in resultRowPK)
-                {
-                    foreach (DataRow joinedRow in resultRowPC)
-                    {
-                        if (row["MaPK"].ToString() == joinedRow["MaPK"].ToString())
-                        {
-                            resultDatatable.ImportRow(row);
-                            break;
-                        }
-                    }
-                }
+                parameter = $"@MaPK{parameterIndex}";
+                parameters.Add(parameter, row.Cells["MaPK"].Value.ToString());
+                inDeletedList += $", {parameter}";
+                parameterIndex++;
             }
-            else //if no changes, no join
-            {
-                foreach (DataRow row in resultRowPK)
-                {
-                    resultDatatable.ImportRow(row);
-                }
-            }
+            inDeletedList += ")";
 
-            UpdateDataGridView(customDataGridView_PK, resultDatatable);
+            //remove
+            string deleteCommand = "UPDATE PHONGKHAM " +
+                                   "SET IsDeleted = 1 " +
+                                   "WHERE MaPK IN " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew
+            UpdateDataGridView(customDataGridView_PK, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PK));
         }
         //Decorate panel
         private void panel_PKUpload_Paint(object sender, PaintEventArgs e, Color lineColor)
@@ -572,20 +462,6 @@ namespace QuanLyMachTu
 
             graphic.DrawLine(linePen, new Point(textBox_Upload_SoGhe.Location.X - offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset),
                                       new Point(textBox_Upload_SoGhe.Location.X + textBox_Upload_SoGhe.Width + offset, textBox_Upload_SoGhe.Location.Y + textBox_Upload_SoGhe.Height + offset)); //SoGhe line
-        }
-        //Addition
-        private string GetOperation(ComboBox operations)
-        {
-            string selected = operations.SelectedItem as string;
-            switch (selected)
-            {
-                case "≥":
-                    return ">=";
-                case "≤":
-                    return "<=";
-                default:
-                    return selected;
-            }
         }
 
         //---------------------------------------------------------------Phan Cong tab---------------------------------------------------------------        
@@ -613,26 +489,12 @@ namespace QuanLyMachTu
             textBox_Upload_TGKTGio.Text = "23";
             textBox_Upload_TGKTPhut.Text = "59";
             textBox_Upload_TGKTGiay.Text = "59";
-            //Filters
-            textBox_Filters_TGBDGio.Text = "00";
-            textBox_Filters_TGBDPhut.Text = "00";
-            textBox_Filters_TGBDGiay.Text = "00";
-            textBox_Filters_TGKTGio.Text = "23";
-            textBox_Filters_TGKTPhut.Text = "59";
-            textBox_Filters_TGKTGiay.Text = "59";
 
             //Page status
+            controlCommand_PC = PC_SelectCommand;
             controlDataGridView = customDataGridView_PC;
+            UpdateDataGridView(controlDataGridView, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PC));
             DisablePage(PC_TAB);
-        }
-        //Load data
-        private void LoadTabPhanCong()
-        {
-            LoadDataToDataSet("SELECT * FROM LAMVIEC", "LAMVIEC");
-            datatablePC = dataset.Tables["LAMVIEC"];
-            datatablePC.PrimaryKey = new DataColumn[] { datatablePC.Columns["MaNV"], datatablePC.Columns["MaPK"] };
-
-            UpdateDataGridView(customDataGridView_PC, datatablePC);
         }
         //Check and prevent errors
         private int CheckUploadError_PC()
@@ -690,83 +552,81 @@ namespace QuanLyMachTu
                 textBox_Upload_MaNV.Text,
                 textBox_Upload_MaPK.Text
             };
+            string checkQuery = "IF EXISTS (SELECT 1 FROM LamViec WHERE MaPK = @MaPK AND MaNV = @MaNV) SELECT 1 ELSE SELECT 0";
+            Dictionary<string, object> checkParameters = new Dictionary<string, object> { { "@MaPK", primaryKey[1] }, { "@MaNV", primaryKey[0] } };
 
-            DataRow targetRow = datatablePC.Rows.Find(primaryKey);
+            int recordExists = (int)DatabaseConnection.ExecuteScalar(checkQuery, checkParameters);
 
-            if (targetRow == null) // Insert
+            if (recordExists == 0)
             {
-                targetRow = datatablePC.NewRow();
-                targetRow["MaNV"] = primaryKey[0];
-                targetRow["MaPK"] = primaryKey[1];
-                targetRow["ThoiGianBD"] = GetTime(textBox_Upload_TGBDGio, textBox_Upload_TGBDPhut, textBox_Upload_TGBDGiay);
-                targetRow["ThoiGianKT"] = GetTime(textBox_Upload_TGKTGio, textBox_Upload_TGKTPhut, textBox_Upload_TGKTGiay);
-                datatablePC.Rows.Add(targetRow);
-            }
-            else //Update
-            {
-                targetRow["MaNV"] = primaryKey[0];
-                targetRow["MaPK"] = primaryKey[1];
-                targetRow["ThoiGianBD"] = GetTime(textBox_Upload_TGBDGio, textBox_Upload_TGBDPhut, textBox_Upload_TGBDGiay);
-                targetRow["ThoiGianKT"] = GetTime(textBox_Upload_TGKTGio, textBox_Upload_TGKTPhut, textBox_Upload_TGKTGiay);
-            }
+                string insertQuery = "INSERT INTO LamViec " +
+                                     "VALUES(@MaNV, @MaPK, @ThoiGianBD, @ThoiGianKT)";
 
-            UpdateDataGridView(customDataGridView_PC, datatablePC);
-        }
-        //Filter method
-        private void button_PCFilter_OK_Click()
-        {
-            string selectCommandPK = "1 = 1 ";
-            string selectCommandPC = "1 = 1 ";
-
-            //Search for Phan Cong with its information
-            if (string.IsNullOrEmpty(textBox_Filters_MaPK.Text) == false)
-                selectCommandPC += $"AND MaPK = '{textBox_Filters_MaPK.Text}' ";
-            if (string.IsNullOrEmpty(textBox_Filters_MaNV.Text) == false)
-                selectCommandPC += $"AND MaNV = '{textBox_Filters_MaNV.Text}' ";
-
-            //Search for Phan Cong with addition information            
-            if (string.IsNullOrEmpty(textBox_Filters_SoGhe.Text) == false)
-                selectCommandPK += $"AND SoGhe = '{textBox_Filters_SoGhe.Text}' ";
-            string trangThai = GetTrangThai(comboBox_Filters_TrangThai);
-            if (string.IsNullOrEmpty(trangThai) == false)
-                selectCommandPK += $"AND TrangThai = '{trangThai}' ";
-
-            DataRow[] resultRowPK = datatablePK.Select(selectCommandPK);
-            DataRow[] resultRowPC = datatablePC.Select(selectCommandPC);
-            DataTable resultDatatable = datatablePC.Clone();
-
-            //Search with time
-            TimeSpan thoiGianBD = GetTime(textBox_Filters_TGBDGio, textBox_Filters_TGBDPhut, textBox_Filters_TGBDGiay);
-            TimeSpan thoiGianKT = GetTime(textBox_Filters_TGKTGio, textBox_Filters_TGKTPhut, textBox_Filters_TGKTGiay);
-            resultRowPC = resultRowPC.AsEnumerable()
-            .Where(row =>
-                row.Field<TimeSpan>("ThoiGianBD") >= thoiGianBD &&
-                row.Field<TimeSpan>("ThoiGianKT") <= thoiGianKT)
-            .ToArray();
-
-            if (resultRowPK.Length != datatablePK.Rows.Count)
-            {
-                foreach (DataRow row in resultRowPC)
+                Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    foreach (DataRow joinedRow in resultRowPK)
-                    {
-                        if (row["MaPK"].ToString() == joinedRow["MaPK"].ToString())
-                        {
-                            resultDatatable.ImportRow(row);
-                            break;
-                        }
-                    }
-                }
+                    {"@MaPK", primaryKey[1] },
+                    {"@MaNV", primaryKey[0] },
+                    {"@ThoiGianBD", GeneralMethods.GetTime(textBox_Upload_TGBDGio, textBox_Upload_TGBDPhut, textBox_Upload_TGBDGiay) },
+                    {"@ThoiGianKT", GeneralMethods.GetTime(textBox_Upload_TGKTGio, textBox_Upload_TGKTPhut, textBox_Upload_TGKTGiay) },
+                };
+
+                DatabaseConnection.ExecuteNonQuery(insertQuery, parameters);
             }
             else
             {
-                foreach (DataRow row in resultRowPC)
+                string updateQuery = "UPDATE LamViec " +
+                                        "SET ThoiGianBD = @ThoiGianBD, " +
+                                            "ThoiGianKT = @ThoiGianKT " +
+                                        "WHERE MaPK = @MaPK AND MaNV = @MaNV";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    resultDatatable.ImportRow(row);
-                }
+                    {"@MaPK", primaryKey[1] },
+                    {"@MaNV", primaryKey[0] },
+                    {"@ThoiGianBD", GeneralMethods.GetTime(textBox_Upload_TGBDGio, textBox_Upload_TGBDPhut, textBox_Upload_TGBDGiay) },
+                    {"@ThoiGianKT", GeneralMethods.GetTime(textBox_Upload_TGKTGio, textBox_Upload_TGKTPhut, textBox_Upload_TGKTGiay) },
+                };
+
+                DatabaseConnection.ExecuteNonQuery(updateQuery, parameters);
             }
 
-            UpdateDataGridView(customDataGridView_PC, resultDatatable);
+            UpdateDataGridView(customDataGridView_PC, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PC));
+        }
+        //Remove
+        private void PC_Remove()
+        {
+            //get all rows of selected cells
+            HashSet<DataGridViewRow> selectedRows = new HashSet<DataGridViewRow>();
+            foreach (DataGridViewCell cell in customDataGridView_PC.SelectedCells)
+                selectedRows.Add(cell.OwningRow);
+
+            //get deleted parameters
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            string parameter1, parameter2;
+            int parameterIndex = 0;
+
+            string maPK, maNV;
+
+            string inDeletedList = "1 != 1 ";
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                parameter1 = $"@MaPK{parameterIndex}";
+                parameter2 = $"@MaNV{parameterIndex}";
+                maPK = row.Cells["MaPK"].Value.ToString();
+                maNV = row.Cells["MaNV"].Value.ToString();
+                parameters.Add(parameter1, maPK);
+                parameters.Add(parameter2, maNV);
+                inDeletedList += $"OR (MaPK = {parameter1} AND MaNV = {parameter2}) ";
+                parameterIndex++;
+            }
+
+            //remove
+            string deleteCommand = "DELETE FROM LamViec " +
+                                   "WHERE " + inDeletedList;
+            DatabaseConnection.ExecuteNonQuery(deleteCommand, parameters);
+
+            //renew
+            UpdateDataGridView(customDataGridView_PC, DatabaseConnection.LoadDataIntoDataTable(controlCommand_PC));
         }
         //Decorate panel
         private void panel_PCUpload_Paint(object sender, PaintEventArgs e, Color lineColor)
@@ -806,8 +666,7 @@ namespace QuanLyMachTu
                 return;
 
             DataGridView dgv = sender as DataGridView;
-            DataRowView drv = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            DataRow row = drv.Row;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
 
             switch (controlPage)
             {
@@ -820,24 +679,18 @@ namespace QuanLyMachTu
             }
         }
 
-        private void fillPanel_PC(DataRow row)
+        private void fillPanel_PC(DataGridViewRow row)
         {
             TimeSpan startTime, finishTime;
-
-            string primaryKey = row["MaPK"].ToString();
-            DataRow row_PK = datatablePK.Rows.Find(primaryKey);
 
             switch (controlFunc)
             {
                 case INS_FUNC:
-                    textBox_Upload_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Upload_TrangThai.Text = row_PK["TrangThai"].ToString();
-                    textBox_Upload_SoGhe.Text = row_PK["SoGhe"].ToString();
+                    textBox_Upload_MaPK.Text = row.Cells["MaPK"].Value.ToString();
+                    textBox_Upload_MaNV.Text = row.Cells["MaNV"].Value.ToString();
 
-                    textBox_Upload_MaNV.Text = row["MaNV"].ToString();
-
-                    startTime = row.Field<TimeSpan>("ThoiGianBD");
-                    finishTime = row.Field<TimeSpan>("ThoiGianKT");
+                    startTime = TimeSpan.Parse(row.Cells["ThoiGianBD"].Value.ToString());
+                    finishTime = TimeSpan.Parse(row.Cells["ThoiGianKT"].Value.ToString());
 
                     textBox_Upload_TGBDGio.Text = startTime.Hours.ToString("D2");
                     textBox_Upload_TGBDPhut.Text = startTime.Minutes.ToString("D2");
@@ -849,14 +702,11 @@ namespace QuanLyMachTu
 
                     break;
                 case FIL_FUNC:
-                    textBox_Filters_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Filters_TrangThai.Text = row_PK["TrangThai"].ToString();
-                    textBox_Filters_SoGhe.Text = row_PK["SoGhe"].ToString();
+                    textBox_Filters_MaPK.Text = row.Cells["MaPK"].Value.ToString();
+                    textBox_Filters_MaNV.Text = row.Cells["MaNV"].Value.ToString();
 
-                    textBox_Filters_MaNV.Text = row["MaNV"].ToString();
-
-                    startTime = row.Field<TimeSpan>("ThoiGianBD");
-                    finishTime = row.Field<TimeSpan>("ThoiGianKT");
+                    startTime = TimeSpan.Parse(row.Cells["ThoiGianBD"].Value.ToString());
+                    finishTime = TimeSpan.Parse(row.Cells["ThoiGianKT"].Value.ToString());
 
                     textBox_Filters_TGBDGio.Text = startTime.Hours.ToString("D2");
                     textBox_Filters_TGBDPhut.Text = startTime.Minutes.ToString("D2");
@@ -869,19 +719,19 @@ namespace QuanLyMachTu
             }
         }
 
-        private void fillPanel_PK(DataRow row)
+        private void fillPanel_PK(DataGridViewRow row)
         {
             switch (controlFunc)
             {
                 case INS_FUNC:
-                    textBox_Upload_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Upload_TrangThai.Text = row["TrangThai"].ToString();
-                    textBox_Upload_SoGhe.Text = row["SoGhe"].ToString();
+                    textBox_Upload_MaPK.Text = row.Cells["MaPK"].Value.ToString();
+                    comboBox_Upload_TrangThai.Text = row.Cells["TrangThai"].Value.ToString();
+                    textBox_Upload_SoGhe.Text = row.Cells["SoGhe"].Value.ToString();
                     break;
                 case FIL_FUNC:
-                    textBox_Filters_MaPK.Text = row["MaPK"].ToString();
-                    comboBox_Filters_TrangThai.Text = row["TrangThai"].ToString();
-                    textBox_Filters_SoGhe.Text = row["SoGhe"].ToString();
+                    textBox_Filters_MaPK.Text = row.Cells["MaPK"].Value.ToString();
+                    comboBox_Filters_TrangThai.Text = row.Cells["TrangThai"].Value.ToString();
+                    textBox_Filters_SoGhe.Text = row.Cells["SoGhe"].Value.ToString();
                     break;
             }
         }
@@ -905,6 +755,8 @@ namespace QuanLyMachTu
                 textBox_Upload_TGKTPhut.Text = "59";
                 textBox_Upload_TGKTGiay.Text = "59";
             }
+
+            LoadPage(controlPage);
         }
 
         private void button_Filters_Reset_Click(object sender, EventArgs e)
@@ -917,14 +769,73 @@ namespace QuanLyMachTu
                     textBox.Text = "";
 
             comboBox_Filters_Comparer.SelectedIndex = 2;
-            comboBox_Filters_TrangThai.Text = "";
+            comboBox_Filters_TrangThai.Text = null;
 
-            textBox_Filters_TGBDGio.Text = "00";
-            textBox_Filters_TGBDPhut.Text = "00";
-            textBox_Filters_TGBDGiay.Text = "00";
-            textBox_Filters_TGKTGio.Text = "23";
-            textBox_Filters_TGKTPhut.Text = "59";
-            textBox_Filters_TGKTGiay.Text = "59";
+            LoadPage(controlPage);
+        }
+        private List<string> GetDataWhenDatabaseChanged()
+        {
+            string NV_chuaPhanCongCommand = "SELECT MaPK " +
+                                            "FROM LICHKHAM LK " +
+                                            "WHERE TinhTrang = N'Chưa kết thúc' " +
+                                            "GROUP BY MaPK " +
+                                            "HAVING COUNT(MaLK) >= (SELECT SoGhe " +
+                                                                   "FROM PHONGKHAM PK " +
+                                                                   "WHERE PK.MaPK = LK.MaPK) ";
+            //SqlDataReader reader = DatabaseConnection.ExecuteReaderNotification(NV_chuaPhanCongCommand, OnTableChange);
+            SqlDataReader reader = DatabaseConnection.ExecuteReader(NV_chuaPhanCongCommand);
+            List<string> NV_chuaPhanCongList = new List<string>();
+            while (reader.Read())
+            {
+                NV_chuaPhanCongList.Add(reader["MaPK"].ToString());
+            }
+            reader.Close();
+
+            return NV_chuaPhanCongList;
+        }
+        private void checkBox_QuaTai_PK_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox.Checked)
+            {
+                highlightList = GetDataWhenDatabaseChanged();
+            }
+            else
+            {
+                highlightList.Clear();
+            }
+            customDataGridView_PK.Refresh();
+        }
+        private void customDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+
+            if (highlightList.Contains(row.Cells["MaPK"].Value.ToString()))
+            {
+                MessageBox.Show($"{row.DefaultCellStyle.BackColor}");
+                row.DefaultCellStyle.BackColor = ColorUsed.Overlay(row.DefaultCellStyle.BackColor, Color.Red, 0.5f);
+            }
+            //else
+            //{
+            //    //MessageBox.Show($"{row.DefaultCellStyle.BackColor}");
+            //    row.DefaultCellStyle.BackColor = ColorUsed.Remove(row.DefaultCellStyle.BackColor, Color.Red);
+            //}
+        }
+
+        private void customDataGridView_RowPrePaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            DataGridViewRow row = dgv.Rows[e.RowIndex];
+
+            if (highlightList.Contains(row.Cells["MaPK"].Value.ToString()))
+            {
+                row.DefaultCellStyle.BackColor = ColorUsed.highlightTop;
+            }
+            else
+            {
+                row.DefaultCellStyle.BackColor = dgv.BackgroundColor;
+            }
         }
     }
 }
