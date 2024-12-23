@@ -64,11 +64,18 @@
             pageButton_Remove = new Custom.PageButton();
             pageButton_Upload = new Custom.PageButton();
             panel_Toolbar = new Panel();
+            pageButton_Printing_HD = new Custom.PageButton();
             panel1 = new Panel();
             pageButton_DTTab = new Custom.PageButton();
             pageButton_HDTab = new Custom.PageButton();
             pageButton_HDDVTab = new Custom.PageButton();
             customPanel_Sum = new Custom.CustomPanel();
+            label_TrungBinh_Number = new Label();
+            label_TrungBinh = new Label();
+            label_TongDoanhThu_Number = new Label();
+            label_TongDoanhThu = new Label();
+            label_SoHoaDon_Number = new Label();
+            label_SoNhanVien = new Label();
             customDataGridView = new Custom.CustomDataGridView();
             panel_Upload = new Panel();
             button_Upload_Reset = new Button();
@@ -124,6 +131,7 @@
             panel_HDFilters.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             panel1.SuspendLayout();
+            customPanel_Sum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
             panel_Upload.SuspendLayout();
             panel_DTFilters.SuspendLayout();
@@ -619,6 +627,7 @@
             panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Toolbar.Controls.Add(pageButton_Printing_HD);
             panel_Toolbar.Controls.Add(pageButton_Filter);
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
@@ -626,6 +635,28 @@
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(1174, 80);
             panel_Toolbar.TabIndex = 34;
+            // 
+            // pageButton_Printing_HD
+            // 
+            pageButton_Printing_HD.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_Printing_HD.BorderColor = Color.PaleVioletRed;
+            pageButton_Printing_HD.BorderRadius = 20;
+            pageButton_Printing_HD.BorderSize = 0;
+            pageButton_Printing_HD.CustomText = "Xuất hóa đơn";
+            pageButton_Printing_HD.FlatAppearance.BorderSize = 0;
+            pageButton_Printing_HD.FlatStyle = FlatStyle.Flat;
+            pageButton_Printing_HD.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            pageButton_Printing_HD.ForeColor = Color.FromArgb(193, 193, 193);
+            pageButton_Printing_HD.Icon = (Image)resources.GetObject("pageButton_Printing_HD.Icon");
+            pageButton_Printing_HD.IconLocation = new Point(11, 14);
+            pageButton_Printing_HD.IconSize = new Size(30, 30);
+            pageButton_Printing_HD.Location = new Point(155, 13);
+            pageButton_Printing_HD.Name = "pageButton_Printing_HD";
+            pageButton_Printing_HD.Size = new Size(215, 55);
+            pageButton_Printing_HD.TabIndex = 99;
+            pageButton_Printing_HD.TextLocation = new Point(52, 13);
+            pageButton_Printing_HD.UseVisualStyleBackColor = false;
+            pageButton_Printing_HD.Click += pageButton_Printing_HD_Click;
             // 
             // panel1
             // 
@@ -714,11 +745,107 @@
             customPanel_Sum.AccessibleRole = AccessibleRole.None;
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
+            customPanel_Sum.Controls.Add(label_TrungBinh_Number);
+            customPanel_Sum.Controls.Add(label_TrungBinh);
+            customPanel_Sum.Controls.Add(label_TongDoanhThu_Number);
+            customPanel_Sum.Controls.Add(label_TongDoanhThu);
+            customPanel_Sum.Controls.Add(label_SoHoaDon_Number);
+            customPanel_Sum.Controls.Add(label_SoNhanVien);
             customPanel_Sum.CornerRadius = 40;
             customPanel_Sum.Location = new Point(25, 787);
             customPanel_Sum.Name = "customPanel_Sum";
             customPanel_Sum.Size = new Size(1124, 60);
             customPanel_Sum.TabIndex = 38;
+            // 
+            // label_TrungBinh_Number
+            // 
+            label_TrungBinh_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TrungBinh_Number.AutoSize = true;
+            label_TrungBinh_Number.BackColor = Color.Transparent;
+            label_TrungBinh_Number.Font = new Font("Segoe UI", 10F);
+            label_TrungBinh_Number.ForeColor = Color.White;
+            label_TrungBinh_Number.Location = new Point(1002, 16);
+            label_TrungBinh_Number.Margin = new Padding(2, 0, 2, 0);
+            label_TrungBinh_Number.Name = "label_TrungBinh_Number";
+            label_TrungBinh_Number.Size = new Size(97, 28);
+            label_TrungBinh_Number.TabIndex = 8;
+            label_TrungBinh_Number.Text = "0,000,000";
+            label_TrungBinh_Number.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_TrungBinh
+            // 
+            label_TrungBinh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TrungBinh.AutoSize = true;
+            label_TrungBinh.BackColor = Color.Transparent;
+            label_TrungBinh.Font = new Font("Segoe UI", 10F);
+            label_TrungBinh.ForeColor = Color.White;
+            label_TrungBinh.Location = new Point(868, 16);
+            label_TrungBinh.Margin = new Padding(2, 0, 2, 0);
+            label_TrungBinh.Name = "label_TrungBinh";
+            label_TrungBinh.Size = new Size(109, 28);
+            label_TrungBinh.TabIndex = 7;
+            label_TrungBinh.Text = "Trung bình:";
+            label_TrungBinh.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_TongDoanhThu_Number
+            // 
+            label_TongDoanhThu_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TongDoanhThu_Number.AutoSize = true;
+            label_TongDoanhThu_Number.BackColor = Color.Transparent;
+            label_TongDoanhThu_Number.Font = new Font("Segoe UI", 10F);
+            label_TongDoanhThu_Number.ForeColor = Color.White;
+            label_TongDoanhThu_Number.Location = new Point(572, 16);
+            label_TongDoanhThu_Number.Margin = new Padding(2, 0, 2, 0);
+            label_TongDoanhThu_Number.Name = "label_TongDoanhThu_Number";
+            label_TongDoanhThu_Number.Size = new Size(145, 28);
+            label_TongDoanhThu_Number.TabIndex = 6;
+            label_TongDoanhThu_Number.Text = "00,000,000,000";
+            label_TongDoanhThu_Number.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_TongDoanhThu
+            // 
+            label_TongDoanhThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TongDoanhThu.AutoSize = true;
+            label_TongDoanhThu.BackColor = Color.Transparent;
+            label_TongDoanhThu.Font = new Font("Segoe UI", 10F);
+            label_TongDoanhThu.ForeColor = Color.White;
+            label_TongDoanhThu.Location = new Point(391, 16);
+            label_TongDoanhThu.Margin = new Padding(2, 0, 2, 0);
+            label_TongDoanhThu.Name = "label_TongDoanhThu";
+            label_TongDoanhThu.Size = new Size(156, 28);
+            label_TongDoanhThu.TabIndex = 5;
+            label_TongDoanhThu.Text = "Tổng doanh thu:";
+            label_TongDoanhThu.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_SoHoaDon_Number
+            // 
+            label_SoHoaDon_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_SoHoaDon_Number.AutoSize = true;
+            label_SoHoaDon_Number.BackColor = Color.Transparent;
+            label_SoHoaDon_Number.Font = new Font("Segoe UI", 10F);
+            label_SoHoaDon_Number.ForeColor = Color.White;
+            label_SoHoaDon_Number.Location = new Point(174, 15);
+            label_SoHoaDon_Number.Margin = new Padding(2, 0, 2, 0);
+            label_SoHoaDon_Number.Name = "label_SoHoaDon_Number";
+            label_SoHoaDon_Number.Size = new Size(45, 28);
+            label_SoHoaDon_Number.TabIndex = 4;
+            label_SoHoaDon_Number.Text = "000";
+            label_SoHoaDon_Number.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_SoNhanVien
+            // 
+            label_SoNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_SoNhanVien.AutoSize = true;
+            label_SoNhanVien.BackColor = Color.Transparent;
+            label_SoNhanVien.Font = new Font("Segoe UI", 10F);
+            label_SoNhanVien.ForeColor = Color.White;
+            label_SoNhanVien.Location = new Point(25, 15);
+            label_SoNhanVien.Margin = new Padding(2, 0, 2, 0);
+            label_SoNhanVien.Name = "label_SoNhanVien";
+            label_SoNhanVien.Size = new Size(117, 28);
+            label_SoNhanVien.TabIndex = 3;
+            label_SoNhanVien.Text = "Số hoá đơn:";
+            label_SoNhanVien.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // customDataGridView
             // 
@@ -1502,10 +1629,10 @@
             Controls.Add(panel1);
             Controls.Add(customPanel_Sum);
             Controls.Add(customDataGridView);
-            Controls.Add(panel_Upload);
-            Controls.Add(panel_HDDVFilters);
             Controls.Add(panel_DTFilters);
             Controls.Add(panel_HDFilters);
+            Controls.Add(panel_Upload);
+            Controls.Add(panel_HDDVFilters);
             Name = "HoaDonControl";
             Size = new Size(1590, 864);
             Load += HoaDonControl_Load;
@@ -1513,6 +1640,8 @@
             panel_HDFilters.PerformLayout();
             panel_Toolbar.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            customPanel_Sum.ResumeLayout(false);
+            customPanel_Sum.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).EndInit();
             panel_Upload.ResumeLayout(false);
             panel_Upload.PerformLayout();
@@ -1615,5 +1744,12 @@
         private Button button_HDFilters_Reset;
         private Button button_Upload_Reset;
         private Button button_HDDVFilters_Reset;
+        private Custom.PageButton pageButton_Printing_HD;
+        private Label label_TongDoanhThu_Number;
+        private Label label_TongDoanhThu;
+        private Label label_SoHoaDon_Number;
+        private Label label_SoNhanVien;
+        private Label label_TrungBinh_Number;
+        private Label label_TrungBinh;
     }
 }

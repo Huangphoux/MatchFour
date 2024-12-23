@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhongKhamControl));
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             customDataGridView_PK = new Custom.CustomDataGridView();
             panel1 = new Panel();
             pageButton_PCTab = new Custom.PageButton();
             pageButton_PKTab = new Custom.PageButton();
             customPanel_Sum = new Custom.CustomPanel();
             panel_Toolbar = new Panel();
+            checkBox_QuaTai_PK = new CheckBox();
             pageButton_Filters = new Custom.PageButton();
             pageButton_Remove = new Custom.PageButton();
             pageButton_Upload = new Custom.PageButton();
@@ -116,26 +117,26 @@
             customDataGridView_PK.BorderStyle = BorderStyle.None;
             customDataGridView_PK.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView_PK.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            customDataGridView_PK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            customDataGridView_PK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             customDataGridView_PK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView_PK.CornerRadius = 60;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            customDataGridView_PK.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            customDataGridView_PK.DefaultCellStyle = dataGridViewCellStyle2;
             customDataGridView_PK.EnableHeadersVisualStyles = false;
             customDataGridView_PK.GridColor = Color.White;
             customDataGridView_PK.Location = new Point(25, 168);
@@ -147,6 +148,7 @@
             customDataGridView_PK.Size = new Size(360, 600);
             customDataGridView_PK.TabIndex = 14;
             customDataGridView_PK.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
+            customDataGridView_PK.RowPostPaint += customDataGridView_RowPrePaint;
             customDataGridView_PK.Click += PK_Tab_Activated;
             customDataGridView_PK.KeyDown += customDataGridView_KeyDown;
             // 
@@ -224,6 +226,7 @@
             panel_Toolbar.AccessibleRole = AccessibleRole.None;
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Toolbar.Controls.Add(checkBox_QuaTai_PK);
             panel_Toolbar.Controls.Add(pageButton_Filters);
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
@@ -231,6 +234,23 @@
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(1174, 80);
             panel_Toolbar.TabIndex = 16;
+            // 
+            // checkBox_QuaTai_PK
+            // 
+            checkBox_QuaTai_PK.AutoSize = true;
+            checkBox_QuaTai_PK.Checked = true;
+            checkBox_QuaTai_PK.CheckState = CheckState.Checked;
+            checkBox_QuaTai_PK.FlatStyle = FlatStyle.Flat;
+            checkBox_QuaTai_PK.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            checkBox_QuaTai_PK.ForeColor = Color.White;
+            checkBox_QuaTai_PK.Location = new Point(973, 23);
+            checkBox_QuaTai_PK.Margin = new Padding(2);
+            checkBox_QuaTai_PK.Name = "checkBox_QuaTai_PK";
+            checkBox_QuaTai_PK.Size = new Size(106, 34);
+            checkBox_QuaTai_PK.TabIndex = 101;
+            checkBox_QuaTai_PK.Text = "Quá tải";
+            checkBox_QuaTai_PK.UseVisualStyleBackColor = true;
+            checkBox_QuaTai_PK.CheckedChanged += checkBox_QuaTai_PK_CheckedChanged;
             // 
             // pageButton_Filters
             // 
@@ -415,7 +435,6 @@
             textBox_Filters_TGKTGiay.Size = new Size(40, 32);
             textBox_Filters_TGKTGiay.TabIndex = 12;
             textBox_Filters_TGKTGiay.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGKTGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
             // textBox_Filters_TGKTPhut
             // 
@@ -428,7 +447,6 @@
             textBox_Filters_TGKTPhut.Size = new Size(40, 32);
             textBox_Filters_TGKTPhut.TabIndex = 11;
             textBox_Filters_TGKTPhut.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGKTPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
             // textBox_Filters_TGKTGio
             // 
@@ -441,7 +459,6 @@
             textBox_Filters_TGKTGio.Size = new Size(40, 32);
             textBox_Filters_TGKTGio.TabIndex = 10;
             textBox_Filters_TGKTGio.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGKTGio.KeyPress += textBox_Hour_KeyPress;
             // 
             // label5
             // 
@@ -484,7 +501,6 @@
             textBox_Filters_TGBDGiay.Size = new Size(40, 32);
             textBox_Filters_TGBDGiay.TabIndex = 9;
             textBox_Filters_TGBDGiay.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGBDGiay.KeyPress += textBox_NoHour_KeyPress;
             // 
             // textBox_Filters_TGBDPhut
             // 
@@ -497,7 +513,6 @@
             textBox_Filters_TGBDPhut.Size = new Size(40, 32);
             textBox_Filters_TGBDPhut.TabIndex = 8;
             textBox_Filters_TGBDPhut.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGBDPhut.KeyPress += textBox_NoHour_KeyPress;
             // 
             // textBox_Filters_TGBDGio
             // 
@@ -510,7 +525,6 @@
             textBox_Filters_TGBDGio.Size = new Size(40, 32);
             textBox_Filters_TGBDGio.TabIndex = 7;
             textBox_Filters_TGBDGio.TextAlign = HorizontalAlignment.Center;
-            textBox_Filters_TGBDGio.KeyPress += textBox_Hour_KeyPress;
             // 
             // comboBox_Filters_TrangThai
             // 
@@ -687,26 +701,26 @@
             customDataGridView_PC.BorderStyle = BorderStyle.None;
             customDataGridView_PC.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView_PC.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle7.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            customDataGridView_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            customDataGridView_PC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             customDataGridView_PC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView_PC.CornerRadius = 60;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle8.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            customDataGridView_PC.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            customDataGridView_PC.DefaultCellStyle = dataGridViewCellStyle4;
             customDataGridView_PC.EnableHeadersVisualStyles = false;
             customDataGridView_PC.GridColor = Color.White;
             customDataGridView_PC.Location = new Point(449, 168);
@@ -945,6 +959,8 @@
             // 
             comboBox_Upload_TrangThai.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
             comboBox_Upload_TrangThai.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Upload_TrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Upload_TrangThai.FlatStyle = FlatStyle.Flat;
             comboBox_Upload_TrangThai.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_Upload_TrangThai.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_Upload_TrangThai.FormattingEnabled = true;
@@ -1007,7 +1023,6 @@
             textBox_Upload_MaNV.Name = "textBox_Upload_MaNV";
             textBox_Upload_MaNV.Size = new Size(152, 32);
             textBox_Upload_MaNV.TabIndex = 4;
-            textBox_Upload_MaNV.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_MaNV.KeyPress += textBox_KeyPress_Normal;
             // 
             // label16
@@ -1080,7 +1095,6 @@
             textBox_Upload_SoGhe.Name = "textBox_Upload_SoGhe";
             textBox_Upload_SoGhe.Size = new Size(160, 32);
             textBox_Upload_SoGhe.TabIndex = 3;
-            textBox_Upload_SoGhe.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_SoGhe.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // pageButton_Upload_OK
@@ -1106,7 +1120,6 @@
             textBox_Upload_MaPK.Name = "textBox_Upload_MaPK";
             textBox_Upload_MaPK.Size = new Size(152, 32);
             textBox_Upload_MaPK.TabIndex = 1;
-            textBox_Upload_MaPK.EnabledChanged += textBox_EnabledChanged;
             textBox_Upload_MaPK.KeyPress += textBox_KeyPress_Normal;
             // 
             // label20
@@ -1132,14 +1145,15 @@
             Controls.Add(customPanel_Sum);
             Controls.Add(panel_Toolbar);
             Controls.Add(customDataGridView_PK);
-            Controls.Add(panel_Filters);
             Controls.Add(panel_Upload);
+            Controls.Add(panel_Filters);
             Name = "PhongKhamControl";
             Size = new Size(1590, 864);
             Load += PhongKhamControl_Load;
             ((System.ComponentModel.ISupportInitialize)customDataGridView_PK).EndInit();
             panel1.ResumeLayout(false);
             panel_Toolbar.ResumeLayout(false);
+            panel_Toolbar.PerformLayout();
             panel_Filters.ResumeLayout(false);
             panel_Filters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView_PC).EndInit();
@@ -1213,5 +1227,6 @@
         private ComboBox comboBox_Filters_Comparer;
         private Button pageButton_Upload_Reset;
         private Button button_Filter_Reset;
+        private CheckBox checkBox_QuaTai_PK;
     }
 }

@@ -31,18 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVienControl));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel_Tab = new Panel();
             pageButton_Tab_Khoa = new Custom.PageButton();
             pageButton_Tab_NhanVien = new Custom.PageButton();
             panel_Toolbar = new Panel();
+            checkBox_ChuaPhanCong_Conditions = new CheckBox();
+            pageButton_Details_NV = new Custom.PageButton();
             pageButton_Filter = new Custom.PageButton();
             pageButton_Remove = new Custom.PageButton();
             pageButton_Upload = new Custom.PageButton();
             customDataGridView = new Custom.CustomDataGridView();
             customPanel_Sum = new Custom.CustomPanel();
+            label_DanhGia_Number = new Label();
+            label_DanhGia = new Label();
+            label_KinhNghiem_Number = new Label();
+            label_KinhNghiem = new Label();
+            label_TongLuong_Number = new Label();
+            label_TongLuong = new Label();
             label_Sum_NhanVien = new Label();
             label_SoNhanVien = new Label();
             panel_NV_Upload = new Panel();
+            button_NVUpload_Reset = new Button();
             label11 = new Label();
             textBox_NV_Upload_MaKhoa = new TextBox();
             label10 = new Label();
@@ -69,9 +84,9 @@
             textBox_NV_Upload_MaNV = new TextBox();
             label_BNUpload = new Label();
             panel_NV_Filter = new Panel();
-            label38 = new Label();
-            label33 = new Label();
-            checkBox_NV_Filter_Nu = new CheckBox();
+            comboBox_NVFilters_KinhNghiem_Comparer = new ComboBox();
+            comboBox_NVFilters_Luong_Comparer = new ComboBox();
+            button_NVFilters_Reset = new Button();
             label34 = new Label();
             label35 = new Label();
             label36 = new Label();
@@ -86,8 +101,6 @@
             comboBox_NV_Filter_Operation = new ComboBox();
             label16 = new Label();
             textBox_NV_Luong_Filter = new TextBox();
-            checkBox_NV_Filter_Nam = new CheckBox();
-            label17 = new Label();
             label23 = new Label();
             label24 = new Label();
             textBox_NV_HoTen_Filter = new TextBox();
@@ -95,17 +108,17 @@
             textBox_NV_MaNV_Filter = new TextBox();
             label25 = new Label();
             panel_Khoa_Upload = new Panel();
+            button_KhoaUpload_Reset = new Button();
             textBox_Khoa_TenKhoa = new TextBox();
             label18 = new Label();
             textBox_Khoa_MaNVQuanLy = new TextBox();
-            label13 = new Label();
-            textBox_Khoa_SoLuong = new TextBox();
             label30 = new Label();
             label31 = new Label();
             button_Khoa_OK = new Button();
             textBox_Khoa_MaKhoa = new TextBox();
             label32 = new Label();
             panel_Khoa_Filter = new Panel();
+            button_KhoaFilters_Reset = new Button();
             comboBox_Khoa_Operation = new ComboBox();
             label19 = new Label();
             textBox_Khoa_MaNVQuanLy_Filter = new TextBox();
@@ -117,6 +130,30 @@
             button_Khoa_OK_Filter = new Button();
             textBox_Khoa_MaKhoa_Filter = new TextBox();
             label26 = new Label();
+            panel_Details = new Custom.CustomPanel();
+            customDataGridView_LichLamViec = new Custom.CustomDataGridView();
+            label_NVDetails_LichLamViec = new Label();
+            label28 = new Label();
+            textBox_NVDetails_KinhNghiem = new TextBox();
+            customDataGridView_LichSuThanhToan = new Custom.CustomDataGridView();
+            label_NVDetails_LichSuThanhToan = new Label();
+            customDataGridView_LichSuKham = new Custom.CustomDataGridView();
+            label_NVDetails_LichSuKham = new Label();
+            label48 = new Label();
+            textBox_NVDetails_Luong = new TextBox();
+            label46 = new Label();
+            textBox_NVDetails_GioiTinh = new TextBox();
+            label45 = new Label();
+            textBox_NVDetails_NgaySinh = new TextBox();
+            label44 = new Label();
+            textBox_NVDetails_SDT = new TextBox();
+            label12 = new Label();
+            textBox_NVDetails_Email = new TextBox();
+            label27 = new Label();
+            textBox_NVDetails_HoTen = new TextBox();
+            label13 = new Label();
+            textBox_NVDetails_MaNV = new TextBox();
+            label17 = new Label();
             panel_Tab.SuspendLayout();
             panel_Toolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
@@ -125,6 +162,10 @@
             panel_NV_Filter.SuspendLayout();
             panel_Khoa_Upload.SuspendLayout();
             panel_Khoa_Filter.SuspendLayout();
+            panel_Details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichLamViec).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuThanhToan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKham).BeginInit();
             SuspendLayout();
             // 
             // panel_Tab
@@ -154,7 +195,7 @@
             pageButton_Tab_Khoa.Icon = (Image)resources.GetObject("pageButton_Tab_Khoa.Icon");
             pageButton_Tab_Khoa.IconLocation = new Point(15, 11);
             pageButton_Tab_Khoa.IconSize = new Size(34, 34);
-            pageButton_Tab_Khoa.Location = new Point(278, 12);
+            pageButton_Tab_Khoa.Location = new Point(320, 12);
             pageButton_Tab_Khoa.Margin = new Padding(2);
             pageButton_Tab_Khoa.Name = "pageButton_Tab_Khoa";
             pageButton_Tab_Khoa.Size = new Size(250, 60);
@@ -191,6 +232,8 @@
             // 
             panel_Toolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel_Toolbar.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Toolbar.Controls.Add(checkBox_ChuaPhanCong_Conditions);
+            panel_Toolbar.Controls.Add(pageButton_Details_NV);
             panel_Toolbar.Controls.Add(pageButton_Filter);
             panel_Toolbar.Controls.Add(pageButton_Remove);
             panel_Toolbar.Controls.Add(pageButton_Upload);
@@ -199,6 +242,45 @@
             panel_Toolbar.Name = "panel_Toolbar";
             panel_Toolbar.Size = new Size(1174, 80);
             panel_Toolbar.TabIndex = 17;
+            // 
+            // checkBox_ChuaPhanCong_Conditions
+            // 
+            checkBox_ChuaPhanCong_Conditions.AutoSize = true;
+            checkBox_ChuaPhanCong_Conditions.Checked = true;
+            checkBox_ChuaPhanCong_Conditions.CheckState = CheckState.Checked;
+            checkBox_ChuaPhanCong_Conditions.FlatStyle = FlatStyle.Flat;
+            checkBox_ChuaPhanCong_Conditions.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            checkBox_ChuaPhanCong_Conditions.ForeColor = Color.White;
+            checkBox_ChuaPhanCong_Conditions.Location = new Point(882, 23);
+            checkBox_ChuaPhanCong_Conditions.Margin = new Padding(2);
+            checkBox_ChuaPhanCong_Conditions.Name = "checkBox_ChuaPhanCong_Conditions";
+            checkBox_ChuaPhanCong_Conditions.Size = new Size(197, 34);
+            checkBox_ChuaPhanCong_Conditions.TabIndex = 100;
+            checkBox_ChuaPhanCong_Conditions.Text = "Chưa phân công";
+            checkBox_ChuaPhanCong_Conditions.UseVisualStyleBackColor = true;
+            checkBox_ChuaPhanCong_Conditions.CheckedChanged += checkBox_ChuaPhanCong_Conditions_CheckedChanged;
+            // 
+            // pageButton_Details_NV
+            // 
+            pageButton_Details_NV.BackColor = Color.FromArgb(57, 54, 70);
+            pageButton_Details_NV.BorderColor = Color.PaleVioletRed;
+            pageButton_Details_NV.BorderRadius = 20;
+            pageButton_Details_NV.BorderSize = 0;
+            pageButton_Details_NV.CustomText = "Thông tin chi tiết";
+            pageButton_Details_NV.FlatAppearance.BorderSize = 0;
+            pageButton_Details_NV.FlatStyle = FlatStyle.Flat;
+            pageButton_Details_NV.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            pageButton_Details_NV.ForeColor = Color.FromArgb(193, 193, 193);
+            pageButton_Details_NV.Icon = (Image)resources.GetObject("pageButton_Details_NV.Icon");
+            pageButton_Details_NV.IconLocation = new Point(11, 14);
+            pageButton_Details_NV.IconSize = new Size(30, 30);
+            pageButton_Details_NV.Location = new Point(155, 13);
+            pageButton_Details_NV.Name = "pageButton_Details_NV";
+            pageButton_Details_NV.Size = new Size(260, 55);
+            pageButton_Details_NV.TabIndex = 99;
+            pageButton_Details_NV.TextLocation = new Point(52, 12);
+            pageButton_Details_NV.UseVisualStyleBackColor = false;
+            pageButton_Details_NV.Click += pageButton_Details_NV_Click;
             // 
             // pageButton_Filter
             // 
@@ -309,11 +391,19 @@
             customDataGridView.RowHeadersWidth = 62;
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 18;
+            customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
+            customDataGridView.RowPrePaint += customDataGridView_RowPrePaint;
             // 
             // customPanel_Sum
             // 
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
+            customPanel_Sum.Controls.Add(label_DanhGia_Number);
+            customPanel_Sum.Controls.Add(label_DanhGia);
+            customPanel_Sum.Controls.Add(label_KinhNghiem_Number);
+            customPanel_Sum.Controls.Add(label_KinhNghiem);
+            customPanel_Sum.Controls.Add(label_TongLuong_Number);
+            customPanel_Sum.Controls.Add(label_TongLuong);
             customPanel_Sum.Controls.Add(label_Sum_NhanVien);
             customPanel_Sum.Controls.Add(label_SoNhanVien);
             customPanel_Sum.CornerRadius = 40;
@@ -323,33 +413,119 @@
             customPanel_Sum.Size = new Size(1124, 60);
             customPanel_Sum.TabIndex = 19;
             // 
+            // label_DanhGia_Number
+            // 
+            label_DanhGia_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_DanhGia_Number.AutoSize = true;
+            label_DanhGia_Number.BackColor = Color.Transparent;
+            label_DanhGia_Number.Font = new Font("Segoe UI", 10F);
+            label_DanhGia_Number.ForeColor = Color.White;
+            label_DanhGia_Number.Location = new Point(1061, 15);
+            label_DanhGia_Number.Margin = new Padding(2, 0, 2, 0);
+            label_DanhGia_Number.Name = "label_DanhGia_Number";
+            label_DanhGia_Number.Size = new Size(38, 28);
+            label_DanhGia_Number.TabIndex = 8;
+            label_DanhGia_Number.Text = "0.0";
+            // 
+            // label_DanhGia
+            // 
+            label_DanhGia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_DanhGia.AutoSize = true;
+            label_DanhGia.BackColor = Color.Transparent;
+            label_DanhGia.Font = new Font("Segoe UI", 10F);
+            label_DanhGia.ForeColor = Color.White;
+            label_DanhGia.Location = new Point(944, 15);
+            label_DanhGia.Margin = new Padding(2, 0, 2, 0);
+            label_DanhGia.Name = "label_DanhGia";
+            label_DanhGia.Size = new Size(94, 28);
+            label_DanhGia.TabIndex = 7;
+            label_DanhGia.Text = "Đánh giá:";
+            // 
+            // label_KinhNghiem_Number
+            // 
+            label_KinhNghiem_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_KinhNghiem_Number.AutoSize = true;
+            label_KinhNghiem_Number.BackColor = Color.Transparent;
+            label_KinhNghiem_Number.Font = new Font("Segoe UI", 10F);
+            label_KinhNghiem_Number.ForeColor = Color.White;
+            label_KinhNghiem_Number.Location = new Point(800, 15);
+            label_KinhNghiem_Number.Margin = new Padding(2, 0, 2, 0);
+            label_KinhNghiem_Number.Name = "label_KinhNghiem_Number";
+            label_KinhNghiem_Number.Size = new Size(49, 28);
+            label_KinhNghiem_Number.TabIndex = 6;
+            label_KinhNghiem_Number.Text = "nn.n";
+            // 
+            // label_KinhNghiem
+            // 
+            label_KinhNghiem.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_KinhNghiem.AutoSize = true;
+            label_KinhNghiem.BackColor = Color.Transparent;
+            label_KinhNghiem.Font = new Font("Segoe UI", 10F);
+            label_KinhNghiem.ForeColor = Color.White;
+            label_KinhNghiem.Location = new Point(653, 15);
+            label_KinhNghiem.Margin = new Padding(2, 0, 2, 0);
+            label_KinhNghiem.Name = "label_KinhNghiem";
+            label_KinhNghiem.Size = new Size(126, 28);
+            label_KinhNghiem.TabIndex = 5;
+            label_KinhNghiem.Text = "Kinh nghiệm:";
+            // 
+            // label_TongLuong_Number
+            // 
+            label_TongLuong_Number.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TongLuong_Number.AutoSize = true;
+            label_TongLuong_Number.BackColor = Color.Transparent;
+            label_TongLuong_Number.Font = new Font("Segoe UI", 10F);
+            label_TongLuong_Number.ForeColor = Color.White;
+            label_TongLuong_Number.Location = new Point(425, 15);
+            label_TongLuong_Number.Margin = new Padding(2, 0, 2, 0);
+            label_TongLuong_Number.Name = "label_TongLuong_Number";
+            label_TongLuong_Number.Size = new Size(119, 28);
+            label_TongLuong_Number.TabIndex = 4;
+            label_TongLuong_Number.Text = "nnn.nnn.nnn";
+            // 
+            // label_TongLuong
+            // 
+            label_TongLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label_TongLuong.AutoSize = true;
+            label_TongLuong.BackColor = Color.Transparent;
+            label_TongLuong.Font = new Font("Segoe UI", 10F);
+            label_TongLuong.ForeColor = Color.White;
+            label_TongLuong.Location = new Point(287, 15);
+            label_TongLuong.Margin = new Padding(2, 0, 2, 0);
+            label_TongLuong.Name = "label_TongLuong";
+            label_TongLuong.Size = new Size(118, 28);
+            label_TongLuong.TabIndex = 3;
+            label_TongLuong.Text = "Tổng lương:";
+            // 
             // label_Sum_NhanVien
             // 
             label_Sum_NhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label_Sum_NhanVien.AutoSize = true;
             label_Sum_NhanVien.BackColor = Color.Transparent;
-            label_Sum_NhanVien.Font = new Font("Segoe UI Semilight", 10F);
+            label_Sum_NhanVien.Font = new Font("Segoe UI", 10F);
             label_Sum_NhanVien.ForeColor = Color.White;
-            label_Sum_NhanVien.Location = new Point(191, 14);
+            label_Sum_NhanVien.Location = new Point(174, 15);
             label_Sum_NhanVien.Margin = new Padding(2, 0, 2, 0);
             label_Sum_NhanVien.Name = "label_Sum_NhanVien";
-            label_Sum_NhanVien.Size = new Size(23, 28);
+            label_Sum_NhanVien.Size = new Size(34, 28);
             label_Sum_NhanVien.TabIndex = 2;
-            label_Sum_NhanVien.Text = "0";
+            label_Sum_NhanVien.Text = "00";
+            label_Sum_NhanVien.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label_SoNhanVien
             // 
             label_SoNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label_SoNhanVien.AutoSize = true;
             label_SoNhanVien.BackColor = Color.Transparent;
-            label_SoNhanVien.Font = new Font("Segoe UI Semilight", 10F);
+            label_SoNhanVien.Font = new Font("Segoe UI", 10F);
             label_SoNhanVien.ForeColor = Color.White;
-            label_SoNhanVien.Location = new Point(22, 14);
+            label_SoNhanVien.Location = new Point(25, 15);
             label_SoNhanVien.Margin = new Padding(2, 0, 2, 0);
             label_SoNhanVien.Name = "label_SoNhanVien";
-            label_SoNhanVien.Size = new Size(133, 28);
+            label_SoNhanVien.Size = new Size(128, 28);
             label_SoNhanVien.TabIndex = 0;
-            label_SoNhanVien.Text = "Số bệnh nhân:";
+            label_SoNhanVien.Text = "Số nhân viên:";
+            label_SoNhanVien.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel_NV_Upload
             // 
@@ -357,6 +533,7 @@
             panel_NV_Upload.AutoScroll = true;
             panel_NV_Upload.AutoSize = true;
             panel_NV_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_NV_Upload.Controls.Add(button_NVUpload_Reset);
             panel_NV_Upload.Controls.Add(label11);
             panel_NV_Upload.Controls.Add(textBox_NV_Upload_MaKhoa);
             panel_NV_Upload.Controls.Add(label10);
@@ -389,6 +566,19 @@
             panel_NV_Upload.TabIndex = 20;
             panel_NV_Upload.Paint += panel_Paint;
             // 
+            // button_NVUpload_Reset
+            // 
+            button_NVUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_NVUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_NVUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_NVUpload_Reset.Location = new Point(297, 710);
+            button_NVUpload_Reset.Name = "button_NVUpload_Reset";
+            button_NVUpload_Reset.Size = new Size(94, 43);
+            button_NVUpload_Reset.TabIndex = 44;
+            button_NVUpload_Reset.Text = "RESET";
+            button_NVUpload_Reset.UseVisualStyleBackColor = true;
+            button_NVUpload_Reset.Click += button_NVUpload_Reset_Click;
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -415,6 +605,7 @@
             textBox_NV_Upload_MaKhoa.Name = "textBox_NV_Upload_MaKhoa";
             textBox_NV_Upload_MaKhoa.Size = new Size(160, 32);
             textBox_NV_Upload_MaKhoa.TabIndex = 27;
+            textBox_NV_Upload_MaKhoa.KeyPress += textBox_KeyPress_Normal;
             // 
             // label10
             // 
@@ -442,6 +633,7 @@
             textBox_NV_Upload_NamKN.Name = "textBox_NV_Upload_NamKN";
             textBox_NV_Upload_NamKN.Size = new Size(160, 32);
             textBox_NV_Upload_NamKN.TabIndex = 25;
+            textBox_NV_Upload_NamKN.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // label1
             // 
@@ -469,6 +661,7 @@
             textBox_NV_Upload_Luong.Name = "textBox_NV_Upload_Luong";
             textBox_NV_Upload_Luong.Size = new Size(160, 32);
             textBox_NV_Upload_Luong.TabIndex = 23;
+            textBox_NV_Upload_Luong.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // checkBox_NV_Upload_Nu
             // 
@@ -541,6 +734,8 @@
             textBox_NV_Upload_Nam.Name = "textBox_NV_Upload_Nam";
             textBox_NV_Upload_Nam.Size = new Size(60, 32);
             textBox_NV_Upload_Nam.TabIndex = 18;
+            textBox_NV_Upload_Nam.TextAlign = HorizontalAlignment.Center;
+            textBox_NV_Upload_Nam.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // label7
             // 
@@ -560,6 +755,7 @@
             // comboBox_NV_Upload_Thang
             // 
             comboBox_NV_Upload_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_NV_Upload_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_NV_Upload_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_NV_Upload_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_NV_Upload_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -612,6 +808,8 @@
             textBox_NV_Upload_Ngay.Name = "textBox_NV_Upload_Ngay";
             textBox_NV_Upload_Ngay.Size = new Size(59, 32);
             textBox_NV_Upload_Ngay.TabIndex = 12;
+            textBox_NV_Upload_Ngay.TextAlign = HorizontalAlignment.Center;
+            textBox_NV_Upload_Ngay.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // label4
             // 
@@ -623,9 +821,9 @@
             label4.Location = new Point(25, 282);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(59, 28);
+            label4.Size = new Size(99, 28);
             label4.TabIndex = 11;
-            label4.Text = "Ngày";
+            label4.Text = "Ngày sinh";
             label4.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label3
@@ -669,6 +867,7 @@
             textBox_NV_Upload_Email.Name = "textBox_NV_Upload_Email";
             textBox_NV_Upload_Email.Size = new Size(365, 32);
             textBox_NV_Upload_Email.TabIndex = 7;
+            textBox_NV_Upload_Email.KeyPress += textBox_KeyPress_Normal;
             // 
             // textBox_NV_Upload_SDT
             // 
@@ -681,6 +880,7 @@
             textBox_NV_Upload_SDT.Name = "textBox_NV_Upload_SDT";
             textBox_NV_Upload_SDT.Size = new Size(160, 32);
             textBox_NV_Upload_SDT.TabIndex = 6;
+            textBox_NV_Upload_SDT.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // textBox_NV_Upload_TenNV
             // 
@@ -693,6 +893,7 @@
             textBox_NV_Upload_TenNV.Name = "textBox_NV_Upload_TenNV";
             textBox_NV_Upload_TenNV.Size = new Size(365, 32);
             textBox_NV_Upload_TenNV.TabIndex = 5;
+            textBox_NV_Upload_TenNV.KeyPress += textBox_KeyPress_Normal;
             // 
             // button_NV_OK
             // 
@@ -719,6 +920,8 @@
             textBox_NV_Upload_MaNV.Name = "textBox_NV_Upload_MaNV";
             textBox_NV_Upload_MaNV.Size = new Size(160, 32);
             textBox_NV_Upload_MaNV.TabIndex = 3;
+            textBox_NV_Upload_MaNV.KeyPress += textBox_KeyPress_Normal;
+            textBox_NV_Upload_MaNV.Leave += textBox_Leave;
             // 
             // label_BNUpload
             // 
@@ -738,9 +941,9 @@
             panel_NV_Filter.AutoScroll = true;
             panel_NV_Filter.AutoSize = true;
             panel_NV_Filter.BackColor = Color.FromArgb(57, 54, 70);
-            panel_NV_Filter.Controls.Add(label38);
-            panel_NV_Filter.Controls.Add(label33);
-            panel_NV_Filter.Controls.Add(checkBox_NV_Filter_Nu);
+            panel_NV_Filter.Controls.Add(comboBox_NVFilters_KinhNghiem_Comparer);
+            panel_NV_Filter.Controls.Add(comboBox_NVFilters_Luong_Comparer);
+            panel_NV_Filter.Controls.Add(button_NVFilters_Reset);
             panel_NV_Filter.Controls.Add(label34);
             panel_NV_Filter.Controls.Add(label35);
             panel_NV_Filter.Controls.Add(label36);
@@ -755,8 +958,6 @@
             panel_NV_Filter.Controls.Add(comboBox_NV_Filter_Operation);
             panel_NV_Filter.Controls.Add(label16);
             panel_NV_Filter.Controls.Add(textBox_NV_Luong_Filter);
-            panel_NV_Filter.Controls.Add(checkBox_NV_Filter_Nam);
-            panel_NV_Filter.Controls.Add(label17);
             panel_NV_Filter.Controls.Add(label23);
             panel_NV_Filter.Controls.Add(label24);
             panel_NV_Filter.Controls.Add(textBox_NV_HoTen_Filter);
@@ -770,49 +971,48 @@
             panel_NV_Filter.TabIndex = 21;
             panel_NV_Filter.Paint += panel_Paint;
             // 
-            // label38
+            // comboBox_NVFilters_KinhNghiem_Comparer
             // 
-            label38.AutoSize = true;
-            label38.BackColor = Color.Transparent;
-            label38.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.ForeColor = Color.FromArgb(193, 193, 193);
-            label38.ImageAlign = ContentAlignment.BottomCenter;
-            label38.Location = new Point(364, 425);
-            label38.Margin = new Padding(2, 0, 2, 0);
-            label38.Name = "label38";
-            label38.Size = new Size(26, 28);
-            label38.TabIndex = 43;
-            label38.Text = "≥";
-            label38.TextAlign = ContentAlignment.BottomLeft;
+            comboBox_NVFilters_KinhNghiem_Comparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_NVFilters_KinhNghiem_Comparer.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_NVFilters_KinhNghiem_Comparer.FlatStyle = FlatStyle.Flat;
+            comboBox_NVFilters_KinhNghiem_Comparer.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_NVFilters_KinhNghiem_Comparer.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_NVFilters_KinhNghiem_Comparer.FormattingEnabled = true;
+            comboBox_NVFilters_KinhNghiem_Comparer.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_NVFilters_KinhNghiem_Comparer.Location = new Point(126, 524);
+            comboBox_NVFilters_KinhNghiem_Comparer.Margin = new Padding(2);
+            comboBox_NVFilters_KinhNghiem_Comparer.Name = "comboBox_NVFilters_KinhNghiem_Comparer";
+            comboBox_NVFilters_KinhNghiem_Comparer.Size = new Size(59, 40);
+            comboBox_NVFilters_KinhNghiem_Comparer.TabIndex = 49;
             // 
-            // label33
+            // comboBox_NVFilters_Luong_Comparer
             // 
-            label33.AutoSize = true;
-            label33.BackColor = Color.Transparent;
-            label33.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label33.ForeColor = Color.FromArgb(193, 193, 193);
-            label33.ImageAlign = ContentAlignment.BottomCenter;
-            label33.Location = new Point(159, 425);
-            label33.Margin = new Padding(2, 0, 2, 0);
-            label33.Name = "label33";
-            label33.Size = new Size(26, 28);
-            label33.TabIndex = 42;
-            label33.Text = "≥";
-            label33.TextAlign = ContentAlignment.BottomLeft;
+            comboBox_NVFilters_Luong_Comparer.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_NVFilters_Luong_Comparer.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_NVFilters_Luong_Comparer.FlatStyle = FlatStyle.Flat;
+            comboBox_NVFilters_Luong_Comparer.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_NVFilters_Luong_Comparer.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_NVFilters_Luong_Comparer.FormattingEnabled = true;
+            comboBox_NVFilters_Luong_Comparer.Items.AddRange(new object[] { ">", "≥", "=", "≤", "<" });
+            comboBox_NVFilters_Luong_Comparer.Location = new Point(246, 425);
+            comboBox_NVFilters_Luong_Comparer.Margin = new Padding(2);
+            comboBox_NVFilters_Luong_Comparer.Name = "comboBox_NVFilters_Luong_Comparer";
+            comboBox_NVFilters_Luong_Comparer.Size = new Size(59, 40);
+            comboBox_NVFilters_Luong_Comparer.TabIndex = 48;
             // 
-            // checkBox_NV_Filter_Nu
+            // button_NVFilters_Reset
             // 
-            checkBox_NV_Filter_Nu.AutoSize = true;
-            checkBox_NV_Filter_Nu.FlatStyle = FlatStyle.Flat;
-            checkBox_NV_Filter_Nu.Font = new Font("Segoe UI", 10F);
-            checkBox_NV_Filter_Nu.ForeColor = Color.White;
-            checkBox_NV_Filter_Nu.Location = new Point(125, 524);
-            checkBox_NV_Filter_Nu.Margin = new Padding(2);
-            checkBox_NV_Filter_Nu.Name = "checkBox_NV_Filter_Nu";
-            checkBox_NV_Filter_Nu.Size = new Size(60, 32);
-            checkBox_NV_Filter_Nu.TabIndex = 41;
-            checkBox_NV_Filter_Nu.Text = "Nữ";
-            checkBox_NV_Filter_Nu.UseVisualStyleBackColor = true;
+            button_NVFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_NVFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_NVFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_NVFilters_Reset.Location = new Point(297, 710);
+            button_NVFilters_Reset.Name = "button_NVFilters_Reset";
+            button_NVFilters_Reset.Size = new Size(94, 43);
+            button_NVFilters_Reset.TabIndex = 47;
+            button_NVFilters_Reset.Text = "RESET";
+            button_NVFilters_Reset.UseVisualStyleBackColor = true;
+            button_NVFilters_Reset.Click += button_Reset_Click;
             // 
             // label34
             // 
@@ -824,9 +1024,9 @@
             label34.Location = new Point(300, 282);
             label34.Margin = new Padding(2, 0, 2, 0);
             label34.Name = "label34";
-            label34.Size = new Size(93, 28);
+            label34.Size = new Size(99, 28);
             label34.TabIndex = 40;
-            label34.Text = "Ngày tạo";
+            label34.Text = "Ngày sinh";
             label34.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label35
@@ -900,6 +1100,8 @@
             textBox_NV_Filter_Nam.Name = "textBox_NV_Filter_Nam";
             textBox_NV_Filter_Nam.Size = new Size(60, 32);
             textBox_NV_Filter_Nam.TabIndex = 35;
+            textBox_NV_Filter_Nam.TextAlign = HorizontalAlignment.Center;
+            textBox_NV_Filter_Nam.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // textBox_NV_MaKhoa_Filter
             // 
@@ -912,10 +1114,12 @@
             textBox_NV_MaKhoa_Filter.Name = "textBox_NV_MaKhoa_Filter";
             textBox_NV_MaKhoa_Filter.Size = new Size(160, 32);
             textBox_NV_MaKhoa_Filter.TabIndex = 27;
+            textBox_NV_MaKhoa_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // comboBox_NV_Filter_Thang
             // 
             comboBox_NV_Filter_Thang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_NV_Filter_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_NV_Filter_Thang.FlatStyle = FlatStyle.Flat;
             comboBox_NV_Filter_Thang.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_NV_Filter_Thang.ForeColor = Color.FromArgb(244, 238, 224);
@@ -934,7 +1138,7 @@
             label15.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(193, 193, 193);
             label15.ImageAlign = ContentAlignment.BottomCenter;
-            label15.Location = new Point(230, 381);
+            label15.Location = new Point(25, 480);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
             label15.Size = new Size(167, 28);
@@ -953,6 +1157,8 @@
             textBox_NV_Filter_Ngay.Name = "textBox_NV_Filter_Ngay";
             textBox_NV_Filter_Ngay.Size = new Size(55, 32);
             textBox_NV_Filter_Ngay.TabIndex = 34;
+            textBox_NV_Filter_Ngay.TextAlign = HorizontalAlignment.Center;
+            textBox_NV_Filter_Ngay.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // textBox_NV_NamKN_Filter
             // 
@@ -960,15 +1166,17 @@
             textBox_NV_NamKN_Filter.BorderStyle = BorderStyle.None;
             textBox_NV_NamKN_Filter.Font = new Font("Segoe UI Semilight", 12F);
             textBox_NV_NamKN_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_NV_NamKN_Filter.Location = new Point(230, 425);
+            textBox_NV_NamKN_Filter.Location = new Point(25, 524);
             textBox_NV_NamKN_Filter.Margin = new Padding(2);
             textBox_NV_NamKN_Filter.Name = "textBox_NV_NamKN_Filter";
-            textBox_NV_NamKN_Filter.Size = new Size(124, 32);
+            textBox_NV_NamKN_Filter.Size = new Size(80, 32);
             textBox_NV_NamKN_Filter.TabIndex = 25;
+            textBox_NV_NamKN_Filter.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // comboBox_NV_Filter_Operation
             // 
             comboBox_NV_Filter_Operation.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_NV_Filter_Operation.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_NV_Filter_Operation.FlatStyle = FlatStyle.Flat;
             comboBox_NV_Filter_Operation.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_NV_Filter_Operation.ForeColor = Color.FromArgb(244, 238, 224);
@@ -1004,39 +1212,9 @@
             textBox_NV_Luong_Filter.Location = new Point(25, 425);
             textBox_NV_Luong_Filter.Margin = new Padding(2);
             textBox_NV_Luong_Filter.Name = "textBox_NV_Luong_Filter";
-            textBox_NV_Luong_Filter.Size = new Size(124, 32);
+            textBox_NV_Luong_Filter.Size = new Size(200, 32);
             textBox_NV_Luong_Filter.TabIndex = 23;
-            // 
-            // checkBox_NV_Filter_Nam
-            // 
-            checkBox_NV_Filter_Nam.AutoSize = true;
-            checkBox_NV_Filter_Nam.Checked = true;
-            checkBox_NV_Filter_Nam.CheckState = CheckState.Checked;
-            checkBox_NV_Filter_Nam.FlatStyle = FlatStyle.Flat;
-            checkBox_NV_Filter_Nam.Font = new Font("Segoe UI", 10F);
-            checkBox_NV_Filter_Nam.ForeColor = Color.White;
-            checkBox_NV_Filter_Nam.Location = new Point(25, 524);
-            checkBox_NV_Filter_Nam.Margin = new Padding(2);
-            checkBox_NV_Filter_Nam.Name = "checkBox_NV_Filter_Nam";
-            checkBox_NV_Filter_Nam.Size = new Size(75, 32);
-            checkBox_NV_Filter_Nam.TabIndex = 21;
-            checkBox_NV_Filter_Nam.Text = "Nam";
-            checkBox_NV_Filter_Nam.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.BackColor = Color.Transparent;
-            label17.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.FromArgb(193, 193, 193);
-            label17.ImageAlign = ContentAlignment.BottomCenter;
-            label17.Location = new Point(25, 480);
-            label17.Margin = new Padding(2, 0, 2, 0);
-            label17.Name = "label17";
-            label17.Size = new Size(87, 28);
-            label17.TabIndex = 20;
-            label17.Text = "Giới tính";
-            label17.TextAlign = ContentAlignment.BottomLeft;
+            textBox_NV_Luong_Filter.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // label23
             // 
@@ -1079,6 +1257,7 @@
             textBox_NV_HoTen_Filter.Name = "textBox_NV_HoTen_Filter";
             textBox_NV_HoTen_Filter.Size = new Size(365, 32);
             textBox_NV_HoTen_Filter.TabIndex = 5;
+            textBox_NV_HoTen_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // button_NV_OK_Filter
             // 
@@ -1105,6 +1284,7 @@
             textBox_NV_MaNV_Filter.Name = "textBox_NV_MaNV_Filter";
             textBox_NV_MaNV_Filter.Size = new Size(160, 32);
             textBox_NV_MaNV_Filter.TabIndex = 3;
+            textBox_NV_MaNV_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // label25
             // 
@@ -1124,11 +1304,10 @@
             panel_Khoa_Upload.AutoScroll = true;
             panel_Khoa_Upload.AutoSize = true;
             panel_Khoa_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Khoa_Upload.Controls.Add(button_KhoaUpload_Reset);
             panel_Khoa_Upload.Controls.Add(textBox_Khoa_TenKhoa);
             panel_Khoa_Upload.Controls.Add(label18);
             panel_Khoa_Upload.Controls.Add(textBox_Khoa_MaNVQuanLy);
-            panel_Khoa_Upload.Controls.Add(label13);
-            panel_Khoa_Upload.Controls.Add(textBox_Khoa_SoLuong);
             panel_Khoa_Upload.Controls.Add(label30);
             panel_Khoa_Upload.Controls.Add(label31);
             panel_Khoa_Upload.Controls.Add(button_Khoa_OK);
@@ -1141,6 +1320,19 @@
             panel_Khoa_Upload.TabIndex = 22;
             panel_Khoa_Upload.Paint += panel_Paint;
             // 
+            // button_KhoaUpload_Reset
+            // 
+            button_KhoaUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_KhoaUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_KhoaUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_KhoaUpload_Reset.Location = new Point(297, 710);
+            button_KhoaUpload_Reset.Name = "button_KhoaUpload_Reset";
+            button_KhoaUpload_Reset.Size = new Size(94, 43);
+            button_KhoaUpload_Reset.TabIndex = 46;
+            button_KhoaUpload_Reset.Text = "RESET";
+            button_KhoaUpload_Reset.UseVisualStyleBackColor = true;
+            button_KhoaUpload_Reset.Click += button_Reset_Click;
+            // 
             // textBox_Khoa_TenKhoa
             // 
             textBox_Khoa_TenKhoa.BackColor = Color.FromArgb(57, 54, 70);
@@ -1152,6 +1344,7 @@
             textBox_Khoa_TenKhoa.Name = "textBox_Khoa_TenKhoa";
             textBox_Khoa_TenKhoa.Size = new Size(365, 32);
             textBox_Khoa_TenKhoa.TabIndex = 15;
+            textBox_Khoa_TenKhoa.KeyPress += textBox_KeyPress_Normal;
             // 
             // label18
             // 
@@ -1160,7 +1353,7 @@
             label18.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(193, 193, 193);
             label18.ImageAlign = ContentAlignment.BottomCenter;
-            label18.Location = new Point(25, 381);
+            label18.Location = new Point(25, 282);
             label18.Margin = new Padding(2, 0, 2, 0);
             label18.Name = "label18";
             label18.Size = new Size(198, 28);
@@ -1174,38 +1367,12 @@
             textBox_Khoa_MaNVQuanLy.BorderStyle = BorderStyle.None;
             textBox_Khoa_MaNVQuanLy.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Khoa_MaNVQuanLy.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Khoa_MaNVQuanLy.Location = new Point(25, 425);
+            textBox_Khoa_MaNVQuanLy.Location = new Point(25, 326);
             textBox_Khoa_MaNVQuanLy.Margin = new Padding(2);
             textBox_Khoa_MaNVQuanLy.Name = "textBox_Khoa_MaNVQuanLy";
             textBox_Khoa_MaNVQuanLy.Size = new Size(365, 32);
             textBox_Khoa_MaNVQuanLy.TabIndex = 13;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.FromArgb(193, 193, 193);
-            label13.ImageAlign = ContentAlignment.BottomCenter;
-            label13.Location = new Point(25, 282);
-            label13.Margin = new Padding(2, 0, 2, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(92, 28);
-            label13.TabIndex = 12;
-            label13.Text = "Số lượng";
-            label13.TextAlign = ContentAlignment.BottomLeft;
-            // 
-            // textBox_Khoa_SoLuong
-            // 
-            textBox_Khoa_SoLuong.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_Khoa_SoLuong.BorderStyle = BorderStyle.None;
-            textBox_Khoa_SoLuong.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_Khoa_SoLuong.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Khoa_SoLuong.Location = new Point(25, 326);
-            textBox_Khoa_SoLuong.Margin = new Padding(2);
-            textBox_Khoa_SoLuong.Name = "textBox_Khoa_SoLuong";
-            textBox_Khoa_SoLuong.Size = new Size(365, 32);
-            textBox_Khoa_SoLuong.TabIndex = 11;
+            textBox_Khoa_MaNVQuanLy.KeyPress += textBox_KeyPress_Normal;
             // 
             // label30
             // 
@@ -1262,6 +1429,7 @@
             textBox_Khoa_MaKhoa.Name = "textBox_Khoa_MaKhoa";
             textBox_Khoa_MaKhoa.Size = new Size(365, 32);
             textBox_Khoa_MaKhoa.TabIndex = 3;
+            textBox_Khoa_MaKhoa.KeyPress += textBox_KeyPress_Normal;
             // 
             // label32
             // 
@@ -1281,6 +1449,7 @@
             panel_Khoa_Filter.AutoScroll = true;
             panel_Khoa_Filter.AutoSize = true;
             panel_Khoa_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Khoa_Filter.Controls.Add(button_KhoaFilters_Reset);
             panel_Khoa_Filter.Controls.Add(comboBox_Khoa_Operation);
             panel_Khoa_Filter.Controls.Add(label19);
             panel_Khoa_Filter.Controls.Add(textBox_Khoa_MaNVQuanLy_Filter);
@@ -1298,6 +1467,19 @@
             panel_Khoa_Filter.Size = new Size(416, 780);
             panel_Khoa_Filter.TabIndex = 23;
             panel_Khoa_Filter.Paint += panel_Paint;
+            // 
+            // button_KhoaFilters_Reset
+            // 
+            button_KhoaFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_KhoaFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_KhoaFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_KhoaFilters_Reset.Location = new Point(297, 710);
+            button_KhoaFilters_Reset.Name = "button_KhoaFilters_Reset";
+            button_KhoaFilters_Reset.Size = new Size(94, 43);
+            button_KhoaFilters_Reset.TabIndex = 45;
+            button_KhoaFilters_Reset.Text = "RESET";
+            button_KhoaFilters_Reset.UseVisualStyleBackColor = true;
+            button_KhoaFilters_Reset.Click += button_Reset_Click;
             // 
             // comboBox_Khoa_Operation
             // 
@@ -1339,6 +1521,7 @@
             textBox_Khoa_MaNVQuanLy_Filter.Name = "textBox_Khoa_MaNVQuanLy_Filter";
             textBox_Khoa_MaNVQuanLy_Filter.Size = new Size(365, 32);
             textBox_Khoa_MaNVQuanLy_Filter.TabIndex = 13;
+            textBox_Khoa_MaNVQuanLy_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // label20
             // 
@@ -1366,6 +1549,7 @@
             textBox_Khoa_SoLuong_Filter.Name = "textBox_Khoa_SoLuong_Filter";
             textBox_Khoa_SoLuong_Filter.Size = new Size(290, 32);
             textBox_Khoa_SoLuong_Filter.TabIndex = 11;
+            textBox_Khoa_SoLuong_Filter.KeyPress += textBox_KeyPress_PositiveNumber;
             // 
             // label21
             // 
@@ -1408,6 +1592,7 @@
             textBox_Khoa_TenKhoa_Filter.Name = "textBox_Khoa_TenKhoa_Filter";
             textBox_Khoa_TenKhoa_Filter.Size = new Size(365, 32);
             textBox_Khoa_TenKhoa_Filter.TabIndex = 5;
+            textBox_Khoa_TenKhoa_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // button_Khoa_OK_Filter
             // 
@@ -1434,6 +1619,7 @@
             textBox_Khoa_MaKhoa_Filter.Name = "textBox_Khoa_MaKhoa_Filter";
             textBox_Khoa_MaKhoa_Filter.Size = new Size(365, 32);
             textBox_Khoa_MaKhoa_Filter.TabIndex = 3;
+            textBox_Khoa_MaKhoa_Filter.KeyPress += textBox_KeyPress_Normal;
             // 
             // label26
             // 
@@ -1447,26 +1633,468 @@
             label26.TabIndex = 2;
             label26.Text = "Filters";
             // 
+            // panel_Details
+            // 
+            panel_Details.AccessibleRole = AccessibleRole.None;
+            panel_Details.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_Details.AutoScroll = true;
+            panel_Details.AutoScrollMinSize = new Size(0, 1030);
+            panel_Details.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Details.Controls.Add(customDataGridView_LichLamViec);
+            panel_Details.Controls.Add(label_NVDetails_LichLamViec);
+            panel_Details.Controls.Add(label28);
+            panel_Details.Controls.Add(textBox_NVDetails_KinhNghiem);
+            panel_Details.Controls.Add(customDataGridView_LichSuThanhToan);
+            panel_Details.Controls.Add(label_NVDetails_LichSuThanhToan);
+            panel_Details.Controls.Add(customDataGridView_LichSuKham);
+            panel_Details.Controls.Add(label_NVDetails_LichSuKham);
+            panel_Details.Controls.Add(label48);
+            panel_Details.Controls.Add(textBox_NVDetails_Luong);
+            panel_Details.Controls.Add(label46);
+            panel_Details.Controls.Add(textBox_NVDetails_GioiTinh);
+            panel_Details.Controls.Add(label45);
+            panel_Details.Controls.Add(textBox_NVDetails_NgaySinh);
+            panel_Details.Controls.Add(label44);
+            panel_Details.Controls.Add(textBox_NVDetails_SDT);
+            panel_Details.Controls.Add(label12);
+            panel_Details.Controls.Add(textBox_NVDetails_Email);
+            panel_Details.Controls.Add(label27);
+            panel_Details.Controls.Add(textBox_NVDetails_HoTen);
+            panel_Details.Controls.Add(label13);
+            panel_Details.Controls.Add(textBox_NVDetails_MaNV);
+            panel_Details.Controls.Add(label17);
+            panel_Details.CornerRadius = 60;
+            panel_Details.Location = new Point(25, 468);
+            panel_Details.Name = "panel_Details";
+            panel_Details.Size = new Size(1124, 300);
+            panel_Details.TabIndex = 24;
+            panel_Details.Paint += panel_Details_Paint;
+            panel_Details.Leave += panel_Details_Leave;
+            // 
+            // customDataGridView_LichLamViec
+            // 
+            customDataGridView_LichLamViec.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichLamViec.AllowUserToAddRows = false;
+            customDataGridView_LichLamViec.AllowUserToDeleteRows = false;
+            customDataGridView_LichLamViec.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichLamViec.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichLamViec.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichLamViec.BackgroundColor = Color.White;
+            customDataGridView_LichLamViec.BorderStyle = BorderStyle.None;
+            customDataGridView_LichLamViec.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichLamViec.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichLamViec.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            customDataGridView_LichLamViec.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichLamViec.CornerRadius = 60;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichLamViec.DefaultCellStyle = dataGridViewCellStyle4;
+            customDataGridView_LichLamViec.EnableHeadersVisualStyles = false;
+            customDataGridView_LichLamViec.GridColor = Color.White;
+            customDataGridView_LichLamViec.Location = new Point(25, 862);
+            customDataGridView_LichLamViec.Name = "customDataGridView_LichLamViec";
+            customDataGridView_LichLamViec.ReadOnly = true;
+            customDataGridView_LichLamViec.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichLamViec.RowHeadersVisible = false;
+            customDataGridView_LichLamViec.RowHeadersWidth = 62;
+            customDataGridView_LichLamViec.Size = new Size(1048, 125);
+            customDataGridView_LichLamViec.TabIndex = 43;
+            // 
+            // label_NVDetails_LichLamViec
+            // 
+            label_NVDetails_LichLamViec.AccessibleRole = AccessibleRole.None;
+            label_NVDetails_LichLamViec.AutoSize = true;
+            label_NVDetails_LichLamViec.BackColor = Color.Transparent;
+            label_NVDetails_LichLamViec.FlatStyle = FlatStyle.Flat;
+            label_NVDetails_LichLamViec.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_NVDetails_LichLamViec.ForeColor = Color.FromArgb(193, 193, 193);
+            label_NVDetails_LichLamViec.Location = new Point(25, 818);
+            label_NVDetails_LichLamViec.Name = "label_NVDetails_LichLamViec";
+            label_NVDetails_LichLamViec.Size = new Size(128, 28);
+            label_NVDetails_LichLamViec.TabIndex = 42;
+            label_NVDetails_LichLamViec.Text = "Lịch làm việc";
+            label_NVDetails_LichLamViec.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.BackColor = Color.Transparent;
+            label28.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label28.ForeColor = Color.FromArgb(193, 193, 193);
+            label28.ImageAlign = ContentAlignment.BottomCenter;
+            label28.Location = new Point(840, 165);
+            label28.Margin = new Padding(2, 0, 2, 0);
+            label28.Name = "label28";
+            label28.Size = new Size(167, 28);
+            label28.TabIndex = 41;
+            label28.Text = "Năm kinh nghiệm";
+            label28.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_KinhNghiem
+            // 
+            textBox_NVDetails_KinhNghiem.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_KinhNghiem.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_KinhNghiem.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_KinhNghiem.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_KinhNghiem.Location = new Point(840, 209);
+            textBox_NVDetails_KinhNghiem.Margin = new Padding(2);
+            textBox_NVDetails_KinhNghiem.Name = "textBox_NVDetails_KinhNghiem";
+            textBox_NVDetails_KinhNghiem.Size = new Size(160, 32);
+            textBox_NVDetails_KinhNghiem.TabIndex = 40;
+            // 
+            // customDataGridView_LichSuThanhToan
+            // 
+            customDataGridView_LichSuThanhToan.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichSuThanhToan.AllowUserToAddRows = false;
+            customDataGridView_LichSuThanhToan.AllowUserToDeleteRows = false;
+            customDataGridView_LichSuThanhToan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichSuThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichSuThanhToan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichSuThanhToan.BackgroundColor = Color.White;
+            customDataGridView_LichSuThanhToan.BorderStyle = BorderStyle.None;
+            customDataGridView_LichSuThanhToan.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichSuThanhToan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuThanhToan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            customDataGridView_LichSuThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichSuThanhToan.CornerRadius = 60;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle6.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuThanhToan.DefaultCellStyle = dataGridViewCellStyle6;
+            customDataGridView_LichSuThanhToan.EnableHeadersVisualStyles = false;
+            customDataGridView_LichSuThanhToan.GridColor = Color.White;
+            customDataGridView_LichSuThanhToan.Location = new Point(25, 585);
+            customDataGridView_LichSuThanhToan.Name = "customDataGridView_LichSuThanhToan";
+            customDataGridView_LichSuThanhToan.ReadOnly = true;
+            customDataGridView_LichSuThanhToan.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichSuThanhToan.RowHeadersVisible = false;
+            customDataGridView_LichSuThanhToan.RowHeadersWidth = 62;
+            customDataGridView_LichSuThanhToan.Size = new Size(1048, 210);
+            customDataGridView_LichSuThanhToan.TabIndex = 39;
+            // 
+            // label_NVDetails_LichSuThanhToan
+            // 
+            label_NVDetails_LichSuThanhToan.AccessibleRole = AccessibleRole.None;
+            label_NVDetails_LichSuThanhToan.AutoSize = true;
+            label_NVDetails_LichSuThanhToan.BackColor = Color.Transparent;
+            label_NVDetails_LichSuThanhToan.FlatStyle = FlatStyle.Flat;
+            label_NVDetails_LichSuThanhToan.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_NVDetails_LichSuThanhToan.ForeColor = Color.FromArgb(193, 193, 193);
+            label_NVDetails_LichSuThanhToan.Location = new Point(26, 541);
+            label_NVDetails_LichSuThanhToan.Name = "label_NVDetails_LichSuThanhToan";
+            label_NVDetails_LichSuThanhToan.Size = new Size(181, 28);
+            label_NVDetails_LichSuThanhToan.TabIndex = 38;
+            label_NVDetails_LichSuThanhToan.Text = "Lịch sử thanh toán";
+            label_NVDetails_LichSuThanhToan.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // customDataGridView_LichSuKham
+            // 
+            customDataGridView_LichSuKham.AccessibleRole = AccessibleRole.None;
+            customDataGridView_LichSuKham.AllowUserToAddRows = false;
+            customDataGridView_LichSuKham.AllowUserToDeleteRows = false;
+            customDataGridView_LichSuKham.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            customDataGridView_LichSuKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            customDataGridView_LichSuKham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            customDataGridView_LichSuKham.BackgroundColor = Color.White;
+            customDataGridView_LichSuKham.BorderStyle = BorderStyle.None;
+            customDataGridView_LichSuKham.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            customDataGridView_LichSuKham.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle7.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            customDataGridView_LichSuKham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customDataGridView_LichSuKham.CornerRadius = 60;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle8.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            customDataGridView_LichSuKham.DefaultCellStyle = dataGridViewCellStyle8;
+            customDataGridView_LichSuKham.EnableHeadersVisualStyles = false;
+            customDataGridView_LichSuKham.GridColor = Color.White;
+            customDataGridView_LichSuKham.Location = new Point(25, 308);
+            customDataGridView_LichSuKham.Name = "customDataGridView_LichSuKham";
+            customDataGridView_LichSuKham.ReadOnly = true;
+            customDataGridView_LichSuKham.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            customDataGridView_LichSuKham.RowHeadersVisible = false;
+            customDataGridView_LichSuKham.RowHeadersWidth = 62;
+            customDataGridView_LichSuKham.Size = new Size(1048, 210);
+            customDataGridView_LichSuKham.TabIndex = 17;
+            // 
+            // label_NVDetails_LichSuKham
+            // 
+            label_NVDetails_LichSuKham.AccessibleRole = AccessibleRole.None;
+            label_NVDetails_LichSuKham.AutoSize = true;
+            label_NVDetails_LichSuKham.BackColor = Color.Transparent;
+            label_NVDetails_LichSuKham.FlatStyle = FlatStyle.Flat;
+            label_NVDetails_LichSuKham.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label_NVDetails_LichSuKham.ForeColor = Color.FromArgb(193, 193, 193);
+            label_NVDetails_LichSuKham.Location = new Point(25, 264);
+            label_NVDetails_LichSuKham.Name = "label_NVDetails_LichSuKham";
+            label_NVDetails_LichSuKham.Size = new Size(132, 28);
+            label_NVDetails_LichSuKham.TabIndex = 37;
+            label_NVDetails_LichSuKham.Text = "Lịch sử khám";
+            label_NVDetails_LichSuKham.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // label48
+            // 
+            label48.AccessibleRole = AccessibleRole.None;
+            label48.AutoSize = true;
+            label48.BackColor = Color.Transparent;
+            label48.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label48.ForeColor = Color.FromArgb(193, 193, 193);
+            label48.ImageAlign = ContentAlignment.BottomCenter;
+            label48.Location = new Point(535, 165);
+            label48.Name = "label48";
+            label48.Size = new Size(68, 28);
+            label48.TabIndex = 25;
+            label48.Text = "Lương";
+            label48.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_Luong
+            // 
+            textBox_NVDetails_Luong.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_Luong.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_Luong.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_Luong.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_Luong.Location = new Point(535, 209);
+            textBox_NVDetails_Luong.Name = "textBox_NVDetails_Luong";
+            textBox_NVDetails_Luong.ReadOnly = true;
+            textBox_NVDetails_Luong.Size = new Size(160, 32);
+            textBox_NVDetails_Luong.TabIndex = 24;
+            // 
+            // label46
+            // 
+            label46.AccessibleRole = AccessibleRole.None;
+            label46.AutoSize = true;
+            label46.BackColor = Color.Transparent;
+            label46.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label46.ForeColor = Color.FromArgb(193, 193, 193);
+            label46.ImageAlign = ContentAlignment.BottomCenter;
+            label46.Location = new Point(230, 165);
+            label46.Name = "label46";
+            label46.Size = new Size(87, 28);
+            label46.TabIndex = 21;
+            label46.Text = "Giới tính";
+            label46.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_GioiTinh
+            // 
+            textBox_NVDetails_GioiTinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_GioiTinh.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_GioiTinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_GioiTinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_GioiTinh.Location = new Point(230, 209);
+            textBox_NVDetails_GioiTinh.Name = "textBox_NVDetails_GioiTinh";
+            textBox_NVDetails_GioiTinh.ReadOnly = true;
+            textBox_NVDetails_GioiTinh.Size = new Size(160, 32);
+            textBox_NVDetails_GioiTinh.TabIndex = 20;
+            // 
+            // label45
+            // 
+            label45.AccessibleRole = AccessibleRole.None;
+            label45.AutoSize = true;
+            label45.BackColor = Color.Transparent;
+            label45.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label45.ForeColor = Color.FromArgb(193, 193, 193);
+            label45.ImageAlign = ContentAlignment.BottomCenter;
+            label45.Location = new Point(25, 165);
+            label45.Name = "label45";
+            label45.Size = new Size(99, 28);
+            label45.TabIndex = 19;
+            label45.Text = "Ngày sinh";
+            label45.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_NgaySinh
+            // 
+            textBox_NVDetails_NgaySinh.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_NgaySinh.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_NgaySinh.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_NgaySinh.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_NgaySinh.Location = new Point(25, 209);
+            textBox_NVDetails_NgaySinh.Name = "textBox_NVDetails_NgaySinh";
+            textBox_NVDetails_NgaySinh.ReadOnly = true;
+            textBox_NVDetails_NgaySinh.Size = new Size(160, 32);
+            textBox_NVDetails_NgaySinh.TabIndex = 18;
+            // 
+            // label44
+            // 
+            label44.AccessibleRole = AccessibleRole.None;
+            label44.AutoSize = true;
+            label44.BackColor = Color.Transparent;
+            label44.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label44.ForeColor = Color.FromArgb(193, 193, 193);
+            label44.ImageAlign = ContentAlignment.BottomCenter;
+            label44.Location = new Point(840, 66);
+            label44.Name = "label44";
+            label44.Size = new Size(128, 28);
+            label44.TabIndex = 17;
+            label44.Text = "Số điện thoại";
+            label44.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_SDT
+            // 
+            textBox_NVDetails_SDT.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_SDT.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_SDT.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_SDT.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_SDT.Location = new Point(840, 110);
+            textBox_NVDetails_SDT.Name = "textBox_NVDetails_SDT";
+            textBox_NVDetails_SDT.ReadOnly = true;
+            textBox_NVDetails_SDT.Size = new Size(160, 32);
+            textBox_NVDetails_SDT.TabIndex = 16;
+            // 
+            // label12
+            // 
+            label12.AccessibleRole = AccessibleRole.None;
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(193, 193, 193);
+            label12.ImageAlign = ContentAlignment.BottomCenter;
+            label12.Location = new Point(535, 66);
+            label12.Name = "label12";
+            label12.Size = new Size(59, 28);
+            label12.TabIndex = 15;
+            label12.Text = "Email";
+            label12.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_Email
+            // 
+            textBox_NVDetails_Email.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_Email.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_Email.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_Email.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_Email.Location = new Point(535, 110);
+            textBox_NVDetails_Email.Name = "textBox_NVDetails_Email";
+            textBox_NVDetails_Email.ReadOnly = true;
+            textBox_NVDetails_Email.Size = new Size(260, 32);
+            textBox_NVDetails_Email.TabIndex = 14;
+            // 
+            // label27
+            // 
+            label27.AccessibleRole = AccessibleRole.None;
+            label27.AutoSize = true;
+            label27.BackColor = Color.Transparent;
+            label27.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label27.ForeColor = Color.FromArgb(193, 193, 193);
+            label27.ImageAlign = ContentAlignment.BottomCenter;
+            label27.Location = new Point(230, 66);
+            label27.Name = "label27";
+            label27.Size = new Size(71, 28);
+            label27.TabIndex = 13;
+            label27.Text = "Họ tên";
+            label27.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_HoTen
+            // 
+            textBox_NVDetails_HoTen.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_HoTen.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_HoTen.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_HoTen.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_HoTen.Location = new Point(230, 110);
+            textBox_NVDetails_HoTen.Name = "textBox_NVDetails_HoTen";
+            textBox_NVDetails_HoTen.ReadOnly = true;
+            textBox_NVDetails_HoTen.Size = new Size(260, 32);
+            textBox_NVDetails_HoTen.TabIndex = 12;
+            // 
+            // label13
+            // 
+            label13.AccessibleRole = AccessibleRole.None;
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(193, 193, 193);
+            label13.ImageAlign = ContentAlignment.BottomCenter;
+            label13.Location = new Point(25, 66);
+            label13.Name = "label13";
+            label13.Size = new Size(129, 28);
+            label13.TabIndex = 11;
+            label13.Text = "Mã nhân viên";
+            label13.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // textBox_NVDetails_MaNV
+            // 
+            textBox_NVDetails_MaNV.BackColor = Color.FromArgb(57, 54, 70);
+            textBox_NVDetails_MaNV.BorderStyle = BorderStyle.None;
+            textBox_NVDetails_MaNV.Font = new Font("Segoe UI Semilight", 12F);
+            textBox_NVDetails_MaNV.ForeColor = Color.FromArgb(244, 238, 224);
+            textBox_NVDetails_MaNV.Location = new Point(25, 110);
+            textBox_NVDetails_MaNV.Name = "textBox_NVDetails_MaNV";
+            textBox_NVDetails_MaNV.ReadOnly = true;
+            textBox_NVDetails_MaNV.Size = new Size(160, 32);
+            textBox_NVDetails_MaNV.TabIndex = 10;
+            // 
+            // label17
+            // 
+            label17.AccessibleRole = AccessibleRole.None;
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.White;
+            label17.Location = new Point(25, 10);
+            label17.Name = "label17";
+            label17.Size = new Size(103, 38);
+            label17.TabIndex = 3;
+            label17.Text = "Details";
+            // 
             // NhanVienControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(57, 54, 70);
+            Controls.Add(panel_Details);
             Controls.Add(customPanel_Sum);
             Controls.Add(customDataGridView);
             Controls.Add(panel_Toolbar);
             Controls.Add(panel_Tab);
-            Controls.Add(panel_NV_Filter);
             Controls.Add(panel_NV_Upload);
             Controls.Add(panel_Khoa_Filter);
             Controls.Add(panel_Khoa_Upload);
+            Controls.Add(panel_NV_Filter);
             Margin = new Padding(4);
             Name = "NhanVienControl";
             Size = new Size(1590, 864);
             Load += NhanVienControl_Load;
             panel_Tab.ResumeLayout(false);
             panel_Toolbar.ResumeLayout(false);
+            panel_Toolbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).EndInit();
             customPanel_Sum.ResumeLayout(false);
             customPanel_Sum.PerformLayout();
@@ -1478,6 +2106,11 @@
             panel_Khoa_Upload.PerformLayout();
             panel_Khoa_Filter.ResumeLayout(false);
             panel_Khoa_Filter.PerformLayout();
+            panel_Details.ResumeLayout(false);
+            panel_Details.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichLamViec).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuThanhToan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customDataGridView_LichSuKham).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1529,8 +2162,6 @@
         private Label label16;
         private TextBox textBox_NV_Luong_Filter;
         private CheckBox checkBox1;
-        private CheckBox checkBox_NV_Filter_Nam;
-        private Label label17;
         private Label label23;
         private Label label24;
         private TextBox textBox_NV_HoTen_Filter;
@@ -1545,17 +2176,16 @@
         private ComboBox comboBox_NV_Filter_Thang;
         private TextBox textBox_NV_Filter_Ngay;
         private ComboBox comboBox_NV_Filter_Operation;
-        private CheckBox checkBox_NV_Filter_Nu;
         private Panel panel_Khoa_Upload;
         private TextBox textBox5;
         private TextBox textBox6;
         private TextBox textBox7;
         private CheckBox checkBox2;
         private TextBox textBox8;
-        private ComboBox comboBox1;
+        private ComboBox comboBox_NVFilters_Luong_Comparer;
         private Label label28;
         private TextBox textBox11;
-        private Label label29;
+        private Label label_NVDetails_LichLamViec;
         private Label label30;
         private Label label31;
         private TextBox textBox12;
@@ -1564,12 +2194,8 @@
         private Button button_Khoa_OK;
         private TextBox textBox_Khoa_MaKhoa;
         private Label label32;
-        private Label label38;
-        private Label label33;
         private Label label18;
         private TextBox textBox_Khoa_MaNVQuanLy;
-        private Label label13;
-        private TextBox textBox_Khoa_SoLuong;
         private Panel panel_Khoa_Filter;
         private Label label19;
         private TextBox textBox_Khoa_MaNVQuanLy_Filter;
@@ -1583,5 +2209,40 @@
         private Label label26;
         private ComboBox comboBox_Khoa_Operation;
         private TextBox textBox_Khoa_TenKhoa;
+        private Custom.CustomPanel panel_Details;
+        private Custom.CustomDataGridView customDataGridView_LichSuThanhToan;
+        private Label label_NVDetails_LichSuThanhToan;
+        private Custom.CustomDataGridView customDataGridView_LichSuKham;
+        private Label label_NVDetails_LichSuKham;
+        private Label label48;
+        private TextBox textBox_NVDetails_Luong;
+        private Label label46;
+        private TextBox textBox_NVDetails_GioiTinh;
+        private Label label45;
+        private TextBox textBox_NVDetails_NgaySinh;
+        private Label label44;
+        private TextBox textBox_NVDetails_SDT;
+        private Label label12;
+        private TextBox textBox_NVDetails_Email;
+        private Label label27;
+        private TextBox textBox_NVDetails_HoTen;
+        private Label label13;
+        private TextBox textBox_NVDetails_MaNV;
+        private Label label17;
+        private TextBox textBox_NVDetails_KinhNghiem;
+        private Custom.CustomDataGridView customDataGridView_LichLamViec;
+        private Custom.PageButton pageButton_Details_NV;
+        private CheckBox checkBox_ChuaPhanCong_Conditions;
+        private Button button_NVUpload_Reset;
+        private Button button_KhoaUpload_Reset;
+        private Button button_KhoaFilters_Reset;
+        private Button button_NVFilters_Reset;
+        private ComboBox comboBox_NVFilters_KinhNghiem_Comparer;
+        private Label label_TongLuong;
+        private Label label_KinhNghiem_Number;
+        private Label label_KinhNghiem;
+        private Label label_TongLuong_Number;
+        private Label label_DanhGia;
+        private Label label_DanhGia_Number;
     }
 }

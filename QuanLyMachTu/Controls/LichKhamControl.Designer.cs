@@ -59,6 +59,8 @@
             textBox_Upload_Nam = new TextBox();
             label19 = new Label();
             panel_Upload = new Panel();
+            comboBox_Upload_TinhTrang = new ComboBox();
+            label5 = new Label();
             button_Upload_Reset = new Button();
             label4 = new Label();
             textBox_Upload_MaLK = new TextBox();
@@ -85,11 +87,16 @@
             pageButton_LatestMode = new Custom.PageButton();
             panel1 = new Panel();
             customPanel_Sum = new Custom.CustomPanel();
+            label_SoLKHomNay_Number = new Label();
+            label_SoLKHomNay = new Label();
+            label_TongSoLichKham_Number = new Label();
+            label_TongSoLichKham = new Label();
             customDataGridView = new Custom.CustomDataGridView();
             panel_Toolbar = new Panel();
             panel_Filters.SuspendLayout();
             panel_Upload.SuspendLayout();
             panel1.SuspendLayout();
+            customPanel_Sum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).BeginInit();
             panel_Toolbar.SuspendLayout();
             SuspendLayout();
@@ -184,7 +191,7 @@
             button_Filters_Reset.TabIndex = 41;
             button_Filters_Reset.Text = "RESET";
             button_Filters_Reset.UseVisualStyleBackColor = true;
-            button_Filters_Reset.Paint += button_Filters_Reset_Paint;
+            button_Filters_Reset.Click += button_Reset_Click;
             // 
             // textBox_Filters_Giay
             // 
@@ -482,6 +489,8 @@
             panel_Upload.AutoScroll = true;
             panel_Upload.AutoSize = true;
             panel_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            panel_Upload.Controls.Add(comboBox_Upload_TinhTrang);
+            panel_Upload.Controls.Add(label5);
             panel_Upload.Controls.Add(button_Upload_Reset);
             panel_Upload.Controls.Add(label4);
             panel_Upload.Controls.Add(textBox_Upload_MaLK);
@@ -510,6 +519,35 @@
             panel_Upload.TabIndex = 0;
             panel_Upload.Paint += panel_Paint;
             // 
+            // comboBox_Upload_TinhTrang
+            // 
+            comboBox_Upload_TinhTrang.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_Upload_TinhTrang.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Upload_TinhTrang.FlatStyle = FlatStyle.Flat;
+            comboBox_Upload_TinhTrang.Font = new Font("Segoe UI Semilight", 12F);
+            comboBox_Upload_TinhTrang.ForeColor = Color.FromArgb(244, 238, 224);
+            comboBox_Upload_TinhTrang.FormattingEnabled = true;
+            comboBox_Upload_TinhTrang.Items.AddRange(new object[] { "Chưa kết thúc", "Kết thúc" });
+            comboBox_Upload_TinhTrang.Location = new Point(230, 524);
+            comboBox_Upload_TinhTrang.Name = "comboBox_Upload_TinhTrang";
+            comboBox_Upload_TinhTrang.Size = new Size(160, 40);
+            comboBox_Upload_TinhTrang.TabIndex = 52;
+            // 
+            // label5
+            // 
+            label5.AccessibleRole = AccessibleRole.None;
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.FlatStyle = FlatStyle.Flat;
+            label5.Font = new Font("Segoe UI", 10F);
+            label5.ForeColor = Color.FromArgb(193, 193, 193);
+            label5.Location = new Point(230, 480);
+            label5.Name = "label5";
+            label5.Size = new Size(101, 28);
+            label5.TabIndex = 51;
+            label5.Text = "Tình trạng";
+            label5.TextAlign = ContentAlignment.BottomLeft;
+            // 
             // button_Upload_Reset
             // 
             button_Upload_Reset.FlatStyle = FlatStyle.Flat;
@@ -521,7 +559,7 @@
             button_Upload_Reset.TabIndex = 40;
             button_Upload_Reset.Text = "RESET";
             button_Upload_Reset.UseVisualStyleBackColor = true;
-            button_Upload_Reset.Click += button_Upload_Reset_Click;
+            button_Upload_Reset.Click += button_Reset_Click;
             // 
             // label4
             // 
@@ -548,6 +586,8 @@
             textBox_Upload_MaLK.Name = "textBox_Upload_MaLK";
             textBox_Upload_MaLK.Size = new Size(365, 32);
             textBox_Upload_MaLK.TabIndex = 1;
+            textBox_Upload_MaLK.KeyPress += textBox_KeyPress_Normal;
+            textBox_Upload_MaLK.Leave += textBox_Upload_MaLK_Leave;
             // 
             // textBox_Upload_Giay
             // 
@@ -555,9 +595,9 @@
             textBox_Upload_Giay.BorderStyle = BorderStyle.None;
             textBox_Upload_Giay.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_Giay.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_Giay.Location = new Point(205, 524);
+            textBox_Upload_Giay.Location = new Point(165, 524);
             textBox_Upload_Giay.Name = "textBox_Upload_Giay";
-            textBox_Upload_Giay.Size = new Size(55, 32);
+            textBox_Upload_Giay.Size = new Size(40, 32);
             textBox_Upload_Giay.TabIndex = 9;
             textBox_Upload_Giay.TextAlign = HorizontalAlignment.Center;
             // 
@@ -567,9 +607,9 @@
             textBox_Upload_Phut.BorderStyle = BorderStyle.None;
             textBox_Upload_Phut.Font = new Font("Segoe UI Semilight", 12F);
             textBox_Upload_Phut.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_Upload_Phut.Location = new Point(115, 524);
+            textBox_Upload_Phut.Location = new Point(95, 524);
             textBox_Upload_Phut.Name = "textBox_Upload_Phut";
-            textBox_Upload_Phut.Size = new Size(55, 32);
+            textBox_Upload_Phut.Size = new Size(40, 32);
             textBox_Upload_Phut.TabIndex = 8;
             textBox_Upload_Phut.TextAlign = HorizontalAlignment.Center;
             // 
@@ -581,7 +621,7 @@
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = Color.FromArgb(193, 193, 193);
-            label1.Location = new Point(179, 524);
+            label1.Location = new Point(142, 524);
             label1.Name = "label1";
             label1.Size = new Size(16, 28);
             label1.TabIndex = 45;
@@ -596,7 +636,7 @@
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Segoe UI", 10F);
             label2.ForeColor = Color.FromArgb(193, 193, 193);
-            label2.Location = new Point(89, 524);
+            label2.Location = new Point(72, 524);
             label2.Name = "label2";
             label2.Size = new Size(16, 28);
             label2.TabIndex = 44;
@@ -626,7 +666,7 @@
             textBox_Upload_Gio.ForeColor = Color.FromArgb(244, 238, 224);
             textBox_Upload_Gio.Location = new Point(25, 524);
             textBox_Upload_Gio.Name = "textBox_Upload_Gio";
-            textBox_Upload_Gio.Size = new Size(55, 32);
+            textBox_Upload_Gio.Size = new Size(40, 32);
             textBox_Upload_Gio.TabIndex = 7;
             textBox_Upload_Gio.TextAlign = HorizontalAlignment.Center;
             // 
@@ -725,6 +765,7 @@
             textBox_Upload_MaPK.Name = "textBox_Upload_MaPK";
             textBox_Upload_MaPK.Size = new Size(366, 32);
             textBox_Upload_MaPK.TabIndex = 3;
+            textBox_Upload_MaPK.KeyPress += textBox_KeyPress_Normal;
             // 
             // button_Upload_OK
             // 
@@ -749,6 +790,7 @@
             textBox_Upload_MaBN.Name = "textBox_Upload_MaBN";
             textBox_Upload_MaBN.Size = new Size(365, 32);
             textBox_Upload_MaBN.TabIndex = 2;
+            textBox_Upload_MaBN.KeyPress += textBox_KeyPress_Normal;
             // 
             // label24
             // 
@@ -889,11 +931,75 @@
             customPanel_Sum.AccessibleRole = AccessibleRole.None;
             customPanel_Sum.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customPanel_Sum.BackColor = Color.FromArgb(79, 69, 87);
+            customPanel_Sum.Controls.Add(label_SoLKHomNay_Number);
+            customPanel_Sum.Controls.Add(label_SoLKHomNay);
+            customPanel_Sum.Controls.Add(label_TongSoLichKham_Number);
+            customPanel_Sum.Controls.Add(label_TongSoLichKham);
             customPanel_Sum.CornerRadius = 40;
             customPanel_Sum.Location = new Point(25, 787);
             customPanel_Sum.Name = "customPanel_Sum";
             customPanel_Sum.Size = new Size(1124, 60);
             customPanel_Sum.TabIndex = 38;
+            // 
+            // label_SoLKHomNay_Number
+            // 
+            label_SoLKHomNay_Number.AutoSize = true;
+            label_SoLKHomNay_Number.BackColor = Color.Transparent;
+            label_SoLKHomNay_Number.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_SoLKHomNay_Number.ForeColor = Color.White;
+            label_SoLKHomNay_Number.ImageAlign = ContentAlignment.BottomCenter;
+            label_SoLKHomNay_Number.Location = new Point(795, 15);
+            label_SoLKHomNay_Number.Margin = new Padding(2, 0, 2, 0);
+            label_SoLKHomNay_Number.Name = "label_SoLKHomNay_Number";
+            label_SoLKHomNay_Number.Size = new Size(34, 28);
+            label_SoLKHomNay_Number.TabIndex = 47;
+            label_SoLKHomNay_Number.Text = "00";
+            label_SoLKHomNay_Number.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_SoLKHomNay
+            // 
+            label_SoLKHomNay.AutoSize = true;
+            label_SoLKHomNay.BackColor = Color.Transparent;
+            label_SoLKHomNay.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_SoLKHomNay.ForeColor = Color.White;
+            label_SoLKHomNay.ImageAlign = ContentAlignment.BottomCenter;
+            label_SoLKHomNay.Location = new Point(562, 15);
+            label_SoLKHomNay.Margin = new Padding(2, 0, 2, 0);
+            label_SoLKHomNay.Name = "label_SoLKHomNay";
+            label_SoLKHomNay.Size = new Size(208, 28);
+            label_SoLKHomNay.TabIndex = 46;
+            label_SoLKHomNay.Text = "Số lịch khám hôm nay:";
+            label_SoLKHomNay.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label_TongSoLichKham_Number
+            // 
+            label_TongSoLichKham_Number.AutoSize = true;
+            label_TongSoLichKham_Number.BackColor = Color.Transparent;
+            label_TongSoLichKham_Number.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_TongSoLichKham_Number.ForeColor = Color.White;
+            label_TongSoLichKham_Number.ImageAlign = ContentAlignment.BottomCenter;
+            label_TongSoLichKham_Number.Location = new Point(224, 15);
+            label_TongSoLichKham_Number.Margin = new Padding(2, 0, 2, 0);
+            label_TongSoLichKham_Number.Name = "label_TongSoLichKham_Number";
+            label_TongSoLichKham_Number.Size = new Size(34, 28);
+            label_TongSoLichKham_Number.TabIndex = 45;
+            label_TongSoLichKham_Number.Text = "00";
+            label_TongSoLichKham_Number.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_TongSoLichKham
+            // 
+            label_TongSoLichKham.AutoSize = true;
+            label_TongSoLichKham.BackColor = Color.Transparent;
+            label_TongSoLichKham.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_TongSoLichKham.ForeColor = Color.White;
+            label_TongSoLichKham.ImageAlign = ContentAlignment.BottomCenter;
+            label_TongSoLichKham.Location = new Point(25, 15);
+            label_TongSoLichKham.Margin = new Padding(2, 0, 2, 0);
+            label_TongSoLichKham.Name = "label_TongSoLichKham";
+            label_TongSoLichKham.Size = new Size(174, 28);
+            label_TongSoLichKham.TabIndex = 44;
+            label_TongSoLichKham.Text = "Tổng số lịch khám:";
+            label_TongSoLichKham.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // customDataGridView
             // 
@@ -973,6 +1079,8 @@
             panel_Upload.ResumeLayout(false);
             panel_Upload.PerformLayout();
             panel1.ResumeLayout(false);
+            customPanel_Sum.ResumeLayout(false);
+            customPanel_Sum.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView).EndInit();
             panel_Toolbar.ResumeLayout(false);
             ResumeLayout(false);
@@ -1039,5 +1147,11 @@
         private ComboBox comboBox_Filters_DateTimeComparer;
         private Button button_Filters_Reset;
         private Button button_Upload_Reset;
+        private Label label5;
+        private ComboBox comboBox_Upload_TinhTrang;
+        private Label label_SoLKHomNay_Number;
+        private Label label_SoLKHomNay;
+        private Label label_TongSoLichKham_Number;
+        private Label label_TongSoLichKham;
     }
 }

@@ -382,6 +382,7 @@ namespace QuanLyMachTu
             KeyPreview = true;
             Name = "MainWindow";
             WindowState = FormWindowState.Maximized;
+            FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
             Resize += MainWindow_Resize;
             panel_TitleBar.ResumeLayout(false);

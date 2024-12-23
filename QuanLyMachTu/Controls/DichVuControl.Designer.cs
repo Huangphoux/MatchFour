@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DichVuControl));
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel_TopPanel = new Panel();
             pageButton_TinhTrang = new Custom.PageButton();
             pageButton_DV = new Custom.PageButton();
@@ -40,6 +40,7 @@
             pageButton_Upload = new Custom.PageButton();
             customDataGridView = new Custom.CustomDataGridView();
             panel_DV_Upload = new Panel();
+            button_DVUpload_Reset = new Button();
             button_DV_OK = new Button();
             textBox_DV_MoTa = new TextBox();
             label_DV_MoTa = new Label();
@@ -51,6 +52,7 @@
             label_DV_MaDV = new Label();
             label_DV_Upload = new Label();
             panel_DV_Filter = new Panel();
+            button_DVFilters_Reset = new Button();
             comboBox_DV_Filter_Operation = new ComboBox();
             button_DV_OK_Filter = new Button();
             textBox_DV_TenDV_Filter = new TextBox();
@@ -61,10 +63,9 @@
             label4 = new Label();
             label5 = new Label();
             panel_TinhTrang_Filter = new Panel();
+            button_TTFilters_Reset = new Button();
             comboBox_TinhTrang_Filter = new ComboBox();
             label10 = new Label();
-            textBox_TT_TenPK_Filter = new TextBox();
-            label6 = new Label();
             textBox_TT_MaPK_Filter = new TextBox();
             label9 = new Label();
             button_TT_OK = new Button();
@@ -74,6 +75,7 @@
             label7 = new Label();
             label8 = new Label();
             panel_TinhTrang_Upload = new Panel();
+            button_TTUpload_Reset = new Button();
             comboBox_TinhTrang_Upload = new ComboBox();
             label11 = new Label();
             textBox_TT_MaPK_Upload = new TextBox();
@@ -240,26 +242,26 @@
             customDataGridView.BorderStyle = BorderStyle.None;
             customDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             customDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(79, 69, 87);
-            dataGridViewCellStyle15.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle15.ForeColor = Color.White;
-            dataGridViewCellStyle15.Padding = new Padding(0, 0, 0, 5);
-            dataGridViewCellStyle15.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
-            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 69, 87);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.Padding = new Padding(0, 0, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            customDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             customDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customDataGridView.CornerRadius = 60;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = Color.White;
-            dataGridViewCellStyle16.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle16.ForeColor = Color.Black;
-            dataGridViewCellStyle16.Padding = new Padding(15, 0, 5, 5);
-            dataGridViewCellStyle16.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
-            customDataGridView.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(15, 0, 5, 5);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            customDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             customDataGridView.EnableHeadersVisualStyles = false;
             customDataGridView.GridColor = Color.White;
             customDataGridView.Location = new Point(25, 168);
@@ -271,11 +273,13 @@
             customDataGridView.RowHeadersWidth = 62;
             customDataGridView.Size = new Size(1124, 600);
             customDataGridView.TabIndex = 23;
+            customDataGridView.CellMouseDoubleClick += customDataGridView_CellMouseDoubleClicked;
             // 
             // panel_DV_Upload
             // 
             panel_DV_Upload.Anchor = AnchorStyles.Right;
             panel_DV_Upload.AutoSize = true;
+            panel_DV_Upload.Controls.Add(button_DVUpload_Reset);
             panel_DV_Upload.Controls.Add(button_DV_OK);
             panel_DV_Upload.Controls.Add(textBox_DV_MoTa);
             panel_DV_Upload.Controls.Add(label_DV_MoTa);
@@ -292,6 +296,19 @@
             panel_DV_Upload.Size = new Size(416, 780);
             panel_DV_Upload.TabIndex = 24;
             panel_DV_Upload.Paint += panel_Paint;
+            // 
+            // button_DVUpload_Reset
+            // 
+            button_DVUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_DVUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_DVUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_DVUpload_Reset.Location = new Point(297, 710);
+            button_DVUpload_Reset.Name = "button_DVUpload_Reset";
+            button_DVUpload_Reset.Size = new Size(94, 43);
+            button_DVUpload_Reset.TabIndex = 43;
+            button_DVUpload_Reset.Text = "RESET";
+            button_DVUpload_Reset.UseVisualStyleBackColor = true;
+            button_DVUpload_Reset.Click += button_DVUpload_Reset_Click;
             // 
             // button_DV_OK
             // 
@@ -392,6 +409,7 @@
             textBox_DV_MaDV.Name = "textBox_DV_MaDV";
             textBox_DV_MaDV.Size = new Size(160, 32);
             textBox_DV_MaDV.TabIndex = 4;
+            textBox_DV_MaDV.Leave += textBox_DV_MaDV_Leave;
             // 
             // label_DV_MaDV
             // 
@@ -421,6 +439,7 @@
             // 
             panel_DV_Filter.Anchor = AnchorStyles.Right;
             panel_DV_Filter.AutoSize = true;
+            panel_DV_Filter.Controls.Add(button_DVFilters_Reset);
             panel_DV_Filter.Controls.Add(comboBox_DV_Filter_Operation);
             panel_DV_Filter.Controls.Add(button_DV_OK_Filter);
             panel_DV_Filter.Controls.Add(textBox_DV_TenDV_Filter);
@@ -436,6 +455,19 @@
             panel_DV_Filter.Size = new Size(416, 780);
             panel_DV_Filter.TabIndex = 31;
             panel_DV_Filter.Paint += panel_Paint;
+            // 
+            // button_DVFilters_Reset
+            // 
+            button_DVFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_DVFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_DVFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_DVFilters_Reset.Location = new Point(297, 710);
+            button_DVFilters_Reset.Name = "button_DVFilters_Reset";
+            button_DVFilters_Reset.Size = new Size(94, 43);
+            button_DVFilters_Reset.TabIndex = 43;
+            button_DVFilters_Reset.Text = "RESET";
+            button_DVFilters_Reset.UseVisualStyleBackColor = true;
+            button_DVFilters_Reset.Click += button_Filters_Reset_Click;
             // 
             // comboBox_DV_Filter_Operation
             // 
@@ -550,10 +582,9 @@
             // 
             panel_TinhTrang_Filter.Anchor = AnchorStyles.Right;
             panel_TinhTrang_Filter.AutoSize = true;
+            panel_TinhTrang_Filter.Controls.Add(button_TTFilters_Reset);
             panel_TinhTrang_Filter.Controls.Add(comboBox_TinhTrang_Filter);
             panel_TinhTrang_Filter.Controls.Add(label10);
-            panel_TinhTrang_Filter.Controls.Add(textBox_TT_TenPK_Filter);
-            panel_TinhTrang_Filter.Controls.Add(label6);
             panel_TinhTrang_Filter.Controls.Add(textBox_TT_MaPK_Filter);
             panel_TinhTrang_Filter.Controls.Add(label9);
             panel_TinhTrang_Filter.Controls.Add(button_TT_OK);
@@ -569,15 +600,29 @@
             panel_TinhTrang_Filter.TabIndex = 32;
             panel_TinhTrang_Filter.Paint += panel_Paint;
             // 
+            // button_TTFilters_Reset
+            // 
+            button_TTFilters_Reset.FlatStyle = FlatStyle.Flat;
+            button_TTFilters_Reset.Font = new Font("Segoe UI", 10F);
+            button_TTFilters_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_TTFilters_Reset.Location = new Point(297, 703);
+            button_TTFilters_Reset.Name = "button_TTFilters_Reset";
+            button_TTFilters_Reset.Size = new Size(94, 43);
+            button_TTFilters_Reset.TabIndex = 42;
+            button_TTFilters_Reset.Text = "RESET";
+            button_TTFilters_Reset.UseVisualStyleBackColor = true;
+            button_TTFilters_Reset.Click += button_Filters_Reset_Click;
+            // 
             // comboBox_TinhTrang_Filter
             // 
             comboBox_TinhTrang_Filter.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
             comboBox_TinhTrang_Filter.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TinhTrang_Filter.FlatStyle = FlatStyle.Flat;
             comboBox_TinhTrang_Filter.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_TinhTrang_Filter.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_TinhTrang_Filter.FormattingEnabled = true;
             comboBox_TinhTrang_Filter.Items.AddRange(new object[] { "Open", "Close" });
-            comboBox_TinhTrang_Filter.Location = new Point(25, 524);
+            comboBox_TinhTrang_Filter.Location = new Point(25, 425);
             comboBox_TinhTrang_Filter.Margin = new Padding(2);
             comboBox_TinhTrang_Filter.Name = "comboBox_TinhTrang_Filter";
             comboBox_TinhTrang_Filter.Size = new Size(166, 40);
@@ -587,35 +632,12 @@
             // 
             label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(193, 193, 193);
-            label10.Location = new Point(25, 480);
+            label10.Location = new Point(25, 381);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(189, 31);
             label10.TabIndex = 35;
             label10.Text = "Tình trạng";
-            // 
-            // textBox_TT_TenPK_Filter
-            // 
-            textBox_TT_TenPK_Filter.BackColor = Color.FromArgb(57, 54, 70);
-            textBox_TT_TenPK_Filter.BorderStyle = BorderStyle.None;
-            textBox_TT_TenPK_Filter.Font = new Font("Segoe UI Semilight", 12F);
-            textBox_TT_TenPK_Filter.ForeColor = Color.FromArgb(244, 238, 224);
-            textBox_TT_TenPK_Filter.Location = new Point(25, 425);
-            textBox_TT_TenPK_Filter.Margin = new Padding(2);
-            textBox_TT_TenPK_Filter.Name = "textBox_TT_TenPK_Filter";
-            textBox_TT_TenPK_Filter.Size = new Size(368, 32);
-            textBox_TT_TenPK_Filter.TabIndex = 34;
-            // 
-            // label6
-            // 
-            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(193, 193, 193);
-            label6.Location = new Point(25, 381);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(189, 31);
-            label6.TabIndex = 33;
-            label6.Text = "Tên phòng khám";
             // 
             // textBox_TT_MaPK_Filter
             // 
@@ -707,14 +729,15 @@
             label8.ForeColor = Color.White;
             label8.Location = new Point(15, 8);
             label8.Name = "label8";
-            label8.Size = new Size(80, 38);
+            label8.Size = new Size(92, 38);
             label8.TabIndex = 0;
-            label8.Text = "Filter";
+            label8.Text = "Filters";
             // 
             // panel_TinhTrang_Upload
             // 
             panel_TinhTrang_Upload.Anchor = AnchorStyles.Right;
             panel_TinhTrang_Upload.AutoSize = true;
+            panel_TinhTrang_Upload.Controls.Add(button_TTUpload_Reset);
             panel_TinhTrang_Upload.Controls.Add(comboBox_TinhTrang_Upload);
             panel_TinhTrang_Upload.Controls.Add(label11);
             panel_TinhTrang_Upload.Controls.Add(textBox_TT_MaPK_Upload);
@@ -730,10 +753,25 @@
             panel_TinhTrang_Upload.TabIndex = 38;
             panel_TinhTrang_Upload.Paint += panel_Paint;
             // 
+            // button_TTUpload_Reset
+            // 
+            button_TTUpload_Reset.FlatStyle = FlatStyle.Flat;
+            button_TTUpload_Reset.Font = new Font("Segoe UI", 10F);
+            button_TTUpload_Reset.ForeColor = Color.FromArgb(38, 187, 255);
+            button_TTUpload_Reset.Location = new Point(297, 710);
+            button_TTUpload_Reset.Name = "button_TTUpload_Reset";
+            button_TTUpload_Reset.Size = new Size(94, 43);
+            button_TTUpload_Reset.TabIndex = 43;
+            button_TTUpload_Reset.Text = "RESET";
+            button_TTUpload_Reset.UseVisualStyleBackColor = true;
+            button_TTUpload_Reset.Click += button_TTUpload_Reset_Click;
+            // 
             // comboBox_TinhTrang_Upload
             // 
             comboBox_TinhTrang_Upload.AutoCompleteSource = AutoCompleteSource.RecentlyUsedList;
             comboBox_TinhTrang_Upload.BackColor = Color.FromArgb(57, 54, 70);
+            comboBox_TinhTrang_Upload.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_TinhTrang_Upload.FlatStyle = FlatStyle.Flat;
             comboBox_TinhTrang_Upload.Font = new Font("Segoe UI Semilight", 12F);
             comboBox_TinhTrang_Upload.ForeColor = Color.FromArgb(244, 238, 224);
             comboBox_TinhTrang_Upload.FormattingEnabled = true;
@@ -846,10 +884,10 @@
             Controls.Add(panel_Toolbar);
             Controls.Add(panel_TopPanel);
             Controls.Add(customDataGridView);
-            Controls.Add(panel_TinhTrang_Upload);
             Controls.Add(panel_DV_Upload);
             Controls.Add(panel_DV_Filter);
             Controls.Add(panel_TinhTrang_Filter);
+            Controls.Add(panel_TinhTrang_Upload);
             Margin = new Padding(2);
             Name = "DichVuControl";
             Size = new Size(1590, 864);
@@ -902,8 +940,6 @@
         private ComboBox comboBox_DV_Filter_Operation;
         private Panel panel_TinhTrang_Filter;
         private Label label10;
-        private TextBox textBox_TT_TenPK_Filter;
-        private Label label6;
         private TextBox textBox_TT_MaPK_Filter;
         private Label label9;
         private Button button_TT_OK;
@@ -923,5 +959,9 @@
         private Label label15;
         private Label label_TT_Upload;
         private Custom.CustomPanel customPanel_DetailsControl;
+        private Button button_TTFilters_Reset;
+        private Button button_DVUpload_Reset;
+        private Button button_TTUpload_Reset;
+        private Button button_DVFilters_Reset;
     }
 }
